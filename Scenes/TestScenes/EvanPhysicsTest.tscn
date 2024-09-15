@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://fewg2j6mm4s4"]
+
+[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="1_wvtn7"]
+[ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="2_y3qqr"]
+
+[node name="EvanPhysicsTest" type="Node2D"]
+
+[node name="BasicFrog" parent="." instance=ExtResource("1_wvtn7")]
+position = Vector2(513, 200)
+
+[node name="Lillypad" parent="." instance=ExtResource("2_y3qqr")]
+position = Vector2(986, 615)
+
+[node name="Lillypad2" parent="." instance=ExtResource("2_y3qqr")]
+position = Vector2(134, 615)
+
+[node name="Lillypad3" parent="." instance=ExtResource("2_y3qqr")]
+position = Vector2(538, 615)
+scale = Vector2(2.32, 1)
