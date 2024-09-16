@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://q2eyupn7k7l2"]
+
+[ext_resource type="Texture2D" uid="uid://df5i4xwicrvb8" path="res://Assets/Visuals/Sprites/Placeholder_Sprites.png" id="1_lw4qu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uadom"]
+radius = 53.0024
+
+[node name="BasicFrog" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_lw4qu")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.5)
+shape = SubResource("CircleShape2D_uadom")
+one_way_collision_margin = 0.0
