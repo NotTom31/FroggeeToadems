@@ -3,11 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://df5i4xwicrvb8" path="res://Assets/Visuals/Sprites/Placeholder_Sprites.png" id="1_lw4qu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uadom"]
-radius = 99.3793
+radius = 53.0024
 
 [node name="BasicFrog" type="RigidBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_lw4qu")
 region_enabled = true
 region_rect = Rect2(0, 0, 256, 256)
