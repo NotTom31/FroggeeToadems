@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxl0svbbb60ua"]
+
+[ext_resource type="PackedScene" uid="uid://b4wy7po8yie45" path="res://Scenes/Player/player_test.tscn" id="1_d6qc5"]
+[ext_resource type="PackedScene" uid="uid://cx02sk40u0vp1" path="res://Scenes/Objects/frog.tscn" id="2_7dh1k"]
+[ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Objects/temp_ground.tscn" id="3_qovqc"]
+
+[node name="Tom-gameplay-test" type="Node2D"]
+
+[node name="Player-Test" parent="." instance=ExtResource("1_d6qc5")]
+position = Vector2(255, 349)
+
+[node name="Frog" parent="." instance=ExtResource("2_7dh1k")]
+position = Vector2(544, 482)
+
+[node name="Frog2" parent="." instance=ExtResource("2_7dh1k")]
+position = Vector2(342, 486)
+
+[node name="Frog3" parent="." instance=ExtResource("2_7dh1k")]
+position = Vector2(851, 469)
+
+[node name="Node2D" parent="." instance=ExtResource("3_qovqc")]
+position = Vector2(558, 623)
+scale = Vector2(20, 1)

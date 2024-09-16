@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cx02sk40u0vp1"]
 
-[ext_resource type="Script" path="res://Code/frog.gd" id="1_fsnyy"]
+[ext_resource type="Script" path="res://Code/Objects/frog.gd" id="1_fsnyy"]
 [ext_resource type="Texture2D" uid="uid://b64qy0o7fpg5r" path="res://Art/Temp/ferg.png" id="2_8vlpa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g5qm"]
