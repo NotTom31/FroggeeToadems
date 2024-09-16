@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4wy7po8yie45"]
+
+[ext_resource type="Script" path="res://Code/player_test.gd" id="1_d4md5"]
+[ext_resource type="Texture2D" uid="uid://b64qy0o7fpg5r" path="res://Art/Temp/ferg.png" id="2_e5bkm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnucy"]
+size = Vector2(72, 72)
+
+[node name="Player-Test" type="CharacterBody2D"]
+script = ExtResource("1_d4md5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.52588e-05, -2.00001)
+scale = Vector2(0.355721, 0.355721)
+texture = ExtResource("2_e5bkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_lnucy")
