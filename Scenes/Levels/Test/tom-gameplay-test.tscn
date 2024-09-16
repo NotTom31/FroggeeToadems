@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxl0svbbb60ua"]
+[gd_scene load_steps=5 format=3 uid="uid://dxl0svbbb60ua"]
 
 [ext_resource type="PackedScene" uid="uid://b4wy7po8yie45" path="res://Scenes/Player/player_test.tscn" id="1_d6qc5"]
 [ext_resource type="PackedScene" uid="uid://cx02sk40u0vp1" path="res://Scenes/Objects/frog.tscn" id="2_7dh1k"]
 [ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Objects/temp_ground.tscn" id="3_qovqc"]
+[ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_f7qh2"]
 
 [node name="Tom-gameplay-test" type="Node2D"]
 
@@ -21,3 +22,9 @@ position = Vector2(851, 469)
 [node name="Node2D" parent="." instance=ExtResource("3_qovqc")]
 position = Vector2(558, 623)
 scale = Vector2(20, 1)
+
+[node name="SpawnFrogUI" parent="." instance=ExtResource("4_f7qh2")]
+offset_left = 172.0
+offset_top = 106.0
+offset_right = 172.0
+offset_bottom = 106.0
