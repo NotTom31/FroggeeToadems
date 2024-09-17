@@ -2,18 +2,16 @@ extends RigidBody2D
 
 var selected = false
 var mouse_velocity = Vector2()  # To track mouse movement velocity
-var max_velocity = 500 # Cap how fast we can throw the frogs
+var max_velocity = 900  # Cap how fast we can throw the frogs
+var max_rotation_angle = deg_to_rad(40) 
+var rotation_speed = 3  # How fast the rotation should change
 
-# Called when the node enters the scene tree for the first time.
 var original_layer: int
 var original_mask: int
 
 func _ready() -> void:
-	# Store the original values
 	original_layer = collision_layer
-	#original_mask = collision_mask
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if selected:
 		follow_mouse(delta)
@@ -22,19 +20,28 @@ func _process(delta: float) -> void:
 		enable_gravity()
 
 func follow_mouse(delta: float) -> void:
-	# Calculate the velocity of the mouse movement
+	# Calculate the velocity of the mouse
 	var mouse_position = get_global_mouse_position()
 	mouse_velocity = (mouse_position - position) / delta  # Calculate velocity
 	position = mouse_position
+
+	apply_rotation_based_on_velocity(delta)
+
+func apply_rotation_based_on_velocity(delta: float) -> void:
+	var horizontal_speed = mouse_velocity.x
+	
+	var target_rotation_angle = clamp(horizontal_speed / max_velocity * max_rotation_angle, -max_rotation_angle, max_rotation_angle)
+	
+	#interpolate current rotation to target rotation
+	rotation = lerp(rotation, target_rotation_angle, rotation_speed * delta)
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			selected = true
-			print('Hello World!')
 			collision_layer = 0
-			linear_velocity = Vector2.ZERO  # Stop any current movement when picked up
-			angular_velocity = 0  # Stop rotation if needed
+			linear_velocity = Vector2.ZERO
+			angular_velocity = 0  # Stop rotation
 		else:
 			selected = false
 			collision_layer = original_layer
@@ -46,3 +53,6 @@ func disable_gravity() -> void:
 
 func enable_gravity() -> void:
 	gravity_scale = 1
+
+func _on_mouse_exited() -> void:
+	selected = false #failsafe
