@@ -23,14 +23,18 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if selected:
-		follow_mouse(delta)
+		follow_mouse(delta, $FrogBase.position)
 
-func follow_mouse(delta: float) -> void:
+func follow_mouse(delta: float, offset: Vector2) -> void:
 	# Calculate the velocity of the mouse
+	offset -= $FrogBase.position
 	var mouse_position = get_global_mouse_position()
-	mouse_velocity = (mouse_position - position) / delta  # Calculate velocity
-	position = mouse_position
+	mouse_velocity = (mouse_position - global_position) / delta  # Calculate velocity
+	global_position = mouse_position + offset
 	apply_rotation_based_on_velocity(delta)
+	var frog_on_head : BasicFrog = $SlotOnHead.inhabitant
+	if frog_on_head != null:
+		frog_on_head.follow_mouse(delta, offset + $SlotOnHead.position)
 
 func apply_rotation_based_on_velocity(delta: float) -> void:
 	var horizontal_speed = mouse_velocity.x
@@ -55,7 +59,6 @@ func assign_to_slot(new_slot: FrogSlot) -> void:
 	slot_beneath = new_slot
 	if (slot_beneath != null):
 		slot_beneath.inhabitant = self
-		print(slot_beneath.on_lillypad)
 		on_lillypad = slot_beneath.on_lillypad
 	else:
 		on_lillypad = false
@@ -64,3 +67,6 @@ func assign_to_slot(new_slot: FrogSlot) -> void:
 func snap_to_slot(slot: FrogSlot) -> void:
 	position = slot.global_position - $FrogBase.position
 	$Sprite2D.rotation = 0
+	var frog_on_top : BasicFrog = $SlotOnHead.inhabitant
+	if (frog_on_top != null):
+		frog_on_top.snap_to_slot($SlotOnHead)

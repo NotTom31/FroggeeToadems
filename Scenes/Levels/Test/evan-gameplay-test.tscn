@@ -6,7 +6,7 @@
 
 [node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots")]
 script = ExtResource("1_teiuy")
-frog_slots = [NodePath("Lillypad/FrogSlot"), NodePath("Lillypad2/FrogSlot"), NodePath("Lillypad3/FrogSlot"), NodePath("FrogManager/BasicFrog/SlotOnHead"), NodePath("FrogManager/BasicFrog2/SlotOnHead")]
+frog_slots = [NodePath("Lillypad/FrogSlot"), NodePath("Lillypad2/FrogSlot"), NodePath("Lillypad3/FrogSlot"), NodePath("FrogManager/BasicFrog/SlotOnHead"), NodePath("FrogManager/BasicFrog2/SlotOnHead"), NodePath("FrogManager/BasicFrog3/SlotOnHead")]
 
 [node name="Lillypad" parent="." instance=ExtResource("2_5w5hf")]
 position = Vector2(190, 587)
