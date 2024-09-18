@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6h267vuq67w5"
-path="res://.godot/imported/02_rest.png-a31508d7f1b5df829458978ae592a41d.ctex"
+uid="uid://dcomocfoou50s"
+path="res://.godot/imported/02_rest.png-5ef4286cfd084e986aa76ad1c119af6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Frogs/02_rest.png"
-dest_files=["res://.godot/imported/02_rest.png-a31508d7f1b5df829458978ae592a41d.ctex"]
+source_file="res://Art/Frogs/resting/02_rest.png"
+dest_files=["res://.godot/imported/02_rest.png-5ef4286cfd084e986aa76ad1c119af6c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4vamxdmbiufv"
-path="res://.godot/imported/lily_01.png-89dcc679ab444fbb8d7854a73f23f55a.ctex"
+uid="uid://b0t1nb1i1evdt"
+path="res://.godot/imported/02_plink3.png-5a84cb105105b7b6abc321b0ee154353.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Frogs/lily_01.png"
-dest_files=["res://.godot/imported/lily_01.png-89dcc679ab444fbb8d7854a73f23f55a.ctex"]
+source_file="res://Art/Frogs/blink/02_plink3.png"
+dest_files=["res://.godot/imported/02_plink3.png-5a84cb105105b7b6abc321b0ee154353.ctex"]
 
 [params]
 

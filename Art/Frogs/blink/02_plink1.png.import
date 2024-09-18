@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b64753wh2a3cd"
-path="res://.godot/imported/01_rest.png-0f1915d1da23b559e116d9bacbacac83.ctex"
+uid="uid://db8mb14ndu0rl"
+path="res://.godot/imported/02_plink1.png-57811832d6292ce3e7cf0ec427381e1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Frogs/01_rest.png"
-dest_files=["res://.godot/imported/01_rest.png-0f1915d1da23b559e116d9bacbacac83.ctex"]
+source_file="res://Art/Frogs/blink/02_plink1.png"
+dest_files=["res://.godot/imported/02_plink1.png-57811832d6292ce3e7cf0ec427381e1e.ctex"]
 
 [params]
 

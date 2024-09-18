@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://phhot1ytey3y"
-path="res://.godot/imported/lily_02.png-f04830975e0eac38b29270ecbbeebc29.ctex"
+uid="uid://b0lbm18smdd56"
+path="res://.godot/imported/lily_01.png-481e9e68297ef610ea621c57c83b6e69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Frogs/lily_02.png"
-dest_files=["res://.godot/imported/lily_02.png-f04830975e0eac38b29270ecbbeebc29.ctex"]
+source_file="res://Art/Frogs/Lilypads/lily_01.png"
+dest_files=["res://.godot/imported/lily_01.png-481e9e68297ef610ea621c57c83b6e69.ctex"]
 
 [params]
 

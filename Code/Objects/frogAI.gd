@@ -5,14 +5,7 @@ extends Node2D
 var current_state : State
 var states : Dictionary = {}
 
-#var parent_rigid_body: RigidBody2D = null
-
 func _ready() -> void:
-	#parent_rigid_body = get_parent() as RigidBody2D
-	#if parent_rigid_body != null:
-	#	print("Controlling parent: ", parent_rigid_body.name)
-	#else:
-	#	print("Frog parent is not a RigidBody2D!")
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
@@ -39,8 +32,8 @@ func on_child_transitioned(state, new_state_name):
 		return
 	
 	if current_state:
-		current_state.exit()
+		current_state.Exit()
 	
-	new_state.enter()
+	new_state.Enter()
 	
 	current_state = new_state
