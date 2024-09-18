@@ -1,4 +1,6 @@
-extends RigidBody2D
+extends CharacterBody2D
+
+@export var gravity := 980.0
 
 var selected = false
 var mouse_velocity = Vector2()  # To track mouse movement velocity
@@ -40,19 +42,25 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if event.pressed:
 			selected = true
 			collision_layer = 0
-			linear_velocity = Vector2.ZERO
-			angular_velocity = 0  # Stop rotation
+			velocity = Vector2.ZERO
+			#angular_velocity = 0  # Stop rotation
 		else:
 			selected = false
 			collision_layer = original_layer
 			mouse_velocity = mouse_velocity.limit_length(max_velocity)
-			linear_velocity = mouse_velocity  # Apply mouse velocity to the RigidBody2D
+			velocity = mouse_velocity  # Apply mouse velocity to the RigidBody2D
 
 func disable_gravity() -> void:
-	gravity_scale = 0
+	gravity = 0
 
 func enable_gravity() -> void:
-	gravity_scale = 1
+	gravity = 980.0
+
+func _physics_process(delta: float):
+	# Apply gravity to velocity
+	velocity.y += gravity * delta
+	# Move the character with the applied gravity
+	move_and_slide()
 
 func _on_mouse_exited() -> void:
 	selected = false #failsafe

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx02sk40u0vp1"]
+[gd_scene load_steps=9 format=3 uid="uid://cx02sk40u0vp1"]
 
 [ext_resource type="Script" path="res://Code/Objects/frog.gd" id="1_fsnyy"]
 [ext_resource type="Script" path="res://Code/Objects/frogAI.gd" id="2_hgrfg"]
 [ext_resource type="Texture2D" uid="uid://b64753wh2a3cd" path="res://Art/Frogs/01_rest.png" id="2_nn14p"]
+[ext_resource type="Script" path="res://Code/FrogStates/FrogWalk.gd" id="3_20h7v"]
 [ext_resource type="Texture2D" uid="uid://biskh8y7j7jwl" path="res://Art/Frogs/04_rest.png" id="3_mekqn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6u743"]
@@ -31,11 +32,16 @@ size = Vector2(200, 199)
 radius = 35.0156
 height = 103.956
 
-[node name="Frog" type="RigidBody2D"]
+[node name="Frog" type="CharacterBody2D"]
 script = ExtResource("1_fsnyy")
 
-[node name="AI Node" type="Node2D" parent="."]
+[node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_hgrfg")
+initial_state = NodePath("FrogWalk")
+
+[node name="FrogWalk" type="Node2D" parent="State Machine" node_paths=PackedStringArray("frog")]
+script = ExtResource("3_20h7v")
+frog = NodePath("../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.08, 0.08)
