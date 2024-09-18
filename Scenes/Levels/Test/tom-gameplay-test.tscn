@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://b4wy7po8yie45" path="res://Scenes/Player/player_test.tscn" id="1_d6qc5"]
 [ext_resource type="PackedScene" uid="uid://cx02sk40u0vp1" path="res://Scenes/Objects/frog.tscn" id="2_7dh1k"]
 [ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Objects/temp_ground.tscn" id="3_qovqc"]
-[ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_f7qh2"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_f7qh2"]
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="5_e2hmp"]
-[ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="6_2apnw"]
+[ext_resource type="PackedScene" uid="uid://y5doj062jq8g" path="res://Scenes/FrogDetectionArea.tscn" id="6_2apnw"]
 
 [node name="Tom-gameplay-test" type="Node2D"]
 
