@@ -23,13 +23,13 @@ position = Vector2(563, 156)
 [node name="Lillypads" type="Node2D" parent="."]
 
 [node name="Lillypad" parent="Lillypads" instance=ExtResource("2_5w5hf")]
-position = Vector2(190, 587)
+position = Vector2(175, 392)
 
 [node name="Lillypad2" parent="Lillypads" instance=ExtResource("2_5w5hf")]
-position = Vector2(554, 583)
+position = Vector2(570, 326)
 
 [node name="Lillypad3" parent="Lillypads" instance=ExtResource("2_5w5hf")]
-position = Vector2(957, 589)
+position = Vector2(968, 381)
 
 [node name="OtherSlots" type="Node2D" parent="."]
 
