@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1t3fpo7e2i5t"]
+[gd_scene load_steps=24 format=3 uid="uid://b1t3fpo7e2i5t"]
 
 [ext_resource type="Texture2D" uid="uid://cuuuq3q14iru5" path="res://Assets/Visuals/Sprites/Shop_Placeholder/12_bun_dish.png" id="1_ewko0"]
 [ext_resource type="Texture2D" uid="uid://f1m8kag1kp4d" path="res://Assets/Visuals/Sprites/Shop_Placeholder/01_dish.png" id="2_h24wk"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b71lesk0v8arb" path="res://Assets/Visuals/Sprites/Shop_Placeholder/98_sushi_dish.png" id="4_i014d"]
 [ext_resource type="Texture2D" uid="uid://b8c15prhu0dai" path="res://Assets/Visuals/Sprites/Merchant_Placeholder/small moidle.png" id="5_57yo3"]
 [ext_resource type="PackedScene" uid="uid://i6igjyki2wqp" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.tscn" id="6_48scj"]
+[ext_resource type="Script" path="res://Scenes/Shop_Merchant_Placeholder/merchant.gd" id="6_ti1xy"]
 [ext_resource type="Texture2D" uid="uid://d36i5pemtoe7k" path="res://icon.svg" id="7_n106r"]
+[ext_resource type="PackedScene" uid="uid://dhrrqy6bsp1hy" path="res://Scenes/Shop_Merchant_Placeholder/merchant_test_sprite.tscn" id="9_ejigk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vyu3o"]
 atlas = ExtResource("2_h24wk")
@@ -147,27 +149,28 @@ height = 102.0
 position = Vector2(687, 471)
 
 [node name="Shop_Art" type="AnimatedSprite2D" parent="."]
-position = Vector2(711, 238.875)
+position = Vector2(1054, -402)
 scale = Vector2(3.38281, 3.03906)
 sprite_frames = SubResource("SpriteFrames_hu0si")
 animation = &"Default_Empty Dish"
 
 [node name="Merchant" type="AnimatedSprite2D" parent="."]
-position = Vector2(726, 288.875)
+position = Vector2(1125, -259)
 scale = Vector2(5.08537, 6.40385)
 sprite_frames = SubResource("SpriteFrames_270lh")
 animation = &"Merchant_Moidle"
-frame_progress = 0.277308
+frame_progress = 0.957259
+script = ExtResource("6_ti1xy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(589, 331.875)
+position = Vector2(1059, -36)
 shape = SubResource("CapsuleShape2D_wtmpj")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = SubResource("GDScript_tb70p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(589, 342.875)
+position = Vector2(1123, -40)
 shape = SubResource("CapsuleShape2D_7s46p")
 debug_color = Color(0.915832, 0.248451, 0.382019, 0.42)
 
@@ -182,6 +185,9 @@ text = "Test Button Image: Can place Merchant here
 
 "
 icon = ExtResource("7_n106r")
+
+[node name="Merchant_TestSprite" parent="." instance=ExtResource("9_ejigk")]
+position = Vector2(850, -497)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="pressed" from="Test_Button" to="Area2D" method="_on_test_button_pressed"]
