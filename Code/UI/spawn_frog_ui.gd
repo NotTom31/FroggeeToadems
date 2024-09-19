@@ -1,6 +1,7 @@
 extends Control
 
-var Frog = preload("res://Scenes/Objects/frog.tscn")
+#var Frog = preload("res://Scenes/Objects/frog.tscn")
+@export var Frog : PackedScene
 
 func _ready() -> void:
 	pass
