@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://q2eyupn7k7l2"]
+[gd_scene load_steps=17 format=3 uid="uid://q2eyupn7k7l2"]
 
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogTypes/basic_frog.gd" id="1_rxiyf"]
 [ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_vs8rj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Frogs/frog_slot.tscn" id="3_xwux3"]
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogJump.gd" id="4_2ejmw"]
 [ext_resource type="Texture2D" uid="uid://db8mb14ndu0rl" path="res://Assets/Art/Frogs/blink/02_plink1.png" id="5_djsem"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogHold.gd" id="5_wsoji"]
 [ext_resource type="Texture2D" uid="uid://dq2rubto02ffb" path="res://Assets/Art/Frogs/blink/02_plink2.png" id="6_gh0rk"]
 [ext_resource type="Texture2D" uid="uid://b0t1nb1i1evdt" path="res://Assets/Art/Frogs/blink/02_plink3.png" id="7_h6c5j"]
 [ext_resource type="Texture2D" uid="uid://bsuihp8m1bijj" path="res://Assets/Art/Frogs/blink/02_plink4.png" id="8_mi544"]
@@ -62,15 +63,19 @@ height = 103.956
 [node name="BasicFrog" type="CharacterBody2D"]
 script = ExtResource("1_rxiyf")
 
-[node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_vs8rj")
 initial_state = NodePath("FrogWalk")
 
-[node name="FrogWalk" type="Node2D" parent="State Machine"]
+[node name="FrogWalk" type="Node2D" parent="StateMachine"]
 script = ExtResource("3_vmf1d")
 
-[node name="FrogJump" type="Node2D" parent="State Machine"]
+[node name="FrogJump" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_2ejmw")
+
+[node name="FrogHold" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("5_wsoji")
+frog = NodePath("../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 1)

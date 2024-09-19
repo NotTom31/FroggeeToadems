@@ -1,11 +1,19 @@
-extends Node
+extends State
+class_name FrogHold
 
+@export var frog : CharacterBody2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func Enter():
+	$"../../AnimatedSprite2D".play("idle")
+	frog.disable_gravity()
+	print("Held")
 
+func Exit():
+	frog.enable_gravity()
+	print("Drop")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func Update(delta: float):
+	pass
+
+func Physics_Update(delta: float):
 	pass

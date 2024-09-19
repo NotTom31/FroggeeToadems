@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var gravity := 980.0
 
+var StateMachine
 var selected = false
 var mouse_velocity = Vector2()  # To track mouse movement velocity
 var max_velocity = 900  # Cap how fast we can throw the frogs
@@ -13,6 +14,7 @@ var original_layer: int
 var original_mask: int
 
 var slot_beneath : FrogSlot = null
+signal Transitioned
 
 var on_lillypad := false:
 	set(value):
@@ -23,12 +25,13 @@ var on_lillypad := false:
 signal frog_deselected(frog : BasicFrog, pos : Vector2)
 
 func _ready() -> void:
+	StateMachine = get_node("StateMachine")
 	original_layer = collision_layer
 
 func _process(delta: float) -> void:
 	if selected:
 		follow_mouse(delta, $FrogBase.position)
-		disable_gravity()
+		Transitioned.emit(self, "FrogJump")
 	else:
 		enable_gravity()
 

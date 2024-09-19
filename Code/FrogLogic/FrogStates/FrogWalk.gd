@@ -23,7 +23,7 @@ func Update(delta: float):
 		wander_time -= delta
 	
 	else:
-		Transitioned.emit(self, "FrogJump") # test
+		Transitioned.emit(self, "FrogJump")
 		#randomize_wander()
 
 func Physics_Update(delta: float):
