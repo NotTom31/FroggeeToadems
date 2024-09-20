@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Code/Legacy/frog.gd" id="1_3e7sn"]
 [ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_tugih"]
-[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogWalk.gd" id="3_xawab"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogSwim.gd" id="3_xawab"]
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogJump.gd" id="4_as2tm"]
 [ext_resource type="Texture2D" uid="uid://db8mb14ndu0rl" path="res://Assets/Art/Frogs/blink/02_plink1.png" id="5_udaeu"]
 [ext_resource type="Texture2D" uid="uid://dq2rubto02ffb" path="res://Assets/Art/Frogs/blink/02_plink2.png" id="6_yet8q"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bppv148qldsei" path="res://Assets/Art/Frogs/blink/02_plink5.png" id="9_7nnfk"]
 [ext_resource type="Texture2D" uid="uid://dcomocfoou50s" path="res://Assets/Art/Frogs/resting/02_rest.png" id="10_xdtfe"]
 [ext_resource type="Texture2D" uid="uid://cvr4vb57bl7pj" path="res://Assets/Art/Frogs/jumping/02_jump.png" id="11_nmbio"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6u743"]
 animations = [{

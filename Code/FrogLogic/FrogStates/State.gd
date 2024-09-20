@@ -1,6 +1,8 @@
 extends Node2D
 class_name State
 
+@export var frog: BasicFrog
+
 signal Transitioned
 
 func Enter():

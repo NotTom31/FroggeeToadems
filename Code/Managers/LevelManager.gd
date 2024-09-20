@@ -12,7 +12,7 @@ func remove_frog_slot(slot : FrogSlot) -> void:
 	frog_slots.erase(slot)
 
 func closest_open_frog_slot(pos : Vector2) -> FrogSlot:
-	var distance = 1000
+	var distance = 100
 	var result : FrogSlot = null
 	for fs in frog_slots:
 		if (not fs.is_open()):
@@ -25,5 +25,11 @@ func closest_open_frog_slot(pos : Vector2) -> FrogSlot:
 
 func _on_frog_deselected(frog: BasicFrog, pos: Vector2) -> void:
 	var slot = closest_open_frog_slot(pos)
+	
+	if slot == null:
+		frog.Transitioned.emit("FrogFall")
+		return
+	
+	frog.Transitioned.emit("FrogStacked")
 	frog.assign_to_slot(slot)
 	frog.snap_to_slot(slot)

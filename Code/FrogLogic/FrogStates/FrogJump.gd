@@ -1,7 +1,6 @@
 extends State
 class_name FrogJump
 
-@export var frog: CharacterBody2D
 @export var jump_speed := 40.0
 @export var jump_height := 500.0
 @export var jump_animation: String = "jump"
@@ -17,11 +16,12 @@ func randomize_jump_direction():
 	jump_direction = Vector2(direction, -1).normalized()
 
 func Enter():
+	has_jumped = false
 	randomize_jump_direction()
 	jump()
 
 func Exit():
-	pass
+	frog.rotation_degrees = 0
 
 func jump():
 	if frog:
@@ -30,7 +30,7 @@ func jump():
 		frog.velocity.y = -jump_height
 		has_jumped = true
 		frog.rotation_degrees = rotation_target
-		print("Jumping with direction: ", jump_direction)
+		#print("Jumping with direction: ", jump_direction)
 	else:
 		print("Error: frog is not assigned or invalid.")
 
@@ -38,9 +38,10 @@ func Update(delta: float):
 	pass
 
 func Physics_Update(delta: float):
-	if has_jumped and frog.is_on_floor():
-		has_jumped = false
-		Transitioned.emit(self, "FrogWalk")
+	#if has_jumped and frog.is_on_floor():
+	#	has_jumped = false
+	#	Transitioned.emit(self, "FrogWalk")
+	pass
 
 func _process(delta: float):
 	if has_jumped and is_instance_valid(frog):
