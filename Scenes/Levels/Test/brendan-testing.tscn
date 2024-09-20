@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsaoimojl71v6"]
+
+[ext_resource type="PackedScene" uid="uid://cvyqvkbgjt7bg" path="res://Scenes/Levels/Test/evan-gameplay-test.tscn" id="1_baov3"]
+[ext_resource type="Script" path="res://Code/Managers/sound_manager.gd" id="2_uynkj"]
+[ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="3_tutdx"]
+
+[node name="Brendan-testing" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource("1_baov3")]
+
+[node name="SoundManagerEDITHEREDUMMY" type="Node2D" parent="LevelManager"]
+script = ExtResource("2_uynkj")
+
+[node name="AudioManagerControls" parent="LevelManager/SoundManagerEDITHEREDUMMY" instance=ExtResource("3_tutdx")]
+
+[editable path="LevelManager"]
+[editable path="LevelManager/Frogs/BasicFrog"]
+[editable path="LevelManager/Frogs/BasicFrog2"]
+[editable path="LevelManager/Frogs/BasicFrog3"]
+[editable path="LevelManager/Lillypads/Lillypad"]
+[editable path="LevelManager/Lillypads/Lillypad2"]
+[editable path="LevelManager/Lillypads/Lillypad3"]
