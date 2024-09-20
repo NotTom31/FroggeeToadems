@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://cog6dh2xtn66n"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
-[ext_resource type="Texture2D" uid="uid://ht4x4rlup3a2" path="res://Assets/Art/Temp/swamp_firstpass.png" id="2_5w4dy"]
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="2_u2ubl"]
+[ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_v13fq"]
 [ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="3_fwopu"]
 [ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Legacy/temp_ground.tscn" id="3_iya8w"]
-[ext_resource type="PackedScene" path="res://Scenes/Frogs/frog_slot.tscn" id="4_3nqnf"]
+[ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="4_3nqnf"]
 [ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_kr1ir"]
 [ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="6_fo3t6"]
 
@@ -13,11 +13,7 @@
 script = ExtResource("1_fwoa8")
 frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot"), NodePath("Frogs/BasicFrog/SlotOnHead"), NodePath("Frogs/BasicFrog2/SlotOnHead"), NodePath("Frogs/BasicFrog3/SlotOnHead"), NodePath("OtherSlots/FrogSlot"), NodePath("OtherSlots/FrogSlot2"), NodePath("OtherSlots/FrogSlot3"), NodePath("OtherSlots/FrogSlot4")]
 
-[node name="SwampFirstpass" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(960, 540)
-scale = Vector2(0.335, 0.335)
-texture = ExtResource("2_5w4dy")
+[node name="Background" parent="." instance=ExtResource("2_v13fq")]
 
 [node name="Node2D" parent="." instance=ExtResource("3_iya8w")]
 position = Vector2(949, 1089)
