@@ -16,18 +16,6 @@ script = ExtResource("2_0mon5")
 [node name="AudioManagerControls" parent="LevelManager/SoundManager" instance=ExtResource("3_tutdx")]
 position = Vector2(608, 224)
 
-[node name="MainSlider" parent="LevelManager/SoundManager/AudioManagerControls" index="4"]
-z_index = 1
-
-[node name="MXSlider" parent="LevelManager/SoundManager/AudioManagerControls" index="5"]
-step = 0.05
-
-[node name="FXSlider" parent="LevelManager/SoundManager/AudioManagerControls" index="6"]
-step = 0.05
-
-[node name="ATMSlider" parent="LevelManager/SoundManager/AudioManagerControls" index="7"]
-step = 0.05
-
 [node name="PickupMX1" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
 stream = ExtResource("4_6o1un")
 bus = &"MX1"
@@ -50,18 +38,6 @@ bus = &"ATM"
 
 [node name="PickupSFX" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
 
-[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/MainToggle" to="LevelManager/SoundManager" method="_on_main_toggle_pressed"]
-[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/MXToggle" to="LevelManager/SoundManager" method="_on_mx_toggle_pressed"]
-[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/FXToggle" to="LevelManager/SoundManager" method="_on_fx_toggle_pressed"]
-[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/ATMToggle" to="LevelManager/SoundManager" method="_on_atm_toggle_pressed"]
-[connection signal="mouse_exited" from="LevelManager/SoundManager/AudioManagerControls/MainSlider" to="LevelManager/SoundManager" method="_on_main_slider_mouse_exited"]
-[connection signal="value_changed" from="LevelManager/SoundManager/AudioManagerControls/MainSlider" to="LevelManager/SoundManager" method="_on_main_slider_value_changed"]
-[connection signal="mouse_exited" from="LevelManager/SoundManager/AudioManagerControls/MXSlider" to="LevelManager/SoundManager" method="_on_mx_slider_mouse_exited"]
-[connection signal="value_changed" from="LevelManager/SoundManager/AudioManagerControls/MXSlider" to="LevelManager/SoundManager" method="_on_mx_slider_value_changed"]
-[connection signal="mouse_exited" from="LevelManager/SoundManager/AudioManagerControls/FXSlider" to="LevelManager/SoundManager" method="_on_fx_slider_mouse_exited"]
-[connection signal="value_changed" from="LevelManager/SoundManager/AudioManagerControls/FXSlider" to="LevelManager/SoundManager" method="_on_fx_slider_value_changed"]
-[connection signal="mouse_exited" from="LevelManager/SoundManager/AudioManagerControls/ATMSlider" to="LevelManager/SoundManager" method="_on_atm_slider_mouse_exited"]
-[connection signal="value_changed" from="LevelManager/SoundManager/AudioManagerControls/ATMSlider" to="LevelManager/SoundManager" method="_on_atm_slider_value_changed"]
 [connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/TestButton" to="LevelManager/SoundManager" method="_on_test_button_pressed"]
 
 [editable path="LevelManager"]
