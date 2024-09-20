@@ -1,5 +1,5 @@
 extends State
-class_name FrogWalk
+class_name FrogSwim
 
 @export var move_speed := 40.0
 
@@ -11,10 +11,12 @@ func randomize_wander():
 	wander_time = randf_range(1, 3)
 
 func Enter():
-	$"../../AnimatedSprite2D".play("idle")
+	$"../../AnimatedSprite2D".play("jump")
+	frog.rotation_degrees = 60
 	randomize_wander()
 
 func Exit():
+	frog.rotation_degrees = 0
 	pass
 
 func Update(delta: float):
@@ -22,10 +24,11 @@ func Update(delta: float):
 		wander_time -= delta
 	
 	else:
-		Transitioned.emit(self, "FrogJump")
+		pass
+		#Transitioned.emit(self, "FrogJump")
 		#randomize_wander()
 
 func Physics_Update(delta: float):
 	if frog && frog.is_on_floor():
 		frog.velocity = Vector2(move_direction.x * move_speed, frog.velocity.y + move_direction.y)
-		frog.rotation = lerp(frog.rotation, 0.0, 1.0)
+		#frog.rotation = lerp(frog.rotation, 60.0, 1.0)

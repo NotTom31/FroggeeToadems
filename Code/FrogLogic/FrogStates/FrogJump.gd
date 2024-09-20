@@ -16,11 +16,12 @@ func randomize_jump_direction():
 	jump_direction = Vector2(direction, -1).normalized()
 
 func Enter():
+	has_jumped = false
 	randomize_jump_direction()
 	jump()
 
 func Exit():
-	pass
+	frog.rotation_degrees = 0
 
 func jump():
 	if frog:
@@ -37,9 +38,10 @@ func Update(delta: float):
 	pass
 
 func Physics_Update(delta: float):
-	if has_jumped and frog.is_on_floor():
-		has_jumped = false
-		Transitioned.emit(self, "FrogWalk")
+	#if has_jumped and frog.is_on_floor():
+	#	has_jumped = false
+	#	Transitioned.emit(self, "FrogWalk")
+	pass
 
 func _process(delta: float):
 	if has_jumped and is_instance_valid(frog):

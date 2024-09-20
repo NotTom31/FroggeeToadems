@@ -1,25 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxl0svbbb60ua"]
+[gd_scene load_steps=5 format=3 uid="uid://dxl0svbbb60ua"]
 
-[ext_resource type="PackedScene" uid="uid://b4wy7po8yie45" path="res://Scenes/Legacy/player_test.tscn" id="1_d6qc5"]
+[ext_resource type="Texture2D" uid="uid://ht4x4rlup3a2" path="res://Assets/Art/Temp/swamp_firstpass.png" id="1_ehwvt"]
 [ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Legacy/temp_ground.tscn" id="3_qovqc"]
 [ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_f7qh2"]
-[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="5_e2hmp"]
 [ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="6_2apnw"]
-
-[sub_resource type="Curve2D" id="Curve2D_makat"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 723, 863, 0, 0, 0, 0, 1793, 884, 0, 0, 0, 0, 1787, 852, 0, 0, 0, 0, 723, 863, -28.5732, -192.076, 28.5732, 192.076, 54, 717, 0, 0, 0, 0, 1741, 758)
-}
-point_count = 6
 
 [node name="Tom-gameplay-test" type="Node2D"]
 
-[node name="Player-Test" parent="." instance=ExtResource("1_d6qc5")]
-position = Vector2(255, 349)
+[node name="SwampFirstpass" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(965, 537)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_ehwvt")
 
 [node name="Node2D" parent="." instance=ExtResource("3_qovqc")]
-position = Vector2(558, 623)
-scale = Vector2(20, 1)
+position = Vector2(949, 1089)
+scale = Vector2(40, 1)
 
 [node name="SpawnFrogUI" parent="." instance=ExtResource("4_f7qh2")]
 offset_left = 172.0
@@ -28,11 +24,4 @@ offset_right = 172.0
 offset_bottom = 106.0
 
 [node name="Area2D" parent="." instance=ExtResource("6_2apnw")]
-position = Vector2(857, 498)
-scale = Vector2(10, 1)
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_makat")
-
-[node name="BasicFrog" parent="." instance=ExtResource("5_e2hmp")]
-position = Vector2(533, 448)
+position = Vector2(961, 1013)
