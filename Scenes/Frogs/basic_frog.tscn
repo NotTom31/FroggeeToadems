@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://q2eyupn7k7l2"]
+[gd_scene load_steps=18 format=3 uid="uid://q2eyupn7k7l2"]
 
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogTypes/basic_frog.gd" id="1_rxiyf"]
 [ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_vs8rj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://db8mb14ndu0rl" path="res://Assets/Art/Frogs/blink/02_plink1.png" id="5_djsem"]
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogHold.gd" id="5_wsoji"]
 [ext_resource type="Texture2D" uid="uid://dq2rubto02ffb" path="res://Assets/Art/Frogs/blink/02_plink2.png" id="6_gh0rk"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogFall.gd" id="6_gh8vj"]
 [ext_resource type="Texture2D" uid="uid://b0t1nb1i1evdt" path="res://Assets/Art/Frogs/blink/02_plink3.png" id="7_h6c5j"]
 [ext_resource type="Texture2D" uid="uid://bsuihp8m1bijj" path="res://Assets/Art/Frogs/blink/02_plink4.png" id="8_mi544"]
 [ext_resource type="Texture2D" uid="uid://bppv148qldsei" path="res://Assets/Art/Frogs/blink/02_plink5.png" id="9_nvfrc"]
@@ -79,11 +80,15 @@ frog = NodePath("../..")
 script = ExtResource("5_wsoji")
 frog = NodePath("../..")
 
+[node name="FrogFall" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("6_gh8vj")
+frog = NodePath("../..")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 1)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_uccbn")
-animation = &"idle"
+animation = &"jump"
 offset = Vector2(0, -150)
 
 [node name="Area2D" type="Area2D" parent="."]

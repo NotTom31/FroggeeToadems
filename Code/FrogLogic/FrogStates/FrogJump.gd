@@ -1,7 +1,6 @@
 extends State
 class_name FrogJump
 
-@export var frog: CharacterBody2D
 @export var jump_speed := 40.0
 @export var jump_height := 500.0
 @export var jump_animation: String = "jump"
@@ -30,7 +29,7 @@ func jump():
 		frog.velocity.y = -jump_height
 		has_jumped = true
 		frog.rotation_degrees = rotation_target
-		print("Jumping with direction: ", jump_direction)
+		#print("Jumping with direction: ", jump_direction)
 	else:
 		print("Error: frog is not assigned or invalid.")
 

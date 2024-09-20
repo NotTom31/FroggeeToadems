@@ -1,12 +1,12 @@
 extends State
-class_name FrogHold
+class_name FrogFall
 
 func Enter():
-	$"../../AnimatedSprite2D".play("idle")
-	frog.disable_gravity()
+	$"../../AnimatedSprite2D".play("jump")
+	frog.enable_gravity()
 
 func Exit():
-	frog.enable_gravity()
+	frog.disable_gravity()
 
 func Update(delta: float):
 	pass
