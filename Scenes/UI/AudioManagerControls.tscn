@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bw0yhqbfc0xq"]
+
+[node name="AudioManagerControls" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -54.0
+offset_right = 174.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Master"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Music"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "SFX"
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Atmosphere"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="MainSlider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 0.8
+metadata/_edit_use_anchors_ = true
+
+[node name="MXSlider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 0.8
+metadata/_edit_use_anchors_ = true
+
+[node name="FXSlider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 0.8
+metadata/_edit_use_anchors_ = true
+
+[node name="ATMSlider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 0.8
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MainToggle" type="CheckButton" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MXToggle" type="CheckButton" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="FXToggle" type="CheckButton" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ATMToggle" type="CheckButton" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TestButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 63.0
+offset_right = 136.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
