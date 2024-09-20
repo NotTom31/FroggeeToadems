@@ -25,6 +25,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Wild Jam Tower"
 
+[layer_names]
+
+2d_physics/layer_2="Frog"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

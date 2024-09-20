@@ -10,6 +10,8 @@ func _ready() -> void:
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.Transitioned.connect(on_child_transitioned)
+	if get_parent() is BasicFrog:
+		get_parent().Transitioned.connect(on_parent_transitioned)
 	
 	if initial_state:
 		initial_state.Enter()
@@ -35,5 +37,19 @@ func on_child_transitioned(state, new_state_name):
 		current_state.Exit()
 	
 	new_state.Enter()
+	#print(new_state.name)
+	current_state = new_state
+
+func on_parent_transitioned(new_state_name):
+	if new_state_name.to_lower() == current_state.name.to_lower():
+		return
+	var new_state = states.get(new_state_name.to_lower())
+	if !new_state:
+		return
 	
+	if current_state:
+		current_state.Exit()
+	
+	new_state.Enter()
+	#print(new_state.name)
 	current_state = new_state
