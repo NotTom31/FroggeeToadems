@@ -15,8 +15,8 @@ frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lilly
 
 [node name="SwampFirstpass" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(965, 537)
-scale = Vector2(0.35, 0.35)
+position = Vector2(960, 540)
+scale = Vector2(0.335, 0.335)
 texture = ExtResource("2_5w4dy")
 
 [node name="Node2D" parent="." instance=ExtResource("3_iya8w")]
