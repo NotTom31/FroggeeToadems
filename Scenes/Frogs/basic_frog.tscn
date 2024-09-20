@@ -91,6 +91,7 @@ script = ExtResource("7_avrs0")
 frog = NodePath("../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(3, -2)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_uccbn")
@@ -119,4 +120,6 @@ shape = SubResource("RectangleShape2D_skv3v")
 scale = Vector2(6, 6)
 
 [connection signal="input_event" from="." to="." method="_on_area_2d_input_event"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

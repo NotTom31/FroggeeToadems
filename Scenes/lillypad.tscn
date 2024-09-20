@@ -6,13 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ecp"]
 size = Vector2(224, 56)
 
-[node name="Lillypad" type="RigidBody2D"]
-gravity_scale = 0.0
-lock_rotation = true
-freeze = true
+[node name="Lillypad" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -1
 position = Vector2(8, -55)
 texture = ExtResource("1_uq10w")
 region_enabled = true

@@ -9,6 +9,7 @@ var mouse_velocity = Vector2()  # To track mouse movement velocity
 var max_velocity = 900  # Cap how fast we can throw the frogs
 var max_rotation_angle = deg_to_rad(40) 
 var rotation_speed = 3  # How fast the rotation should change
+var mouse_position
 
 var original_layer: int
 var original_mask: int
@@ -35,7 +36,7 @@ func _process(delta: float) -> void:
 func follow_mouse(delta: float, offset: Vector2) -> void:
 	# Calculate the velocity of the mouse
 	offset -= $FrogBase.position
-	var mouse_position = get_global_mouse_position()
+	mouse_position = get_global_mouse_position()
 	mouse_velocity = (mouse_position - global_position) / delta  # Calculate velocity
 	global_position = mouse_position + offset
 	apply_rotation_based_on_velocity(delta)
@@ -66,7 +67,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	#		selected = false
 	#		collision_layer = original_layer
 	#		mouse_velocity = mouse_velocity.limit_length(max_velocity)
-	#		velocity = mouse_velocity  # Apply mouse velocity to the RigidBody2D
+	#		velocity = mouse_velocity
 
 
 func assign_to_slot(new_slot: FrogSlot) -> void:
@@ -95,7 +96,6 @@ func enable_gravity() -> void:
 
 func transition_to_swim():
 	Transitioned.emit("FrogSwim")
-	print("swim")
 
 func _physics_process(delta: float):
 	# Apply gravity to velocity
@@ -105,3 +105,6 @@ func _physics_process(delta: float):
 
 func _on_mouse_exited() -> void:
 	selected = false #failsafe
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	pass # Replace with function body.

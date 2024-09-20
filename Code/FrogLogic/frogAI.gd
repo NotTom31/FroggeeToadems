@@ -37,7 +37,7 @@ func on_child_transitioned(state, new_state_name):
 		current_state.Exit()
 	
 	new_state.Enter()
-	print(new_state.name)
+	#print(new_state.name)
 	current_state = new_state
 
 func on_parent_transitioned(new_state_name):
@@ -51,5 +51,5 @@ func on_parent_transitioned(new_state_name):
 		current_state.Exit()
 	
 	new_state.Enter()
-	print(new_state.name)
+	#print(new_state.name)
 	current_state = new_state
