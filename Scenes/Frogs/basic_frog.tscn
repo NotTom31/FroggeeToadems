@@ -1,19 +1,125 @@
-[gd_scene load_steps=3 format=3 uid="uid://q2eyupn7k7l2"]
+[gd_scene load_steps=19 format=3 uid="uid://q2eyupn7k7l2"]
 
-[ext_resource type="Texture2D" uid="uid://df5i4xwicrvb8" path="res://Assets/Visuals/Sprites/Placeholder_Sprites.png" id="1_lw4qu"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogTypes/basic_frog.gd" id="1_rxiyf"]
+[ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_vs8rj"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogSwim.gd" id="3_vmf1d"]
+[ext_resource type="PackedScene" path="res://Scenes/Frogs/frog_slot.tscn" id="3_xwux3"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogJump.gd" id="4_2ejmw"]
+[ext_resource type="Texture2D" uid="uid://db8mb14ndu0rl" path="res://Assets/Art/Frogs/blink/02_plink1.png" id="5_djsem"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogHold.gd" id="5_wsoji"]
+[ext_resource type="Texture2D" uid="uid://dq2rubto02ffb" path="res://Assets/Art/Frogs/blink/02_plink2.png" id="6_gh0rk"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogFall.gd" id="6_gh8vj"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogStacked.gd" id="7_avrs0"]
+[ext_resource type="Texture2D" uid="uid://b0t1nb1i1evdt" path="res://Assets/Art/Frogs/blink/02_plink3.png" id="7_h6c5j"]
+[ext_resource type="Texture2D" uid="uid://bsuihp8m1bijj" path="res://Assets/Art/Frogs/blink/02_plink4.png" id="8_mi544"]
+[ext_resource type="Texture2D" uid="uid://bppv148qldsei" path="res://Assets/Art/Frogs/blink/02_plink5.png" id="9_nvfrc"]
+[ext_resource type="Texture2D" uid="uid://dcomocfoou50s" path="res://Assets/Art/Frogs/resting/02_rest.png" id="10_8mdox"]
+[ext_resource type="Texture2D" uid="uid://cvr4vb57bl7pj" path="res://Assets/Art/Frogs/jumping/02_jump.png" id="11_6uvn4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uadom"]
-radius = 53.0024
+[sub_resource type="SpriteFrames" id="SpriteFrames_uccbn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_djsem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gh0rk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h6c5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mi544")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nvfrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8mdox")
+}],
+"loop": false,
+"name": &"blink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_8mdox")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_6uvn4")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
 
-[node name="BasicFrog" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jepvn"]
+size = Vector2(280, 78.3333)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_lw4qu")
-region_enabled = true
-region_rect = Rect2(0, 0, 256, 256)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skv3v"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -0.5)
-shape = SubResource("CircleShape2D_uadom")
-one_way_collision_margin = 0.0
+[node name="BasicFrog" type="CharacterBody2D"]
+script = ExtResource("1_rxiyf")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_vs8rj")
+initial_state = NodePath("FrogFall")
+
+[node name="FrogSwim" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("3_vmf1d")
+frog = NodePath("../..")
+
+[node name="FrogJump" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("4_2ejmw")
+frog = NodePath("../..")
+
+[node name="FrogHold" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("5_wsoji")
+frog = NodePath("../..")
+
+[node name="FrogFall" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("6_gh8vj")
+frog = NodePath("../..")
+
+[node name="FrogStacked" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("7_avrs0")
+frog = NodePath("../..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(3, -2)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_uccbn")
+animation = &"blink"
+offset = Vector2(0, -150)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="ClickableArea" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 0)
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_jepvn")
+
+[node name="SlotOnHead" parent="." instance=ExtResource("3_xwux3")]
+position = Vector2(0, -35)
+active = false
+
+[node name="FrogBase" type="Node2D" parent="."]
+position = Vector2(0, 29)
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+scale = Vector2(9, 3)
+shape = SubResource("RectangleShape2D_skv3v")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(6, 6)
+
+[connection signal="input_event" from="." to="." method="_on_area_2d_input_event"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

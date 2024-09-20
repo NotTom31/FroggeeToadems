@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cllbpv27v30g8"]
+
+[ext_resource type="Script" path="res://Code/FrogLogic/frog_slot.gd" id="1_fuctk"]
+
+[node name="FrogSlot" type="Node2D"]
+script = ExtResource("1_fuctk")
+active = true

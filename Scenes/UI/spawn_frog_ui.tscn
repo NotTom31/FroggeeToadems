@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv05e0eutaagt"]
+[gd_scene load_steps=3 format=3 uid="uid://cv05e0eutaagt"]
 
 [ext_resource type="Script" path="res://Code/UI/spawn_frog_ui.gd" id="1_pnqan"]
+[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="2_7gwh7"]
 
 [node name="SpawnFrogUI" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pnqan")
+Frog = ExtResource("2_7gwh7")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0

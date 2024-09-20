@@ -25,6 +25,16 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Wild Jam Tower"
 
+[importer_defaults]
+
+wav={
+"edit/loop_mode": 1
+}
+
+[layer_names]
+
+2d_physics/layer_2="Frog"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

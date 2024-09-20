@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://cog6dh2xtn66n"]
+
+[ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
+[ext_resource type="Texture2D" uid="uid://ht4x4rlup3a2" path="res://Assets/Art/Temp/swamp_firstpass.png" id="2_5w4dy"]
+[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="2_u2ubl"]
+[ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="3_fwopu"]
+[ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Legacy/temp_ground.tscn" id="3_iya8w"]
+[ext_resource type="PackedScene" path="res://Scenes/Frogs/frog_slot.tscn" id="4_3nqnf"]
+[ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_kr1ir"]
+[ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="6_fo3t6"]
+
+[node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots")]
+script = ExtResource("1_fwoa8")
+frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot"), NodePath("Frogs/BasicFrog/SlotOnHead"), NodePath("Frogs/BasicFrog2/SlotOnHead"), NodePath("Frogs/BasicFrog3/SlotOnHead"), NodePath("OtherSlots/FrogSlot"), NodePath("OtherSlots/FrogSlot2"), NodePath("OtherSlots/FrogSlot3"), NodePath("OtherSlots/FrogSlot4")]
+
+[node name="SwampFirstpass" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("2_5w4dy")
+
+[node name="Node2D" parent="." instance=ExtResource("3_iya8w")]
+position = Vector2(949, 1089)
+scale = Vector2(40, 1)
+
+[node name="SpawnFrogUI" parent="." instance=ExtResource("4_kr1ir")]
+offset_left = 172.0
+offset_top = 106.0
+offset_right = 172.0
+offset_bottom = 106.0
+
+[node name="Frogs" type="Node2D" parent="."]
+
+[node name="BasicFrog" parent="Frogs" instance=ExtResource("2_u2ubl")]
+position = Vector2(1477, 625)
+
+[node name="BasicFrog2" parent="Frogs" instance=ExtResource("2_u2ubl")]
+position = Vector2(884, 579)
+
+[node name="BasicFrog3" parent="Frogs" instance=ExtResource("2_u2ubl")]
+position = Vector2(1158, 442)
+
+[node name="Lillypads" type="Node2D" parent="."]
+
+[node name="Lillypad" parent="Lillypads" instance=ExtResource("3_fwopu")]
+position = Vector2(785, 873)
+
+[node name="Lillypad2" parent="Lillypads" instance=ExtResource("3_fwopu")]
+position = Vector2(1149, 869)
+
+[node name="Lillypad3" parent="Lillypads" instance=ExtResource("3_fwopu")]
+position = Vector2(1552, 875)
+
+[node name="OtherSlots" type="Node2D" parent="."]
+
+[node name="FrogSlot" parent="OtherSlots" instance=ExtResource("4_3nqnf")]
+position = Vector2(632, 888)
+
+[node name="FrogSlot2" parent="OtherSlots" instance=ExtResource("4_3nqnf")]
+position = Vector2(962, 888)
+
+[node name="FrogSlot3" parent="OtherSlots" instance=ExtResource("4_3nqnf")]
+position = Vector2(1342, 885)
+
+[node name="FrogSlot4" parent="OtherSlots" instance=ExtResource("4_3nqnf")]
+position = Vector2(1710, 892)
+
+[node name="FrogDetectionArea" parent="." instance=ExtResource("6_fo3t6")]
+
+[node name="CollisionShape2D" parent="FrogDetectionArea" index="0"]
+position = Vector2(962, 1006)
+
+[connection signal="frog_deselected" from="Frogs/BasicFrog" to="." method="_on_frog_deselected"]
+[connection signal="frog_deselected" from="Frogs/BasicFrog2" to="." method="_on_frog_deselected"]
+[connection signal="frog_deselected" from="Frogs/BasicFrog3" to="." method="_on_frog_deselected"]
+
+[editable path="Frogs/BasicFrog"]
+[editable path="Frogs/BasicFrog2"]
+[editable path="Frogs/BasicFrog3"]
+[editable path="Lillypads/Lillypad"]
+[editable path="Lillypads/Lillypad2"]
+[editable path="Lillypads/Lillypad3"]
+[editable path="FrogDetectionArea"]
