@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxjslbbxxcsir"]
+[gd_scene load_steps=9 format=3 uid="uid://cog6dh2xtn66n"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
 [ext_resource type="Texture2D" uid="uid://ht4x4rlup3a2" path="res://Assets/Art/Temp/swamp_firstpass.png" id="2_5w4dy"]
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="2_u2ubl"]
 [ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="3_fwopu"]
 [ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Legacy/temp_ground.tscn" id="3_iya8w"]
-[ext_resource type="PackedScene" path="res://Scenes/Frogs/frog_slot.tscn" id="4_3nqnf"]
+[ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="4_3nqnf"]
 [ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_kr1ir"]
 [ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="6_fo3t6"]
 
