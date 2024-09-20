@@ -1,17 +1,68 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsaoimojl71v6"]
+[gd_scene load_steps=6 format=3 uid="uid://bsaoimojl71v6"]
 
-[ext_resource type="PackedScene" uid="uid://cvyqvkbgjt7bg" path="res://Scenes/Levels/Test/evan-gameplay-test.tscn" id="1_baov3"]
-[ext_resource type="Script" path="res://Code/Managers/sound_manager.gd" id="2_uynkj"]
+[ext_resource type="PackedScene" uid="uid://cog6dh2xtn66n" path="res://Scenes/Levels/Test/Main-Scene-Tom.tscn" id="1_xckjc"]
+[ext_resource type="Script" path="res://Scenes/Levels/Test/sound_manager.gd" id="2_0mon5"]
 [ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="3_tutdx"]
+[ext_resource type="AudioStream" uid="uid://gi1oqndyi1p4" path="res://Assets/Audio/GWJ73_MX_SoloOverThis_5-4_73bpm_8bars_loop.wav" id="4_6o1un"]
+[ext_resource type="AudioStream" uid="uid://k0i1i5dio0e4" path="res://Assets/Audio/cricketgen2.wav" id="5_y0rpt"]
 
 [node name="Brendan-testing" type="Node2D"]
 
-[node name="LevelManager" parent="." instance=ExtResource("1_baov3")]
+[node name="LevelManager" parent="." instance=ExtResource("1_xckjc")]
 
-[node name="SoundManagerEDITHEREDUMMY" type="Node2D" parent="LevelManager"]
-script = ExtResource("2_uynkj")
+[node name="SoundManager" type="Node2D" parent="LevelManager"]
+script = ExtResource("2_0mon5")
 
-[node name="AudioManagerControls" parent="LevelManager/SoundManagerEDITHEREDUMMY" instance=ExtResource("3_tutdx")]
+[node name="AudioManagerControls" parent="LevelManager/SoundManager" instance=ExtResource("3_tutdx")]
+position = Vector2(608, 224)
+
+[node name="MainSlider" parent="LevelManager/SoundManager/AudioManagerControls" index="4"]
+z_index = 1
+
+[node name="MXSlider" parent="LevelManager/SoundManager/AudioManagerControls" index="5"]
+step = 0.05
+
+[node name="FXSlider" parent="LevelManager/SoundManager/AudioManagerControls" index="6"]
+step = 0.05
+
+[node name="ATMSlider" parent="LevelManager/SoundManager/AudioManagerControls" index="7"]
+step = 0.05
+
+[node name="PickupMX1" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
+stream = ExtResource("4_6o1un")
+bus = &"MX1"
+
+[node name="PickupMX2" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
+bus = &"MX2"
+
+[node name="PickupMX3" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
+bus = &"MX3"
+
+[node name="PickupMX4" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
+bus = &"MX4"
+
+[node name="PickupMX5" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
+bus = &"MX5"
+
+[node name="PickupATM" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
+stream = ExtResource("5_y0rpt")
+bus = &"ATM"
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
+
+[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/MainToggle" to="LevelManager/SoundManager" method="_on_main_toggle_pressed"]
+[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/MXToggle" to="LevelManager/SoundManager" method="_on_mx_toggle_pressed"]
+[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/FXToggle" to="LevelManager/SoundManager" method="_on_fx_toggle_pressed"]
+[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/ATMToggle" to="LevelManager/SoundManager" method="_on_atm_toggle_pressed"]
+[connection signal="mouse_exited" from="LevelManager/SoundManager/AudioManagerControls/MainSlider" to="LevelManager/SoundManager" method="_on_main_slider_mouse_exited"]
+[connection signal="value_changed" from="LevelManager/SoundManager/AudioManagerControls/MainSlider" to="LevelManager/SoundManager" method="_on_main_slider_value_changed"]
+[connection signal="mouse_exited" from="LevelManager/SoundManager/AudioManagerControls/MXSlider" to="LevelManager/SoundManager" method="_on_mx_slider_mouse_exited"]
+[connection signal="value_changed" from="LevelManager/SoundManager/AudioManagerControls/MXSlider" to="LevelManager/SoundManager" method="_on_mx_slider_value_changed"]
+[connection signal="mouse_exited" from="LevelManager/SoundManager/AudioManagerControls/FXSlider" to="LevelManager/SoundManager" method="_on_fx_slider_mouse_exited"]
+[connection signal="value_changed" from="LevelManager/SoundManager/AudioManagerControls/FXSlider" to="LevelManager/SoundManager" method="_on_fx_slider_value_changed"]
+[connection signal="mouse_exited" from="LevelManager/SoundManager/AudioManagerControls/ATMSlider" to="LevelManager/SoundManager" method="_on_atm_slider_mouse_exited"]
+[connection signal="value_changed" from="LevelManager/SoundManager/AudioManagerControls/ATMSlider" to="LevelManager/SoundManager" method="_on_atm_slider_value_changed"]
+[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/TestButton" to="LevelManager/SoundManager" method="_on_test_button_pressed"]
 
 [editable path="LevelManager"]
 [editable path="LevelManager/Frogs/BasicFrog"]
@@ -20,3 +71,5 @@ script = ExtResource("2_uynkj")
 [editable path="LevelManager/Lillypads/Lillypad"]
 [editable path="LevelManager/Lillypads/Lillypad2"]
 [editable path="LevelManager/Lillypads/Lillypad3"]
+[editable path="LevelManager/FrogDetectionArea"]
+[editable path="LevelManager/SoundManager/AudioManagerControls"]
