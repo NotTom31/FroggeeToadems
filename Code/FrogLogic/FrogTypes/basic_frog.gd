@@ -31,7 +31,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if selected:
 		follow_mouse(delta, $FrogBase.position)
-		Transitioned.emit(self, "FrogJump")
+		
 	else:
 		enable_gravity()
 
@@ -58,6 +58,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if not selected:
 			selected = true
+			Transitioned.emit("FrogHold")
 			collision_layer = 0
 			velocity = Vector2.ZERO
 			assign_to_slot(null)

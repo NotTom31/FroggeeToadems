@@ -41,9 +41,10 @@ func on_child_transitioned(state, new_state_name):
 	current_state = new_state
 
 func on_parent_transitioned(new_state_name):
-	if new_state_name != current_state.name.to_lower():
+	print("Reached here")
+	if new_state_name.to_lower() == current_state.name.to_lower():
 		return
-	
+	print("Reached here again")
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
 		return

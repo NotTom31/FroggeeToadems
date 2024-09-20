@@ -67,11 +67,13 @@ script = ExtResource("1_rxiyf")
 script = ExtResource("2_vs8rj")
 initial_state = NodePath("FrogWalk")
 
-[node name="FrogWalk" type="Node2D" parent="StateMachine"]
+[node name="FrogWalk" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
 script = ExtResource("3_vmf1d")
+frog = NodePath("../..")
 
-[node name="FrogJump" type="Node2D" parent="StateMachine"]
+[node name="FrogJump" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
 script = ExtResource("4_2ejmw")
+frog = NodePath("../..")
 
 [node name="FrogHold" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
 script = ExtResource("5_wsoji")
