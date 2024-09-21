@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cog6dh2xtn66n"]
+[gd_scene load_steps=10 format=3 uid="uid://cog6dh2xtn66n"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
+[ext_resource type="PackedScene" uid="uid://i6igjyki2wqp" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.tscn" id="2_llarb"]
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="2_u2ubl"]
 [ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_v13fq"]
 [ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="3_fwopu"]
@@ -14,6 +15,8 @@ script = ExtResource("1_fwoa8")
 frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot"), NodePath("Frogs/BasicFrog/SlotOnHead"), NodePath("Frogs/BasicFrog2/SlotOnHead"), NodePath("Frogs/BasicFrog3/SlotOnHead"), NodePath("OtherSlots/FrogSlot"), NodePath("OtherSlots/FrogSlot2"), NodePath("OtherSlots/FrogSlot3"), NodePath("OtherSlots/FrogSlot4")]
 
 [node name="Background" parent="." instance=ExtResource("2_v13fq")]
+
+[node name="Canvas_Shop" parent="." instance=ExtResource("2_llarb")]
 
 [node name="Node2D" parent="." instance=ExtResource("3_iya8w")]
 position = Vector2(949, 1089)

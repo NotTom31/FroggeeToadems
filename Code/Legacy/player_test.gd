@@ -18,3 +18,15 @@ func _physics_process(delta):
 	var input = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	player_movement(input, delta)
 	move_and_slide()
+
+################################################################################
+# Purpose: Shop function to allow the player to purchase items/spells
+# Implemented by Brian / Zoxda - 9/17/2024
+#If we decide to let the player to do something such as selling
+func player_sell_method ():
+	pass
+func player_shop_method ():
+	pass
+	
+################################################################################
+	

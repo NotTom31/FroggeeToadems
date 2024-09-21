@@ -1,0 +1,193 @@
+[gd_scene load_steps=24 format=3 uid="uid://b1t3fpo7e2i5t"]
+
+[ext_resource type="Texture2D" uid="uid://cuuuq3q14iru5" path="res://Assets/Visuals/Sprites/Shop_Placeholder/12_bun_dish.png" id="1_ewko0"]
+[ext_resource type="Texture2D" uid="uid://f1m8kag1kp4d" path="res://Assets/Visuals/Sprites/Shop_Placeholder/01_dish.png" id="2_h24wk"]
+[ext_resource type="Texture2D" uid="uid://dldqpsb1so2s4" path="res://Assets/Visuals/Sprites/Shop_Placeholder/91_strawberrycake_dish.png" id="3_h0e2o"]
+[ext_resource type="Texture2D" uid="uid://b71lesk0v8arb" path="res://Assets/Visuals/Sprites/Shop_Placeholder/98_sushi_dish.png" id="4_i014d"]
+[ext_resource type="Texture2D" uid="uid://b8c15prhu0dai" path="res://Assets/Visuals/Sprites/Merchant_Placeholder/small moidle.png" id="5_57yo3"]
+[ext_resource type="PackedScene" uid="uid://i6igjyki2wqp" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.tscn" id="6_48scj"]
+[ext_resource type="Script" path="res://Scenes/Shop_Merchant_Placeholder/merchant.gd" id="6_ti1xy"]
+[ext_resource type="Texture2D" uid="uid://d36i5pemtoe7k" path="res://icon.svg" id="7_n106r"]
+[ext_resource type="PackedScene" uid="uid://dhrrqy6bsp1hy" path="res://Scenes/Shop_Merchant_Placeholder/merchant_test_sprite.tscn" id="9_ejigk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyu3o"]
+atlas = ExtResource("2_h24wk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k77ln"]
+atlas = ExtResource("3_h0e2o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na1d6"]
+atlas = ExtResource("4_i014d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hu0si"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ewko0")
+}],
+"loop": true,
+"name": &"Bun_Dish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyu3o")
+}],
+"loop": true,
+"name": &"Default_Empty Dish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k77ln")
+}],
+"loop": true,
+"name": &"StrawberryCake_Dish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na1d6")
+}],
+"loop": true,
+"name": &"Sushi_Dish",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xujkj"]
+atlas = ExtResource("5_57yo3")
+region = Rect2(0, 0, 82, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nab0"]
+atlas = ExtResource("5_57yo3")
+region = Rect2(0, 39, 82, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml3uq"]
+atlas = ExtResource("5_57yo3")
+region = Rect2(0, 78, 82, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rsbv"]
+atlas = ExtResource("5_57yo3")
+region = Rect2(0, 117, 82, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21c5v"]
+atlas = ExtResource("5_57yo3")
+region = Rect2(0, 156, 82, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drkje"]
+atlas = ExtResource("5_57yo3")
+region = Rect2(0, 195, 82, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_270lh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xujkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nab0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml3uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rsbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21c5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drkje")
+}],
+"loop": true,
+"name": &"Merchant_Moidle",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtmpj"]
+radius = 26.0
+height = 142.0
+
+[sub_resource type="GDScript" id="GDScript_tb70p"]
+script/source = "#Brian Cabrera - 9/18/2024 - 12:49 AM
+extends Area2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	# Connect the signal 'animation_finished' to the function '_on_animation_finished'
+	get_node(\"Canvas_Shop/Animation_Panel\").connect(\"animation_finished\", Callable(self, \"_on_animation_finished\"))
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass  # No need to use 'delta', prefix it with '_delta'.
+
+# Function triggered when the Test_Button is pressed
+func _on_test_button_pressed() -> void:
+	# Plays the \"Transition_In\" animation when the button is pressed
+	get_node(\"Canvas_Shop/Animation_Panel\").play(\"Transition_In\")
+
+# This function is called when the animation finishes
+func _on_animation_finished(anim_name: String) -> void:
+	if anim_name == \"Transition_In\":
+		# Pauses the game after the \"Transition_In\" animation finishes
+		get_tree().paused = true
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7s46p"]
+radius = 28.0
+height = 102.0
+
+[node name="Shop _ Merchant" type="StaticBody2D"]
+position = Vector2(687, 471)
+
+[node name="Shop_Art" type="AnimatedSprite2D" parent="."]
+position = Vector2(1054, -402)
+scale = Vector2(3.38281, 3.03906)
+sprite_frames = SubResource("SpriteFrames_hu0si")
+animation = &"Default_Empty Dish"
+
+[node name="Merchant" type="AnimatedSprite2D" parent="."]
+position = Vector2(1125, -259)
+scale = Vector2(5.08537, 6.40385)
+sprite_frames = SubResource("SpriteFrames_270lh")
+animation = &"Merchant_Moidle"
+frame_progress = 0.957259
+script = ExtResource("6_ti1xy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1059, -36)
+shape = SubResource("CapsuleShape2D_wtmpj")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_tb70p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1123, -40)
+shape = SubResource("CapsuleShape2D_7s46p")
+debug_color = Color(0.915832, 0.248451, 0.382019, 0.42)
+
+[node name="Canvas_Shop" parent="Area2D" instance=ExtResource("6_48scj")]
+
+[node name="Test_Button" type="Button" parent="."]
+offset_left = -683.0
+offset_top = -451.0
+offset_right = -199.0
+offset_bottom = -286.0
+text = "Test Button Image: Can place Merchant here
+
+"
+icon = ExtResource("7_n106r")
+
+[node name="Merchant_TestSprite" parent="." instance=ExtResource("9_ejigk")]
+position = Vector2(850, -497)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="pressed" from="Test_Button" to="Area2D" method="_on_test_button_pressed"]
