@@ -12,7 +12,10 @@ func randomize_wander():
 
 func Enter():
 	$"../../AnimatedSprite2D".play("jump")
-	frog.rotation_degrees = 60
+	#if frog.is_sprite_flipped:
+	#	frog.rotation_degrees = 240
+	#else:
+	#	frog.rotation_degrees = 60
 	randomize_wander()
 
 func Exit():
@@ -25,8 +28,8 @@ func Update(delta: float):
 	
 	else:
 		pass
-		#Transitioned.emit(self, "FrogJump")
-		#randomize_wander()
+		Transitioned.emit(self, "FrogJump")
+		randomize_wander()
 
 func Physics_Update(delta: float):
 	if frog && frog.is_on_floor():

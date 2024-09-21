@@ -11,6 +11,7 @@ var max_velocity = 900  # Cap how fast we can throw the frogs
 var max_rotation_angle = deg_to_rad(40) 
 var rotation_speed = 3  # How fast the rotation should change
 var mouse_position
+var is_sprite_flipped = false
 
 var original_layer: int
 var original_mask: int
@@ -103,6 +104,12 @@ func _physics_process(delta: float):
 	velocity.y += gravity * delta
 	# Move the character with the applied gravity
 	move_and_slide()
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = true
+		is_sprite_flipped = true
+	elif velocity.x < 0:
+		$AnimatedSprite2D.flip_h = false
+		is_sprite_flipped = false
 
 func _on_mouse_exited() -> void:
 	selected = false #failsafe
