@@ -116,3 +116,6 @@ func get_held_frog_types() -> Array[MagicManager.FrogType]:
 		types_above = $SlotOnHead.inhabitant.get_held_frog_types()
 	types_above.append(type)
 	return types_above
+	
+func get_head_slot() -> FrogSlot:
+	return $SlotOnHead

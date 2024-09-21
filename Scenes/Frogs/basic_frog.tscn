@@ -95,7 +95,7 @@ z_index = 1
 position = Vector2(3, -2)
 scale = Vector2(0.15, 0.2)
 sprite_frames = SubResource("SpriteFrames_uccbn")
-animation = &"blink"
+animation = &"jump"
 offset = Vector2(0, -150)
 
 [node name="Area2D" type="Area2D" parent="."]

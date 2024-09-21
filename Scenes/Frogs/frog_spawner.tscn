@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4oeq4iblkrbg"]
+
+[ext_resource type="Script" path="res://Code/FrogLogic/frog_spawner.gd" id="1_4lyrf"]
+[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="2_02rqu"]
+[ext_resource type="PackedScene" uid="uid://co5rrhms11k5w" path="res://Scenes/Frogs/tropical_frog.tscn" id="3_jj3p0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwwjv"]
+size = Vector2(1474, 299)
+
+[node name="FrogSpawner" type="Node2D"]
+script = ExtResource("1_4lyrf")
+frog_scenes = Array[PackedScene]([ExtResource("2_02rqu"), ExtResource("3_jj3p0")])
+starting_frog_count = 3
+
+[node name="SpawnArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+shape = SubResource("RectangleShape2D_hwwjv")
+
+[node name="BasicFrogs" type="Node2D" parent="."]
+
+[node name="TropicalFrogs" type="Node2D" parent="."]
+
+[node name="SmallFrogs" type="Node2D" parent="."]
+
+[node name="FatFrogs" type="Node2D" parent="."]
