@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://1k1rcvp03xma"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Test/sound_manager.gd" id="1_spyt0"]
+[ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="2_jp7r5"]
+[ext_resource type="AudioStream" uid="uid://gi1oqndyi1p4" path="res://Assets/Audio/GWJ73_MX_SoloOverThis_5-4_73bpm_8bars_loop.wav" id="3_swhr5"]
+[ext_resource type="AudioStream" uid="uid://k0i1i5dio0e4" path="res://Assets/Audio/cricketgen2.wav" id="4_ahb3m"]
+
+[node name="SoundManager" type="Node2D"]
+script = ExtResource("1_spyt0")
+
+[node name="AudioManagerControls" parent="." instance=ExtResource("2_jp7r5")]
+offset_left = 608.0
+offset_top = 224.0
+offset_right = 608.0
+offset_bottom = 224.0
+
+[node name="PickupMX1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_swhr5")
+bus = &"MX1"
+
+[node name="PickupMX2" type="AudioStreamPlayer2D" parent="."]
+bus = &"MX2"
+
+[node name="PickupMX3" type="AudioStreamPlayer2D" parent="."]
+bus = &"MX3"
+
+[node name="PickupMX4" type="AudioStreamPlayer2D" parent="."]
+bus = &"MX4"
+
+[node name="PickupMX5" type="AudioStreamPlayer2D" parent="."]
+bus = &"MX5"
+
+[node name="PickupATM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ahb3m")
+bus = &"ATM"
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_exited" from="AudioManagerControls/HBoxContainer/VBoxContainer/MainSlider" to="." method="_on_main_slider_mouse_exited"]
+[connection signal="value_changed" from="AudioManagerControls/HBoxContainer/VBoxContainer/MainSlider" to="." method="_on_main_slider_value_changed"]
+[connection signal="mouse_exited" from="AudioManagerControls/HBoxContainer/VBoxContainer/MXSlider" to="." method="_on_mx_slider_mouse_exited"]
+[connection signal="value_changed" from="AudioManagerControls/HBoxContainer/VBoxContainer/MXSlider" to="." method="_on_mx_slider_value_changed"]
+[connection signal="mouse_exited" from="AudioManagerControls/HBoxContainer/VBoxContainer/FXSlider" to="." method="_on_fx_slider_mouse_exited"]
+[connection signal="value_changed" from="AudioManagerControls/HBoxContainer/VBoxContainer/FXSlider" to="." method="_on_fx_slider_value_changed"]
+[connection signal="mouse_exited" from="AudioManagerControls/HBoxContainer/VBoxContainer/ATMSlider" to="." method="_on_atm_slider_mouse_exited"]
+[connection signal="value_changed" from="AudioManagerControls/HBoxContainer/VBoxContainer/ATMSlider" to="." method="_on_atm_slider_value_changed"]
+[connection signal="pressed" from="AudioManagerControls/HBoxContainer/VBoxContainer2/MainToggle" to="." method="_on_main_toggle_pressed"]
+[connection signal="pressed" from="AudioManagerControls/HBoxContainer/VBoxContainer2/MXToggle" to="." method="_on_mx_toggle_pressed"]
+[connection signal="pressed" from="AudioManagerControls/HBoxContainer/VBoxContainer2/FXToggle" to="." method="_on_fx_toggle_pressed"]
+[connection signal="pressed" from="AudioManagerControls/HBoxContainer/VBoxContainer2/ATMToggle" to="." method="_on_atm_toggle_pressed"]
+
+[editable path="AudioManagerControls"]

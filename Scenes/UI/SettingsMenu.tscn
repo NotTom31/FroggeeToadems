@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cecmdnni7erii"]
 
 [ext_resource type="Script" path="res://Code/UI/settings_menu.gd" id="1_iv60s"]
-[ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="2_17ken"]
+[ext_resource type="PackedScene" uid="uid://1k1rcvp03xma" path="res://Scenes/Managers/sound_manager.tscn" id="2_djitu"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_ww785"]
 
 [node name="SettingsMenu" type="Control"]
@@ -71,8 +71,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 alignment = 1
 
-[node name="AudioManagerControls" parent="Panel/MarginContainer2/HBoxContainer" instance=ExtResource("2_17ken")]
-layout_mode = 2
+[node name="SoundManager" parent="Panel/MarginContainer2/HBoxContainer" instance=ExtResource("2_djitu")]
 
 [node name="BackButton" parent="." instance=ExtResource("2_ww785")]
 layout_mode = 1

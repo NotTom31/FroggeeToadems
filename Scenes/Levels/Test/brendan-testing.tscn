@@ -1,44 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsaoimojl71v6"]
+[gd_scene load_steps=3 format=3 uid="uid://bsaoimojl71v6"]
 
 [ext_resource type="PackedScene" uid="uid://cog6dh2xtn66n" path="res://Scenes/Levels/Test/Main-Scene-Tom.tscn" id="1_xckjc"]
-[ext_resource type="Script" path="res://Scenes/Levels/Test/sound_manager.gd" id="2_0mon5"]
-[ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="3_tutdx"]
-[ext_resource type="AudioStream" uid="uid://gi1oqndyi1p4" path="res://Assets/Audio/GWJ73_MX_SoloOverThis_5-4_73bpm_8bars_loop.wav" id="4_6o1un"]
-[ext_resource type="AudioStream" uid="uid://k0i1i5dio0e4" path="res://Assets/Audio/cricketgen2.wav" id="5_y0rpt"]
+[ext_resource type="PackedScene" uid="uid://1k1rcvp03xma" path="res://Scenes/Managers/sound_manager.tscn" id="2_sjxra"]
 
 [node name="Brendan-testing" type="Node2D"]
 
 [node name="LevelManager" parent="." instance=ExtResource("1_xckjc")]
 
-[node name="SoundManager" type="Node2D" parent="LevelManager"]
-script = ExtResource("2_0mon5")
-
-[node name="AudioManagerControls" parent="LevelManager/SoundManager" instance=ExtResource("3_tutdx")]
-position = Vector2(608, 224)
-
-[node name="PickupMX1" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
-stream = ExtResource("4_6o1un")
-bus = &"MX1"
-
-[node name="PickupMX2" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
-bus = &"MX2"
-
-[node name="PickupMX3" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
-bus = &"MX3"
-
-[node name="PickupMX4" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
-bus = &"MX4"
-
-[node name="PickupMX5" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
-bus = &"MX5"
-
-[node name="PickupATM" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
-stream = ExtResource("5_y0rpt")
-bus = &"ATM"
-
-[node name="PickupSFX" type="AudioStreamPlayer2D" parent="LevelManager/SoundManager"]
-
-[connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/TestButton" to="LevelManager/SoundManager" method="_on_test_button_pressed"]
+[node name="SoundManager" parent="LevelManager" instance=ExtResource("2_sjxra")]
 
 [editable path="LevelManager"]
 [editable path="LevelManager/Frogs/BasicFrog"]
@@ -48,4 +17,3 @@ bus = &"ATM"
 [editable path="LevelManager/Lillypads/Lillypad2"]
 [editable path="LevelManager/Lillypads/Lillypad3"]
 [editable path="LevelManager/FrogDetectionArea"]
-[editable path="LevelManager/SoundManager/AudioManagerControls"]
