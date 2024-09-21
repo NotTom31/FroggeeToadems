@@ -138,8 +138,15 @@ func get_held_frog_types() -> Array[MagicManager.FrogType]:
 func get_head_slot() -> FrogSlot:
 	return $SlotOnHead
 	
-func find_lillypad_below() -> FrogSlot:
-	return null #TODO
+func find_lillypad_below() -> Lillypad:
+	if slot_beneath == null:
+		return null
+	var holder_beneath = slot_beneath.get_parent()
+	if holder_beneath is BasicFrog:
+		return holder_beneath.find_lillypad_below()
+	elif holder_beneath is Lillypad:
+		return holder_beneath
+	return null
 	
 # causes this frog and all frogs standing on it to explode into a frog fountain
 func fountain() -> void:

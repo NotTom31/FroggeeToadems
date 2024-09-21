@@ -49,3 +49,12 @@ func _on_wand_button_pressed() -> void:
 		state = ClickState.DEFAULT
 	else:
 		state = ClickState.WAND
+
+func check_for_magic(list : Array[MagicManager.FrogType]) -> void:
+	set_state(ClickState.DEFAULT)
+	var spell_index = $MagicManager.evaluate_frog_stack(list)
+	$MagicManager.cast_spell(spell_index)
+
+
+func _on_magic_manager_summon(type: MagicManager.FrogType) -> void:
+	$FrogSpawner.spawn_frog_random_loc(type)

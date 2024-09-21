@@ -28,5 +28,4 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		fountain()
 
 func check_for_magic() -> void:
-	print("check for magic")
-	lvl_manager.set_state(LevelManager.ClickState.DEFAULT)
+	lvl_manager.check_for_magic(get_held_frog_types())

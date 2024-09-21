@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4oeq4iblkrbg"]
+[gd_scene load_steps=8 format=3 uid="uid://c4oeq4iblkrbg"]
 
 [ext_resource type="Script" path="res://Code/FrogLogic/frog_spawner.gd" id="1_4lyrf"]
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="2_02rqu"]
 [ext_resource type="PackedScene" uid="uid://co5rrhms11k5w" path="res://Scenes/Frogs/FrogTypes/tropical_frog.tscn" id="3_jj3p0"]
+[ext_resource type="PackedScene" uid="uid://yanyexrlae6i" path="res://Scenes/Frogs/FrogTypes/small_frog.tscn" id="4_t7haa"]
+[ext_resource type="PackedScene" uid="uid://bg6ctvvup7aag" path="res://Scenes/Frogs/FrogTypes/fat_frog.tscn" id="5_1xgr4"]
+[ext_resource type="PackedScene" uid="uid://dblq15rpmoe78" path="res://Scenes/Frogs/FrogTypes/mud_frog.tscn" id="6_ur5lr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwwjv"]
 size = Vector2(1474, 299)
 
 [node name="FrogSpawner" type="Node2D"]
 script = ExtResource("1_4lyrf")
-frog_scenes = Array[PackedScene]([ExtResource("2_02rqu"), ExtResource("3_jj3p0")])
+frog_scenes = Array[PackedScene]([ExtResource("2_02rqu"), ExtResource("3_jj3p0"), ExtResource("4_t7haa"), ExtResource("5_1xgr4"), ExtResource("6_ur5lr")])
 starting_frog_count = 3
 
 [node name="SpawnArea" type="Area2D" parent="."]
