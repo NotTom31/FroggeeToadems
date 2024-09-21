@@ -1,10 +1,12 @@
 extends State
 class_name FrogJump
 
-@export var jump_speed := 40.0
-@export var jump_height := 500.0
+@export var min_horizontal_distance := 80.0
+@export var max_horizontal_distance := 300.0
+@export var min_jump_height := 600.0
+@export var max_jump_height := 1500.0
 @export var jump_animation: String = "jump"
-@export var rotation_target := 90.0
+var rotation_target := 90.0
 @export var rotation_speed := 3.0  # Speed of rotation lerp
 
 var original_rotation = 0.0
@@ -13,10 +15,11 @@ var has_jumped: bool = false
 
 func randomize_jump_direction():
 	var direction = randf_range(-1, 1)
-	jump_direction = Vector2(direction, -1).normalized()
+	jump_direction = Vector2(direction, -1)
 
 func Enter():
 	has_jumped = false
+	frog.enable_gravity()
 	randomize_jump_direction()
 	jump()
 
@@ -25,8 +28,13 @@ func Exit():
 
 func jump():
 	if frog:
+		if frog.is_sprite_flipped:
+			rotation_target = 90
+		else:
+			rotation_target = -90
 		$"../../AnimatedSprite2D".play("jump")
-		frog.velocity = jump_direction * jump_speed
+		frog.velocity = jump_direction * randf_range(min_horizontal_distance, max_horizontal_distance)
+		var jump_height = randf_range(min_jump_height, max_jump_height)
 		frog.velocity.y = -jump_height
 		has_jumped = true
 		frog.rotation_degrees = rotation_target

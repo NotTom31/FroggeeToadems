@@ -1,6 +1,8 @@
 class_name LevelManager extends Node2D
 
 @export var frog_slots : Array[FrogSlot] = []
+var state : ClickState = ClickState.DEFAULT
+enum ClickState { DEFAULT, WAND }
 
 func _ready() -> void:
 	pass
@@ -12,7 +14,7 @@ func remove_frog_slot(slot : FrogSlot) -> void:
 	frog_slots.erase(slot)
 
 func closest_open_frog_slot(pos : Vector2) -> FrogSlot:
-	var distance = 100
+	var distance = 150
 	var result : FrogSlot = null
 	for fs in frog_slots:
 		if (not fs.is_open()):
@@ -33,3 +35,26 @@ func _on_frog_deselected(frog: BasicFrog, pos: Vector2) -> void:
 	frog.Transitioned.emit("FrogStacked")
 	frog.assign_to_slot(slot)
 	frog.snap_to_slot(slot)
+
+func _on_frog_spawner_spawned_frog(frog: BasicFrog) -> void:
+	add_frog_slot(frog.get_head_slot())
+	frog.frog_deselected.connect(self._on_frog_deselected)
+	frog.lvl_manager = self
+
+func set_state(s: ClickState) -> void:
+	state = s
+
+func _on_wand_button_pressed() -> void:
+	if state == ClickState.WAND:
+		state = ClickState.DEFAULT
+	else:
+		state = ClickState.WAND
+
+func check_for_magic(list : Array[MagicManager.FrogType]) -> void:
+	set_state(ClickState.DEFAULT)
+	var spell_index = $MagicManager.evaluate_frog_stack(list)
+	$MagicManager.cast_spell(spell_index)
+
+
+func _on_magic_manager_summon(type: MagicManager.FrogType) -> void:
+	$FrogSpawner.spawn_frog_random_loc(type)

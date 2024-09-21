@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg6ctvvup7aag"]
+
+[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_wieqn"]
+[ext_resource type="Texture2D" uid="uid://cy5acv5h4fr25" path="res://Assets/Art/Frogs/blink/04_plink.png" id="2_5ledk"]
+[ext_resource type="Texture2D" uid="uid://dc4o64v0upcbd" path="res://Assets/Art/Frogs/resting/04_rest.png" id="3_d78p0"]
+[ext_resource type="Texture2D" uid="uid://cfgmm1d6vb0nn" path="res://Assets/Art/Frogs/jumping/04_jump.png" id="4_6x04a"]
+[ext_resource type="Texture2D" uid="uid://c432posuoo6w0" path="res://Assets/Art/Frogs/charging/04_charge.png" id="4_k3vli"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45081"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5ledk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d78p0")
+}],
+"loop": false,
+"name": &"blink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_k3vli")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d78p0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6x04a")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[node name="FatFrog" instance=ExtResource("1_wieqn")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_45081")
+
+[node name="ClickableArea" parent="Area2D" index="0"]
+position = Vector2(4, -32.5)
+
+[node name="SlotOnHead" parent="." index="3"]
+position = Vector2(0, -89)
