@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvtntsg168do7"]
+[gd_scene load_steps=20 format=3 uid="uid://cvtntsg168do7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/shop_screen.gd" id="1_cb10l"]
 [ext_resource type="Texture2D" uid="uid://cebvr8v8iyh46" path="res://Assets/Art/Temp/Shopkeep temp.png" id="2_o25yn"]
@@ -11,6 +11,94 @@
 [ext_resource type="Texture2D" uid="uid://ti5l4qbllufo" path="res://Assets/Art/Temp/Cats/purrzerk.png" id="9_qqeyb"]
 [ext_resource type="Texture2D" uid="uid://d0124ydgm3g78" path="res://Assets/Art/Temp/Cats/Void.png" id="10_qboy3"]
 [ext_resource type="Texture2D" uid="uid://biaaf0qhrkdab" path="res://Assets/Art/Temp/Cats/WeirdGuy.png" id="11_10rt7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c34nb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_5d1sc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xnwrk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_tw00s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8tpb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_qqeyb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcc2p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h7exv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82u7m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_10rt7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkbol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qboy3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sb6ov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bq43l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8doj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rs11m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ShopScreen" type="Control"]
 layout_mode = 3
@@ -115,45 +203,45 @@ text = "3
 layout_mode = 2
 text = "6"
 
-[node name="PlagueCat" type="Sprite2D" parent="."]
+[node name="PlagueCat" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1461, 825)
-texture = ExtResource("8_5d1sc")
+sprite_frames = SubResource("SpriteFrames_c34nb")
 
-[node name="Maskcat" type="Sprite2D" parent="."]
+[node name="Maskcat" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1450, 829)
-texture = ExtResource("7_tw00s")
+sprite_frames = SubResource("SpriteFrames_xnwrk")
 
-[node name="Purrzerk" type="Sprite2D" parent="."]
+[node name="Purrzerk" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1482, 781)
-texture = ExtResource("9_qqeyb")
+sprite_frames = SubResource("SpriteFrames_t8tpb")
 
-[node name="ChadCat" type="Sprite2D" parent="."]
+[node name="ChadCat" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1528, 707)
-texture = ExtResource("3_h7exv")
+sprite_frames = SubResource("SpriteFrames_jcc2p")
 
-[node name="WeirdGuy" type="Sprite2D" parent="."]
+[node name="WeirdGuy" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1548, 852)
-texture = ExtResource("11_10rt7")
+sprite_frames = SubResource("SpriteFrames_82u7m")
 
-[node name="Void" type="Sprite2D" parent="."]
+[node name="Void" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1486, 638)
-texture = ExtResource("10_qboy3")
+sprite_frames = SubResource("SpriteFrames_wkbol")
 
-[node name="Gorf" type="Sprite2D" parent="."]
+[node name="Gorf" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1456, 797)
-texture = ExtResource("6_bq43l")
+sprite_frames = SubResource("SpriteFrames_sb6ov")
 
-[node name="Eyecat" type="Sprite2D" parent="."]
+[node name="Eyecat" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1498, 784)
-texture = ExtResource("5_rs11m")
+sprite_frames = SubResource("SpriteFrames_8doj2")
 
 [connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/one" to="." method="_on_one_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/four" to="." method="_on_four_pressed"]
