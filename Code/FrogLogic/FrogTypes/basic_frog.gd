@@ -2,6 +2,7 @@ class_name BasicFrog
 extends CharacterBody2D
 
 @export var gravity := 980.0
+@export var type : MagicManager.FrogType
 
 var StateMachine
 var selected = false
@@ -62,7 +63,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			assign_to_slot(null)
 		else:
 			selected = false
-			frog_deselected.emit(self, position)
+			frog_deselected.emit(self, global_position)
 	#else:
 	#		selected = false
 	#		collision_layer = original_layer
@@ -81,7 +82,7 @@ func assign_to_slot(new_slot: FrogSlot) -> void:
 		on_lillypad = false
 
 func snap_to_slot(slot: FrogSlot) -> void:
-	position = slot.global_position - $FrogBase.position
+	global_position = slot.global_position - $FrogBase.position
 	$AnimatedSprite2D.rotation = 0
 	var frog_on_top : BasicFrog = $SlotOnHead.inhabitant
 	disable_gravity()
@@ -108,3 +109,13 @@ func _on_mouse_exited() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	pass # Replace with function body.
+
+func get_held_frog_types() -> Array[MagicManager.FrogType]:
+	var types_above : Array[MagicManager.FrogType] = []
+	if $SlotOnHead.inhabitant != null:
+		types_above = $SlotOnHead.inhabitant.get_held_frog_types()
+	types_above.append(type)
+	return types_above
+	
+func get_head_slot() -> FrogSlot:
+	return $SlotOnHead

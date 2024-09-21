@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmyoepqcthyk3"]
+
+[ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_vtql1"]
+[ext_resource type="Texture2D" uid="uid://ht4x4rlup3a2" path="res://Assets/Art/Temp/swamp_firstpass.png" id="2_8jfdj"]
+[ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Legacy/temp_ground.tscn" id="3_uut75"]
+[ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_sfsj8"]
+[ext_resource type="PackedScene" uid="uid://c4oeq4iblkrbg" path="res://Scenes/Frogs/frog_spawner.tscn" id="5_xmpy1"]
+[ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="6_nu3jn"]
+[ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="8_yx1j8"]
+
+[node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots")]
+script = ExtResource("1_vtql1")
+frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot")]
+
+[node name="SwampFirstpass" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("2_8jfdj")
+
+[node name="Node2D" parent="." instance=ExtResource("3_uut75")]
+position = Vector2(949, 1089)
+scale = Vector2(40, 1)
+
+[node name="SpawnFrogUI" parent="." instance=ExtResource("4_sfsj8")]
+offset_left = 172.0
+offset_top = 106.0
+offset_right = 172.0
+offset_bottom = 106.0
+
+[node name="FrogSpawner" parent="." instance=ExtResource("5_xmpy1")]
+position = Vector2(929, 254)
+
+[node name="Lillypads" type="Node2D" parent="."]
+
+[node name="Lillypad" parent="Lillypads" instance=ExtResource("6_nu3jn")]
+position = Vector2(785, 873)
+
+[node name="Lillypad2" parent="Lillypads" instance=ExtResource("6_nu3jn")]
+position = Vector2(1149, 869)
+
+[node name="Lillypad3" parent="Lillypads" instance=ExtResource("6_nu3jn")]
+position = Vector2(1552, 875)
+
+[node name="FrogDetectionArea" parent="." instance=ExtResource("8_yx1j8")]
+
+[node name="CollisionShape2D" parent="FrogDetectionArea" index="0"]
+position = Vector2(962, 1006)
+
+[connection signal="spawned_frog" from="FrogSpawner" to="." method="_on_frog_spawner_spawned_frog"]
+
+[editable path="FrogSpawner"]
+[editable path="Lillypads/Lillypad"]
+[editable path="Lillypads/Lillypad2"]
+[editable path="Lillypads/Lillypad3"]
+[editable path="FrogDetectionArea"]

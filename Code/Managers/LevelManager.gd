@@ -33,3 +33,8 @@ func _on_frog_deselected(frog: BasicFrog, pos: Vector2) -> void:
 	frog.Transitioned.emit("FrogStacked")
 	frog.assign_to_slot(slot)
 	frog.snap_to_slot(slot)
+
+
+func _on_frog_spawner_spawned_frog(frog: BasicFrog) -> void:
+	add_frog_slot(frog.get_head_slot())
+	frog.frog_deselected.connect(self._on_frog_deselected)
