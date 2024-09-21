@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://d25bf5qdgn1h5"]
+
+[ext_resource type="Texture2D" uid="uid://cc1xaaeiuebob" path="res://Assets/Art/Background/swamp_bg.png" id="1_jx6j7"]
+[ext_resource type="Script" path="res://Scenes/Environment/BGMovement.gd" id="1_ytghr"]
+[ext_resource type="Texture2D" uid="uid://dnqgahd5c5vr0" path="res://Assets/Art/Background/swamp_boat.png" id="2_71lmq"]
+[ext_resource type="Texture2D" uid="uid://g8ana2dxoy5j" path="res://Assets/Art/Background/swamp_clouds.png" id="3_wpigx"]
+[ext_resource type="Texture2D" uid="uid://dxsm7miy15646" path="res://Assets/Art/Background/swamp_sky.png" id="4_84yqa"]
+
+[node name="Background" type="Node2D"]
+script = ExtResource("1_ytghr")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Swamp" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -1
+
+[node name="SwampBg" type="Sprite2D" parent="ParallaxBackground/Swamp"]
+position = Vector2(960, 540)
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("1_jx6j7")
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -2
+motion_mirroring = Vector2(2160, 0)
+
+[node name="SwampClouds" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(3635, 55)
+scale = Vector2(-0.1, 0.1)
+texture = ExtResource("3_wpigx")
+
+[node name="SwampClouds2" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(448, 100)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_wpigx")
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -3
+
+[node name="SwampSky" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(960, 540)
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("4_84yqa")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 3
+
+[node name="Boat" type="ParallaxLayer" parent="ParallaxBackground2"]
+z_index = 3
+
+[node name="SwampBoat" type="Sprite2D" parent="ParallaxBackground2/Boat"]
+z_index = 3
+position = Vector2(386, 980)
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("2_71lmq")
