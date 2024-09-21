@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvyqvkbgjt7bg"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_teiuy"]
-[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="1_tfouu"]
+[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_tfouu"]
 [ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="2_5w5hf"]
 [ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="4_2w2l3"]
 

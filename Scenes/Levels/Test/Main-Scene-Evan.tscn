@@ -49,6 +49,7 @@ position = Vector2(962, 1006)
 
 [connection signal="spawned_frog" from="FrogSpawner" to="." method="_on_frog_spawner_spawned_frog"]
 
+[editable path="FrogSpawner"]
 [editable path="Lillypads/Lillypad"]
 [editable path="Lillypads/Lillypad2"]
 [editable path="Lillypads/Lillypad3"]

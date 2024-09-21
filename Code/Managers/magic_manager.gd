@@ -1,6 +1,6 @@
 class_name MagicManager extends Node2D
 
-enum FrogType { BASIC, TROPICAL, SMALL, FAT }
+enum FrogType { BASIC, TROPICAL, SMALL, FAT, MUD }
 
 var spell_table = [
 	{ FrogType.BASIC : 3 }, 											#0: summon tropical

@@ -63,7 +63,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			assign_to_slot(null)
 		else:
 			selected = false
-			frog_deselected.emit(self, position)
+			frog_deselected.emit(self, global_position)
 	#else:
 	#		selected = false
 	#		collision_layer = original_layer
@@ -82,7 +82,7 @@ func assign_to_slot(new_slot: FrogSlot) -> void:
 		on_lillypad = false
 
 func snap_to_slot(slot: FrogSlot) -> void:
-	position = slot.global_position - $FrogBase.position
+	global_position = slot.global_position - $FrogBase.position
 	$AnimatedSprite2D.rotation = 0
 	var frog_on_top : BasicFrog = $SlotOnHead.inhabitant
 	disable_gravity()

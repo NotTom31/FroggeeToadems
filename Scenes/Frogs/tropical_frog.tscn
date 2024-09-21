@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://co5rrhms11k5w"]
-
-[ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/basic_frog.tscn" id="1_1chco"]
-
-[node name="TropicalFrog" instance=ExtResource("1_1chco")]
-type = 1

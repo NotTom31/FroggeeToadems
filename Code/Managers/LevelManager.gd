@@ -18,7 +18,6 @@ func closest_open_frog_slot(pos : Vector2) -> FrogSlot:
 		if (not fs.is_open()):
 			continue
 		var temp_dist = pos.distance_to(fs.global_position)
-		print("temp dist = ", temp_dist)
 		if (temp_dist < distance):
 			distance = temp_dist
 			result = fs
