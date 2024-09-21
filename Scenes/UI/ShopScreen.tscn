@@ -1,16 +1,41 @@
-[gd_scene load_steps=20 format=3 uid="uid://cvtntsg168do7"]
+[gd_scene load_steps=28 format=3 uid="uid://cvtntsg168do7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/shop_screen.gd" id="1_cb10l"]
-[ext_resource type="Texture2D" uid="uid://cebvr8v8iyh46" path="res://Assets/Art/Temp/Shopkeep temp.png" id="2_o25yn"]
+[ext_resource type="Texture2D" uid="uid://c1mxqvoh2dh0o" path="res://Assets/Art/Characters/CAT mc 2.png" id="2_s28g5"]
 [ext_resource type="Texture2D" uid="uid://bpsciivj2iixp" path="res://Assets/Art/Temp/Cats/ChadCat.png" id="3_h7exv"]
+[ext_resource type="Texture2D" uid="uid://xrmv1ydbsl0b" path="res://Assets/Art/Characters/CAT mc 1.png" id="3_lq388"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="4_xtrl7"]
+[ext_resource type="Texture2D" uid="uid://g312f37lgn0m" path="res://Assets/Art/Characters/Customer3.png" id="5_raguu"]
 [ext_resource type="Texture2D" uid="uid://dmbp5uydwdtmg" path="res://Assets/Art/Temp/Cats/eyecat.png" id="5_rs11m"]
-[ext_resource type="Texture2D" uid="uid://dgkq1ee8cxrl3" path="res://Assets/Art/Temp/Cats/Gorf.png" id="6_bq43l"]
-[ext_resource type="Texture2D" uid="uid://deqr6bmsmg53b" path="res://Assets/Art/Temp/Cats/maskcat.png" id="7_tw00s"]
 [ext_resource type="Texture2D" uid="uid://coag40tplua1v" path="res://Assets/Art/Temp/Cats/PlagueCat.png" id="8_5d1sc"]
 [ext_resource type="Texture2D" uid="uid://ti5l4qbllufo" path="res://Assets/Art/Temp/Cats/purrzerk.png" id="9_qqeyb"]
-[ext_resource type="Texture2D" uid="uid://d0124ydgm3g78" path="res://Assets/Art/Temp/Cats/Void.png" id="10_qboy3"]
-[ext_resource type="Texture2D" uid="uid://biaaf0qhrkdab" path="res://Assets/Art/Temp/Cats/WeirdGuy.png" id="11_10rt7"]
+[ext_resource type="Texture2D" uid="uid://ducm6nqv7j4g5" path="res://Assets/Art/Characters/Customer2.png" id="9_wq0xo"]
+[ext_resource type="Texture2D" uid="uid://5qt81twpxih4" path="res://Assets/Art/Characters/Customer1.png" id="10_fxf41"]
+[ext_resource type="Texture2D" uid="uid://c0l4q35svrbp4" path="res://Assets/Art/Characters/gorf.png" id="11_rv3m7"]
+[ext_resource type="Texture2D" uid="uid://byimo5w7vne1o" path="res://Assets/Art/Frogs/resting/01_rest.png" id="13_eakgr"]
+[ext_resource type="Texture2D" uid="uid://dcomocfoou50s" path="res://Assets/Art/Frogs/resting/02_rest.png" id="14_rmn3p"]
+[ext_resource type="Texture2D" uid="uid://cp4l61kebouu6" path="res://Assets/Art/Frogs/resting/03_rest.png" id="15_xr7qu"]
+[ext_resource type="Texture2D" uid="uid://dc4o64v0upcbd" path="res://Assets/Art/Frogs/resting/04_rest.png" id="16_nvjjp"]
+[ext_resource type="Texture2D" uid="uid://gnxwxsklcb51" path="res://Assets/Art/Frogs/resting/05_rest.png" id="17_n7g6i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpgtb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s28g5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lq388")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c34nb"]
 animations = [{
@@ -27,7 +52,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_tw00s")
+"texture": ExtResource("5_raguu")
 }],
 "loop": true,
 "name": &"default",
@@ -60,7 +85,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_10rt7")
+"texture": ExtResource("9_wq0xo")
 }],
 "loop": true,
 "name": &"default",
@@ -71,7 +96,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_qboy3")
+"texture": ExtResource("10_fxf41")
 }],
 "loop": true,
 "name": &"default",
@@ -82,7 +107,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_bq43l")
+"texture": ExtResource("11_rv3m7")
 }],
 "loop": true,
 "name": &"default",
@@ -100,6 +125,49 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_daanw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_eakgr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_rmn3p")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_xr7qu")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_nvjjp")
+}],
+"loop": true,
+"name": &"new_animation_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_n7g6i")
+}],
+"loop": true,
+"name": &"new_animation_3",
+"speed": 5.0
+}]
+
 [node name="ShopScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -109,17 +177,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cb10l")
 
-[node name="ShopkeepTemp" type="Sprite2D" parent="."]
-position = Vector2(176, 877)
-scale = Vector2(-1, 1)
-texture = ExtResource("2_o25yn")
-region_enabled = true
-region_rect = Rect2(749.436, 0, 348.564, 417.876)
+[node name="Shopkeep" type="AnimatedSprite2D" parent="."]
+position = Vector2(1702, 827)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_kpgtb")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 800.0
-offset_bottom = 500.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -452.0
+offset_right = 400.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -140,16 +215,20 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Text" type="Label" parent="Panel/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(700, 230)
+custom_minimum_size = Vector2(700, 300)
 layout_mode = 2
 text = "Placeholder Order"
 autowrap_mode = 3
 
-[node name="NextButton" parent="Panel/MarginContainer2/VBoxContainer" instance=ExtResource("4_xtrl7")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="NextButton" parent="Panel/MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("4_xtrl7")]
 layout_mode = 2
 text = "Next"
 
-[node name="NextButton2" parent="Panel/MarginContainer2/VBoxContainer" instance=ExtResource("4_xtrl7")]
+[node name="ResetButton" parent="Panel/MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("4_xtrl7")]
 layout_mode = 2
 text = "Reset"
 
@@ -205,43 +284,154 @@ text = "6"
 
 [node name="PlagueCat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1461, 825)
+position = Vector2(343, 859)
+scale = Vector2(1.9, 1.9)
 sprite_frames = SubResource("SpriteFrames_c34nb")
 
 [node name="Maskcat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1450, 829)
+position = Vector2(338, 843)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_xnwrk")
 
 [node name="Purrzerk" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1482, 781)
+position = Vector2(256, 869)
 sprite_frames = SubResource("SpriteFrames_t8tpb")
 
 [node name="ChadCat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1528, 707)
+position = Vector2(331, 801)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jcc2p")
 
 [node name="WeirdGuy" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1548, 852)
+position = Vector2(296, 814)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_82u7m")
 
 [node name="Void" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1486, 638)
+position = Vector2(293, 704)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wkbol")
 
 [node name="Gorf" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1456, 797)
+position = Vector2(373, 892)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_sb6ov")
 
 [node name="Eyecat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1498, 784)
+position = Vector2(299, 814)
 sprite_frames = SubResource("SpriteFrames_8doj2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 604.0
+offset_right = 608.0
+offset_bottom = 651.0
+scale = Vector2(13.5, 4.51853)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.0
+offset_top = 64.0001
+offset_right = -373.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20.56, 5.32)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 607.0
+offset_top = 676.0
+offset_right = 648.0
+offset_bottom = 699.0
+text = "Basic"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 739.0
+offset_top = 683.0
+offset_right = 740.0
+offset_bottom = 706.0
+text = "Tropical"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+offset_left = 904.0
+offset_top = 734.0
+offset_right = 947.0
+offset_bottom = 757.0
+text = "Small"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1060.0
+offset_top = 683.0
+offset_right = 1103.0
+offset_bottom = 706.0
+text = "Large"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1246.0
+offset_top = 679.0
+offset_right = 1281.0
+offset_bottom = 702.0
+text = "Mud"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(564, 711)
+scale = Vector2(0.1, 0.11)
+sprite_frames = SubResource("SpriteFrames_daanw")
+animation = &"new_animation_3"
+offset = Vector2(700, 500)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(714, 707)
+scale = Vector2(0.1, 0.11)
+sprite_frames = SubResource("SpriteFrames_daanw")
+animation = &"new_animation"
+offset = Vector2(700, 500)
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(860, 710)
+scale = Vector2(0.1, 0.11)
+sprite_frames = SubResource("SpriteFrames_daanw")
+animation = &"new_animation_1"
+offset = Vector2(700, 500)
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(1020, 714)
+scale = Vector2(0.1, 0.11)
+sprite_frames = SubResource("SpriteFrames_daanw")
+animation = &"new_animation_2"
+offset = Vector2(700, 500)
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(1200, 709)
+scale = Vector2(0.1, 0.11)
+sprite_frames = SubResource("SpriteFrames_daanw")
+offset = Vector2(700, 500)
 
 [connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/one" to="." method="_on_one_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/four" to="." method="_on_four_pressed"]
