@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmyoepqcthyk3"]
+[gd_scene load_steps=9 format=3 uid="uid://bmyoepqcthyk3"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_vtql1"]
 [ext_resource type="Texture2D" uid="uid://ht4x4rlup3a2" path="res://Assets/Art/Temp/swamp_firstpass.png" id="2_8jfdj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_sfsj8"]
 [ext_resource type="PackedScene" uid="uid://c4oeq4iblkrbg" path="res://Scenes/Frogs/frog_spawner.tscn" id="5_xmpy1"]
 [ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="6_nu3jn"]
+[ext_resource type="PackedScene" uid="uid://dmr6oqf0ghcpp" path="res://Scenes/UI/Wand.tscn" id="8_onmxr"]
 [ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="8_yx1j8"]
 
 [node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots")]
@@ -33,24 +34,35 @@ position = Vector2(929, 254)
 
 [node name="Lillypads" type="Node2D" parent="."]
 
-[node name="Lillypad" parent="Lillypads" instance=ExtResource("6_nu3jn")]
+[node name="Lillypad" parent="Lillypads" node_paths=PackedStringArray("lvl_manager") instance=ExtResource("6_nu3jn")]
 position = Vector2(785, 873)
+lvl_manager = NodePath("../..")
 
-[node name="Lillypad2" parent="Lillypads" instance=ExtResource("6_nu3jn")]
+[node name="Lillypad2" parent="Lillypads" node_paths=PackedStringArray("lvl_manager") instance=ExtResource("6_nu3jn")]
 position = Vector2(1149, 869)
+lvl_manager = NodePath("../..")
 
-[node name="Lillypad3" parent="Lillypads" instance=ExtResource("6_nu3jn")]
+[node name="Lillypad3" parent="Lillypads" node_paths=PackedStringArray("lvl_manager") instance=ExtResource("6_nu3jn")]
 position = Vector2(1552, 875)
+lvl_manager = NodePath("../..")
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("8_yx1j8")]
 
 [node name="CollisionShape2D" parent="FrogDetectionArea" index="0"]
 position = Vector2(962, 1006)
 
+[node name="Wand" parent="." instance=ExtResource("8_onmxr")]
+offset_left = 1718.0
+offset_top = 143.0
+offset_right = 1718.0
+offset_bottom = 143.0
+
 [connection signal="spawned_frog" from="FrogSpawner" to="." method="_on_frog_spawner_spawned_frog"]
+[connection signal="pressed" from="Wand/Button" to="." method="_on_wand_button_pressed"]
 
 [editable path="FrogSpawner"]
 [editable path="Lillypads/Lillypad"]
 [editable path="Lillypads/Lillypad2"]
 [editable path="Lillypads/Lillypad3"]
 [editable path="FrogDetectionArea"]
+[editable path="Wand"]
