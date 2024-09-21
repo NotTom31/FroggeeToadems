@@ -29,23 +29,25 @@ var spell_table = [
 	{ FrogType.SMALL : 2 },		# 1: summon basic
 	{ FrogType.FAT : 2 },		# 2: summon basic
 	{ FrogType.MUD : 2 },		# 3: summon basic
-	{ FrogType.BASIC : 3 },		# 4: summon tropical
-	{ FrogType.TROPICAL : 3 },	# 5: summon mud
-	{ FrogType.BASIC : 2, FrogType.TROPICAL : 2 }, # 6: summon small
-	{ FrogType.SMALL : 3, FrogType.MUD : 3 } # 7: summon fat
+	{ FrogType.BASIC : 2 },		# 4: summon basic
+	{ FrogType.BASIC : 3 },		# 5: summon tropical
+	{ FrogType.TROPICAL : 3 },	# 6: summon mud
+	{ FrogType.BASIC : 2, FrogType.TROPICAL : 2 }, # 7: summon small
+	{ FrogType.SMALL : 3, FrogType.MUD : 3 }, # 8: summon fat
+	
 ]
 signal Summon(type: FrogType)
 func cast_spell(index : int) -> void:
 	match index:
-		0, 1, 2, 3:
+		0, 1, 2, 3, 4:
 			Summon.emit(FrogType.BASIC)
-		4:
-			Summon.emit(FrogType.TROPICAL)
 		5:
-			Summon.emit(FrogType.MUD)
+			Summon.emit(FrogType.TROPICAL)
 		6:
-			Summon.emit(FrogType.SMALL)
+			Summon.emit(FrogType.MUD)
 		7:
+			Summon.emit(FrogType.SMALL)
+		8:
 			Summon.emit(FrogType.FAT)
 		_:
 			print("tried to cast an invalid spell")

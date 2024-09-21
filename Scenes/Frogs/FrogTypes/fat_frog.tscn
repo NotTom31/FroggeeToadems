@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="FatFrog" instance=ExtResource("1_wieqn")]
+type = 3
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_45081")

@@ -57,6 +57,7 @@ size = Vector2(268.333, 105)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skv3v"]
 
 [node name="BasicFrog" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_rxiyf")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
