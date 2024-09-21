@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogTypes/basic_frog.gd" id="1_rxiyf"]
 [ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_vs8rj"]
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogSwim.gd" id="3_vmf1d"]
-[ext_resource type="PackedScene" path="res://Scenes/Frogs/frog_slot.tscn" id="3_xwux3"]
+[ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="3_xwux3"]
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogJump.gd" id="4_2ejmw"]
 [ext_resource type="Texture2D" uid="uid://db8mb14ndu0rl" path="res://Assets/Art/Frogs/blink/02_plink1.png" id="5_djsem"]
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogHold.gd" id="5_wsoji"]
@@ -95,7 +95,7 @@ z_index = 1
 position = Vector2(3, -2)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_uccbn")
-animation = &"blink"
+animation = &"jump"
 offset = Vector2(0, -150)
 
 [node name="Area2D" type="Area2D" parent="."]
