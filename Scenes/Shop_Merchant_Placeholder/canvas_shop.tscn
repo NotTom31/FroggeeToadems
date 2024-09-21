@@ -1,177 +1,175 @@
-[gd_scene load_steps=13 format=3 uid="uid://i6igjyki2wqp"]
+[gd_scene load_steps=8 format=3 uid="uid://i6igjyki2wqp"]
 
 [ext_resource type="Script" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.gd" id="1_mnvbs"]
-[ext_resource type="Texture2D" uid="uid://f1m8kag1kp4d" path="res://Assets/Visuals/Sprites/Shop_Placeholder/01_dish.png" id="2_umcx8"]
-[ext_resource type="Texture2D" uid="uid://bbbwqwxppjge5" path="res://Assets/Visuals/Sprites/Shop_Placeholder/89_salmon_dish.png" id="3_fsnn4"]
-[ext_resource type="Texture2D" uid="uid://dldqpsb1so2s4" path="res://Assets/Visuals/Sprites/Shop_Placeholder/91_strawberrycake_dish.png" id="4_bl3hg"]
-
-[sub_resource type="Animation" id="Animation_fscui"]
-resource_name = "Transition_In"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -300), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_gbbgq"]
-resource_name = "Transition_Out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 300)]
-}
+[ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_mhcmu"]
 
 [sub_resource type="Animation" id="Animation_mwk8s"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
+tracks/0/path = NodePath("Menu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -300)]
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ceqh4"]
+resource_name = "Transition_Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1155)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_s3bhq"]
+resource_name = "Transition_In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1155), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_gloa7"]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1155)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5c88"]
 _data = {
 "RESET": SubResource("Animation_mwk8s"),
-"Transition_In": SubResource("Animation_fscui"),
-"Transition_Out": SubResource("Animation_gbbgq")
+"Start": SubResource("Animation_gloa7"),
+"Transition_In": SubResource("Animation_s3bhq"),
+"Transition_Out": SubResource("Animation_ceqh4")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dtpkc"]
-atlas = ExtResource("2_umcx8")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d78l5"]
-atlas = ExtResource("3_fsnn4")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_50vn2"]
-atlas = ExtResource("4_bl3hg")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2n6qq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dtpkc")
-}],
-"loop": true,
-"name": &"default_plate",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d78l5")
-}],
-"loop": true,
-"name": &"salmon_plate",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_50vn2")
-}],
-"loop": true,
-"name": &"strawberrycake_plate",
-"speed": 5.0
-}]
 
 [node name="Canvas_Shop" type="CanvasLayer"]
 process_mode = 3
-offset = Vector2(0, -300)
-transform = Transform2D(1, 0, 0, 1, 0, -300)
 script = ExtResource("1_mnvbs")
+
+[node name="Open_Button" parent="." instance=ExtResource("2_mhcmu")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -362.0
+offset_top = 29.0
+offset_right = -36.0
+offset_bottom = 120.0
+grow_horizontal = 0
+text = "Open Shop"
 
 [node name="Animation_Panel" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_w5c88")
 }
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 300.0
-offset_top = 406.0
-offset_right = 1585.0
-offset_bottom = 1179.0
-
-[node name="Button_Close" type="Button" parent="."]
-offset_left = 1335.0
-offset_top = 441.0
-offset_right = 1544.0
-offset_bottom = 524.0
-text = "C l o s e"
-
-[node name="Control" type="Control" parent="."]
+[node name="Menu" type="Control" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="AnimSprite" type="AnimatedSprite2D" parent="Control"]
-position = Vector2(937, 774)
-scale = Vector2(6.21875, 5.6875)
-sprite_frames = SubResource("SpriteFrames_2n6qq")
-animation = &"default_plate"
+[node name="Panel" type="Panel" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Name_Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 882.0
-offset_top = 604.0
-offset_right = 1067.0
-offset_bottom = 679.0
-text = "Name_Label
-"
+[node name="Back_Button" parent="Menu" instance=ExtResource("2_mhcmu")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -473.0
+offset_top = 28.0
+offset_right = -30.0
+offset_bottom = 119.0
+grow_horizontal = 0
+text = "Return To Boat"
 
-[node name="Description_Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 851.0
-offset_top = 971.0
-offset_right = 1066.0
-offset_bottom = 1095.0
-text = "Description_Label
-"
-
-[node name="Button_Next" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 1046.0
-offset_top = 935.0
-offset_right = 1339.0
-offset_bottom = 1070.0
-text = ">"
-
-[node name="Button_Previous" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 614.0
-offset_top = 934.0
-offset_right = 762.0
-offset_bottom = 1043.0
-text = "<"
-
-[node name="Button_Purchase" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 856.0
-offset_top = 1034.0
-offset_right = 996.0
-offset_bottom = 1139.0
-text = "Purchase"
-
-[connection signal="pressed" from="Button_Close" to="." method="_on_button_close_pressed"]
+[connection signal="pressed" from="Open_Button" to="." method="_on_open_button_pressed"]
+[connection signal="pressed" from="Menu/Back_Button" to="." method="_on_back_button_pressed"]
