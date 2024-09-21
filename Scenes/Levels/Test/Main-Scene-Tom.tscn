@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cog6dh2xtn66n"]
+[gd_scene load_steps=9 format=3 uid="uid://cog6dh2xtn66n"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
 [ext_resource type="PackedScene" uid="uid://i6igjyki2wqp" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.tscn" id="2_llarb"]
@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_v13fq"]
 [ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="3_fwopu"]
 [ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Legacy/temp_ground.tscn" id="3_iya8w"]
-[ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="4_3nqnf"]
 [ext_resource type="PackedScene" uid="uid://cv05e0eutaagt" path="res://Scenes/UI/spawn_frog_ui.tscn" id="4_kr1ir"]
 [ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="6_fo3t6"]
+[ext_resource type="PackedScene" uid="uid://c4oeq4iblkrbg" path="res://Scenes/Frogs/frog_spawner.tscn" id="6_p8e6y"]
 
 [node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots")]
 script = ExtResource("1_fwoa8")
-frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot"), NodePath("Frogs/BasicFrog/SlotOnHead"), NodePath("Frogs/BasicFrog2/SlotOnHead"), NodePath("Frogs/BasicFrog3/SlotOnHead"), NodePath("OtherSlots/FrogSlot"), NodePath("OtherSlots/FrogSlot2"), NodePath("OtherSlots/FrogSlot3"), NodePath("OtherSlots/FrogSlot4")]
+frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot")]
 
 [node name="Background" parent="." instance=ExtResource("2_v13fq")]
 
@@ -28,54 +28,27 @@ offset_top = 106.0
 offset_right = 172.0
 offset_bottom = 106.0
 
-[node name="Frogs" type="Node2D" parent="."]
-
-[node name="BasicFrog" parent="Frogs" instance=ExtResource("2_u2ubl")]
-position = Vector2(1477, 625)
-
-[node name="BasicFrog2" parent="Frogs" instance=ExtResource("2_u2ubl")]
-position = Vector2(884, 579)
-
-[node name="BasicFrog3" parent="Frogs" instance=ExtResource("2_u2ubl")]
-position = Vector2(1158, 442)
+[node name="FrogSpawner" parent="." instance=ExtResource("6_p8e6y")]
+position = Vector2(980, 261)
 
 [node name="Lillypads" type="Node2D" parent="."]
 
 [node name="Lillypad" parent="Lillypads" instance=ExtResource("3_fwopu")]
-position = Vector2(785, 873)
+position = Vector2(776, 720)
 
 [node name="Lillypad2" parent="Lillypads" instance=ExtResource("3_fwopu")]
-position = Vector2(1149, 869)
+position = Vector2(1140, 716)
 
 [node name="Lillypad3" parent="Lillypads" instance=ExtResource("3_fwopu")]
-position = Vector2(1552, 875)
-
-[node name="OtherSlots" type="Node2D" parent="."]
-
-[node name="FrogSlot" parent="OtherSlots" instance=ExtResource("4_3nqnf")]
-position = Vector2(632, 888)
-
-[node name="FrogSlot2" parent="OtherSlots" instance=ExtResource("4_3nqnf")]
-position = Vector2(962, 888)
-
-[node name="FrogSlot3" parent="OtherSlots" instance=ExtResource("4_3nqnf")]
-position = Vector2(1342, 885)
-
-[node name="FrogSlot4" parent="OtherSlots" instance=ExtResource("4_3nqnf")]
-position = Vector2(1710, 892)
+position = Vector2(1543, 722)
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("6_fo3t6")]
 
 [node name="CollisionShape2D" parent="FrogDetectionArea" index="0"]
 position = Vector2(962, 1006)
 
-[connection signal="frog_deselected" from="Frogs/BasicFrog" to="." method="_on_frog_deselected"]
-[connection signal="frog_deselected" from="Frogs/BasicFrog2" to="." method="_on_frog_deselected"]
-[connection signal="frog_deselected" from="Frogs/BasicFrog3" to="." method="_on_frog_deselected"]
+[connection signal="spawned_frog" from="FrogSpawner" to="." method="_on_frog_spawner_spawned_frog"]
 
-[editable path="Frogs/BasicFrog"]
-[editable path="Frogs/BasicFrog2"]
-[editable path="Frogs/BasicFrog3"]
 [editable path="Lillypads/Lillypad"]
 [editable path="Lillypads/Lillypad2"]
 [editable path="Lillypads/Lillypad3"]
