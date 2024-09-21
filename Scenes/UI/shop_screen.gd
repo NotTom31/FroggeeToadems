@@ -1,13 +1,25 @@
 extends Node
 
 var customers_text = [
-	{"name": "Customer 1", "dialogues": ["Hello!", "I'd like a potion.", "Thank you!"]},
-	{"name": "Customer 2", "dialogues": ["Hi there!", "Can you help me?", "I need something special."]},
-	{"name": "Customer 3", "dialogues": ["Greetings!", "I need some frogs.", "Hurry up!"]},
-	{"name": "Customer 4", "dialogues": ["What's up?", "One potion, please!", "Make it quick."]},
-	{"name": "Customer 5", "dialogues": ["Hello!", "Do you have potions?", "I'll take that one."]},
-	{"name": "Customer 6", "dialogues": ["Hey!", "I need something strong.", "Is that all?"]},
-	{"name": "Customer 7", "dialogues": ["Hi!", "Just browsing today.", "Maybe next time."]}
+	{"name": "Plague cat: ", "dialogues": ["Yeeack cheche rrowr. Ah hem! Pardon me; Scratch fever still spreads, a great many claws are stuck sunken into tree casings.  ", " For my cure I will need ____ and ____. Please help", "lest Alpha Meatball notch my ears for my failure"]},
+	{"name": "Mask cat: ", "dialogues": ["Hi there!", "Can you help me?", "I need something special."]},
+	{"name": "Scar cat: ", "dialogues": ["Greetings!", "I need some frogs.", "Hurry up!"]},
+	{"name": "Chuddly: ", "dialogues": ["What's up?", "One potion, please!", "Make it quick."]},
+	{"name": "Minnum Cat: ", "dialogues": ["Hello!", "Do you have potions?", "I'll take that one."]},
+	{"name": "Void spawns: ", "dialogues": ["Hey!", "I need something strong.", "Yummers"]},
+	{"name": "Gorf: ", "dialogues": ["Hi!", "Just browsing today.", "give potion"]},
+	{"name": "Eye: ", "dialogues": ["Hi!", "Just browsing today.", "Give potion"]}
+]
+
+@onready var customer_sprites = [
+	$PlagueCat,
+	$Maskcat,
+	$Purrzerk,
+	$ChadCat,
+	$WeirdGuy,
+	$Void,
+	$Gorf,
+	$Eyecat
 ]
 
 var current_customer_id = -1
@@ -44,6 +56,10 @@ func update_customer_by_id(customer_id: int):
 		var customer_data = customers_text[customer_id]
 		name_label.text = customer_data["name"]
 		dialogue_label.text = ""  # Clear dialogue initially
+		
+		for i in range(customer_sprites.size()):
+			customer_sprites[i].visible = (i == customer_id)
+		
 		display_next_dialogue()
 	else:
 		print("Invalid customer ID:", customer_id)
@@ -89,4 +105,33 @@ func _on_RestartButton_pressed():
 func _ready():
 	next_button.connect("pressed", Callable(self, "_on_NextButton_pressed"))
 	restart_button.connect("pressed", Callable(self, "_on_RestartButton_pressed"))
-	update_customer_by_id(0)  # Test
+
+
+
+
+
+
+
+
+func _on_one_pressed() -> void:
+	update_customer_by_id(0)
+
+func _on_four_pressed() -> void:
+	update_customer_by_id(3)
+	
+func _on_seven_pressed() -> void:
+	update_customer_by_id(6)
+func _on_two_pressed() -> void:
+	update_customer_by_id(1)
+	
+func _on_five_pressed() -> void:
+	update_customer_by_id(4)
+	
+func _on_eight_pressed() -> void:
+	update_customer_by_id(7)
+
+func _on_three_pressed() -> void:
+	update_customer_by_id(2)
+	
+func _on_six_pressed() -> void:
+	update_customer_by_id(5)
