@@ -12,26 +12,18 @@ extends Node2D
 
 var sound_config = {
 	#boing has 4 sound path options
-	"hoverclick": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/click1_-6dB.wav", "res://Assets/Audio/SFX/click2_-6dB.wav"]],
-	"click" : [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/click1_-6dB.wav","res://Assets/Audio/SFX/click2_-6dB.wav"]],
 	"boing1": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/boing_1_-7dB.wav","res://Assets/Audio/SFX/boing_2_-7dB.wav","res://Assets/Audio/SFX/boing_3_-7dB.wav","res://Assets/Audio/SFX/boing_4_-7dB.wav"]],
 	"bounce_charge": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/bounce_charge1_-7dB.wav", "res://Assets/Audio/SFX/bounce_charge2_-7dB.wav"]],
 	"frog_snap": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/frogsnap_-7dB.wav"]],
-	"lilysnap" : [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/lilypadimpact_-8dB.wav"]],
 	"magic" : [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/magic5_-5dB.wav"]],
 	"tiny_ribbit" : [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_tiny1_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny2_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny3_-9dB.wav"]],
 	"default_ribbit": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_normal1_-8dB.wav","res://Assets/Audio/SFX/ribbit_normal2_-8dB.wav"]],
 	"big_ribbit": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbitBIG_-8dB.wav"]],
-	"ribbit1": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_normal1_-8dB.wav"]],
-	"ribbit2": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_normal2_-8dB.wav"]],
-	"splash_big": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_big_-6dB.wav"]],
 	"splash_med": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_medium_-6dB.wav"]],
-	"splash_small": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_small_-6dB.wav"]],
-	"splash_tiny": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_tiny_-6dB.wav"]],
 	"menu_click": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/click1_-6dB.wav", "res://Assets/Audio/SFX/Newstufftoadd/click2_-6dB.wav"]],
 	"menu_hover": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/hoverclick1_-7dB.wav", "res://Assets/Audio/SFX/Newstufftoadd/hoverclick2_-7dB.wav"]],
 	"lillypad_impact": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/lilypadimpact_-8dB.wav"]],
-	"magic": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/magic5_-5dB.wav"]]
+	
 }
 
 
