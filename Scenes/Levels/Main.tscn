@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvtali2vs2aak"]
+
+[ext_resource type="Script" path="res://Code/Levels/main.gd" id="1_aqv4j"]
+[ext_resource type="PackedScene" uid="uid://cwk0xas0ckfjo" path="res://Scenes/UI/MainMenu.tscn" id="2_aetre"]
+[ext_resource type="PackedScene" uid="uid://1k1rcvp03xma" path="res://Scenes/Managers/sound_manager.tscn" id="3_5lday"]
+[ext_resource type="PackedScene" uid="uid://cecmdnni7erii" path="res://Scenes/UI/SettingsMenu.tscn" id="3_j6fab"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aqv4j")
+
+[node name="SoundManager" parent="." instance=ExtResource("3_5lday")]
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_j6fab")]
+layout_mode = 1
+
+[node name="Main Menu" parent="." node_paths=PackedStringArray("main") instance=ExtResource("2_aetre")]
+layout_mode = 1
+offset_left = -1.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = -8.0
+main = NodePath("..")

@@ -6,10 +6,12 @@ extends Control
 @onready var settings_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/SettingsButton as Button
 @onready var credits_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/CreditsButton as Button
 @onready var exit_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/QuitButton as Button
-@onready var game_level = preload("res://Scenes/Levels/Test/Main-Scene-Tom.tscn") as PackedScene
-@onready var settings_menu = preload("res://Scenes/UI/SettingsMenu.tscn") as PackedScene
+#@onready var settings_menu = preload("res://Scenes/UI/SettingsMenu.tscn") as PackedScene
 @onready var credits_menu = preload("res://Scenes/UI/CreditsMenu.tscn") as PackedScene
+@onready var sound_manager = $"../SoundManager"
+@onready var settings_menu = $"../SettingsMenu"
 
+@export var main : Main
 
 func _ready():
 	start_button.button_down.connect(on_start_pressed)
@@ -19,11 +21,15 @@ func _ready():
 	
 	
 func on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(game_level)
+	main.open_gameplay(0)
+	queue_free()
+	#
 
 func on_settings_pressed() -> void:
-	var scene_instance = settings_menu.instantiate()
-	add_child(scene_instance)
+	#var scene_instance = settings_menu.instantiate()
+	#add_child(scene_instance)
+	settings_menu.z_index = 101
+	sound_manager.z_index = 100
 
 func on_credits_pressed() -> void:
 	var scene_instance = credits_menu.instantiate()
