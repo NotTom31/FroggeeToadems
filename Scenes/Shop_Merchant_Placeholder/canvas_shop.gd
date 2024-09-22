@@ -15,6 +15,8 @@ func _on_back_button_pressed() -> void:
 	$Open_Button.visible = true
 
 func _on_open_button_pressed() -> void:
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).play_shop_music(true)
 	animation.play("Transition_In")
 	$Open_Button.visible = false
 	get_tree().paused = true
@@ -23,3 +25,5 @@ func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "Transition_Out":
 		# Unpause the game after the "Transition_Out" animation finishes
 		get_tree().paused = false
+		if get_tree().root.get_child(0) is Main:
+			get_tree().root.get_child(0).play_shop_music(false)

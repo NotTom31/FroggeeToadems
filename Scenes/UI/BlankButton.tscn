@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://baeaj55y6xd38"]
+[gd_scene load_steps=2 format=3 uid="uid://baeaj55y6xd38"]
+
+[ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_t12y7"]
 
 [node name="BlankButton" type="Button"]
+theme_override_fonts/font = ExtResource("1_t12y7")
 theme_override_font_sizes/font_size = 60
 text = "test"
