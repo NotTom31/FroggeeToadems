@@ -2,11 +2,16 @@ class_name LevelManager extends Node2D
 
 @export var frog_slots : Array[FrogSlot] = []
 @export var dialogue : ShopScreen
+@export var canvas_shop : CanvasShop
 var state : ClickState = ClickState.DEFAULT
 enum ClickState { DEFAULT, WAND }
 
-func _ready() -> void:
+func open_lvl_1() -> void:
 	dialogue.tac_dialogue()
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).play_shop_music(true)
+	canvas_shop.animation.play("Transition_In")
+	get_tree().paused = true
 	
 func add_frog_slot(slot : FrogSlot) -> void:
 	frog_slots.append(slot)

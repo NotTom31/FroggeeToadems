@@ -2,19 +2,25 @@ class_name Main
 extends Node2D
 
 @onready var game_level = preload("res://Scenes/Levels/Test/Main-Scene-Tom.tscn") as PackedScene
+@onready var level_select = preload("res://Scenes/UI/level_select.tscn") as PackedScene
 @onready var main_menu = preload("res://Scenes/UI/MainMenu.tscn") as PackedScene
 @export var sound_manager : SoundManager
 @export var background : Background
 
 var level_num : int
 
-func open_gameplay(level):
+func open_gameplay(level : int):
 	level_num = level
 	var game = game_level.instantiate()
 	var game_root = $"."
 	game_root.add_child(game)
-	#var num_children = get_child_count()
-	#move_child(game, num_children - 1)
+	shopkeep_visible(true)
+	game.open_lvl_1()
+
+func open_level_select():
+	var game = level_select.instantiate()
+	var game_root = $"."
+	game_root.add_child(game)
 
 func open_menu():
 	var menu = main_menu.instantiate()

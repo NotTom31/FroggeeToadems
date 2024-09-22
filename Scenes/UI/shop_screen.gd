@@ -50,7 +50,7 @@ var customers_text = [
 ]
 
 
-@onready var shopkeep = $Shopkeep
+#@onready var shopkeep = $Shopkeep
 
 @onready var customer_sprites = [
 	$PlagueCat,
@@ -134,7 +134,9 @@ func display_next_dialogue():
 				dialogue_label.text = "" 
 				display_next_dialogue()
 		else:
-			tac_talking = false
+			if tac_talking:
+				tac_talking = false
+				update_customer_by_id(0)
 			print("No more dialogues for this customer")
 			next_button.disabled = false 
 
@@ -143,9 +145,7 @@ func display_word(words: Array):
 	if current_word_index < words.size():
 		dialogue_label.text += words[current_word_index] + " "
 		current_word_index += 1
-		tac_talk(true)
 		await get_tree().create_timer(dialogue_speed).timeout  
-		tac_talk(false)
 		display_word(words)  
 	else:
 		is_displaying = false 
@@ -218,7 +218,6 @@ func tac_dialogue() -> void:
 	update_customer_by_id(8)
 	tac_talking = true
 	
-func tac_talk(is_talk : bool):
-	pass
+#func tac_talk(is_talk : bool):
 	#if get_tree().root.get_child(0) is Main:
 		#get_tree().root.get_child(0).shopkeep_talk(is_talk)

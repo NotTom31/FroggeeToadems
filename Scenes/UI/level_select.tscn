@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://s287jheea2pp"]
+
+[ext_resource type="Script" path="res://Code/Levels/level_select.gd" id="1_f2yya"]
+[ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_vksv0"]
+[ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_cwy8l"]
+
+[node name="LevelSelect" type="CanvasLayer"]
+script = ExtResource("1_f2yya")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -33.0
+offset_right = 130.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vksv0")
+theme_override_font_sizes/font_size = 80
+text = "Level Select:"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BlankButton" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource("2_cwy8l")]
+layout_mode = 2
+text = "Level 1"
+
+[node name="BlankButton2" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource("2_cwy8l")]
+layout_mode = 2
+text = "Level 2"
+
+[node name="BlankButton3" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource("2_cwy8l")]
+layout_mode = 2
+text = "Level 3"
+
+[node name="BlankButton4" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource("2_cwy8l")]
+layout_mode = 2
+text = "Level 4"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BlankButton5" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
+layout_mode = 2
+text = "Level 5"
+
+[node name="BlankButton6" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
+layout_mode = 2
+text = "Level 6"
+
+[node name="BlankButton7" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
+layout_mode = 2
+text = "Level 7"
+
+[node name="BlankButton8" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
+layout_mode = 2
+text = "Level 7"
+
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/BlankButton" to="." method="_on_blank_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/BlankButton2" to="." method="_on_blank_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/BlankButton3" to="." method="_on_blank_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/BlankButton4" to="." method="_on_blank_button_4_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer2/BlankButton5" to="." method="_on_blank_button_5_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer2/BlankButton6" to="." method="_on_blank_button_6_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer2/BlankButton7" to="." method="_on_blank_button_7_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer2/BlankButton8" to="." method="_on_blank_button_8_pressed"]
