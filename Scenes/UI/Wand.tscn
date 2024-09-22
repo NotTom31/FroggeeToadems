@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dmr6oqf0ghcpp"]
+[gd_scene load_steps=2 format=3 uid="uid://dmr6oqf0ghcpp"]
+
+[ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="1_hdvb6"]
 
 [node name="Wand" type="Control"]
 layout_mode = 3
@@ -8,8 +10,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" parent="." instance=ExtResource("1_hdvb6")]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+theme_override_colors/font_disabled_color = Color(0.635294, 0.705882, 0.223529, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.635294, 0.705882, 0.223529, 1)
+theme_override_colors/font_hover_color = Color(0.635294, 0.705882, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.635294, 0.705882, 0.223529, 1)
+toggle_mode = true
 text = "Wand"

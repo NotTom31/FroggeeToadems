@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://baeaj55y6xd38"]
+[gd_scene load_steps=14 format=3 uid="uid://baeaj55y6xd38"]
 
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_t12y7"]
 [ext_resource type="Texture2D" uid="uid://wptdqqdmjfw5" path="res://Assets/Art/button1.png" id="2_sdamx"]
@@ -12,7 +12,25 @@ texture = ExtResource("2_sdamx")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rf4da"]
 texture = ExtResource("2_sdamx")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yanjr"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dewl"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svmh5"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4ecc"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c83af"]
+texture = ExtResource("2_sdamx")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2flv3"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdm07"]
 texture = ExtResource("2_sdamx")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16dta"]
@@ -27,6 +45,12 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxTexture_k2yaa")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_g8tww")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_rf4da")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_yanjr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_5dewl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_svmh5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l4ecc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_c83af")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2flv3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_tdm07")
 theme_override_styles/normal = SubResource("StyleBoxTexture_16dta")
 text = "test"
