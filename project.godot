@@ -28,7 +28,7 @@ project/assembly_name="Wild Jam Tower"
 [importer_defaults]
 
 wav={
-"edit/loop_mode": 1
+"edit/loop_mode": 2
 }
 
 [layer_names]

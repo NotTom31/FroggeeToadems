@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="2_jp7r5"]
 [ext_resource type="AudioStream" uid="uid://g8pr71g4ak1h" path="res://Assets/Audio/Music/GWJ73_MX_main_layer00_0frogs_73bpm.wav" id="3_reb4f"]
 [ext_resource type="AudioStream" uid="uid://cnsvybkk4xp8w" path="res://Assets/Audio/Music/GWJ73_MX_main_layer01_oneOrMoreFrogs_73bpm.wav" id="4_6y7wp"]
-[ext_resource type="AudioStream" uid="uid://k0i1i5dio0e4" path="res://Assets/Audio/SFX/old/cricketgen2.wav" id="4_ahb3m"]
 [ext_resource type="AudioStream" uid="uid://kijxj3q23ga3" path="res://Assets/Audio/Music/GWJ73_MX_main_layer02_threeOrMoreFrogs_73bpm.wav" id="5_j571n"]
 [ext_resource type="AudioStream" uid="uid://bshox67kh3ndh" path="res://Assets/Audio/Music/GWJ73_MX_main_layer03_fiveOrMoreFrogs_73bpm.wav" id="6_0qftb"]
 [ext_resource type="AudioStream" uid="uid://c20rsptc8ne00" path="res://Assets/Audio/Music/GWJ73_MX_main_layer04_sevenOrMoreFrogs_73bpm.wav" id="7_lmont"]
 [ext_resource type="AudioStream" uid="uid://b0u8sb11o8ps" path="res://Assets/Audio/Music/GWJ73_MX_shop_73bpm.wav" id="8_5fs21"]
+[ext_resource type="AudioStream" uid="uid://bju1ghlonq5x4" path="res://Assets/Audio/SFX/GWJ73_SFX_AMB_loop_-13dB.wav" id="9_3ex0a"]
 
 [node name="SoundManager" type="Node2D"]
 z_as_relative = false
@@ -19,6 +19,15 @@ offset_left = 608.0
 offset_top = 224.0
 offset_right = 608.0
 offset_bottom = 224.0
+
+[node name="MXSlider" parent="AudioManagerControls/HBoxContainer/VBoxContainer" index="1"]
+value = 0.6
+
+[node name="FXSlider" parent="AudioManagerControls/HBoxContainer/VBoxContainer" index="2"]
+value = 0.6
+
+[node name="ATMSlider" parent="AudioManagerControls/HBoxContainer/VBoxContainer" index="3"]
+value = 0.6
 
 [node name="MainToggle" parent="AudioManagerControls/HBoxContainer/VBoxContainer2" index="0"]
 button_pressed = true
@@ -57,7 +66,8 @@ stream = ExtResource("8_5fs21")
 bus = &"MXSHOP"
 
 [node name="PickupATM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ahb3m")
+stream = ExtResource("9_3ex0a")
+volume_db = -20.295
 bus = &"ATM"
 
 [node name="PickupSFX1" type="AudioStreamPlayer" parent="."]
