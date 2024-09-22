@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cecmdnni7erii"]
+[gd_scene load_steps=3 format=3 uid="uid://cecmdnni7erii"]
 
 [ext_resource type="Script" path="res://Code/UI/settings_menu.gd" id="1_iv60s"]
-[ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="2_17ken"]
-[ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_ww785"]
+[ext_resource type="PackedScene" uid="uid://1k1rcvp03xma" path="res://Scenes/Managers/sound_manager.tscn" id="2_4yrp4"]
 
 [node name="SettingsMenu" type="Control"]
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,6 +55,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
+[node name="SoundManager" parent="Panel" instance=ExtResource("2_4yrp4")]
+position = Vector2(-124, 61)
+
 [node name="MarginContainer2" type="MarginContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -70,21 +73,3 @@ theme_override_constants/margin_bottom = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer2"]
 layout_mode = 2
 alignment = 1
-
-[node name="AudioManagerControls" parent="Panel/MarginContainer2/HBoxContainer" instance=ExtResource("2_17ken")]
-layout_mode = 2
-
-[node name="BackButton" parent="." instance=ExtResource("2_ww785")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -178.0
-offset_top = -118.0
-offset_right = -32.0
-offset_bottom = -27.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Back"

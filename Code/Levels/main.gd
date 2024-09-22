@@ -1,0 +1,23 @@
+class_name Main
+extends Node2D
+
+@onready var game_level = preload("res://Scenes/Levels/Test/Main-Scene-Tom.tscn") as PackedScene
+@onready var main_menu = preload("res://Scenes/UI/MainMenu.tscn") as PackedScene
+@export var sound_manager : SoundManager
+
+var level_num : int
+
+func open_gameplay(level):
+	level_num = level
+	var game = game_level.instantiate()
+	var game_root = $"."
+	game_root.add_child(game)
+	#var num_children = get_child_count()
+	#move_child(game, num_children - 1)
+
+func open_menu():
+	var menu = main_menu.instantiate()
+	add_child(menu)
+
+func play_sound(name : String):
+	sound_manager.play_sfx(name)

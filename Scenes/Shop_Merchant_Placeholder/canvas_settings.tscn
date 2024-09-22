@@ -1,0 +1,173 @@
+[gd_scene load_steps=9 format=3 uid="uid://snde5c6srxnl"]
+
+[ext_resource type="Script" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.gd" id="1_bbqlg"]
+[ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_1wyxg"]
+[ext_resource type="PackedScene" uid="uid://cecmdnni7erii" path="res://Scenes/UI/SettingsMenu.tscn" id="3_wq3tp"]
+
+[sub_resource type="Animation" id="Animation_mwk8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gloa7"]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1155)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_s3bhq"]
+resource_name = "Transition_In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1155), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_ceqh4"]
+resource_name = "Transition_Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1155)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5c88"]
+_data = {
+"RESET": SubResource("Animation_mwk8s"),
+"Start": SubResource("Animation_gloa7"),
+"Transition_In": SubResource("Animation_s3bhq"),
+"Transition_Out": SubResource("Animation_ceqh4")
+}
+
+[node name="Canvas_Settings" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_bbqlg")
+
+[node name="Open_Button" parent="." instance=ExtResource("2_1wyxg")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1894.0
+offset_top = 27.0
+offset_right = -1794.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "Pause"
+
+[node name="Animation_Panel" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w5c88")
+}
+
+[node name="Menu" type="Control" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsMenu" parent="Menu" instance=ExtResource("3_wq3tp")]
+layout_mode = 1
+
+[node name="Back_Button" parent="Menu" instance=ExtResource("2_1wyxg")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1893.0
+offset_top = 26.0
+offset_right = -1793.0
+offset_bottom = 76.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "Pause"
+
+[connection signal="pressed" from="Open_Button" to="." method="_on_open_button_pressed"]
+[connection signal="pressed" from="Menu/Back_Button" to="." method="_on_back_button_pressed"]
+
+[editable path="Open_Button"]
