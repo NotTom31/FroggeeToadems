@@ -2,7 +2,9 @@ class_name BasicFrog
 extends CharacterBody2D
 
 @export var gravity := 980.0
+@export var type : MagicManager.FrogType
 
+var lvl_manager : LevelManager
 var StateMachine
 var selected = false
 var mouse_velocity = Vector2()  # To track mouse movement velocity
@@ -10,6 +12,7 @@ var max_velocity = 900  # Cap how fast we can throw the frogs
 var max_rotation_angle = deg_to_rad(40) 
 var rotation_speed = 3  # How fast the rotation should change
 var mouse_position
+var is_sprite_flipped = false
 
 var original_layer: int
 var original_mask: int
@@ -54,15 +57,22 @@ func apply_rotation_based_on_velocity(delta: float) -> void:
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if not selected:
-			selected = true
-			Transitioned.emit("FrogHold")
-			collision_layer = 0
-			velocity = Vector2.ZERO
-			assign_to_slot(null)
-		else:
-			selected = false
-			frog_deselected.emit(self, position)
+		if lvl_manager.state == LevelManager.ClickState.DEFAULT:
+			if not selected:
+				selected = true
+				Transitioned.emit("FrogHold")
+				collision_layer = 0
+				velocity = Vector2.ZERO
+				assign_to_slot(null)
+			else:
+				selected = false
+				frog_deselected.emit(self, global_position)
+		elif lvl_manager.state == LevelManager.ClickState.WAND:
+			var lil = find_lillypad_below()
+			if lil != null:
+				lil.check_for_magic()
+				lil.fountain()
+			
 	#else:
 	#		selected = false
 	#		collision_layer = original_layer
@@ -81,7 +91,7 @@ func assign_to_slot(new_slot: FrogSlot) -> void:
 		on_lillypad = false
 
 func snap_to_slot(slot: FrogSlot) -> void:
-	position = slot.global_position - $FrogBase.position
+	global_position = slot.global_position - $FrogBase.position
 	$AnimatedSprite2D.rotation = 0
 	var frog_on_top : BasicFrog = $SlotOnHead.inhabitant
 	disable_gravity()
@@ -96,15 +106,51 @@ func enable_gravity() -> void:
 
 func transition_to_swim():
 	Transitioned.emit("FrogSwim")
+	
+func transition_to_jump():
+	Transitioned.emit("FrogJump")
 
 func _physics_process(delta: float):
 	# Apply gravity to velocity
 	velocity.y += gravity * delta
 	# Move the character with the applied gravity
 	move_and_slide()
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = true
+		is_sprite_flipped = true
+	elif velocity.x < 0:
+		$AnimatedSprite2D.flip_h = false
+		is_sprite_flipped = false
 
 func _on_mouse_exited() -> void:
 	selected = false #failsafe
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	pass # Replace with function body.
+
+func get_held_frog_types() -> Array[MagicManager.FrogType]:
+	var types_above : Array[MagicManager.FrogType] = []
+	if $SlotOnHead.inhabitant != null:
+		types_above = $SlotOnHead.inhabitant.get_held_frog_types()
+	types_above.append(type)
+	return types_above
+	
+func get_head_slot() -> FrogSlot:
+	return $SlotOnHead
+	
+func find_lillypad_below() -> Lillypad:
+	if slot_beneath == null:
+		return null
+	var holder_beneath = slot_beneath.get_parent()
+	if holder_beneath is BasicFrog:
+		return holder_beneath.find_lillypad_below()
+	elif holder_beneath is Lillypad:
+		return holder_beneath
+	return null
+	
+# causes this frog and all frogs standing on it to explode into a frog fountain
+func fountain() -> void:
+	var neighbor : BasicFrog = $SlotOnHead.inhabitant
+	if neighbor != null:
+		neighbor.fountain()
+	transition_to_jump()

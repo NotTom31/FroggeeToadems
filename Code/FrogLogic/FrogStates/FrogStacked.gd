@@ -9,7 +9,10 @@ func Enter():
 	set_random_blink_timer()
 
 func Exit():
-	pass
+	var fs : FrogSlot = $"../..".slot_beneath
+	if fs != null:
+		fs.inhabitant = null
+	$"../..".slot_beneath = null
 
 func set_random_blink_timer():
 	blink_timer = randf_range(3, 8)
