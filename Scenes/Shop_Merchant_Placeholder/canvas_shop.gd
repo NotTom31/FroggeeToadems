@@ -1,5 +1,6 @@
 #Brian Cabrera - 9/18/2024 - 1:10 AM
 extends CanvasLayer
+class_name CanvasShop
 
 var animation : AnimationPlayer
 
@@ -8,7 +9,7 @@ func _ready() -> void:
 	# Connect the signal 'animation_finished' to the function '_on_animation_finished'
 	animation = get_node("Animation_Panel")
 	animation.connect("animation_finished", Callable(self, "_on_animation_finished"))
-	animation.play("Start")
+	
 
 func _on_back_button_pressed() -> void:
 	animation.play("Transition_Out")
