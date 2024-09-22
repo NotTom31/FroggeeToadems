@@ -14,6 +14,7 @@ var current_game
 func open_gameplay(level : int):
 	level_num = level
 	current_game = game_level.instantiate()
+	current_game.name = "LevelManager"
 	var game_root = $"."
 	game_root.add_child(current_game)
 	frog_spawner = current_game.get_node("FrogSpawner")
@@ -42,4 +43,5 @@ func shopkeep_visible(is_visible : bool):
 func open_next_level():
 	if current_game:
 		current_game.queue_free()  # Remove the current level
+	await get_tree().create_timer(0.1).timeout
 	open_gameplay(level_num + 1)  # Increment level and open the next one

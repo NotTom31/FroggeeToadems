@@ -65,15 +65,15 @@ var frog_type_names = {
 func get_spell_output(index: int) -> String:
 	match index:
 		0, 1, 2, 3, 4:
-			return "Summons Basic Frog"
+			return "Basic Frog"
 		5:
-			return "Summons Tropical Frog"
+			return "Tropical Frog"
 		6:
-			return "Summons Mud Frog"
+			return "Mud Frog"
 		7:
-			return "Summons Small Frog"
+			return "Small Frog"
 		8:
-			return "Summons Fat Frog"
+			return "Large Frog"
 		_:
 			return "Unknown Spell"
 
