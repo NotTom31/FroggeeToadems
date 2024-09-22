@@ -139,7 +139,12 @@ func _on_mouse_exited() -> void:
 	selected = false #failsafe
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	pass # Replace with function body.
+	pass
+# removes this frog's head slot from the list of slots and deletes the frog
+func remove() -> void:
+	print("goodbye!")
+	lvl_manager.remove_frog_slot($SlotOnHead)
+	queue_free()
 
 func get_held_frog_types() -> Array[MagicManager.FrogType]:
 	var types_above : Array[MagicManager.FrogType] = []
