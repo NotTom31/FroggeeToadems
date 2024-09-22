@@ -8,12 +8,14 @@ extends Node2D
 @export var background : Background
 
 var level_num : int
+var frog_spawner
 
 func open_gameplay(level : int):
 	level_num = level
 	var game = game_level.instantiate()
 	var game_root = $"."
 	game_root.add_child(game)
+	frog_spawner = game.get_node("FrogSpawner")
 	shopkeep_visible(true)
 	game.open_lvl(level)
 
