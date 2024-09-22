@@ -15,10 +15,11 @@ script = ExtResource("1_aqv4j")
 
 [node name="Canvas_Shop" parent="." instance=ExtResource("2_4fif5")]
 
-[node name="Main Menu" parent="." node_paths=PackedStringArray("main") instance=ExtResource("2_aetre")]
+[node name="Main Menu" parent="." node_paths=PackedStringArray("settings_menu", "main") instance=ExtResource("2_aetre")]
 layout_mode = 1
 offset_left = -1.0
 offset_top = -8.0
 offset_right = -1.0
 offset_bottom = -8.0
+settings_menu = NodePath("")
 main = NodePath("..")

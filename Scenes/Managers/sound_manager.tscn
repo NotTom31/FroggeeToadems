@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://k0i1i5dio0e4" path="res://Assets/Audio/cricketgen2.wav" id="4_ahb3m"]
 
 [node name="SoundManager" type="Node2D"]
+z_as_relative = false
 script = ExtResource("1_spyt0")
 
 [node name="AudioManagerControls" parent="." instance=ExtResource("2_jp7r5")]

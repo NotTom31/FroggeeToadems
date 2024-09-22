@@ -9,7 +9,10 @@ var level_num : int
 func open_gameplay(level):
 	level_num = level
 	var game = game_level.instantiate()
-	add_child(game)
+	var game_root = $"."
+	game_root.add_child(game)
+	var num_children = get_child_count()
+	move_child(game, num_children - 1)
 
 func open_menu():
 	var menu = main_menu.instantiate()
