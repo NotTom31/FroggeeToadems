@@ -1,8 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://baeaj55y6xd38"]
+[gd_scene load_steps=8 format=3 uid="uid://baeaj55y6xd38"]
 
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_t12y7"]
+[ext_resource type="Texture2D" uid="uid://wptdqqdmjfw5" path="res://Assets/Art/button1.png" id="2_sdamx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2yaa"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8tww"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rf4da"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2flv3"]
+texture = ExtResource("2_sdamx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16dta"]
+texture = ExtResource("2_sdamx")
 
 [node name="BlankButton" type="Button"]
+theme_override_colors/font_color = Color(0.635294, 0.705882, 0.223529, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("1_t12y7")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxTexture_k2yaa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_g8tww")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rf4da")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2flv3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_16dta")
 text = "test"

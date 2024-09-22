@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/shop_screen.gd" id="1_cb10l"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="2_4oppx"]
-[ext_resource type="Texture2D" uid="uid://bpsciivj2iixp" path="res://Assets/Art/Temp/Cats/ChadCat.png" id="3_h7exv"]
+[ext_resource type="Texture2D" uid="uid://cfjg41jpp2hxa" path="res://Assets/Art/Characters/jeb.png" id="4_som7f"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="4_xtrl7"]
 [ext_resource type="Texture2D" uid="uid://g312f37lgn0m" path="res://Assets/Art/Characters/Customer3.png" id="5_raguu"]
-[ext_resource type="Texture2D" uid="uid://dmbp5uydwdtmg" path="res://Assets/Art/Temp/Cats/eyecat.png" id="5_rs11m"]
-[ext_resource type="Texture2D" uid="uid://coag40tplua1v" path="res://Assets/Art/Temp/Cats/PlagueCat.png" id="8_5d1sc"]
-[ext_resource type="Texture2D" uid="uid://ti5l4qbllufo" path="res://Assets/Art/Temp/Cats/purrzerk.png" id="9_qqeyb"]
+[ext_resource type="Texture2D" uid="uid://b7q7l34jx4wto" path="res://Assets/Art/Characters/purrzerk.png" id="6_u7svv"]
+[ext_resource type="Texture2D" uid="uid://cp60g2ok8f4uo" path="res://Assets/Art/Characters/ARRRGGH MY EYES.png" id="7_mt3am"]
 [ext_resource type="Texture2D" uid="uid://ducm6nqv7j4g5" path="res://Assets/Art/Characters/Customer2.png" id="9_wq0xo"]
 [ext_resource type="Texture2D" uid="uid://5qt81twpxih4" path="res://Assets/Art/Characters/Customer1.png" id="10_fxf41"]
+[ext_resource type="Texture2D" uid="uid://bu7y0yu2w5b4j" path="res://Assets/Art/Characters/Customer4.png" id="11_aw2yq"]
 [ext_resource type="Texture2D" uid="uid://c0l4q35svrbp4" path="res://Assets/Art/Characters/gorf.png" id="11_rv3m7"]
 [ext_resource type="Texture2D" uid="uid://byimo5w7vne1o" path="res://Assets/Art/Frogs/resting/01_rest.png" id="13_eakgr"]
 [ext_resource type="Texture2D" uid="uid://dcomocfoou50s" path="res://Assets/Art/Frogs/resting/02_rest.png" id="14_rmn3p"]
@@ -21,7 +21,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_5d1sc")
+"texture": ExtResource("4_som7f")
 }],
 "loop": true,
 "name": &"default",
@@ -43,7 +43,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_qqeyb")
+"texture": ExtResource("6_u7svv")
 }],
 "loop": true,
 "name": &"default",
@@ -54,7 +54,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_h7exv")
+"texture": ExtResource("7_mt3am")
 }],
 "loop": true,
 "name": &"default",
@@ -98,7 +98,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_rs11m")
+"texture": ExtResource("11_aw2yq")
 }],
 "loop": true,
 "name": &"default",
@@ -214,8 +214,8 @@ text = "Repeat"
 
 [node name="PlagueCat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1611, 820.5)
-scale = Vector2(1.9, 1.9)
+position = Vector2(1632, 822)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_c34nb")
 flip_h = true
 
@@ -228,14 +228,15 @@ flip_h = true
 
 [node name="Purrzerk" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1524, 830.5)
+position = Vector2(1643, 834)
+scale = Vector2(0.55, 0.55)
 sprite_frames = SubResource("SpriteFrames_t8tpb")
 flip_h = true
 
 [node name="ChadCat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1599, 762.5)
-scale = Vector2(0.8, 0.8)
+position = Vector2(1615, 733)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_jcc2p")
 flip_h = true
 
@@ -262,7 +263,8 @@ flip_h = true
 
 [node name="Eyecat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1567, 775.5)
+position = Vector2(1655, 820)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_8doj2")
 flip_h = true
 
