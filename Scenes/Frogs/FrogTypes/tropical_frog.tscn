@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co5rrhms11k5w"]
+[gd_scene load_steps=12 format=3 uid="uid://co5rrhms11k5w"]
 
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_kqv0n"]
 [ext_resource type="Texture2D" uid="uid://db8mb14ndu0rl" path="res://Assets/Art/Frogs/blink/02_plink1.png" id="2_ga1k2"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bppv148qldsei" path="res://Assets/Art/Frogs/blink/02_plink5.png" id="6_4a2g8"]
 [ext_resource type="Texture2D" uid="uid://dcomocfoou50s" path="res://Assets/Art/Frogs/resting/02_rest.png" id="7_ff734"]
 [ext_resource type="Texture2D" uid="uid://cehbkmr7frwdu" path="res://Assets/Art/Frogs/charging/02_charge.png" id="7_jrg8x"]
-[ext_resource type="Texture2D" uid="uid://cvr4vb57bl7pj" path="res://Assets/Art/Frogs/jumping/02_jump.png" id="8_f107o"]
+[ext_resource type="Texture2D" uid="uid://dbnkbq2nqemo" path="res://Assets/Art/Frogs/jumping_turned/02_jump_turned.png" id="9_spjjg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bn081"]
 animations = [{
@@ -27,6 +27,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_4a2g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ff734")
 }],
 "loop": false,
 "name": &"blink",
@@ -50,18 +53,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_f107o")
+"texture": ExtResource("9_spjjg")
 }],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnybd"]
+size = Vector2(270, 90)
+
 [node name="TropicalFrog" instance=ExtResource("1_kqv0n")]
 type = 1
 
 [node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, -2)
+scale = Vector2(0.15, 0.2)
 sprite_frames = SubResource("SpriteFrames_bn081")
 
-[node name="ClickableArea" parent="Area2D" index="0"]
-position = Vector2(2.5, -0.5)
+[node name="FrogSpriteHandler" parent="." index="2"]
+rest_sprite_position = Vector2(0, -2)
+rest_sprite_scale = Vector2(0.15, 0.2)
+rest_click_rect = Vector2(270, 90)
+jump_sprite_position = Vector2(3, 20)
+jump_sprite_scale = Vector2(0.19, 0.19)
+jump_click_rect = Vector2(270, 90)
+
+[node name="ClickableArea" parent="FrogSpriteHandler" index="0"]
+position = Vector2(3, -0.0499995)
+shape = SubResource("RectangleShape2D_vnybd")
+
+[node name="SlotOnHead" parent="." index="3"]
+position = Vector2(0, -31)

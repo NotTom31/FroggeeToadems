@@ -4,7 +4,7 @@ class_name FrogStacked
 var blink_timer : float = 0.0
 
 func Enter():
-	$"../../AnimatedSprite2D".play("idle")
+	$"../../FrogSpriteHandler".play_idle()
 	frog.disable_gravity()
 	set_random_blink_timer()
 
@@ -20,7 +20,7 @@ func set_random_blink_timer():
 func Update(delta: float):
 	blink_timer -= delta
 	if blink_timer <= 0:
-		$"../../AnimatedSprite2D".play("blink")
+		$"../../FrogSpriteHandler".play_blink()
 		set_random_blink_timer()
 
 func Physics_Update(delta: float):
