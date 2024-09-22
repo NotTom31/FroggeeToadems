@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_g16bh"]
 
 [node name="WinScreen" type="CanvasLayer"]
+layer = 7
 script = ExtResource("1_gg0ns")
 
 [node name="Label" type="Label" parent="."]

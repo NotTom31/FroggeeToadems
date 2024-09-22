@@ -217,4 +217,3 @@ func _on_submit_order_button_pressed() -> void:
 		is_win = get_tree().root.get_child(0).get_node("LevelManager").check_for_win(level_num)
 	if is_win:
 		self.visible = false
-		get_tree().paused

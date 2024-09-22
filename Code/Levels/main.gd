@@ -9,15 +9,16 @@ extends Node2D
 
 var level_num : int
 var frog_spawner : FrogSpawner
+var current_game
 
 func open_gameplay(level : int):
 	level_num = level
-	var game = game_level.instantiate()
+	current_game = game_level.instantiate()
 	var game_root = $"."
-	game_root.add_child(game)
-	frog_spawner = game.get_node("FrogSpawner")
+	game_root.add_child(current_game)
+	frog_spawner = current_game.get_node("FrogSpawner")
 	shopkeep_visible(true)
-	game.open_lvl(level)
+	current_game.open_lvl(level)
 
 func open_level_select():
 	var game = level_select.instantiate()
@@ -37,8 +38,8 @@ func play_shop_music(is_playing : bool):
 func shopkeep_visible(is_visible : bool):
 	background.shopkeep_visible(is_visible)
 
-#func shopkeep_talk(is_talk : bool):
-#	game_level.
 
-func sell_frogs(froglist : String):
-	pass
+func open_next_level():
+	if current_game:
+		current_game.queue_free()  # Remove the current level
+	open_gameplay(level_num + 1)  # Increment level and open the next one

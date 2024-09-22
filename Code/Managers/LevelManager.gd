@@ -12,10 +12,11 @@ class_name LevelManager extends Node2D
 @export var frog_requests_7 : Array[MagicManager.FrogType]
 @export var frog_requests_8 : Array[MagicManager.FrogType]
 
-@onready var win_screen = preload("res://Scenes/win_screen.tscn") as PackedScene
+#@onready var win_screen = preload("res://Scenes/win_screen.tscn") as PackedScene
 
 func _ready() -> void:
 	check_frog_total()
+	$WinScreen.visible = false
 
 func array_to_dictionary(a : Array[MagicManager.FrogType]) -> Dictionary:
 	var dict = {}
@@ -54,8 +55,7 @@ func check_for_win(level_num : int) -> bool:
 	var is_win : bool = false
 	if dictionary_satisfied(array_to_dictionary(frog_requests_1), $FrogSpawner.count_existing_frogs_by_type()):
 		is_win = true
-		var win_inst = win_screen.instantiate()
-		add_child(win_inst)
+		$WinScreen.visible = true
 	return is_win
 
 func check_frog_total():
@@ -70,7 +70,7 @@ func check_frog_total():
 				get_tree().root.get_child(0).sound_manager.change_music_layer(2)
 			8,9:
 				get_tree().root.get_child(0).sound_manager.change_music_layer(3)
-			10,11:
+			10,11,12,13,14:
 				get_tree().root.get_child(0).sound_manager.change_music_layer(4)
 			_:
 				print("too many frogs")
@@ -100,7 +100,7 @@ func open_lvl_2() -> void:
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
 	canvas_shop.animation.play("Transition_In")
-	get_tree().paused = true
+	get_tree().paused = false
 	dialogue.set_requested_frogs(1, requested_frogs)
 
 func open_lvl_3() -> void:
@@ -109,7 +109,7 @@ func open_lvl_3() -> void:
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
 	canvas_shop.animation.play("Transition_In")
-	get_tree().paused = true
+	get_tree().paused = false
 	dialogue.set_requested_frogs(2, requested_frogs)
 	
 func open_lvl_4() -> void:
@@ -118,7 +118,7 @@ func open_lvl_4() -> void:
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
 	canvas_shop.animation.play("Transition_In")
-	get_tree().paused = true
+	get_tree().paused = false
 	dialogue.set_requested_frogs(3, requested_frogs)
 
 func open_lvl_5() -> void:
@@ -127,7 +127,7 @@ func open_lvl_5() -> void:
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
 	canvas_shop.animation.play("Transition_In")
-	get_tree().paused = true
+	get_tree().paused = false
 	dialogue.set_requested_frogs(4, requested_frogs)
 
 func open_lvl_6() -> void:
@@ -136,7 +136,7 @@ func open_lvl_6() -> void:
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
 	canvas_shop.animation.play("Transition_In")
-	get_tree().paused = true
+	get_tree().paused = false
 	dialogue.set_requested_frogs(5, requested_frogs)
 
 func open_lvl_7() -> void:
@@ -145,7 +145,7 @@ func open_lvl_7() -> void:
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
 	canvas_shop.animation.play("Transition_In")
-	get_tree().paused = true
+	get_tree().paused = false
 	dialogue.set_requested_frogs(6, requested_frogs)
 
 func open_lvl_8() -> void:
@@ -154,7 +154,7 @@ func open_lvl_8() -> void:
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
 	canvas_shop.animation.play("Transition_In")
-	get_tree().paused = true
+	get_tree().paused = false
 	dialogue.set_requested_frogs(7, requested_frogs)
 
 func add_frog_slot(slot : FrogSlot) -> void:
