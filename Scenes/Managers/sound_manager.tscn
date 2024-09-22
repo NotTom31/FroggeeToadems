@@ -60,7 +60,31 @@ bus = &"MXSHOP"
 stream = ExtResource("4_ahb3m")
 bus = &"ATM"
 
-[node name="PickupSFX" type="AudioStreamPlayer" parent="."]
+[node name="PickupSFX1" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX2" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX3" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX4" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX5" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX6" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX7" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX8" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX9" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX10" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX11" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX12" type="AudioStreamPlayer" parent="."]
+
+[node name="PickupSFX13" type="AudioStreamPlayer" parent="."]
 
 [connection signal="mouse_exited" from="AudioManagerControls/HBoxContainer/VBoxContainer/MainSlider" to="." method="_on_main_slider_mouse_exited"]
 [connection signal="value_changed" from="AudioManagerControls/HBoxContainer/VBoxContainer/MainSlider" to="." method="_on_main_slider_value_changed"]
