@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://c4oeq4iblkrbg" path="res://Scenes/Frogs/frog_spawner.tscn" id="6_p8e6y"]
 
 [node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots")]
+z_index = 2
+z_as_relative = false
 script = ExtResource("1_fwoa8")
 frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot")]
 

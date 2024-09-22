@@ -11,6 +11,8 @@ func randomize_wander():
 	wander_time = randf_range(1, 3)
 
 func Enter():
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).play_sound("splash_med")
 	$"../../FrogSpriteHandler".play_jump()
 	#if frog.is_sprite_flipped:
 	#	frog.rotation_degrees = 240

@@ -27,6 +27,8 @@ func Exit():
 	frog.rotation_degrees = 0
 
 func jump():
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).play_sound("boing1")
 	if frog:
 		if frog.is_sprite_flipped:
 			rotation_target = 90
