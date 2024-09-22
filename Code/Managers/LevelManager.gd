@@ -17,6 +17,7 @@ class_name LevelManager extends Node2D
 func _ready() -> void:
 	check_frog_total()
 	$WinScreen.visible = false
+	$GameOver.visible = false
 
 func array_to_dictionary(a : Array[MagicManager.FrogType]) -> Dictionary:
 	var dict = {}
@@ -57,6 +58,13 @@ func check_for_win(level_num : int) -> bool:
 		is_win = true
 		$WinScreen.visible = true
 	return is_win
+
+#func _process(delta: float) -> void:
+#	check_for_game_over()
+
+func check_for_game_over():
+	if $FrogSpawner.count_total_frogs() <= 1:
+		$GameOver.visible = true
 
 func check_frog_total():
 	if get_tree().root.get_child(0) is Main:

@@ -144,6 +144,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func remove() -> void:
 	print("goodbye!")
 	lvl_manager.remove_frog_slot($SlotOnHead)
+	lvl_manager.check_for_game_over()
 	queue_free()
 
 func get_held_frog_types() -> Array[MagicManager.FrogType]:

@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://obqx55nrrvox"]
+
+[ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_menkc"]
+[ext_resource type="Script" path="res://Scenes/UI/game_over.gd" id="1_mqtqj"]
+[ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_n1hxs"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_mqtqj")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -25.5
+offset_right = 301.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_menkc")
+theme_override_font_sizes/font_size = 50
+text = "Your frogs all swam away"
+
+[node name="RestartButton" parent="." instance=ExtResource("2_n1hxs")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 84.0
+offset_right = 60.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[node name="MenuButton" parent="." instance=ExtResource("2_n1hxs")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = 166.0
+offset_right = 109.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

@@ -45,3 +45,9 @@ func open_next_level():
 		current_game.queue_free()  # Remove the current level
 	await get_tree().create_timer(0.1).timeout
 	open_gameplay(level_num + 1)  # Increment level and open the next one
+
+func restart_level():
+	if current_game:
+		current_game.queue_free()
+	await get_tree().create_timer(0.1).timeout
+	open_gameplay(level_num)
