@@ -199,6 +199,7 @@ func _on_RestartButton_pressed():
 func _ready():
 	next_button.connect("pressed", Callable(self, "_on_NextButton_pressed"))
 	restart_button.connect("pressed", Callable(self, "_on_RestartButton_pressed"))
+	self.visible = true
 
 func tac_dialogue() -> void:
 	update_customer_by_id(8)
@@ -211,5 +212,9 @@ func tac_dialogue() -> void:
 var level_num = 0
 
 func _on_submit_order_button_pressed() -> void:
+	var is_win : bool
 	if get_tree().root.get_child(0) is Main:
-		get_tree().root.get_child(0).get_node("LevelManager").check_for_win(level_num)
+		is_win = get_tree().root.get_child(0).get_node("LevelManager").check_for_win(level_num)
+	if is_win:
+		self.visible = false
+		get_tree().paused

@@ -14,6 +14,8 @@ func _ready() -> void:
 func _on_back_button_pressed() -> void:
 	animation.play("Transition_Out")
 	$Open_Button.visible = true
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).get_node("LevelManager").check_frog_total()
 
 func _on_open_button_pressed() -> void:
 	if get_tree().root.get_child(0) is Main:

@@ -30,6 +30,9 @@ func spawn_frog(type : MagicManager.FrogType, loc : Vector2) -> void:
 	frog_parents[type].add_child(frog_inst)
 	frog_inst.global_position = loc
 	spawned_frog.emit(frog_inst)
+	
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).get_node("LevelManager").check_frog_total()
 
 func count_frogs_of_type(type : MagicManager.FrogType) -> int:
 	return frog_parents[type].get_children().size()

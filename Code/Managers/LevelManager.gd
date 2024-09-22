@@ -12,6 +12,11 @@ class_name LevelManager extends Node2D
 @export var frog_requests_7 : Array[MagicManager.FrogType]
 @export var frog_requests_8 : Array[MagicManager.FrogType]
 
+@onready var win_screen = preload("res://Scenes/win_screen.tscn") as PackedScene
+
+func _ready() -> void:
+	check_frog_total()
+
 func array_to_dictionary(a : Array[MagicManager.FrogType]) -> Dictionary:
 	var dict = {}
 	for f in a:
@@ -45,10 +50,31 @@ var frog_table = {
 	MagicManager.FrogType.MUD : "Mud Frog", 
 }
 
-func check_for_win(level_num : int):
+func check_for_win(level_num : int) -> bool:
+	var is_win : bool = false
 	if dictionary_satisfied(array_to_dictionary(frog_requests_1), $FrogSpawner.count_existing_frogs_by_type()):
-		print("win")
-	
+		is_win = true
+		var win_inst = win_screen.instantiate()
+		add_child(win_inst)
+	return is_win
+
+func check_frog_total():
+	if get_tree().root.get_child(0) is Main:
+		match $FrogSpawner.count_total_frogs():
+			0,1,2,3:
+				get_tree().root.get_child(0).sound_manager.change_music_layer(0)
+			4,5:
+				get_tree().root.get_child(0).sound_manager.change_music_layer(1)
+				print("wow more frogs")
+			6,7:
+				get_tree().root.get_child(0).sound_manager.change_music_layer(2)
+			8,9:
+				get_tree().root.get_child(0).sound_manager.change_music_layer(3)
+			10,11:
+				get_tree().root.get_child(0).sound_manager.change_music_layer(4)
+			_:
+				print("too many frogs")
+
 
 func dictionary_satisfied(requirement : Dictionary, check : Dictionary) -> bool:
 	var result := true
