@@ -40,12 +40,15 @@ func follow_mouse(delta: float, offset: Vector2) -> void:
 	# Calculate the velocity of the mouse
 	offset -= $FrogBase.position
 	mouse_position = get_global_mouse_position()
-	mouse_velocity = (mouse_position - global_position) / delta  # Calculate velocity
+	mouse_velocity = (mouse_position - global_position + offset) / delta  # Calculate velocity
 	global_position = mouse_position + offset
 	apply_rotation_based_on_velocity(delta)
-	var frog_on_head : BasicFrog = $SlotOnHead.inhabitant
+	var frog_on_head = get_frog_on_head()
 	if frog_on_head != null:
 		frog_on_head.follow_mouse(delta, offset + $SlotOnHead.position)
+
+func get_frog_on_head() -> BasicFrog:
+	return $SlotOnHead.inhabitant
 
 func apply_rotation_based_on_velocity(delta: float) -> void:
 	var horizontal_speed = mouse_velocity.x
@@ -117,6 +120,9 @@ func transition_to_swim():
 func transition_to_jump():
 	Transitioned.emit("FrogJump")
 
+func transition_to_fall():
+	Transitioned.emit("FrogFall")
+
 func _physics_process(delta: float):
 	# Apply gravity to velocity
 	velocity.y += gravity * delta
@@ -157,7 +163,13 @@ func find_lillypad_below() -> Lillypad:
 	
 # causes this frog and all frogs standing on it to explode into a frog fountain
 func fountain() -> void:
-	var neighbor : BasicFrog = $SlotOnHead.inhabitant
-	if neighbor != null:
-		neighbor.fountain()
+	var frog_on_head : BasicFrog = get_frog_on_head()
+	if frog_on_head != null:
+		frog_on_head.fountain()
 	transition_to_jump()
+
+func tumble() -> void:
+	var frog_on_head : BasicFrog = get_frog_on_head()
+	if frog_on_head != null:
+		frog_on_head.tumble()
+	transition_to_fall()

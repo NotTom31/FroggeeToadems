@@ -20,6 +20,7 @@ func randomize_jump_direction():
 func Enter():
 	has_jumped = false
 	frog.enable_gravity()
+	frog.assign_to_slot(null)
 	randomize_jump_direction()
 	jump()
 
