@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cog6dh2xtn66n"]
+[gd_scene load_steps=12 format=3 uid="uid://cog6dh2xtn66n"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
 [ext_resource type="PackedScene" uid="uid://bt7d6gfh7wrho" path="res://Scenes/Managers/MagicManager.tscn" id="2_k1b8b"]
@@ -9,8 +9,8 @@
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="4_gxfrq"]
 [ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="6_fo3t6"]
 [ext_resource type="PackedScene" uid="uid://c4oeq4iblkrbg" path="res://Scenes/Frogs/frog_spawner.tscn" id="6_p8e6y"]
-[ext_resource type="PackedScene" uid="uid://k6woq80dxgja" path="res://Scenes/Environment/Boundary.tscn" id="9_n32p2"]
 [ext_resource type="PackedScene" uid="uid://caup4tky6b8g7" path="res://Scenes/spell_ui.tscn" id="9_7b8ed"]
+[ext_resource type="PackedScene" uid="uid://k6woq80dxgja" path="res://Scenes/Environment/Boundary.tscn" id="9_n32p2"]
 
 [node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots", "dialogue", "canvas_shop")]
 z_index = 2
@@ -75,6 +75,7 @@ position = Vector2(2187, -1188)
 [node name="Boundary3" parent="Boundaries" instance=ExtResource("9_n32p2")]
 position = Vector2(803, 1438)
 rotation = 1.56767
+
 [node name="SpellUi" parent="." node_paths=PackedStringArray("magic") instance=ExtResource("9_7b8ed")]
 magic = NodePath("../MagicManager")
 
