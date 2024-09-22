@@ -15,7 +15,7 @@ func open_gameplay(level : int):
 	var game_root = $"."
 	game_root.add_child(game)
 	shopkeep_visible(true)
-	game.open_lvl_1()
+	game.open_lvl(level)
 
 func open_level_select():
 	var game = level_select.instantiate()

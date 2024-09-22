@@ -81,7 +81,7 @@ text = "Level 7"
 
 [node name="BlankButton8" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
 layout_mode = 2
-text = "Level 7"
+text = "Level 8"
 
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/BlankButton" to="." method="_on_blank_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/HBoxContainer/BlankButton2" to="." method="_on_blank_button_2_pressed"]

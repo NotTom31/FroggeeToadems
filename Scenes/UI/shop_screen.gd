@@ -4,47 +4,47 @@ extends Node
 var customers_text = [
 	{
 		"name": "Plague cat: ", 
-		"dialogues": ["Yeeack cheche rrowr. Ah hem! Pardon me; Scratch fever still spreads, a great many claws are stuck sunken into tree casings.  ", "For my cure I will need _ and _. Please help", "lest Alpha Meatball notch my ears for my failure."],
+		"dialogues": ["Yeeack cheche rrowr. Ah hem! Pardon me; Scratch fever still spreads, a great many claws are stuck sunken into tree casings.", "For my cure I will need _.", "lest Alpha Meatball notch my ears for my failure."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Mask cat: ", 
-		"dialogues": ["I require frogs. _, _, _.", "Their purpose? My jutsu needs a conduit from which to channel by.", "All other techniques are worthless before my eyes."],
+		"dialogues": ["I require frogs. _.", "Their purpose? My jutsu needs a conduit from which to channel by.", "All other techniques are worthless before my eyes."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Scar cat: ", 
-		"dialogues": ["Ah ha, yes, yes. I am in dire need of aid, what say you? ", "Yes, yes, I can see many of your wares. How much is it worth?", "Fine, keep your secrets. Shut up and get me _, _, _."],
+		"dialogues": ["Ah ha, yes, yes. I am in dire need of aid, what say you?", "Yes, yes, I can see many of your wares. How much is it worth?", "Fine, keep your secrets. Shut up and get me _."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Chuddly: ", 
-		"dialogues": ["Salutations my brother in Meist.", "I need your most potent frogs. Based on my opponents aura I sussed out I will cop all the bussin ones. _, _, _.", "Thank you for kino maxing. I don’t pay the tax."],
+		"dialogues": ["Salutations my brother in Meist.", "I need your most potent frogs. Based on my opponent's aura I sussed out I will cop all the bussin ones. _.", "Thank you for kino maxing. I don’t pay the tax."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Minnum Cat: ", 
-		"dialogues": ["Maow, meouu, meqw, nneow.", "*with a seemingly feline paw it motions*", "_, _, _"],
+		"dialogues": ["Maow, meouu, meqw, nneow.", "*with a seemingly feline paw it motions*", "_."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Void spawns: ", 
-		"dialogues": ["We have need of the preciouses. As our power grows so does our appetite.", "Your clipped whiskers could never fathom. We will possess the Eternal Long Stretch.", "We have foreseen. _, _, _ will guide us."],
+		"dialogues": ["We have need of the preciouses. As our power grows so does our appetite.", "Your clipped whiskers could never fathom. We will possess the Eternal Long Stretch.", "We have foreseen. _ will guide us."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Gorf: ", 
-		"dialogues": ["Hellow my fellow -croooa- Cat.", "I will purchase _, _, _, _, _, _, _, _, _. We have a family vacation planned- ughh I mean, a family feast!", "That I -ribb- I will host. *cough* *cough* sid ssey buy ist??"],
+		"dialogues": ["Hellow my fellow -croooa- Cat.", "I will purchase _. We have a family vacation planned- ughh I mean, a family feast!", "That I -ribb- I will host. *cough* *cough* sid ssey buy ist??"],
 		"requested_frogs": []
 	},
 	{
 		"name": "Eye: ", 
-		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", "The echoing answer. Frogs.", "_, _, _. I do as the void commands."],
+		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", "The echoing answer. Frogs.", "_ will do as the void commands."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Tac: ", 
-		"dialogues": ["how to play game", "stack frogs", "win"],
+		"dialogues": ["In this game you stack frogs to cast spells", "Weird I know, youll be given a spell book and a wand, once you've stacked the required frogs in any order go ahead and pick up the wand", "Click on the stack with your wand to cast your frog magic and summon another frog. We've got customers to satisfy", "Here comes our first customer of the day!"],
 		"requested_frogs": []
 	}
 ]
@@ -155,14 +155,24 @@ func display_word(words: Array):
 func replace_underscores_with_frogs(dialogue: String, customer_id: int) -> String:
 	var modified_dialogue = dialogue
 	var customer_data = customers_text[customer_id]
-	var frog_count = customer_data.get("requested_frogs", []).size()
 	var requested_frogs = customer_data.get("requested_frogs", [])
 	
-	var frog_index = 0
-	# Replace the underscores with the requested frogs
-	while modified_dialogue.find("_") != -1 and frog_index < frog_count:
-		modified_dialogue = replace_first_underscore_with_frog(modified_dialogue, requested_frogs[frog_index])
-		frog_index += 1
+	# Find the first underscore
+	var underscore_index = modified_dialogue.find("_")
+	if underscore_index != -1:
+		# Manually join all frog names with ", "
+		var frogs_list = ""
+		for i in range(requested_frogs.size()):
+			frogs_list += requested_frogs[i]
+			if i < requested_frogs.size() - 1:
+				frogs_list += ", "  # Add ", " between frog names
+		
+		# Replace the single underscore with the full list of requested frogs
+		modified_dialogue = modified_dialogue.substr(0, underscore_index) + frogs_list + modified_dialogue.substr(underscore_index + 1)
+	
+	return modified_dialogue
+
+
 
 	# If there are still underscores but no more requested frogs, use "Frog" as a fallback
 	while modified_dialogue.find("_") != -1:
@@ -189,30 +199,6 @@ func _on_RestartButton_pressed():
 func _ready():
 	next_button.connect("pressed", Callable(self, "_on_NextButton_pressed"))
 	restart_button.connect("pressed", Callable(self, "_on_RestartButton_pressed"))
-
-func _on_one_pressed() -> void:
-	update_customer_by_id(0)
-
-func _on_two_pressed() -> void:
-	update_customer_by_id(1)
-
-func _on_three_pressed() -> void:
-	update_customer_by_id(2)
-
-func _on_four_pressed() -> void:
-	update_customer_by_id(3)
-
-func _on_five_pressed() -> void:
-	update_customer_by_id(4)
-
-func _on_six_pressed() -> void:
-	update_customer_by_id(5)
-
-func _on_seven_pressed() -> void:
-	update_customer_by_id(6)
-
-func _on_eight_pressed() -> void:
-	update_customer_by_id(7)
 
 func tac_dialogue() -> void:
 	update_customer_by_id(8)
