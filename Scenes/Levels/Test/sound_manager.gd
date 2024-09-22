@@ -23,7 +23,11 @@ var sound_config = {
 	"splash_big": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_big_-6dB.wav"]],
 	"splash_med": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_medium_-6dB.wav"]],
 	"splash_small": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_small_-6dB.wav"]],
-	"splash_tiny": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_tiny_-6dB.wav"]]
+	"splash_tiny": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_tiny_-6dB.wav"]],
+	"menu_click": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/click1_-6dB.wav", "res://Assets/Audio/SFX/Newstufftoadd/click2_-6dB.wav"]],
+	"menu_hover": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/hoverclick1_-7dB.wav", "res://Assets/Audio/SFX/Newstufftoadd/hoverclick2_-7dB.wav"]],
+	"lillypad_impact": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/lilypadimpact_-8dB.wav"]],
+	"magic": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/magic5_-5dB.wav"]]
 }
 
 
