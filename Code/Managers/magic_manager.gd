@@ -4,7 +4,7 @@ enum FrogType { BASIC, TROPICAL, SMALL, FAT, MUD }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -51,3 +51,40 @@ func cast_spell(index : int) -> void:
 			Summon.emit(FrogType.FAT)
 		_:
 			print("tried to cast an invalid spell")
+
+# Assuming FrogType has a to_string() method or some way to convert to text
+
+var frog_type_names = {
+	FrogType.TROPICAL: "Tropical Frog",
+	FrogType.SMALL: "Small Frog",
+	FrogType.FAT: "Fat Frog",
+	FrogType.MUD: "Mud Frog",
+	FrogType.BASIC: "Basic Frog"
+}
+
+func get_spell_output(index: int) -> String:
+	match index:
+		0, 1, 2, 3, 4:
+			return "Summons Basic Frog"
+		5:
+			return "Summons Tropical Frog"
+		6:
+			return "Summons Mud Frog"
+		7:
+			return "Summons Small Frog"
+		8:
+			return "Summons Fat Frog"
+		_:
+			return "Unknown Spell"
+
+func get_recipe_as_string(index: int) -> String:
+	if index < 0 or index >= spell_table.size():
+		return "Invalid spell index"
+
+	var recipe = spell_table[index]
+	var recipe_text = get_spell_output(index) + "\n"
+	recipe_text += "Ingredients: "
+	for frog_type in recipe:
+		var frog_name = frog_type_names.get(frog_type, "Unknown Frog")
+		recipe_text += frog_name + ": " + str(recipe[frog_type]) + " "
+	return recipe_text
