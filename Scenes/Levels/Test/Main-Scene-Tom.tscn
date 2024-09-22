@@ -19,6 +19,7 @@ script = ExtResource("1_fwoa8")
 frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot")]
 dialogue = NodePath("Canvas_Shop/Menu/Panel/ShopScreen")
 canvas_shop = NodePath("Canvas_Shop")
+frog_requests_1 = Array[int]([2, 1])
 
 [node name="MagicManager" parent="." instance=ExtResource("2_k1b8b")]
 

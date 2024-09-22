@@ -370,3 +370,13 @@ position = Vector2(1200, 709)
 scale = Vector2(0.1, 0.11)
 sprite_frames = SubResource("SpriteFrames_daanw")
 offset = Vector2(700, 500)
+
+[node name="SubmitOrderButton" parent="." instance=ExtResource("4_xtrl7")]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 544.0
+offset_right = 1157.0
+offset_bottom = 612.0
+text = "Submit Order"
+
+[connection signal="pressed" from="SubmitOrderButton" to="." method="_on_submit_order_button_pressed"]

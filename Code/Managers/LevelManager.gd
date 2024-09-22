@@ -3,6 +3,25 @@ class_name LevelManager extends Node2D
 @export var frog_slots : Array[FrogSlot] = []
 @export var dialogue : ShopScreen
 @export var canvas_shop : CanvasShop
+@export var frog_requests_1 : Array[MagicManager.FrogType]
+@export var frog_requests_2 : Array[MagicManager.FrogType]
+@export var frog_requests_3 : Array[MagicManager.FrogType]
+@export var frog_requests_4 : Array[MagicManager.FrogType]
+@export var frog_requests_5 : Array[MagicManager.FrogType]
+@export var frog_requests_6 : Array[MagicManager.FrogType]
+@export var frog_requests_7 : Array[MagicManager.FrogType]
+@export var frog_requests_8 : Array[MagicManager.FrogType]
+
+func array_to_dictionary(a : Array[MagicManager.FrogType]) -> Dictionary:
+	var dict = {}
+	for f in a:
+		if dict.has(f):
+			dict[f] = dict[f] + 1
+		else :
+			dict[f] = 1
+	return dict
+
+
 var state : ClickState = ClickState.DEFAULT
 enum ClickState { DEFAULT, WAND }
 
@@ -18,8 +37,30 @@ func open_lvl(num : int):
 		7: open_lvl_8()
 		_:print("invalid level")
 
+var frog_table = {
+	MagicManager.FrogType.BASIC : "Basic Frog", 
+	MagicManager.FrogType.TROPICAL : "Tropical Frog", 
+	MagicManager.FrogType.SMALL : "Small Frog", 
+	MagicManager.FrogType.FAT : "Large Frog", 
+	MagicManager.FrogType.MUD : "Mud Frog", 
+}
+
+func check_for_win(level_num : int):
+	if dictionary_satisfied(array_to_dictionary(frog_requests_1), $FrogSpawner.count_existing_frogs_by_type()):
+		print("win")
+	
+
+func dictionary_satisfied(requirement : Dictionary, check : Dictionary) -> bool:
+	var result := true
+	for key in requirement:
+		if !check.has(key) or check[key] < requirement[key]:
+			result = false
+	return result
+
 func open_lvl_1() -> void:
-	var requested_frogs = ["Tropical Frog", "Large Frog"]
+	var requested_frogs = []
+	for f in frog_requests_1:
+		requested_frogs.append(frog_table[f])
 	dialogue.tac_dialogue()
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)

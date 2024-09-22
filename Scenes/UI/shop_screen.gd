@@ -207,3 +207,9 @@ func tac_dialogue() -> void:
 #func tac_talk(is_talk : bool):
 	#if get_tree().root.get_child(0) is Main:
 		#get_tree().root.get_child(0).shopkeep_talk(is_talk)
+
+var level_num = 0
+
+func _on_submit_order_button_pressed() -> void:
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).get_node("LevelManager").check_for_win(level_num)

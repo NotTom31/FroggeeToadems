@@ -8,7 +8,7 @@ extends Node2D
 @export var background : Background
 
 var level_num : int
-var frog_spawner
+var frog_spawner : FrogSpawner
 
 func open_gameplay(level : int):
 	level_num = level
