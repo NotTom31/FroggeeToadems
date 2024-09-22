@@ -2,11 +2,11 @@ class_name FrogSpriteHandler
 extends Area2D
 
 @export var rest_sprite_position : Vector2
-@export var rest_sprite_rotation : float
 @export var rest_sprite_scale : Vector2
+@export var rest_click_rect : Vector2
 @export var jump_sprite_position : Vector2
-@export var jump_sprite_rotation : float
 @export var jump_sprite_scale : Vector2
+@export var jump_click_rect : Vector2
 
 @export var sprt : AnimatedSprite2D
 
@@ -32,10 +32,10 @@ func play_blink() -> void:
 
 func resize_for_rest() -> void:
 	sprt.position = rest_sprite_position
-	sprt.rotation = rest_sprite_rotation
 	sprt.scale = rest_sprite_scale
+	$ClickableArea.shape.size = rest_click_rect
 
 func resize_for_jump() -> void:
 	sprt.position = jump_sprite_position
-	sprt.rotation = jump_sprite_rotation
 	sprt.scale = jump_sprite_scale
+	$ClickableArea.shape.size = jump_click_rect

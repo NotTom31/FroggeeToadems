@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogStacked.gd" id="7_avrs0"]
 [ext_resource type="Texture2D" uid="uid://c4554dc54ppgk" path="res://Assets/Art/Frogs/blink/05_plink.png" id="8_57het"]
 [ext_resource type="Texture2D" uid="uid://gnxwxsklcb51" path="res://Assets/Art/Frogs/resting/05_rest.png" id="9_halpc"]
-[ext_resource type="Texture2D" uid="uid://lkw5eyfa3r6g" path="res://Assets/Art/Frogs/jumping/05_jump.png" id="10_e1rxg"]
 [ext_resource type="Texture2D" uid="uid://cb6l32dbmeq54" path="res://Assets/Art/Frogs/charging/05_charge.png" id="10_lrc50"]
+[ext_resource type="Texture2D" uid="uid://bo12hoarwwc2e" path="res://Assets/Art/Frogs/jumping_turned/05_jump_turned.png" id="11_ha1ty"]
 [ext_resource type="Script" path="res://Code/FrogLogic/frog_sprite_handler.gd" id="12_jl4ke"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kpbkf"]
@@ -45,7 +45,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_e1rxg")
+"texture": ExtResource("11_ha1ty")
 }],
 "loop": true,
 "name": &"jump",
@@ -88,7 +88,7 @@ frog = NodePath("../..")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 position = Vector2(3, -2)
-scale = Vector2(0.15, 0.2)
+scale = Vector2(-0.15, 0.2)
 sprite_frames = SubResource("SpriteFrames_kpbkf")
 animation = &"idle"
 offset = Vector2(0, -150)
@@ -96,10 +96,11 @@ offset = Vector2(0, -150)
 [node name="FrogSpriteHandler" type="Area2D" parent="." node_paths=PackedStringArray("sprt")]
 script = ExtResource("12_jl4ke")
 rest_sprite_position = Vector2(3, -2)
-rest_sprite_scale = Vector2(0.15, 0.2)
-jump_sprite_position = Vector2(-14, 18)
-jump_sprite_rotation = 57.2
-jump_sprite_scale = Vector2(0.15, 0.15)
+rest_sprite_scale = Vector2(-0.15, 0.2)
+rest_click_rect = Vector2(323, 103)
+jump_sprite_position = Vector2(3, 24)
+jump_sprite_scale = Vector2(0.17, 0.17)
+jump_click_rect = Vector2(323, 103)
 sprt = NodePath("../AnimatedSprite2D")
 
 [node name="ClickableArea" type="CollisionShape2D" parent="FrogSpriteHandler"]

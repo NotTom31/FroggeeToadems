@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_wieqn"]
 [ext_resource type="Texture2D" uid="uid://cy5acv5h4fr25" path="res://Assets/Art/Frogs/blink/04_plink.png" id="2_5ledk"]
 [ext_resource type="Texture2D" uid="uid://dc4o64v0upcbd" path="res://Assets/Art/Frogs/resting/04_rest.png" id="3_d78p0"]
-[ext_resource type="Texture2D" uid="uid://cfgmm1d6vb0nn" path="res://Assets/Art/Frogs/jumping/04_jump.png" id="4_6x04a"]
 [ext_resource type="Texture2D" uid="uid://c432posuoo6w0" path="res://Assets/Art/Frogs/charging/04_charge.png" id="4_k3vli"]
+[ext_resource type="Texture2D" uid="uid://dc8jgr7flirc1" path="res://Assets/Art/Frogs/jumping_turned/04_jump_turned.png" id="5_4y8p8"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_45081"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1on3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -37,25 +37,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6x04a")
+"texture": ExtResource("5_4y8p8")
 }],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ljgk"]
-size = Vector2(308.333, 200)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h76u"]
+size = Vector2(317, 195)
 
 [node name="FatFrog" instance=ExtResource("1_wieqn")]
 type = 3
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-sprite_frames = SubResource("SpriteFrames_45081")
+scale = Vector2(0.15, 0.2)
+sprite_frames = SubResource("SpriteFrames_w1on3")
 
-[node name="ClickableArea" parent="Area2D" index="0"]
-position = Vector2(3.5, -30)
-shape = SubResource("RectangleShape2D_6ljgk")
+[node name="FrogSpriteHandler" parent="." index="2"]
+rest_sprite_scale = Vector2(0.15, 0.2)
+rest_click_rect = Vector2(317, 195)
+jump_sprite_position = Vector2(3, -2)
+jump_click_rect = Vector2(310, 325)
+
+[node name="ClickableArea" parent="FrogSpriteHandler" index="0"]
+position = Vector2(1.00001, -31.55)
+shape = SubResource("RectangleShape2D_2h76u")
 
 [node name="SlotOnHead" parent="." index="3"]
 position = Vector2(0, -89)
