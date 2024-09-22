@@ -7,9 +7,6 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_aqv4j")
 
-[node name="Canvas_Shop" parent="." instance=ExtResource("2_4fif5")]
-visible = false
-
 [node name="Canvas_Menu" type="CanvasLayer" parent="."]
 
 [node name="Main Menu" parent="Canvas_Menu" node_paths=PackedStringArray("main") instance=ExtResource("2_aetre")]
@@ -18,3 +15,5 @@ offset_top = -8.0
 offset_right = -1.0
 offset_bottom = -8.0
 main = NodePath("../..")
+
+[node name="Canvas_Pause" parent="." instance=ExtResource("2_4fif5")]

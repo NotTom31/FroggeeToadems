@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://1k1rcvp03xma"]
+[gd_scene load_steps=10 format=3 uid="uid://1k1rcvp03xma"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Test/sound_manager.gd" id="1_spyt0"]
 [ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="2_jp7r5"]
-[ext_resource type="AudioStream" uid="uid://gi1oqndyi1p4" path="res://Assets/Audio/GWJ73_MX_SoloOverThis_5-4_73bpm_8bars_loop.wav" id="3_swhr5"]
-[ext_resource type="AudioStream" uid="uid://k0i1i5dio0e4" path="res://Assets/Audio/cricketgen2.wav" id="4_ahb3m"]
+[ext_resource type="AudioStream" uid="uid://g8pr71g4ak1h" path="res://Assets/Audio/Music/GWJ73_MX_main_layer00_0frogs_73bpm.wav" id="3_reb4f"]
+[ext_resource type="AudioStream" uid="uid://cnsvybkk4xp8w" path="res://Assets/Audio/Music/GWJ73_MX_main_layer01_oneOrMoreFrogs_73bpm.wav" id="4_6y7wp"]
+[ext_resource type="AudioStream" uid="uid://k0i1i5dio0e4" path="res://Assets/Audio/SFX/old/cricketgen2.wav" id="4_ahb3m"]
+[ext_resource type="AudioStream" uid="uid://kijxj3q23ga3" path="res://Assets/Audio/Music/GWJ73_MX_main_layer02_threeOrMoreFrogs_73bpm.wav" id="5_j571n"]
+[ext_resource type="AudioStream" uid="uid://bshox67kh3ndh" path="res://Assets/Audio/Music/GWJ73_MX_main_layer03_fiveOrMoreFrogs_73bpm.wav" id="6_0qftb"]
+[ext_resource type="AudioStream" uid="uid://c20rsptc8ne00" path="res://Assets/Audio/Music/GWJ73_MX_main_layer04_sevenOrMoreFrogs_73bpm.wav" id="7_lmont"]
+[ext_resource type="AudioStream" uid="uid://b0u8sb11o8ps" path="res://Assets/Audio/Music/GWJ73_MX_shop_73bpm.wav" id="8_5fs21"]
 
 [node name="SoundManager" type="Node2D"]
 z_as_relative = false
@@ -16,20 +21,28 @@ offset_right = 608.0
 offset_bottom = 224.0
 
 [node name="PickupMX1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_swhr5")
+stream = ExtResource("3_reb4f")
 bus = &"MX1"
 
 [node name="PickupMX2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6y7wp")
 bus = &"MX2"
 
 [node name="PickupMX3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_j571n")
 bus = &"MX3"
 
 [node name="PickupMX4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0qftb")
 bus = &"MX4"
 
 [node name="PickupMX5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_lmont")
 bus = &"MX5"
+
+[node name="PickupMXSHOP" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_5fs21")
+bus = &"MXSHOP"
 
 [node name="PickupATM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ahb3m")

@@ -9,6 +9,22 @@ extends Node2D
 
 # VARIABLES AND UTILS
 
+var sound_paths = {
+	"boing1": "res://Assets/Audio/SFX/boing_1_-7dB.wav",
+	"bounce_charge": "res://Assets/Audio/SFX/bounce_charge1_-7dB.wav",
+	"bounce_charge2": "res://Assets/Audio/SFX/bounce_charge2_-7dB.wav",
+	"frog_snap": "res://Assets/Audio/SFX/frogsnap_-7dB.wav",
+	"default_ribbit": "res://Assets/Audio/SFX/ribbit6_-8dB.wav",
+	"big_ribbit": "res://Assets/Audio/SFX/ribbitBIG_-8dB.wav",
+	"ribbit1": "res://Assets/Audio/SFX/ribbit_normal1_-8dB.wav",
+	"ribbit2": "res://Assets/Audio/SFX/ribbit_normal2_-8dB.wav",
+	"splash_big": "res://Assets/Audio/SFX/splash_big_-6dB.wav",
+	"splash_med": "res://Assets/Audio/SFX/splash_medium_-6dB.wav",
+	"splash_small": "res://Assets/Audio/SFX/splash_small_-6dB.wav",
+	"splash_tiny": "res://Assets/Audio/SFX/splash_tiny_-6dB.wav"
+}
+
+
 # establish utils
 var rng = RandomNumberGenerator.new()
 var roundrobin = 1 # currently general. may need multiple rrs later
@@ -24,6 +40,7 @@ var musicbus2 = AudioServer.get_bus_index("MX2")
 var musicbus3 = AudioServer.get_bus_index("MX3")
 var musicbus4 = AudioServer.get_bus_index("MX4")
 var musicbus5 = AudioServer.get_bus_index("MX5")
+var shopbus = AudioServer.get_bus_index("MXSHOP")
 
 # sfx bus
 var fxbus = AudioServer.get_bus_index("SFX")
@@ -40,12 +57,14 @@ func _ready() -> void:
 	$PickupMX3.play()
 	$PickupMX4.play()
 	$PickupMX5.play()
+	$PickupMXSHOP.play()
 	$PickupATM.play()
 	# mute time for non-base layer buses
 	AudioServer.set_bus_mute(musicbus2, not AudioServer.is_bus_mute(musicbus2))
 	AudioServer.set_bus_mute(musicbus3, not AudioServer.is_bus_mute(musicbus3))
 	AudioServer.set_bus_mute(musicbus4, not AudioServer.is_bus_mute(musicbus4))
 	AudioServer.set_bus_mute(musicbus5, not AudioServer.is_bus_mute(musicbus5))
+	AudioServer.set_bus_mute(shopbus, not AudioServer.is_bus_mute(shopbus))
 	# surely this method of muting will not cause problems later. pause for comedic effect	
 
 # code here for changing layers
@@ -56,8 +75,52 @@ func _ready() -> void:
 	# perhaps this should be a variable declared in utils so muting/unmuting can be done with reference to previous state... i think the mute code i have been using is toggle
 
 
-# BUS MANAGEMENT
+#make a copy for each sound
+func call_rand_sound():
+	var num_of_sounds = 2
+	var num = randi_range(1, num_of_sounds)
+	match num:
+		1:
+			print("play first sound")
+		2:
+			print("play second")
+		_:
+			print("outside range")
 
+
+# BUS MANAGEMENT
+func change_music_layer(layer : int):
+	match layer:
+		0:
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, false)
+			AudioServer.set_bus_mute(musicbus4, false)
+			AudioServer.set_bus_mute(musicbus5, false)
+		1:
+			AudioServer.set_bus_mute(musicbus2, true)
+			AudioServer.set_bus_mute(musicbus3, false)
+			AudioServer.set_bus_mute(musicbus4, false)
+			AudioServer.set_bus_mute(musicbus5, false)
+		2:
+			AudioServer.set_bus_mute(musicbus2, true)
+			AudioServer.set_bus_mute(musicbus3, true)
+			AudioServer.set_bus_mute(musicbus4, false)
+			AudioServer.set_bus_mute(musicbus5, false)
+		3:
+			AudioServer.set_bus_mute(musicbus2, true)
+			AudioServer.set_bus_mute(musicbus3, true)
+			AudioServer.set_bus_mute(musicbus4, true)
+			AudioServer.set_bus_mute(musicbus5, false)
+		4:
+			AudioServer.set_bus_mute(musicbus2, true)
+			AudioServer.set_bus_mute(musicbus3, true)
+			AudioServer.set_bus_mute(musicbus4, true)
+			AudioServer.set_bus_mute(musicbus5, true)
+		_:
+			print("Music layer out of bounds")
+
+func shop_music(is_playing : bool):
+	AudioServer.set_bus_mute(shopbus, is_playing)
 
 # master bus manager
 # idk get val from slider? not sure tbh
@@ -105,6 +168,9 @@ func _on_atm_toggle_pressed() -> void:
 
 #SFX MANAGER
 
+func play_sfx(name : String):
+	sfx_manager(name, 0,-4,2,0.85,1.2)
+
 # example call:
 func sfx_manager_example() -> void:
 	# first is file name, get by copying path of file
@@ -114,10 +180,10 @@ func sfx_manager_example() -> void:
 	# fifth is pitch min! 0.5 value would mean frequencies halved (lower pitch)
 	# sixth is pitch max! 2 means an octave up
 	# here is an example of a call with my default values plugged in
-	sfx_manager("res://Assets/Audio/ribbit2.wav",0,-4,2,0.85,1.2)
+	sfx_manager("boing1",0,-4,2,0.85,1.2)
 	
 func sfx_manager(audiopath,dbset,dbmin,dbmax,pitchmin,pitchmax) -> void:
-	var newsound = load(audiopath)
+	var newsound = load(sound_paths[audiopath])
 	$PickupSFX.set_stream(newsound)
 	$PickupSFX.pitch_scale = rng.randf_range(pitchmin, pitchmax)
 	$PickupSFX.volume_db = dbset + rng.randf_range(dbmin, dbmax)
