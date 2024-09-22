@@ -30,3 +30,19 @@ func spawn_frog(type : MagicManager.FrogType, loc : Vector2) -> void:
 	frog_parents[type].add_child(frog_inst)
 	frog_inst.global_position = loc
 	spawned_frog.emit(frog_inst)
+
+func count_frogs_of_type(type : MagicManager.FrogType) -> int:
+	return frog_parents[type].get_children().size()
+
+func count_existing_frogs_by_type() -> Dictionary:
+	var result = {}
+	for t in MagicManager.FrogType.values():
+		result[t] = count_frogs_of_type(t)
+	return result
+
+func count_total_frogs() -> int:
+	var dict = count_existing_frogs_by_type()
+	var result := 0
+	for t in MagicManager.FrogType.values():
+		result += dict[t]
+	return result
