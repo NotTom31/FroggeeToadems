@@ -14,11 +14,23 @@ frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lilly
 [node name="BasicFrog" parent="Frogs" instance=ExtResource("1_tfouu")]
 position = Vector2(882, 339)
 
+[node name="SlotOnHead" parent="Frogs/BasicFrog" index="3"]
+active = false
+on_lillypad = false
+
 [node name="BasicFrog2" parent="Frogs" instance=ExtResource("1_tfouu")]
 position = Vector2(289, 293)
 
+[node name="SlotOnHead" parent="Frogs/BasicFrog2" index="3"]
+active = false
+on_lillypad = false
+
 [node name="BasicFrog3" parent="Frogs" instance=ExtResource("1_tfouu")]
 position = Vector2(563, 156)
+
+[node name="SlotOnHead" parent="Frogs/BasicFrog3" index="3"]
+active = false
+on_lillypad = false
 
 [node name="Lillypads" type="Node2D" parent="."]
 
