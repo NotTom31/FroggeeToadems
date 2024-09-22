@@ -10,9 +10,7 @@
 [node name="SoundManager" parent="LevelManager" instance=ExtResource("2_sjxra")]
 
 [editable path="LevelManager"]
-[editable path="LevelManager/Frogs/BasicFrog"]
-[editable path="LevelManager/Frogs/BasicFrog2"]
-[editable path="LevelManager/Frogs/BasicFrog3"]
+[editable path="LevelManager/Wand"]
 [editable path="LevelManager/Lillypads/Lillypad"]
 [editable path="LevelManager/Lillypads/Lillypad2"]
 [editable path="LevelManager/Lillypads/Lillypad3"]
