@@ -11,6 +11,7 @@ var animation : AnimationPlayer
 @export var text5 : Label
 @export var text6 : Label
 @export var text7 : Label
+@export var text8 : Label
 
 func _ready() -> void:
 	# Connect the signal 'animation_finished' to the function '_on_animation_finished'
@@ -27,7 +28,7 @@ func update_text() -> void:
 	text5.text = magic.get_recipe_as_string(5)
 	text6.text = magic.get_recipe_as_string(6)
 	text7.text = magic.get_recipe_as_string(7)
-	text7.text = magic.get_recipe_as_string(8)
+	text8.text = magic.get_recipe_as_string(8)
 
 
 func _on_open_button_pressed() -> void:

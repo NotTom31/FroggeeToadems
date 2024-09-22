@@ -72,7 +72,7 @@ _data = {
 "Transition_Out": SubResource("Animation_lhneh")
 }
 
-[node name="SpellUi" type="CanvasLayer" node_paths=PackedStringArray("text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7")]
+[node name="SpellUi" type="CanvasLayer" node_paths=PackedStringArray("text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7", "text8")]
 script = ExtResource("1_5txb0")
 text0 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text0")
 text1 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text1")
@@ -82,6 +82,7 @@ text4 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text4")
 text5 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text5")
 text6 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text6")
 text7 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text7")
+text8 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text8")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

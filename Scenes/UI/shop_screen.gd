@@ -214,6 +214,6 @@ var level_num = 0
 func _on_submit_order_button_pressed() -> void:
 	var is_win : bool
 	if get_tree().root.get_child(0) is Main:
-		is_win = get_tree().root.get_child(0).get_node("LevelManager").check_for_win(level_num)
+		is_win = get_tree().root.get_child(0).get_node("LevelManager").check_for_win()
 	if is_win:
 		self.visible = false

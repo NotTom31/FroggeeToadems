@@ -32,7 +32,10 @@ func array_to_dictionary(a : Array[MagicManager.FrogType]) -> Dictionary:
 var state : ClickState = ClickState.DEFAULT
 enum ClickState { DEFAULT, WAND }
 
+var current_level_num : int = -1  # Initialize with an invalid level number
+
 func open_lvl(num : int):
+	current_level_num = num  # Store the level number
 	match num:
 		0: open_lvl_1()
 		1: open_lvl_2()
@@ -42,7 +45,8 @@ func open_lvl(num : int):
 		5: open_lvl_6()
 		6: open_lvl_7()
 		7: open_lvl_8()
-		_:print("invalid level")
+		_:
+			print("invalid level")
 
 var frog_table = {
 	MagicManager.FrogType.BASIC : "Basic Frog", 
@@ -52,12 +56,39 @@ var frog_table = {
 	MagicManager.FrogType.MUD : "Mud Frog", 
 }
 
-func check_for_win(level_num : int) -> bool:
+func check_for_win() -> bool:
 	var is_win : bool = false
-	if dictionary_satisfied(array_to_dictionary(frog_requests_1), $FrogSpawner.count_existing_frogs_by_type()):
+	var frog_requests = []
+
+	# Use the stored current_level_num
+	match current_level_num:
+		0:
+			frog_requests = frog_requests_1
+		1:
+			frog_requests = frog_requests_2
+		2:
+			frog_requests = frog_requests_3
+		3:
+			frog_requests = frog_requests_4
+		4:
+			frog_requests = frog_requests_5
+		5:
+			frog_requests = frog_requests_6
+		6:
+			frog_requests = frog_requests_7
+		7:
+			frog_requests = frog_requests_8
+		_:
+			# Handle invalid level numbers, if necessary
+			return false
+
+	# Check if the current level's frog requests are satisfied
+	if dictionary_satisfied(array_to_dictionary(frog_requests), $FrogSpawner.count_existing_frogs_by_type()):
 		is_win = true
 		$WinScreen.visible = true
 	return is_win
+
+
 
 #func _process(delta: float) -> void:
 #	check_for_game_over()
@@ -103,7 +134,9 @@ func open_lvl_1() -> void:
 	dialogue.set_requested_frogs(0, requested_frogs)
 
 func open_lvl_2() -> void:
-	var requested_frogs = ["Tropical Frog", "Large Frog"]
+	var requested_frogs = []
+	for f in frog_requests_2:
+		requested_frogs.append(frog_table[f])
 	dialogue.update_customer_by_id(1)
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
@@ -112,7 +145,9 @@ func open_lvl_2() -> void:
 	dialogue.set_requested_frogs(1, requested_frogs)
 
 func open_lvl_3() -> void:
-	var requested_frogs = ["Tropical Frog", "Large Frog"]
+	var requested_frogs = []
+	for f in frog_requests_3:
+		requested_frogs.append(frog_table[f])
 	dialogue.update_customer_by_id(2)
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
@@ -121,7 +156,9 @@ func open_lvl_3() -> void:
 	dialogue.set_requested_frogs(2, requested_frogs)
 	
 func open_lvl_4() -> void:
-	var requested_frogs = ["Tropical Frog", "Large Frog"]
+	var requested_frogs = []
+	for f in frog_requests_4:
+		requested_frogs.append(frog_table[f])
 	dialogue.update_customer_by_id(3)
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
@@ -130,7 +167,9 @@ func open_lvl_4() -> void:
 	dialogue.set_requested_frogs(3, requested_frogs)
 
 func open_lvl_5() -> void:
-	var requested_frogs = ["Tropical Frog", "Large Frog"]
+	var requested_frogs = []
+	for f in frog_requests_5:
+		requested_frogs.append(frog_table[f])
 	dialogue.update_customer_by_id(4)
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
@@ -139,7 +178,9 @@ func open_lvl_5() -> void:
 	dialogue.set_requested_frogs(4, requested_frogs)
 
 func open_lvl_6() -> void:
-	var requested_frogs = ["Tropical Frog", "Large Frog"]
+	var requested_frogs = []
+	for f in frog_requests_6:
+		requested_frogs.append(frog_table[f])
 	dialogue.update_customer_by_id(5)
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
@@ -148,7 +189,9 @@ func open_lvl_6() -> void:
 	dialogue.set_requested_frogs(5, requested_frogs)
 
 func open_lvl_7() -> void:
-	var requested_frogs = ["Tropical Frog", "Large Frog"]
+	var requested_frogs = []
+	for f in frog_requests_7:
+		requested_frogs.append(frog_table[f])
 	dialogue.update_customer_by_id(6)
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
@@ -157,7 +200,9 @@ func open_lvl_7() -> void:
 	dialogue.set_requested_frogs(6, requested_frogs)
 
 func open_lvl_8() -> void:
-	var requested_frogs = ["Tropical Frog", "Large Frog"]
+	var requested_frogs = []
+	for f in frog_requests_8:
+		requested_frogs.append(frog_table[f])
 	dialogue.update_customer_by_id(7)
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_shop_music(true)
