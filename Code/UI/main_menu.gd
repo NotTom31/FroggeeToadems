@@ -19,7 +19,7 @@ func _ready():
 
 func on_start_pressed() -> void:
 	if get_tree().root.get_child(0) is Main:
-		get_tree().root.get_child(0).open_gameplay(0)
+		get_tree().root.get_child(0).open_level_select()
 		queue_free()
 	else:
 		print("go to Main scene")

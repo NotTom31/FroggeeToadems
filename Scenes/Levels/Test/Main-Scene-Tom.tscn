@@ -1,30 +1,39 @@
-[gd_scene load_steps=10 format=3 uid="uid://cog6dh2xtn66n"]
+[gd_scene load_steps=11 format=3 uid="uid://cog6dh2xtn66n"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
 [ext_resource type="PackedScene" uid="uid://bt7d6gfh7wrho" path="res://Scenes/Managers/MagicManager.tscn" id="2_k1b8b"]
 [ext_resource type="PackedScene" uid="uid://i6igjyki2wqp" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.tscn" id="2_llarb"]
-[ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_v13fq"]
 [ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="3_fwopu"]
 [ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Legacy/temp_ground.tscn" id="3_iya8w"]
 [ext_resource type="PackedScene" uid="uid://dmr6oqf0ghcpp" path="res://Scenes/UI/Wand.tscn" id="3_t5ep4"]
+[ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="4_gxfrq"]
 [ext_resource type="PackedScene" uid="uid://d3r6wmwxqowp4" path="res://Scenes/FrogDetectionArea.tscn" id="6_fo3t6"]
 [ext_resource type="PackedScene" uid="uid://c4oeq4iblkrbg" path="res://Scenes/Frogs/frog_spawner.tscn" id="6_p8e6y"]
+[ext_resource type="PackedScene" uid="uid://caup4tky6b8g7" path="res://Scenes/spell_ui.tscn" id="9_7b8ed"]
 
-[node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots")]
+[node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots", "dialogue", "canvas_shop")]
 z_index = 2
 z_as_relative = false
 script = ExtResource("1_fwoa8")
 frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot")]
+dialogue = NodePath("Canvas_Shop/Menu/Panel/ShopScreen")
+canvas_shop = NodePath("Canvas_Shop")
 
 [node name="MagicManager" parent="." instance=ExtResource("2_k1b8b")]
 
 [node name="Wand" parent="." instance=ExtResource("3_t5ep4")]
 offset_left = 110.0
-offset_top = 128.0
+offset_top = 254.0
 offset_right = 110.0
-offset_bottom = 128.0
+offset_bottom = 254.0
 
-[node name="Background" parent="." instance=ExtResource("2_v13fq")]
+[node name="Button" parent="Wand" index="0"]
+offset_left = -65.0
+offset_top = -53.0
+offset_right = 94.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("4_gxfrq")
+theme_override_font_sizes/font_size = 60
 
 [node name="Canvas_Shop" parent="." instance=ExtResource("2_llarb")]
 
@@ -54,11 +63,15 @@ lvl_manager = NodePath("../..")
 [node name="CollisionShape2D" parent="FrogDetectionArea" index="0"]
 position = Vector2(962, 1006)
 
+[node name="SpellUi" parent="." node_paths=PackedStringArray("magic") instance=ExtResource("9_7b8ed")]
+magic = NodePath("../MagicManager")
+
 [connection signal="Summon" from="MagicManager" to="." method="_on_magic_manager_summon"]
 [connection signal="pressed" from="Wand/Button" to="." method="_on_wand_button_pressed"]
 [connection signal="spawned_frog" from="FrogSpawner" to="." method="_on_frog_spawner_spawned_frog"]
 
 [editable path="Wand"]
+[editable path="Canvas_Shop"]
 [editable path="Lillypads/Lillypad"]
 [editable path="Lillypads/Lillypad2"]
 [editable path="Lillypads/Lillypad3"]

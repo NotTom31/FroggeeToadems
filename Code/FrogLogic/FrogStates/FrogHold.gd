@@ -2,7 +2,7 @@ extends State
 class_name FrogHold
 
 func Enter():
-	$"../../AnimatedSprite2D".play("idle")
+	$"../../FrogSpriteHandler".play_idle()
 	frog.disable_gravity()
 
 func Exit():

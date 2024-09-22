@@ -13,7 +13,7 @@ func randomize_wander():
 func Enter():
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_sound("splash_med")
-	$"../../AnimatedSprite2D".play("jump")
+	$"../../FrogSpriteHandler".play_jump()
 	#if frog.is_sprite_flipped:
 	#	frog.rotation_degrees = 240
 	#else:

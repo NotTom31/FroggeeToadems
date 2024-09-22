@@ -80,35 +80,46 @@ func _ready() -> void:
 func change_music_layer(layer : int):
 	match layer:
 		0:
-			AudioServer.set_bus_mute(musicbus2, false)
-			AudioServer.set_bus_mute(musicbus3, false)
-			AudioServer.set_bus_mute(musicbus4, false)
-			AudioServer.set_bus_mute(musicbus5, false)
-		1:
-			AudioServer.set_bus_mute(musicbus2, true)
-			AudioServer.set_bus_mute(musicbus3, false)
-			AudioServer.set_bus_mute(musicbus4, false)
-			AudioServer.set_bus_mute(musicbus5, false)
-		2:
-			AudioServer.set_bus_mute(musicbus2, true)
-			AudioServer.set_bus_mute(musicbus3, true)
-			AudioServer.set_bus_mute(musicbus4, false)
-			AudioServer.set_bus_mute(musicbus5, false)
-		3:
-			AudioServer.set_bus_mute(musicbus2, true)
-			AudioServer.set_bus_mute(musicbus3, true)
-			AudioServer.set_bus_mute(musicbus4, true)
-			AudioServer.set_bus_mute(musicbus5, false)
-		4:
+			AudioServer.set_bus_mute(musicbus1, false)
 			AudioServer.set_bus_mute(musicbus2, true)
 			AudioServer.set_bus_mute(musicbus3, true)
 			AudioServer.set_bus_mute(musicbus4, true)
 			AudioServer.set_bus_mute(musicbus5, true)
+		1:
+			AudioServer.set_bus_mute(musicbus1, false)
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, true)
+			AudioServer.set_bus_mute(musicbus4, true)
+			AudioServer.set_bus_mute(musicbus5, true)
+		2:
+			AudioServer.set_bus_mute(musicbus1, false)
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, false)
+			AudioServer.set_bus_mute(musicbus4, true)
+			AudioServer.set_bus_mute(musicbus5, true)
+		3:
+			AudioServer.set_bus_mute(musicbus1, false)
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, false)
+			AudioServer.set_bus_mute(musicbus4, false)
+			AudioServer.set_bus_mute(musicbus5, true)
+		4:
+			AudioServer.set_bus_mute(musicbus1, false)
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, false)
+			AudioServer.set_bus_mute(musicbus4, false)
+			AudioServer.set_bus_mute(musicbus5, false)
 		_:
 			print("Music layer out of bounds")
 
 func shop_music(is_playing : bool):
-	AudioServer.set_bus_mute(shopbus, is_playing)
+	AudioServer.set_bus_mute(shopbus, !is_playing)
+	if(is_playing):
+		AudioServer.set_bus_mute(musicbus1, true)
+		AudioServer.set_bus_mute(musicbus2, true)
+		AudioServer.set_bus_mute(musicbus3, true)
+		AudioServer.set_bus_mute(musicbus4, true)
+		AudioServer.set_bus_mute(musicbus5, true)
 
 # master bus manager
 # idk get val from slider? not sure tbh
