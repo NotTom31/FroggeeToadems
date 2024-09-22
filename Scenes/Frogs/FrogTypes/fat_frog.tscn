@@ -66,5 +66,3 @@ shape = SubResource("RectangleShape2D_2h76u")
 
 [node name="SlotOnHead" parent="." index="3"]
 position = Vector2(0, -89)
-active = false
-on_lillypad = false
