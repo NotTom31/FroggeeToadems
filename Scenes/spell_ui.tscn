@@ -188,6 +188,13 @@ theme_override_font_sizes/font_size = 30
 text = "test
 "
 
+[node name="Text8" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
 [node name="CloseButton" parent="Control/Panel" instance=ExtResource("2_a30l4")]
 layout_mode = 0
 offset_left = 1217.0

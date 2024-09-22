@@ -20,6 +20,18 @@ offset_top = 224.0
 offset_right = 608.0
 offset_bottom = 224.0
 
+[node name="MainSlider" parent="AudioManagerControls/HBoxContainer/VBoxContainer" index="0"]
+value = 0.6
+
+[node name="MXSlider" parent="AudioManagerControls/HBoxContainer/VBoxContainer" index="1"]
+value = 0.6
+
+[node name="FXSlider" parent="AudioManagerControls/HBoxContainer/VBoxContainer" index="2"]
+value = 0.6
+
+[node name="ATMSlider" parent="AudioManagerControls/HBoxContainer/VBoxContainer" index="3"]
+value = 0.6
+
 [node name="MainToggle" parent="AudioManagerControls/HBoxContainer/VBoxContainer2" index="0"]
 button_pressed = true
 

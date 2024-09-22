@@ -27,6 +27,7 @@ func update_text() -> void:
 	text5.text = magic.get_recipe_as_string(5)
 	text6.text = magic.get_recipe_as_string(6)
 	text7.text = magic.get_recipe_as_string(7)
+	text7.text = magic.get_recipe_as_string(8)
 
 
 func _on_open_button_pressed() -> void:
