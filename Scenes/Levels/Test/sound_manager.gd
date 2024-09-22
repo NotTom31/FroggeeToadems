@@ -22,8 +22,16 @@ var sound_config = {
 	"tiny_ribbit" : [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_tiny1_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny2_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny3_-9dB.wav"]],
 	"default_ribbit": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_normal1_-8dB.wav","res://Assets/Audio/SFX/ribbit_normal2_-8dB.wav"]],
 	"big_ribbit": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbitBIG_-8dB.wav"]],
-	"splash_med": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_medium_-6dB.wav","res://Assets/Audio/SFX/splash_tiny_-6dB.wav","res://Assets/Audio/SFX/splash_small_-6dB.wav","res://Assets/Audio/SFX/splash_big_-6dB.wav"]],
-	
+	"ribbit1": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_normal1_-8dB.wav"]],
+	"ribbit2": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_normal2_-8dB.wav"]],
+	"splash_big": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_big_-6dB.wav"]],
+	"splash_med": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_medium_-6dB.wav"]],
+	"splash_small": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_small_-6dB.wav"]],
+	"splash_tiny": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/splash_tiny_-6dB.wav"]],
+	"menu_click": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/click1_-6dB.wav", "res://Assets/Audio/SFX/Newstufftoadd/click2_-6dB.wav"]],
+	"menu_hover": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/hoverclick1_-7dB.wav", "res://Assets/Audio/SFX/Newstufftoadd/hoverclick2_-7dB.wav"]],
+	"lillypad_impact": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/lilypadimpact_-8dB.wav"]],
+	"magic": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/Newstufftoadd/magic5_-5dB.wav"]]
 }
 
 
@@ -80,35 +88,46 @@ func _ready() -> void:
 func change_music_layer(layer : int):
 	match layer:
 		0:
-			AudioServer.set_bus_mute(musicbus2, false)
-			AudioServer.set_bus_mute(musicbus3, false)
-			AudioServer.set_bus_mute(musicbus4, false)
-			AudioServer.set_bus_mute(musicbus5, false)
-		1:
-			AudioServer.set_bus_mute(musicbus2, true)
-			AudioServer.set_bus_mute(musicbus3, false)
-			AudioServer.set_bus_mute(musicbus4, false)
-			AudioServer.set_bus_mute(musicbus5, false)
-		2:
-			AudioServer.set_bus_mute(musicbus2, true)
-			AudioServer.set_bus_mute(musicbus3, true)
-			AudioServer.set_bus_mute(musicbus4, false)
-			AudioServer.set_bus_mute(musicbus5, false)
-		3:
-			AudioServer.set_bus_mute(musicbus2, true)
-			AudioServer.set_bus_mute(musicbus3, true)
-			AudioServer.set_bus_mute(musicbus4, true)
-			AudioServer.set_bus_mute(musicbus5, false)
-		4:
+			AudioServer.set_bus_mute(musicbus1, false)
 			AudioServer.set_bus_mute(musicbus2, true)
 			AudioServer.set_bus_mute(musicbus3, true)
 			AudioServer.set_bus_mute(musicbus4, true)
 			AudioServer.set_bus_mute(musicbus5, true)
+		1:
+			AudioServer.set_bus_mute(musicbus1, false)
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, true)
+			AudioServer.set_bus_mute(musicbus4, true)
+			AudioServer.set_bus_mute(musicbus5, true)
+		2:
+			AudioServer.set_bus_mute(musicbus1, false)
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, false)
+			AudioServer.set_bus_mute(musicbus4, true)
+			AudioServer.set_bus_mute(musicbus5, true)
+		3:
+			AudioServer.set_bus_mute(musicbus1, false)
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, false)
+			AudioServer.set_bus_mute(musicbus4, false)
+			AudioServer.set_bus_mute(musicbus5, true)
+		4:
+			AudioServer.set_bus_mute(musicbus1, false)
+			AudioServer.set_bus_mute(musicbus2, false)
+			AudioServer.set_bus_mute(musicbus3, false)
+			AudioServer.set_bus_mute(musicbus4, false)
+			AudioServer.set_bus_mute(musicbus5, false)
 		_:
 			print("Music layer out of bounds")
 
 func shop_music(is_playing : bool):
-	AudioServer.set_bus_mute(shopbus, is_playing)
+	AudioServer.set_bus_mute(shopbus, !is_playing)
+	if(is_playing):
+		AudioServer.set_bus_mute(musicbus1, true)
+		AudioServer.set_bus_mute(musicbus2, true)
+		AudioServer.set_bus_mute(musicbus3, true)
+		AudioServer.set_bus_mute(musicbus4, true)
+		AudioServer.set_bus_mute(musicbus5, true)
 
 # master bus manager
 # idk get val from slider? not sure tbh

@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cvtntsg168do7"]
+[gd_scene load_steps=26 format=3 uid="uid://cvtntsg168do7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/shop_screen.gd" id="1_cb10l"]
-[ext_resource type="Texture2D" uid="uid://c1mxqvoh2dh0o" path="res://Assets/Art/Characters/CAT mc 2.png" id="2_s28g5"]
+[ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="2_4oppx"]
 [ext_resource type="Texture2D" uid="uid://bpsciivj2iixp" path="res://Assets/Art/Temp/Cats/ChadCat.png" id="3_h7exv"]
-[ext_resource type="Texture2D" uid="uid://xrmv1ydbsl0b" path="res://Assets/Art/Characters/CAT mc 1.png" id="3_lq388"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="4_xtrl7"]
 [ext_resource type="Texture2D" uid="uid://g312f37lgn0m" path="res://Assets/Art/Characters/Customer3.png" id="5_raguu"]
 [ext_resource type="Texture2D" uid="uid://dmbp5uydwdtmg" path="res://Assets/Art/Temp/Cats/eyecat.png" id="5_rs11m"]
@@ -17,25 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://cp4l61kebouu6" path="res://Assets/Art/Frogs/resting/03_rest.png" id="15_xr7qu"]
 [ext_resource type="Texture2D" uid="uid://dc4o64v0upcbd" path="res://Assets/Art/Frogs/resting/04_rest.png" id="16_nvjjp"]
 [ext_resource type="Texture2D" uid="uid://gnxwxsklcb51" path="res://Assets/Art/Frogs/resting/05_rest.png" id="17_n7g6i"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kpgtb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_s28g5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_lq388")
-}],
-"loop": true,
-"name": &"talk",
-"speed": 5.0
-}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c34nb"]
 animations = [{
@@ -177,11 +157,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cb10l")
 
-[node name="Shopkeep" type="AnimatedSprite2D" parent="."]
-position = Vector2(1702, 827)
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_kpgtb")
-
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -213,15 +188,20 @@ layout_mode = 2
 
 [node name="Name" type="Label" parent="Panel/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 40
 
 [node name="Text" type="Label" parent="Panel/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(700, 300)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 40
 text = "Placeholder Order"
 autowrap_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="NextButton" parent="Panel/MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("4_xtrl7")]
@@ -230,103 +210,61 @@ text = "Next"
 
 [node name="ResetButton" parent="Panel/MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("4_xtrl7")]
 layout_mode = 2
-text = "Reset"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-layout_mode = 0
-offset_left = 820.0
-offset_top = 13.0
-offset_right = 882.0
-offset_bottom = 114.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="one" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "1"
-
-[node name="four" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "4"
-
-[node name="seven" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "7"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="two" type="Button" parent="Panel/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "2
-"
-
-[node name="five" type="Button" parent="Panel/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "5"
-
-[node name="eight" type="Button" parent="Panel/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "8"
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/HBoxContainer"]
-layout_mode = 2
-
-[node name="three" type="Button" parent="Panel/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "3
-"
-
-[node name="six" type="Button" parent="Panel/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "6"
+text = "Repeat"
 
 [node name="PlagueCat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(343, 859)
+position = Vector2(1611, 820.5)
 scale = Vector2(1.9, 1.9)
 sprite_frames = SubResource("SpriteFrames_c34nb")
+flip_h = true
 
 [node name="Maskcat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(338, 843)
+position = Vector2(1606, 804.5)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_xnwrk")
+flip_h = true
 
 [node name="Purrzerk" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(256, 869)
+position = Vector2(1524, 830.5)
 sprite_frames = SubResource("SpriteFrames_t8tpb")
+flip_h = true
 
 [node name="ChadCat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(331, 801)
+position = Vector2(1599, 762.5)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jcc2p")
+flip_h = true
 
 [node name="WeirdGuy" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(296, 814)
+position = Vector2(1564, 775.5)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_82u7m")
+flip_h = true
 
 [node name="Void" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(293, 704)
+position = Vector2(1561, 665.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wkbol")
+flip_h = true
 
 [node name="Gorf" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(373, 892)
+position = Vector2(1641, 853.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_sb6ov")
+flip_h = true
 
 [node name="Eyecat" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(299, 814)
+position = Vector2(1567, 775.5)
 sprite_frames = SubResource("SpriteFrames_8doj2")
+flip_h = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -432,12 +370,3 @@ position = Vector2(1200, 709)
 scale = Vector2(0.1, 0.11)
 sprite_frames = SubResource("SpriteFrames_daanw")
 offset = Vector2(700, 500)
-
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/one" to="." method="_on_one_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/four" to="." method="_on_four_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/seven" to="." method="_on_seven_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/two" to="." method="_on_two_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/five" to="." method="_on_five_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/eight" to="." method="_on_eight_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer3/three" to="." method="_on_three_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer3/six" to="." method="_on_six_pressed"]

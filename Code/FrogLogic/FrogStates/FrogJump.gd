@@ -34,7 +34,7 @@ func jump():
 			rotation_target = 90
 		else:
 			rotation_target = -90
-		$"../../AnimatedSprite2D".play("jump")
+		$"../../FrogSpriteHandler".play_jump()
 		frog.velocity = jump_direction * randf_range(min_horizontal_distance, max_horizontal_distance)
 		var jump_height = randf_range(min_jump_height, max_jump_height)
 		frog.velocity.y = -jump_height
