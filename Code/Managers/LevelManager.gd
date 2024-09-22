@@ -1,11 +1,12 @@
 class_name LevelManager extends Node2D
 
 @export var frog_slots : Array[FrogSlot] = []
+@export var dialogue : ShopScreen
 var state : ClickState = ClickState.DEFAULT
 enum ClickState { DEFAULT, WAND }
 
 func _ready() -> void:
-	pass
+	dialogue.tac_dialogue()
 	
 func add_frog_slot(slot : FrogSlot) -> void:
 	frog_slots.append(slot)

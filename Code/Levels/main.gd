@@ -29,8 +29,8 @@ func play_shop_music(is_playing : bool):
 func shopkeep_visible(is_visible : bool):
 	background.shopkeep_visible(is_visible)
 
-func shopkeep_talk(is_talk : bool):
-	pass
+#func shopkeep_talk(is_talk : bool):
+#	game_level.
 
 func sell_frogs(froglist : String):
 	pass

@@ -41,6 +41,11 @@ var customers_text = [
 		"name": "Eye: ", 
 		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", "The echoing answer. Frogs.", "_, _, _. I do as the void commands."],
 		"requested_frogs": []
+	},
+	{
+		"name": "Tac: ", 
+		"dialogues": ["how to play game", "stack frogs", "win"],
+		"requested_frogs": []
 	}
 ]
 
@@ -63,6 +68,7 @@ var current_dialogue_index = 0
 var current_word_index = 0
 var is_displaying = false
 var dialogue_speed = 0.05 # seconds between words
+var tac_talking = false
 
 @onready var name_label = $Panel/MarginContainer2/VBoxContainer/Name
 @onready var dialogue_label = $Panel/MarginContainer2/VBoxContainer/Text
@@ -128,6 +134,7 @@ func display_next_dialogue():
 				dialogue_label.text = "" 
 				display_next_dialogue()
 		else:
+			tac_talking = false
 			print("No more dialogues for this customer")
 			next_button.disabled = false 
 
@@ -136,7 +143,9 @@ func display_word(words: Array):
 	if current_word_index < words.size():
 		dialogue_label.text += words[current_word_index] + " "
 		current_word_index += 1
+		tac_talk(true)
 		await get_tree().create_timer(dialogue_speed).timeout  
+		tac_talk(false)
 		display_word(words)  
 	else:
 		is_displaying = false 
@@ -204,3 +213,12 @@ func _on_seven_pressed() -> void:
 
 func _on_eight_pressed() -> void:
 	update_customer_by_id(7)
+
+func tac_dialogue() -> void:
+	update_customer_by_id(8)
+	tac_talking = true
+	
+func tac_talk(is_talk : bool):
+	pass
+	#if get_tree().root.get_child(0) is Main:
+		#get_tree().root.get_child(0).shopkeep_talk(is_talk)
