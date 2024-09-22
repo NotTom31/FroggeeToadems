@@ -11,7 +11,7 @@ func randomize_wander():
 	wander_time = randf_range(1, 3)
 
 func Enter():
-	$"../../AnimatedSprite2D".play("jump")
+	$"../../FrogSpriteHandler".play_jump()
 	#if frog.is_sprite_flipped:
 	#	frog.rotation_degrees = 240
 	#else:
