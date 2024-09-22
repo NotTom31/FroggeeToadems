@@ -110,9 +110,8 @@ shape = SubResource("RectangleShape2D_jepvn")
 
 [node name="SlotOnHead" parent="." instance=ExtResource("3_xwux3")]
 position = Vector2(0, -35)
-active = null
+active = false
 type = 1
-on_lillypad = null
 
 [node name="FrogBase" type="Node2D" parent="."]
 position = Vector2(0, 29)
