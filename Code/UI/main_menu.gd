@@ -18,8 +18,11 @@ func _ready():
 
 
 func on_start_pressed() -> void:
-	main.open_gameplay(0)
-	queue_free()
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).open_gameplay(0)
+		queue_free()
+	else:
+		print("go to Main scene")
 
 func on_credits_pressed() -> void:
 	var scene_instance = credits_menu.instantiate()

@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://snde5c6srxnl" path="res://Scenes/Shop_Merchant_Placeholder/canvas_settings.tscn" id="2_4fif5"]
 [ext_resource type="PackedScene" uid="uid://cwk0xas0ckfjo" path="res://Scenes/UI/MainMenu.tscn" id="2_aetre"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("sound_manager")]
 script = ExtResource("1_aqv4j")
+sound_manager = NodePath("Canvas_Pause/Menu/SettingsMenu/Panel/SoundManager")
 
 [node name="Canvas_Menu" type="CanvasLayer" parent="."]
 
@@ -17,3 +18,8 @@ offset_bottom = -8.0
 main = NodePath("../..")
 
 [node name="Canvas_Pause" parent="." instance=ExtResource("2_4fif5")]
+
+[editable path="Canvas_Menu/Main Menu"]
+[editable path="Canvas_Pause"]
+[editable path="Canvas_Pause/Open_Button"]
+[editable path="Canvas_Pause/Menu/SettingsMenu"]

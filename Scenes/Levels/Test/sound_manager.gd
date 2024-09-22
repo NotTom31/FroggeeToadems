@@ -1,3 +1,4 @@
+class_name SoundManager
 extends Node2D
 
 # this code was made by brendan so enter at ur own risk

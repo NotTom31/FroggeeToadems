@@ -89,6 +89,13 @@ func assign_to_slot(new_slot: FrogSlot) -> void:
 		on_lillypad = slot_beneath.on_lillypad
 	else:
 		on_lillypad = false
+	if get_tree().root.get_child(0) is Main && slot_beneath != null:
+		if slot_beneath.type == FrogSlot.SlotType.LILLYPAD:
+			get_tree().root.get_child(0).play_sound("frog_snap")
+		elif slot_beneath.type == FrogSlot.SlotType.ROCK:
+			get_tree().root.get_child(0).play_sound("boing1")
+		elif slot_beneath.type == FrogSlot.SlotType.FROG:
+			get_tree().root.get_child(0).play_sound("boing1")
 
 func snap_to_slot(slot: FrogSlot) -> void:
 	global_position = slot.global_position - $FrogBase.position
