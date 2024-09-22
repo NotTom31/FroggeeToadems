@@ -1,10 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://d25bf5qdgn1h5"]
+[gd_scene load_steps=9 format=3 uid="uid://d25bf5qdgn1h5"]
 
 [ext_resource type="Texture2D" uid="uid://cc1xaaeiuebob" path="res://Assets/Art/Background/swamp_bg.png" id="1_jx6j7"]
 [ext_resource type="Script" path="res://Scenes/Environment/BGMovement.gd" id="1_ytghr"]
 [ext_resource type="Texture2D" uid="uid://dnqgahd5c5vr0" path="res://Assets/Art/Background/swamp_boat.png" id="2_71lmq"]
 [ext_resource type="Texture2D" uid="uid://g8ana2dxoy5j" path="res://Assets/Art/Background/swamp_clouds.png" id="3_wpigx"]
 [ext_resource type="Texture2D" uid="uid://dxsm7miy15646" path="res://Assets/Art/Background/swamp_sky.png" id="4_84yqa"]
+[ext_resource type="Texture2D" uid="uid://c1mxqvoh2dh0o" path="res://Assets/Art/Characters/CAT mc 2.png" id="6_byos4"]
+[ext_resource type="Texture2D" uid="uid://xrmv1ydbsl0b" path="res://Assets/Art/Characters/CAT mc 1.png" id="7_ra4un"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvgmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_byos4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ra4un")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
 
 [node name="Background" type="Node2D"]
 script = ExtResource("1_ytghr")
@@ -52,3 +73,10 @@ z_index = 3
 position = Vector2(386, 980)
 scale = Vector2(0.335, 0.335)
 texture = ExtResource("2_71lmq")
+
+[node name="Shopkeep" type="AnimatedSprite2D" parent="ParallaxBackground2/Boat"]
+z_index = 4
+position = Vector2(220, 933)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_bvgmh")
+flip_h = true

@@ -1,3 +1,4 @@
+class_name ShopScreen
 extends Node
 
 var customers_text = [

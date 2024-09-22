@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cog6dh2xtn66n"]
+[gd_scene load_steps=9 format=3 uid="uid://cog6dh2xtn66n"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
 [ext_resource type="PackedScene" uid="uid://bt7d6gfh7wrho" path="res://Scenes/Managers/MagicManager.tscn" id="2_k1b8b"]
 [ext_resource type="PackedScene" uid="uid://i6igjyki2wqp" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.tscn" id="2_llarb"]
-[ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_v13fq"]
 [ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="3_fwopu"]
 [ext_resource type="PackedScene" uid="uid://ceqymore53p77" path="res://Scenes/Legacy/temp_ground.tscn" id="3_iya8w"]
 [ext_resource type="PackedScene" uid="uid://dmr6oqf0ghcpp" path="res://Scenes/UI/Wand.tscn" id="3_t5ep4"]
@@ -23,8 +22,6 @@ offset_left = 110.0
 offset_top = 128.0
 offset_right = 110.0
 offset_bottom = 128.0
-
-[node name="Background" parent="." instance=ExtResource("2_v13fq")]
 
 [node name="Canvas_Shop" parent="." instance=ExtResource("2_llarb")]
 

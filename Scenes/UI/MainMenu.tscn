@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwk0xas0ckfjo"]
+[gd_scene load_steps=4 format=3 uid="uid://cwk0xas0ckfjo"]
 
 [ext_resource type="Script" path="res://Code/UI/main_menu.gd" id="1_dnbkw"]
-[ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_1357h"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="3_dvdev"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="3_stxqm"]
 
@@ -13,9 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dnbkw")
-
-[node name="Background" parent="." instance=ExtResource("2_1357h")]
-position = Vector2(305, 394)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
