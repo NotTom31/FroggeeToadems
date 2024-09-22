@@ -20,14 +20,14 @@ script = ExtResource("1_fwoa8")
 frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot")]
 dialogue = NodePath("Canvas_Shop/Menu/Panel/ShopScreen")
 canvas_shop = NodePath("Canvas_Shop")
-frog_requests_1 = Array[int]([2, 1])
-frog_requests_2 = Array[int]([4, 3])
-frog_requests_3 = Array[int]([0, 2, 3, 3])
-frog_requests_4 = Array[int]([2, 1, 0])
-frog_requests_5 = Array[int]([1, 0, 4])
-frog_requests_6 = Array[int]([2, 2, 2, 2, 2, 2])
-frog_requests_7 = Array[int]([1, 2, 3])
-frog_requests_8 = Array[int]([1, 1, 4, 3])
+frog_requests_1 = Array[int]([0, 0, 0, 0])
+frog_requests_2 = Array[int]([1, 1])
+frog_requests_3 = Array[int]([2, 4])
+frog_requests_4 = Array[int]([2, 2, 2])
+frog_requests_5 = Array[int]([4, 4, 4])
+frog_requests_6 = Array[int]([3])
+frog_requests_7 = Array[int]([2, 2, 2, 2, 2, 2, 3])
+frog_requests_8 = Array[int]([3, 3, 4, 4, 4, 4, 0, 0, 0])
 
 [node name="MagicManager" parent="." instance=ExtResource("2_k1b8b")]
 
