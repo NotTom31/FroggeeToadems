@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://yanyexrlae6i"]
+[gd_scene load_steps=8 format=3 uid="uid://yanyexrlae6i"]
 
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_52qfp"]
 [ext_resource type="Texture2D" uid="uid://7sja1guvnp78" path="res://Assets/Art/Frogs/blink/03_plink.png" id="2_yoirv"]
@@ -44,6 +44,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlrj1"]
+size = Vector2(295, 86.6667)
+
 [node name="SmallFrog" instance=ExtResource("1_52qfp")]
 type = 2
 
@@ -51,7 +54,8 @@ type = 2
 sprite_frames = SubResource("SpriteFrames_4xyxk")
 
 [node name="ClickableArea" parent="Area2D" index="0"]
-position = Vector2(1, 3.5)
+position = Vector2(1.5, 4)
+shape = SubResource("RectangleShape2D_tlrj1")
 
 [node name="SlotOnHead" parent="." index="3"]
 position = Vector2(0, -24)

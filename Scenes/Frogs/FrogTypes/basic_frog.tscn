@@ -52,7 +52,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jepvn"]
-size = Vector2(268.333, 105)
+size = Vector2(323.333, 103.333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skv3v"]
 
@@ -95,7 +95,7 @@ offset = Vector2(0, -150)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="ClickableArea" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.5, -4)
+position = Vector2(0.999998, -4)
 scale = Vector2(0.6, 0.6)
 shape = SubResource("RectangleShape2D_jepvn")
 

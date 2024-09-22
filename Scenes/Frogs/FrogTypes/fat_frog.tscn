@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg6ctvvup7aag"]
+[gd_scene load_steps=8 format=3 uid="uid://bg6ctvvup7aag"]
 
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_wieqn"]
 [ext_resource type="Texture2D" uid="uid://cy5acv5h4fr25" path="res://Assets/Art/Frogs/blink/04_plink.png" id="2_5ledk"]
@@ -44,6 +44,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ljgk"]
+size = Vector2(308.333, 200)
+
 [node name="FatFrog" instance=ExtResource("1_wieqn")]
 type = 3
 
@@ -51,7 +54,8 @@ type = 3
 sprite_frames = SubResource("SpriteFrames_45081")
 
 [node name="ClickableArea" parent="Area2D" index="0"]
-position = Vector2(4, -32.5)
+position = Vector2(3.5, -30)
+shape = SubResource("RectangleShape2D_6ljgk")
 
 [node name="SlotOnHead" parent="." index="3"]
 position = Vector2(0, -89)

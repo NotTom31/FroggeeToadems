@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co5rrhms11k5w"]
+[gd_scene load_steps=12 format=3 uid="uid://co5rrhms11k5w"]
 
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_kqv0n"]
 [ext_resource type="Texture2D" uid="uid://db8mb14ndu0rl" path="res://Assets/Art/Frogs/blink/02_plink1.png" id="2_ga1k2"]
@@ -27,6 +27,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_4a2g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ff734")
 }],
 "loop": false,
 "name": &"blink",
@@ -57,11 +60,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ispgn"]
+size = Vector2(270, 105)
+
 [node name="TropicalFrog" instance=ExtResource("1_kqv0n")]
 type = 1
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_bn081")
+animation = &"blink"
 
 [node name="ClickableArea" parent="Area2D" index="0"]
-position = Vector2(2.5, -0.5)
+position = Vector2(4, -2.5)
+shape = SubResource("RectangleShape2D_ispgn")
+
+[node name="SlotOnHead" parent="." index="3"]
+position = Vector2(0, -31)

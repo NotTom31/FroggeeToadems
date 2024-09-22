@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dblq15rpmoe78"]
+[gd_scene load_steps=7 format=3 uid="uid://dblq15rpmoe78"]
 
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_3yfop"]
 [ext_resource type="Texture2D" uid="uid://byimo5w7vne1o" path="res://Assets/Art/Frogs/resting/01_rest.png" id="2_nnp2c"]
@@ -40,6 +40,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oigb3"]
+size = Vector2(315, 200)
+
 [node name="MudFrog" instance=ExtResource("1_3yfop")]
 type = 4
 
@@ -47,7 +50,8 @@ type = 4
 sprite_frames = SubResource("SpriteFrames_rm5ts")
 
 [node name="ClickableArea" parent="Area2D" index="0"]
-position = Vector2(1.5, -29)
+position = Vector2(-1.5, -33)
+shape = SubResource("RectangleShape2D_oigb3")
 
 [node name="SlotOnHead" parent="." index="3"]
 position = Vector2(0, -93)
