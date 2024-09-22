@@ -1,16 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvtali2vs2aak"]
+[gd_scene load_steps=10 format=3 uid="uid://dvtali2vs2aak"]
 
 [ext_resource type="Script" path="res://Code/Levels/main.gd" id="1_aqv4j"]
 [ext_resource type="PackedScene" uid="uid://snde5c6srxnl" path="res://Scenes/Shop_Merchant_Placeholder/canvas_settings.tscn" id="2_4fif5"]
 [ext_resource type="PackedScene" uid="uid://cwk0xas0ckfjo" path="res://Scenes/UI/MainMenu.tscn" id="2_aetre"]
 [ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_xhy1p"]
+[ext_resource type="PackedScene" uid="uid://yanyexrlae6i" path="res://Scenes/Frogs/FrogTypes/small_frog.tscn" id="3_o1r8w"]
+[ext_resource type="PackedScene" uid="uid://bg6ctvvup7aag" path="res://Scenes/Frogs/FrogTypes/fat_frog.tscn" id="4_dv7x6"]
+[ext_resource type="PackedScene" uid="uid://co5rrhms11k5w" path="res://Scenes/Frogs/FrogTypes/tropical_frog.tscn" id="5_wuyxv"]
+[ext_resource type="PackedScene" uid="uid://mv06512gy8op" path="res://Scenes/lillypad.tscn" id="6_ix72g"]
+[ext_resource type="Texture2D" uid="uid://cvr4vb57bl7pj" path="res://Assets/Art/Frogs/jumping/02_jump.png" id="7_d5pug"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("sound_manager", "background")]
+position = Vector2(2, 4)
 script = ExtResource("1_aqv4j")
 sound_manager = NodePath("Canvas_Pause/Menu/SettingsMenu/Panel/MarginContainer2/HBoxContainer/SoundManager")
 background = NodePath("Background")
 
 [node name="Background" parent="." instance=ExtResource("2_xhy1p")]
+
+[node name="Shopkeep" parent="Background/ParallaxBackground2/Boat" index="1"]
+position = Vector2(181, 529)
+
+[node name="SmallFrog" parent="Background/ParallaxBackground2/Boat" index="2" instance=ExtResource("3_o1r8w")]
+position = Vector2(1129, 558)
+
+[node name="FatFrog" parent="Background/ParallaxBackground2/Boat" index="3" instance=ExtResource("4_dv7x6")]
+position = Vector2(1120, 509)
+
+[node name="TropicalFrog" parent="Background/ParallaxBackground2/Boat" index="4" instance=ExtResource("5_wuyxv")]
+position = Vector2(1120, 392)
+
+[node name="Lillypad" parent="Background/ParallaxBackground2/Boat" index="5" instance=ExtResource("6_ix72g")]
+position = Vector2(1120, 572)
+
+[node name="02Jump" type="Sprite2D" parent="Background/ParallaxBackground2/Boat" index="6"]
+position = Vector2(776, 197)
+rotation = 0.138788
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("7_d5pug")
 
 [node name="Canvas_Menu" type="CanvasLayer" parent="."]
 
@@ -20,6 +47,13 @@ offset_top = -8.0
 offset_right = -1.0
 offset_bottom = -8.0
 main = NodePath("../..")
+
+[node name="Label" parent="Canvas_Menu/Main Menu/MarginContainer/VBoxContainer" index="2"]
+text = "Froggee
+Toadems"
+
+[node name="VBoxContainer" parent="Canvas_Menu/Main Menu/MarginContainer/HBoxContainer" index="0"]
+visible = false
 
 [node name="Canvas_Pause" parent="." instance=ExtResource("2_4fif5")]
 
