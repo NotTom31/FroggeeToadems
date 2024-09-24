@@ -145,6 +145,8 @@ func display_word(words: Array):
 	if current_word_index < words.size():
 		dialogue_label.text += words[current_word_index] + " "
 		current_word_index += 1
+		if get_tree().root.get_child(0) is Main && current_word_index % 3 == 0: #play beep text every 3 words
+			get_tree().root.get_child(0).play_sound("beep_text")
 		await get_tree().create_timer(dialogue_speed).timeout  
 		display_word(words)  
 	else:
