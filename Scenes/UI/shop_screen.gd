@@ -3,22 +3,22 @@ extends Node
 var customers_text = [
 	{
 		"name": "Plague cat: ", 
-		"dialogues": ["Yeeack cheche rrowr. Ah hem! Pardon me; Scratch fever still spreads, a great many claws are stuck sunken into tree casings.  ", "For my cure I will need _ and _. Please help", "lest Alpha Meatball notch my ears for my failure."],
+		"dialogues": ["Yeeack cheche rrowr. Ah hem! Pardon me; Scratch fever still spreads, a great many claws are stuck sunken into tree casings.  ", "For my cure I will need a _ and _. Please help", "lest Alpha Meatball notch my ears for my failure."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Mask cat: ", 
-		"dialogues": ["I require frogs. _, _, _.", "Their purpose? My jutsu needs a conduit from which to channel by.", "All other techniques are worthless before my eyes."],
+		"dialogues": ["I require frogs. Visions of: _, _, _.", "Their purpose? My jutsu needs a conduit from which to channel by.", "All other techniques are worthless before my eyes."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Scar cat: ", 
-		"dialogues": ["Ah ha, yes, yes. I am in dire need of aid, what say you? ", "Yes, yes, I can see many of your wares. How much is it worth?", "Fine, keep your secrets. Shut up and get me _, _, _."],
+		"dialogues": ["Ah ha, yes, yes. I am in dire need of aid, what say you? ", "Yes, yes, I can see many of your wares. How much is it worth?", "Fine, keep your secrets. Shut up and get me my _, _, and _."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Chuddly: ", 
-		"dialogues": ["Salutations my brother in Meist.", "I need your most potent frogs. Based on my opponents aura I sussed out I will cop all the bussin ones. _, _, _.", "Thank you for kino maxing. I don’t pay the tax."],
+		"dialogues": ["Salutations my brother in Meist.", "I need your most potent frogs. Based on my opponents aura I sussed out I will cop all the bussin ones. The bussiest be _, _, and the most bussin of them all _.", "Thank you for kino maxing. I don’t pay the tax."],
 		"requested_frogs": []
 	},
 	{
@@ -33,12 +33,12 @@ var customers_text = [
 	},
 	{
 		"name": "Gorf: ", 
-		"dialogues": ["Hellow my fellow -croooa- Cat.", "I will purchase _, _, _, _, _, _, _, _, _. We have a family vacation planned- ughh I mean, a family feast!", "That I -ribb- I will host. *cough* *cough* sid ssey buy ist??"],
+		"dialogues": ["Hellow my fellow -croooa- Cat.", "I will purchase: _, _, _, _, _, _, _, _, _. We have a family vacation planned- ughh I mean, a family feast!", "That I -ribb- I will host. *cough* *cough* sid ssey buy ist??"],
 		"requested_frogs": []
 	},
 	{
 		"name": "Eye: ", 
-		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", "The echoing answer. Frogs.", "_, _, _. I do as the void commands."],
+		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", "The echoing answer. Frogs.", "The depths yearn for the eyes of these: _, _, _. I do as the void commands."],
 		"requested_frogs": []
 	}
 ]

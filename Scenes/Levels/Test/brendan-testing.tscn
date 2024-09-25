@@ -44,9 +44,7 @@ bus = &"ATM"
 [connection signal="pressed" from="LevelManager/SoundManager/AudioManagerControls/TestButton" to="LevelManager/SoundManager" method="_on_test_button_pressed"]
 
 [editable path="LevelManager"]
-[editable path="LevelManager/Frogs/BasicFrog"]
-[editable path="LevelManager/Frogs/BasicFrog2"]
-[editable path="LevelManager/Frogs/BasicFrog3"]
+[editable path="LevelManager/Wand"]
 [editable path="LevelManager/Lillypads/Lillypad"]
 [editable path="LevelManager/Lillypads/Lillypad2"]
 [editable path="LevelManager/Lillypads/Lillypad3"]
