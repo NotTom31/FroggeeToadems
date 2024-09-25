@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://mv06512gy8op"]
 
-[ext_resource type="Script" path="res://Scenes/lillypad.gd" id="1_2507a"]
+[ext_resource type="Script" path="res://Code/lillypad.gd" id="1_2507a"]
 [ext_resource type="Texture2D" uid="uid://b0lbm18smdd56" path="res://Assets/Art/Frogs/Lilypads/lily_01.png" id="1_thmhw"]
 [ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="2_iavth"]
 

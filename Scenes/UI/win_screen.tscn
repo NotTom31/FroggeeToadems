@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://dp8aoq4pw7x08"]
 
-[ext_resource type="Script" path="res://Scenes/win_screen.gd" id="1_gg0ns"]
+[ext_resource type="Script" path="res://Code/UI/win_screen.gd" id="1_gg0ns"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_txdsi"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_g16bh"]
+
 
 [node name="WinScreen" type="CanvasLayer"]
 layer = 7

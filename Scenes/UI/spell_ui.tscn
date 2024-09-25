@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://caup4tky6b8g7"]
 
-[ext_resource type="Script" path="res://Scenes/spell_ui.gd" id="1_5txb0"]
+[ext_resource type="Script" path="res://Code/UI/spell_ui.gd" id="1_5txb0"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_a30l4"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="3_nq4v7"]
 

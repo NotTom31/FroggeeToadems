@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dldqpsb1so2s4" path="res://Assets/Visuals/Sprites/Shop_Placeholder/91_strawberrycake_dish.png" id="3_h0e2o"]
 [ext_resource type="Texture2D" uid="uid://b71lesk0v8arb" path="res://Assets/Visuals/Sprites/Shop_Placeholder/98_sushi_dish.png" id="4_i014d"]
 [ext_resource type="Texture2D" uid="uid://b8c15prhu0dai" path="res://Assets/Visuals/Sprites/Merchant_Placeholder/small moidle.png" id="5_57yo3"]
-[ext_resource type="PackedScene" uid="uid://i6igjyki2wqp" path="res://Scenes/Shop_Merchant_Placeholder/canvas_shop.tscn" id="6_48scj"]
-[ext_resource type="Script" path="res://Scenes/Shop_Merchant_Placeholder/merchant.gd" id="6_ti1xy"]
+[ext_resource type="PackedScene" uid="uid://i6igjyki2wqp" path="res://Scenes/UI/canvas_shop.tscn" id="6_48scj"]
+[ext_resource type="Script" path="res://Scenes/Legacy/Shop_Merchant_Placeholder/merchant.gd" id="6_ti1xy"]
 [ext_resource type="Texture2D" uid="uid://d36i5pemtoe7k" path="res://icon.svg" id="7_n106r"]
-[ext_resource type="PackedScene" uid="uid://dhrrqy6bsp1hy" path="res://Scenes/Shop_Merchant_Placeholder/merchant_test_sprite.tscn" id="9_ejigk"]
+[ext_resource type="PackedScene" uid="uid://dhrrqy6bsp1hy" path="res://Scenes/Legacy/Shop_Merchant_Placeholder/merchant_test_sprite.tscn" id="9_ejigk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vyu3o"]
 atlas = ExtResource("2_h24wk")

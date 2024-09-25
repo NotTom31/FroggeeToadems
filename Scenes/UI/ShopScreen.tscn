@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://cvtntsg168do7"]
 
-[ext_resource type="Script" path="res://Scenes/UI/shop_screen.gd" id="1_cb10l"]
+[ext_resource type="Script" path="res://Code/UI/shop_screen.gd" id="1_cb10l"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="2_4oppx"]
 [ext_resource type="Texture2D" uid="uid://cfjg41jpp2hxa" path="res://Assets/Art/Characters/jeb.png" id="4_som7f"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="4_xtrl7"]

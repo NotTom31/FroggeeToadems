@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dhrrqy6bsp1hy"]
 
-[ext_resource type="Script" path="res://merchant_test_sprite.gd" id="1_0c126"]
+[ext_resource type="Script" path="res://Code/Legacy/merchant_test_sprite.gd" id="1_0c126"]
 [ext_resource type="Texture2D" uid="uid://b8c15prhu0dai" path="res://Assets/Visuals/Sprites/Merchant_Placeholder/small moidle.png" id="2_4x1ws"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55g18"]
