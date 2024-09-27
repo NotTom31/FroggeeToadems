@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvtali2vs2aak"]
+
+[ext_resource type="Script" path="res://Code/Levels/main.gd" id="1_aqv4j"]
+[ext_resource type="PackedScene" uid="uid://snde5c6srxnl" path="res://Scenes/Shop_Merchant_Placeholder/canvas_settings.tscn" id="2_4fif5"]
+[ext_resource type="PackedScene" uid="uid://cwk0xas0ckfjo" path="res://Scenes/UI/MainMenu.tscn" id="2_aetre"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aqv4j")
+
+[node name="Canvas_Shop" parent="." instance=ExtResource("2_4fif5")]
+
+[node name="Main Menu" parent="." node_paths=PackedStringArray("settings_menu", "main") instance=ExtResource("2_aetre")]
+layout_mode = 1
+offset_left = -1.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = -8.0
+settings_menu = NodePath("")
+main = NodePath("..")
