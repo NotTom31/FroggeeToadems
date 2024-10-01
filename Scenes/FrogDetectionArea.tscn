@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cmsts1ssqh3cs" path="res://Assets/Art/Temp/placeholder.png" id="1_alkt3"]
 [ext_resource type="Script" path="res://Code/Legacy/frog_detection_area.gd" id="1_ppca7"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_604wb"]
 size = Vector2(1920, 40)
 
