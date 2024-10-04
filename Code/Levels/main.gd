@@ -51,3 +51,15 @@ func restart_level():
 		current_game.queue_free()
 	await get_tree().create_timer(0.1).timeout
 	open_gameplay(level_num)
+
+func _on_frog_slot_assigned(frog : BasicFrog, slot : FrogSlot):
+	var tallest_height = frog_spawner.tallest_tower_count()
+	sound_manager.change_music_layer(tallest_height)
+	if slot == null:
+		return
+	if slot.type == FrogSlot.SlotType.LILLYPAD:
+		play_sound("lillypad_impact")
+	elif slot.type == FrogSlot.SlotType.ROCK:
+		play_sound("boing1")
+	elif slot.type == FrogSlot.SlotType.FROG:
+		play_sound("frog_snap")

@@ -98,6 +98,7 @@ func check_for_game_over():
 		$GameOver.visible = true
 
 func check_frog_total():
+	return #temporary! put this here to stop music changing when frogs spawn
 	if get_tree().root.get_child(0) is Main:
 		match $FrogSpawner.count_total_frogs():
 			0,1,2,3:
@@ -243,6 +244,9 @@ func _on_frog_spawner_spawned_frog(frog: BasicFrog) -> void:
 	add_frog_slot(frog.get_head_slot())
 	frog.frog_deselected.connect(self._on_frog_deselected)
 	frog.lvl_manager = self
+	
+	if get_tree().root.get_child(0) is Main:
+		frog.slot_assigned.connect(get_tree().root.get_child(0)._on_frog_slot_assigned)
 
 func set_state(s: ClickState) -> void:
 	state = s

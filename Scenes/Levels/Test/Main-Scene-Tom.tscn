@@ -49,8 +49,9 @@ offset_bottom = 15.0
 position = Vector2(949, 1089)
 scale = Vector2(40, 1)
 
-[node name="FrogSpawner" parent="." instance=ExtResource("6_p8e6y")]
+[node name="FrogSpawner" parent="." node_paths=PackedStringArray("lillypad_parent") instance=ExtResource("6_p8e6y")]
 position = Vector2(980, 261)
+lillypad_parent = NodePath("../Lillypads")
 
 [node name="Lillypads" type="Node2D" parent="."]
 

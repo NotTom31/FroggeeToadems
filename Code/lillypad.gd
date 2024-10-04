@@ -29,3 +29,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func check_for_magic() -> void:
 	lvl_manager.check_for_magic(get_held_frog_types())
+
+func count_frogs_in_stack() -> int:
+	var count = 0
+	var frog : BasicFrog = $FrogSlot.inhabitant
+	while frog != null:
+		count += 1
+		frog = frog.get_frog_on_head()
+	return count

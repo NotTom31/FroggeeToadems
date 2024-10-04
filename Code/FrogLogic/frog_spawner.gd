@@ -2,6 +2,7 @@ class_name FrogSpawner
 extends Node
 
 @export var frog_scenes : Array[PackedScene]
+@export var lillypad_parent : Node2D
 @export var starting_frog_count : int
 var frog_parents : Array[Node2D]
 signal spawned_frog(frog : BasicFrog)
@@ -49,3 +50,12 @@ func count_total_frogs() -> int:
 	for t in MagicManager.FrogType.values():
 		result += dict[t]
 	return result
+
+func tallest_tower_count() -> int:
+	var max = 0
+	var lillypads = lillypad_parent.get_children()
+	for t in lillypads:
+		var count = t.count_frogs_in_stack()
+		if count > max:
+			max = count
+	return max
