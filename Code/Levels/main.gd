@@ -19,6 +19,7 @@ func open_gameplay(level : int):
 	game_root.add_child(current_game)
 	frog_spawner = current_game.get_node("FrogSpawner")
 	shopkeep_visible(true)
+	current_game.level_opened.connect(self._on_level_started)
 	current_game.open_lvl(level)
 
 func open_level_select():
@@ -63,3 +64,6 @@ func _on_frog_slot_assigned(frog : BasicFrog, slot : FrogSlot):
 		play_sound("boing1")
 	elif slot.type == FrogSlot.SlotType.FROG:
 		play_sound("frog_snap")
+
+func _on_level_started(num : int) -> void:
+	sound_manager.play_base_music(true)

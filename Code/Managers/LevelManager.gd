@@ -34,7 +34,9 @@ enum ClickState { DEFAULT, WAND }
 
 var current_level_num : int = -1  # Initialize with an invalid level number
 
+signal level_opened(lvl : int)
 func open_lvl(num : int):
+	level_opened.emit(num)
 	current_level_num = num  # Store the level number
 	match num:
 		0: open_lvl_1()

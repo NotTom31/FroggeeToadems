@@ -54,20 +54,37 @@ var atmbus = AudioServer.get_bus_index("ATM")
 
 # play all layers at init. immediately mute all but first layer.
 func _ready() -> void:
+	set_ambiance_on(true)
+
+func set_ambiance_on(on : bool) -> void:
+	if on:
+		$PickupATM.play()
+	else:
+		$PickupATM.stop()
+
+func play_base_music(on : bool) -> void:
+	if !on:
+		$PickupMX1.stop()
+		$PickupMX2.stop()
+		$PickupMX3.stop()
+		$PickupMX4.stop()
+		$PickupMX5.stop()
+		$PickupMXSHOP.stop()
+		return
+	
 	$PickupMX1.play()
 	$PickupMX2.play()
 	$PickupMX3.play()
 	$PickupMX4.play()
 	$PickupMX5.play()
 	$PickupMXSHOP.play()
-	$PickupATM.play()
-	# mute time for non-base layer buses
+	
+	# mute non-base layer buses
 	AudioServer.set_bus_mute(musicbus2, not AudioServer.is_bus_mute(musicbus2))
 	AudioServer.set_bus_mute(musicbus3, not AudioServer.is_bus_mute(musicbus3))
 	AudioServer.set_bus_mute(musicbus4, not AudioServer.is_bus_mute(musicbus4))
 	AudioServer.set_bus_mute(musicbus5, not AudioServer.is_bus_mute(musicbus5))
 	AudioServer.set_bus_mute(shopbus, not AudioServer.is_bus_mute(shopbus))
-	# surely this method of muting will not cause problems later. pause for comedic effect	
 
 # code here for changing layers
 # move to bus management section
@@ -114,12 +131,11 @@ func change_music_layer(layer : int):
 
 func shop_music(is_playing : bool):
 	AudioServer.set_bus_mute(shopbus, !is_playing)
-	if(is_playing):
-		AudioServer.set_bus_mute(musicbus1, true)
-		AudioServer.set_bus_mute(musicbus2, true)
-		AudioServer.set_bus_mute(musicbus3, true)
-		AudioServer.set_bus_mute(musicbus4, true)
-		AudioServer.set_bus_mute(musicbus5, true)
+	AudioServer.set_bus_mute(musicbus1, is_playing)
+	AudioServer.set_bus_mute(musicbus2, is_playing)
+	AudioServer.set_bus_mute(musicbus3, is_playing)
+	AudioServer.set_bus_mute(musicbus4, is_playing)
+	AudioServer.set_bus_mute(musicbus5, is_playing)
 
 # master bus manager
 # idk get val from slider? not sure tbh
