@@ -3,12 +3,23 @@ extends Node2D
 
 # this code was made by brendan so enter at ur own risk
 # TOC:
+# Audio Configs
 # Variables/Utils COMPLETE
 # Music STILL NEEDS LAYER SWITCHING LOGIC
 # Bus management
 # SFX management 
 
-# VARIABLES AND UTILS
+
+# AUDIO CONFIGS
+# this portion of code is where audio file paths are specified
+# additionally, the configs where volume, pitch variety, and volume variety are set
+# key to audio_configs[0-5]: 0: dbset, 1: dbmin, 2: dbmax, 3: pitchmin,4: pitchmax, 5: audiopaths (array of string(s))
+	# zeroeth is volume! average db, 0 by default
+	# first is db minimum! most that could be subtracted from db using randmomizer
+	# second is db max! most that can be added to db using randomizer, should be smaller abs value than min
+	# third is pitch min! 0.5 value would mean frequencies halved (lower pitch)
+	# fourth is pitch max! 2 means an octave up
+	# fifth is file name, get by copying path of file
 
 var sound_config = {
 	#boing has 4 sound path options
@@ -27,6 +38,8 @@ var sound_config = {
 	"beep_text": [-3, -4, 5, 0.7, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav"]],
 }
 
+# VARIABLES AND UTILS
+
 # establish utils
 var rng = RandomNumberGenerator.new()
 var roundrobin = 1 # currently general. may need multiple rrs later
@@ -34,14 +47,17 @@ var roundrobin = 1 # currently general. may need multiple rrs later
 # establish variables for bus management
 # master bus
 var masterbus = AudioServer.get_bus_index("Master")
-# music bus
+# music bus to collect main theme and shop theme
 var musicbusall = AudioServer.get_bus_index("MXALL")
-# separate buses for all layers - 1 being base with 5 being top layer. may only need 4
+# music bus to collect different layers of main theme
+var musicbuslayers = AudioServer.get_bus_index("MXLAYERS")
+# separate buses for all layers - 1 being base with 5 being top layer
 var musicbus1 = AudioServer.get_bus_index("MX1")
 var musicbus2 = AudioServer.get_bus_index("MX2")
 var musicbus3 = AudioServer.get_bus_index("MX3")
 var musicbus4 = AudioServer.get_bus_index("MX4")
 var musicbus5 = AudioServer.get_bus_index("MX5")
+# music bus for just shop music
 var shopbus = AudioServer.get_bus_index("MXSHOP")
 
 # sfx bus
@@ -62,6 +78,7 @@ func set_ambiance_on(on : bool) -> void:
 	else:
 		$PickupATM.stop()
 
+# this function is called when level begins to start or re-start music
 func play_base_music(on : bool) -> void:
 	if !on:
 		$PickupMX1.stop()
@@ -131,11 +148,8 @@ func change_music_layer(layer : int):
 
 func shop_music(is_playing : bool):
 	AudioServer.set_bus_mute(shopbus, !is_playing)
-	AudioServer.set_bus_mute(musicbus1, is_playing)
-	AudioServer.set_bus_mute(musicbus2, is_playing)
-	AudioServer.set_bus_mute(musicbus3, is_playing)
-	AudioServer.set_bus_mute(musicbus4, is_playing)
-	AudioServer.set_bus_mute(musicbus5, is_playing)
+	AudioServer.set_bus_mute(musicbuslayers, is_playing)
+
 
 # master bus manager
 # idk get val from slider? not sure tbh
@@ -193,13 +207,7 @@ func play_sfx(name : String):
 # example call: (outdated)
 # func sfx_manager_example() -> void:
 	
-	# key to audio_configs[0-5]: 0: dbset, 1: dbmin, 2: dbmax, 3: pitchmin,4: pitchmax, 5: audiopaths
-	# zeroeth is volume! average db, 0 by default
-	# first is db minimum! most that could be subtracted from db using randmomizer
-	# second is db max! most that can be added to db using randomizer, should be smaller abs value than min
-	# third is pitch min! 0.5 value would mean frequencies halved (lower pitch)
-	# fourth is pitch max! 2 means an octave up
-	# fifth is file name, get by copying path of file
+
 	# here is an example of a call with my default values plugged in
 	
 func sfx_manager(audio_configs : Array) -> void:
