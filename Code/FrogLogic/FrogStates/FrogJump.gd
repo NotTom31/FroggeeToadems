@@ -5,6 +5,8 @@ class_name FrogJump
 @export var max_horizontal_distance := 300.0
 @export var min_jump_height := 600.0
 @export var max_jump_height := 1500.0
+@export var min_charge_time := 1.0
+@export var max_charge_time := 3.0
 @export var jump_animation: String = "jump"
 var rotation_target := 90.0
 @export var rotation_speed := 3.0  # Speed of rotation lerp
@@ -19,15 +21,22 @@ func randomize_jump_direction():
 
 func Enter():
 	has_jumped = false
-	frog.enable_gravity()
-	frog.assign_to_slot(null)
-	randomize_jump_direction()
-	jump()
+	play_charge_animation()
+	#jump()
 
 func Exit():
 	frog.rotation_degrees = 0
 
+func play_charge_animation():
+	$"../../FrogSpriteHandler".play_charge()
+	var charge_time = randf_range(min_charge_time, max_charge_time)
+	await get_tree().create_timer(0.2).timeout
+	jump()
+
 func jump():
+	frog.enable_gravity()
+	frog.assign_to_slot(null)
+	randomize_jump_direction()
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).play_sound("boing1")
 	if frog:

@@ -30,6 +30,10 @@ func play_blink() -> void:
 	resize_for_rest()
 	sprt.play("blink")
 
+func play_charge() -> void:
+	resize_for_rest()
+	sprt.play("charge")
+
 func resize_for_rest() -> void:
 	sprt.position = rest_sprite_position
 	sprt.scale = rest_sprite_scale
