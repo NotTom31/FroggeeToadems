@@ -17,5 +17,11 @@ func _process(delta) -> void:
 func shopkeep_visible(is_visible : bool):
 	shopkeep.visible = is_visible
 
+func shopkeep_talk(is_talk : bool):
+	if is_talk:
+		shopkeep.play("talk")
+	else:
+		shopkeep.play("default")
+
 func _ready() -> void:
 	shopkeep_visible(false)

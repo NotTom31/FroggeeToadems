@@ -21,6 +21,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("7_ra4un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_byos4")
 }],
 "loop": true,
 "name": &"talk",
@@ -75,8 +78,12 @@ scale = Vector2(0.335, 0.335)
 texture = ExtResource("2_71lmq")
 
 [node name="Shopkeep" type="AnimatedSprite2D" parent="ParallaxBackground2/Boat"]
+process_mode = 3
 z_index = 4
 position = Vector2(220, 933)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_bvgmh")
+animation = &"talk"
+frame = 1
+frame_progress = 0.466499
 flip_h = true

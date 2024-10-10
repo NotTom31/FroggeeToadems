@@ -142,6 +142,8 @@ func display_next_dialogue():
 
 # Function to display words one by one
 func display_word(words: Array):
+	if get_tree().root.get_child(0) is Main && tac_talking:
+		get_tree().root.get_child(0).shopkeep_talk(true)
 	if current_word_index < words.size():
 		dialogue_label.text += words[current_word_index] + " "
 		current_word_index += 1
@@ -152,6 +154,8 @@ func display_word(words: Array):
 	else:
 		is_displaying = false 
 		next_button.disabled = false
+		if get_tree().root.get_child(0) is Main && tac_talking:
+			get_tree().root.get_child(0).shopkeep_talk(false)
 
 # Replace underscores in the dialogue with specific frogs requested by the customer
 func replace_underscores_with_frogs(dialogue: String, customer_id: int) -> String:

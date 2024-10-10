@@ -49,6 +49,9 @@ func play_shop_music(is_playing : bool):
 func shopkeep_visible(is_visible : bool):
 	background.shopkeep_visible(is_visible)
 
+func shopkeep_talk(is_talk : bool):
+	background.shopkeep_talk(is_talk)
+
 func open_next_level():
 	if current_game:
 		current_game.queue_free()  # Remove the current level
