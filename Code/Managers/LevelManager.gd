@@ -264,6 +264,7 @@ func _on_wand_button_pressed() -> void:
 func check_for_magic(list : Array[MagicManager.FrogType]) -> void:
 	set_state(ClickState.DEFAULT)
 	get_parent().wand_anim()
+	get_parent().sound_manager.play_sfx("magic")
 	var spell_index = $MagicManager.evaluate_frog_stack(list)
 	$MagicManager.cast_spell(spell_index)
 
