@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Code/UI/game_over.gd" id="1_mqtqj"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_n1hxs"]
 
-
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_mqtqj")
 
@@ -53,3 +52,4 @@ grow_vertical = 2
 text = "Menu"
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

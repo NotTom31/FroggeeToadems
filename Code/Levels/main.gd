@@ -34,6 +34,7 @@ func open_menu():
 	var menu = main_menu.instantiate()
 	var game_root = $"."
 	game_root.add_child(menu)
+	shopkeep_visible(false)
 
 func play_sound(name : String):
 	sound_manager.play_sfx(name)
