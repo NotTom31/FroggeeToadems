@@ -3,9 +3,13 @@ extends Node2D
 
 @onready var game_level = preload("res://Scenes/Levels/Test/Main-Scene-Tom.tscn") as PackedScene
 @onready var level_select = preload("res://Scenes/UI/level_select.tscn") as PackedScene
-@onready var main_menu = preload("res://Scenes/UI/MainMenu.tscn") as PackedScene
+@onready var main_menu = preload("res://Scenes/UI/canvas_menu.tscn") as PackedScene
 @export var sound_manager : SoundManager
 @export var background : Background
+
+var wand1 = load("res://Assets/Art/Wand/wand-frame-1-scaled.png")
+var wand2 = load("res://Assets/Art/Wand/wand-frame-2-scaled.png")
+var wand3 = load("res://Assets/Art/Wand/wand-frame-3-scaled.png")
 
 var level_num : int
 var frog_spawner : FrogSpawner
@@ -28,8 +32,13 @@ func open_level_select():
 	game_root.add_child(game)
 
 func open_menu():
+	if current_game:
+		current_game.queue_free()  # Remove the current level
+	await get_tree().create_timer(0.1).timeout
 	var menu = main_menu.instantiate()
-	add_child(menu)
+	var game_root = $"."
+	game_root.add_child(menu)
+	shopkeep_visible(false)
 
 func play_sound(name : String):
 	sound_manager.play_sfx(name)
@@ -40,6 +49,8 @@ func play_shop_music(is_playing : bool):
 func shopkeep_visible(is_visible : bool):
 	background.shopkeep_visible(is_visible)
 
+func shopkeep_talk(is_talk : bool):
+	background.shopkeep_talk(is_talk)
 
 func open_next_level():
 	if current_game:
@@ -67,3 +78,19 @@ func _on_frog_slot_assigned(frog : BasicFrog, slot : FrogSlot):
 
 func _on_level_started(num : int) -> void:
 	sound_manager.play_base_music(true)
+
+func set_wand_cursor():
+	Input.set_custom_mouse_cursor(wand1, 0, Vector2(34,34))
+
+func wand_anim():
+	Input.set_custom_mouse_cursor(wand1, 0, Vector2(34,34))
+	await get_tree().create_timer(0.1).timeout
+	Input.set_custom_mouse_cursor(wand2, 0, Vector2(34,34))
+	await get_tree().create_timer(0.2).timeout
+	Input.set_custom_mouse_cursor(wand3, 0, Vector2(34,34))
+	await get_tree().create_timer(0.2).timeout
+	Input.set_custom_mouse_cursor(wand1, 0, Vector2(34,34))
+	reset_cursor()
+
+func reset_cursor():
+	Input.set_custom_mouse_cursor(null)

@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = false
-	print("yop")
+	level_manager.get_parent().open_menu()
 
 
 func _on_restart_button_pressed() -> void:

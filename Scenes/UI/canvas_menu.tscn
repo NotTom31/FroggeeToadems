@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://blswelgb852g5"]
+
+[ext_resource type="PackedScene" uid="uid://cwk0xas0ckfjo" path="res://Scenes/UI/MainMenu.tscn" id="1_0k2ta"]
+
+[node name="Canvas_Menu" type="CanvasLayer"]
+
+[node name="Main Menu" parent="." node_paths=PackedStringArray("main") instance=ExtResource("1_0k2ta")]
+offset_left = -1.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = -8.0
+main = NodePath("")
+
+[editable path="Main Menu"]
