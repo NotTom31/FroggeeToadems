@@ -7,6 +7,10 @@ extends Node2D
 @export var sound_manager : SoundManager
 @export var background : Background
 
+var wand1 = load("res://Assets/Art/Wand/wand-frame-1-scaled.png")
+var wand2 = load("res://Assets/Art/Wand/wand-frame-2-scaled.png")
+var wand3 = load("res://Assets/Art/Wand/wand-frame-3-scaled.png")
+
 var level_num : int
 var frog_spawner : FrogSpawner
 var current_game
@@ -71,3 +75,19 @@ func _on_frog_slot_assigned(frog : BasicFrog, slot : FrogSlot):
 
 func _on_level_started(num : int) -> void:
 	sound_manager.play_base_music(true)
+
+func set_wand_cursor():
+	Input.set_custom_mouse_cursor(wand1, 0, Vector2(34,34))
+
+func wand_anim():
+	Input.set_custom_mouse_cursor(wand1, 0, Vector2(34,34))
+	await get_tree().create_timer(0.1).timeout
+	Input.set_custom_mouse_cursor(wand2, 0, Vector2(34,34))
+	await get_tree().create_timer(0.2).timeout
+	Input.set_custom_mouse_cursor(wand3, 0, Vector2(34,34))
+	await get_tree().create_timer(0.2).timeout
+	Input.set_custom_mouse_cursor(wand1, 0, Vector2(34,34))
+	reset_cursor()
+
+func reset_cursor():
+	Input.set_custom_mouse_cursor(null)

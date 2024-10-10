@@ -256,11 +256,14 @@ func set_state(s: ClickState) -> void:
 func _on_wand_button_pressed() -> void:
 	if state == ClickState.WAND:
 		state = ClickState.DEFAULT
+		get_parent().reset_cursor()
 	else:
 		state = ClickState.WAND
+		get_parent().set_wand_cursor()
 
 func check_for_magic(list : Array[MagicManager.FrogType]) -> void:
 	set_state(ClickState.DEFAULT)
+	get_parent().wand_anim()
 	var spell_index = $MagicManager.evaluate_frog_stack(list)
 	$MagicManager.cast_spell(spell_index)
 
