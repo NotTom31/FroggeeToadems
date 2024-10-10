@@ -22,4 +22,4 @@ func _on_next_button_pressed() -> void:
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = false
-	print("yop")
+	level_manager.get_parent().open_menu()

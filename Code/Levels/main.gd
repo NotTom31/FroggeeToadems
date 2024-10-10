@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var game_level = preload("res://Scenes/Levels/Test/Main-Scene-Tom.tscn") as PackedScene
 @onready var level_select = preload("res://Scenes/UI/level_select.tscn") as PackedScene
-@onready var main_menu = preload("res://Scenes/UI/MainMenu.tscn") as PackedScene
+@onready var main_menu = preload("res://Scenes/UI/canvas_menu.tscn") as PackedScene
 @export var sound_manager : SoundManager
 @export var background : Background
 
@@ -28,8 +28,12 @@ func open_level_select():
 	game_root.add_child(game)
 
 func open_menu():
+	if current_game:
+		current_game.queue_free()  # Remove the current level
+	await get_tree().create_timer(0.1).timeout
 	var menu = main_menu.instantiate()
-	add_child(menu)
+	var game_root = $"."
+	game_root.add_child(menu)
 
 func play_sound(name : String):
 	sound_manager.play_sfx(name)
@@ -39,7 +43,6 @@ func play_shop_music(is_playing : bool):
 
 func shopkeep_visible(is_visible : bool):
 	background.shopkeep_visible(is_visible)
-
 
 func open_next_level():
 	if current_game:
