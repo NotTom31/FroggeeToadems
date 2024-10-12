@@ -13,6 +13,7 @@ var max_rotation_angle = deg_to_rad(40)
 var rotation_speed = 3  # How fast the rotation should change
 var mouse_position
 var is_sprite_flipped = false
+var ribbit_timer : float = 0.0
 
 var original_layer: int
 var original_mask: int
@@ -31,10 +32,22 @@ var on_lillypad := false:
 func _ready() -> void:
 	StateMachine = get_node("StateMachine")
 	original_layer = collision_layer
+	set_random_ribbit_timer()
 
 func _process(delta: float) -> void:
+	ribbit_timer -= delta
 	if selected:
 		follow_mouse(delta, $FrogBase.position)
+	if ribbit_timer <= 0:
+		if get_tree().root.get_child(0) is Main:
+			match type:
+				3, 4: #fat, mud
+					get_tree().root.get_child(0).play_sound("big_ribbit")
+				0, 1: #basic, tropical
+					get_tree().root.get_child(0).play_sound("default_ribbit")
+				2: #small
+					get_tree().root.get_child(0).play_sound("tiny_ribbit")
+		set_random_ribbit_timer()
 
 func follow_mouse(delta: float, offset: Vector2) -> void:
 	# Calculate the velocity of the mouse
@@ -173,3 +186,6 @@ func tumble() -> void:
 	if frog_on_head != null:
 		frog_on_head.tumble()
 	transition_to_fall()
+
+func set_random_ribbit_timer():
+	ribbit_timer = randf_range(3, 8)

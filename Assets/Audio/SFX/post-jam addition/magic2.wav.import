@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bsi4gj76p0npf"
+path="res://.godot/imported/magic2.wav-c1717c0730346d065dfd4eeb5a199060.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/post-jam addition/magic2.wav"
+dest_files=["res://.godot/imported/magic2.wav-c1717c0730346d065dfd4eeb5a199060.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -257,14 +257,15 @@ func _on_wand_button_pressed() -> void:
 	if state == ClickState.WAND:
 		state = ClickState.DEFAULT
 		get_parent().reset_cursor()
+		get_parent().sound_manager.play_sfx("magic_unequip")
 	else:
 		state = ClickState.WAND
 		get_parent().set_wand_cursor()
+		get_parent().sound_manager.play_sfx("magic_equip")
 
 func check_for_magic(list : Array[MagicManager.FrogType]) -> void:
 	set_state(ClickState.DEFAULT)
 	get_parent().wand_anim()
-	get_parent().sound_manager.play_sfx("magic")
 	var spell_index = $MagicManager.evaluate_frog_stack(list)
 	$MagicManager.cast_spell(spell_index)
 

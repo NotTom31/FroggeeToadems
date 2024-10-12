@@ -25,11 +25,11 @@ func evaluate_frog_stack(stack : Array[FrogType]) -> int:
 	return -1
 
 var spell_table = [
-	{ FrogType.TROPICAL : 2 }, 	# 0: summon basic
-	{ FrogType.SMALL : 2 },		# 1: summon basic
-	{ FrogType.FAT : 2 },		# 2: summon basic
-	{ FrogType.MUD : 2 },		# 3: summon basic
-	{ FrogType.BASIC : 2 },		# 4: summon basic
+	{ FrogType.TROPICAL : 1 }, 	# 0: summon basic
+	{ FrogType.SMALL : 1 },		# 1: summon basic
+	{ FrogType.FAT : 1 },		# 2: summon basic
+	{ FrogType.MUD : 1 },		# 3: summon basic
+	{ FrogType.BASIC : 1 },		# 4: summon basic
 	{ FrogType.BASIC : 3 },		# 5: summon tropical
 	{ FrogType.TROPICAL : 3 },	# 6: summon mud
 	{ FrogType.BASIC : 2, FrogType.TROPICAL : 2 }, # 7: summon small
@@ -41,16 +41,28 @@ func cast_spell(index : int) -> void:
 	match index:
 		0, 1, 2, 3, 4:
 			Summon.emit(FrogType.BASIC)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		5:
 			Summon.emit(FrogType.TROPICAL)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		6:
 			Summon.emit(FrogType.MUD)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		7:
 			Summon.emit(FrogType.SMALL)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		8:
 			Summon.emit(FrogType.FAT)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		_:
 			print("tried to cast an invalid spell")
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic_fail")
 
 # Assuming FrogType has a to_string() method or some way to convert to text
 
