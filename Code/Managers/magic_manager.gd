@@ -25,11 +25,11 @@ func evaluate_frog_stack(stack : Array[FrogType]) -> int:
 	return -1
 
 var spell_table = [
-	{ FrogType.TROPICAL : 2 }, 	# 0: summon basic
-	{ FrogType.SMALL : 2 },		# 1: summon basic
-	{ FrogType.FAT : 2 },		# 2: summon basic
-	{ FrogType.MUD : 2 },		# 3: summon basic
-	{ FrogType.BASIC : 2 },		# 4: summon basic
+	{ FrogType.TROPICAL : 1 }, 	# 0: summon basic
+	{ FrogType.SMALL : 1 },		# 1: summon basic
+	{ FrogType.FAT : 1 },		# 2: summon basic
+	{ FrogType.MUD : 1 },		# 3: summon basic
+	{ FrogType.BASIC : 1 },		# 4: summon basic
 	{ FrogType.BASIC : 3 },		# 5: summon tropical
 	{ FrogType.TROPICAL : 3 },	# 6: summon mud
 	{ FrogType.BASIC : 2, FrogType.TROPICAL : 2 }, # 7: summon small
