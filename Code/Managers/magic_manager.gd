@@ -41,16 +41,28 @@ func cast_spell(index : int) -> void:
 	match index:
 		0, 1, 2, 3, 4:
 			Summon.emit(FrogType.BASIC)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		5:
 			Summon.emit(FrogType.TROPICAL)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		6:
 			Summon.emit(FrogType.MUD)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		7:
 			Summon.emit(FrogType.SMALL)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		8:
 			Summon.emit(FrogType.FAT)
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
 		_:
 			print("tried to cast an invalid spell")
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic_fail")
 
 # Assuming FrogType has a to_string() method or some way to convert to text
 

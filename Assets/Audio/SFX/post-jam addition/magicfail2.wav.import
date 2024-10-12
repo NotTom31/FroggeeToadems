@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqafkiaru087p"
+path="res://.godot/imported/magicfail2.wav-0a83f2e8adc98847cdee55175f78091f.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/post-jam addition/magicfail2.wav"
+dest_files=["res://.godot/imported/magicfail2.wav-0a83f2e8adc98847cdee55175f78091f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

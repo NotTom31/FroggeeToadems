@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbo436ct6x4ij"
+path="res://.godot/imported/magicunequip.wav-064561d132e7e008e5684dfc7e353af6.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/post-jam addition/magicunequip.wav"
+dest_files=["res://.godot/imported/magicunequip.wav-064561d132e7e008e5684dfc7e353af6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

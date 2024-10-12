@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dk0nccy88sp3n"
+path="res://.godot/imported/frogimpact1.wav-b94326b96858730364bf14f2406f2424.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/post-jam addition/frogimpact1.wav"
+dest_files=["res://.godot/imported/frogimpact1.wav-b94326b96858730364bf14f2406f2424.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
