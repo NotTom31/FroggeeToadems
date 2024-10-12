@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://q2eyupn7k7l2"]
+[gd_scene load_steps=18 format=3 uid="uid://q2eyupn7k7l2"]
 
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogTypes/basic_frog.gd" id="1_rxiyf"]
 [ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_vs8rj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogFall.gd" id="6_gh8vj"]
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogStacked.gd" id="7_avrs0"]
 [ext_resource type="Texture2D" uid="uid://c4554dc54ppgk" path="res://Assets/Art/Frogs/blink/05_plink.png" id="8_57het"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogCharge.gd" id="8_fnlby"]
 [ext_resource type="Texture2D" uid="uid://gnxwxsklcb51" path="res://Assets/Art/Frogs/resting/05_rest.png" id="9_halpc"]
 [ext_resource type="Texture2D" uid="uid://cb6l32dbmeq54" path="res://Assets/Art/Frogs/charging/05_charge.png" id="10_lrc50"]
 [ext_resource type="Texture2D" uid="uid://bo12hoarwwc2e" path="res://Assets/Art/Frogs/jumping_turned/05_jump_turned.png" id="11_ha1ty"]
@@ -83,6 +84,10 @@ frog = NodePath("../..")
 
 [node name="FrogStacked" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
 script = ExtResource("7_avrs0")
+frog = NodePath("../..")
+
+[node name="FrogCharge" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("8_fnlby")
 frog = NodePath("../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

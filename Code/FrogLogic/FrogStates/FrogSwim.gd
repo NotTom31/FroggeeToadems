@@ -30,7 +30,7 @@ func Update(delta: float):
 	
 	else:
 		pass
-		Transitioned.emit(self, "FrogJump")
+		Transitioned.emit(self, "FrogCharge")
 		randomize_wander()
 
 func Physics_Update(delta: float):
