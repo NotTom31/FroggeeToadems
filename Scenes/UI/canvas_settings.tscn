@@ -30,6 +30,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/Back_Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_gloa7"]
 resource_name = "Start"
@@ -84,6 +96,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/Back_Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_ceqh4"]
 resource_name = "Transition_Out"
@@ -111,6 +135,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, true, false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/Back_Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5c88"]
 _data = {
@@ -128,12 +164,11 @@ script = ExtResource("1_bbqlg")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1894.0
-offset_top = 27.0
-offset_right = -1794.0
-offset_bottom = 77.0
+offset_left = -1900.0
+offset_top = 20.0
+offset_right = -1732.0
+offset_bottom = 80.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 25
 text = "Pause"
 
 [node name="Animation_Panel" type="AnimationPlayer" parent="."]
@@ -155,17 +190,17 @@ grow_vertical = 2
 layout_mode = 1
 
 [node name="Back_Button" parent="Menu" instance=ExtResource("2_1wyxg")]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1893.0
-offset_top = 26.0
-offset_right = -1793.0
-offset_bottom = 76.0
+offset_left = -1900.0
+offset_top = 20.0
+offset_right = -1680.0
+offset_bottom = 80.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 25
-text = "Pause"
+text = "Resume"
 
 [connection signal="pressed" from="Open_Button" to="." method="_on_open_button_pressed"]
 [connection signal="pressed" from="Menu/Back_Button" to="." method="_on_back_button_pressed"]

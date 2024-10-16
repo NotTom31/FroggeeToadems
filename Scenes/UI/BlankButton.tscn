@@ -6,24 +6,47 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2yaa"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8tww"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rf4da"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yanjr"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dewl"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svmh5"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4ecc"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c83af"]
 texture = ExtResource("2_sdamx")
@@ -33,11 +56,20 @@ texture = ExtResource("2_sdamx")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdm07"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16dta"]
 texture = ExtResource("2_sdamx")
+expand_margin_left = 12.0
+expand_margin_top = 15.0
+expand_margin_right = 12.0
 
 [node name="BlankButton" type="Button"]
+offset_right = 115.0
+offset_bottom = 59.0
+theme_override_colors/font_disabled_color = Color(0.44039, 0.491173, 0.142996, 1)
 theme_override_colors/font_color = Color(0.635294, 0.705882, 0.223529, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
