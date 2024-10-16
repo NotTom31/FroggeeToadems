@@ -47,18 +47,22 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="BlankButton" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource("2_cwy8l")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Level 1"
 
 [node name="BlankButton2" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource("2_cwy8l")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Level 2"
 
 [node name="BlankButton3" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource("2_cwy8l")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Level 3"
 
 [node name="BlankButton4" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource("2_cwy8l")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Level 4"
 
@@ -68,18 +72,22 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="BlankButton5" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Level 5"
 
 [node name="BlankButton6" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Level 6"
 
 [node name="BlankButton7" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Level 7"
 
 [node name="BlankButton8" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("2_cwy8l")]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Level 8"
 
