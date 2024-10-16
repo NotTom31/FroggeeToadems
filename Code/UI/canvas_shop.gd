@@ -17,7 +17,7 @@ func _on_back_button_pressed() -> void:
 	if get_tree().root.get_child(0) is Main:
 		if get_tree().root.get_child(0).get_node("LevelManager") is LevelManager:
 			get_tree().root.get_child(0).get_node("LevelManager").check_frog_total()
-		else : $Menu/SettingsMenu/Panel/MarginContainer2/HBoxContainer/SoundManager.change_music_layer(0)
+		else : get_tree().root.get_child(0).sound_manager.change_music_layer(0)
 
 func _on_open_button_pressed() -> void:
 	if get_tree().root.get_child(0) is Main:

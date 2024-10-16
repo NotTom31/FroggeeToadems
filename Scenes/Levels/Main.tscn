@@ -7,7 +7,7 @@
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("sound_manager", "background")]
 script = ExtResource("1_aqv4j")
-sound_manager = NodePath("Canvas_Pause/Menu/SettingsMenu/Panel/MarginContainer2/HBoxContainer/SoundManager")
+sound_manager = NodePath("Canvas_Pause/Menu/SettingsMenu/Button1/MarginContainer2/HBoxContainer/SoundManager")
 background = NodePath("Background")
 
 [node name="Background" parent="." instance=ExtResource("2_xhy1p")]

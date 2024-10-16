@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://blj7k800h40f"]
+[gd_scene load_steps=5 format=3 uid="uid://blj7k800h40f"]
 
 [ext_resource type="Script" path="res://Code/UI/credits_menu.gd" id="1_etfey"]
+[ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="2_ruutv"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="3_4ra3i"]
+[ext_resource type="Texture2D" uid="uid://wptdqqdmjfw5" path="res://Assets/Art/button1.png" id="3_ind4y"]
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -33,41 +35,38 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.151276, 0.151276, 0.151276, 1)
+theme_override_fonts/font = ExtResource("2_ruutv")
 theme_override_font_sizes/font_size = 60
 text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(1000, 600)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -300.0
-offset_right = 500.0
-offset_bottom = 300.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Button1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_ind4y")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="Button1"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -746.0
+offset_top = -272.0
+offset_right = -746.0
+offset_bottom = -272.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 22
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="Panel/MarginContainer"]
+[node name="Label" type="Label" parent="Button1/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 18
+theme_override_fonts/font = ExtResource("2_ruutv")
+theme_override_font_sizes/font_size = 34
 text = "Thomas Mezzie - Project Lead, Programmer, Designer
 Evan Charfauros - Programmer, Designer
 Brian Dacell Cabrera - Programmer

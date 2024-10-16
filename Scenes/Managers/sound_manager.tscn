@@ -15,10 +15,6 @@ z_as_relative = false
 script = ExtResource("1_spyt0")
 
 [node name="AudioManagerControls" parent="." instance=ExtResource("2_jp7r5")]
-offset_left = 608.0
-offset_top = 224.0
-offset_right = 608.0
-offset_bottom = 224.0
 
 [node name="MainSlider" parent="AudioManagerControls/HBoxContainer/VBoxContainer" index="0"]
 value = 0.6

@@ -175,6 +175,7 @@ text = "Pause"
 libraries = {
 "": SubResource("AnimationLibrary_w5c88")
 }
+speed_scale = 1.25
 
 [node name="Menu" type="Control" parent="."]
 visible = false

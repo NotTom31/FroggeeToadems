@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bw0yhqbfc0xq"]
+[gd_scene load_steps=2 format=3 uid="uid://bw0yhqbfc0xq"]
+
+[ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_wb8nh"]
 
 [node name="AudioManagerControls" type="Control"]
 layout_mode = 3
@@ -23,18 +25,30 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_wb8nh")
+theme_override_font_sizes/font_size = 23
 text = "Master"
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_wb8nh")
+theme_override_font_sizes/font_size = 23
 text = "Music"
 
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_wb8nh")
+theme_override_font_sizes/font_size = 23
 text = "SFX"
 
 [node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_wb8nh")
+theme_override_font_sizes/font_size = 23
 text = "Atmosphere"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
