@@ -71,11 +71,11 @@ theme_override_font_sizes/font_size = 30
 text = "Thomas Mezzie - Project Lead, Programmer, Designer
 Evan Charfauros - Programmer, Designer
 Brian Dacell Cabrera - Programmer
-Otter Eve - Composer, Designer
-Ogrehara - Sound Designer, Audio Implementation
-SirSunstone - Designer & Writer
-Tangent Sacket Pyle - Art (edit later)
-Imugiwyrm - Art (maybe put character design?)"
+Tangent Sacket Pyle - Background and Frog Artist
+Imugiwyrm - Character Designer, UI Artist
+Otter Eve - Composer, Sound Editor, Designer
+Ogrehara - Sound Producer, Audio Implementation, Designer
+SirSunstone - Designer & Writer"
 
 [node name="BackButton" parent="." instance=ExtResource("3_4ra3i")]
 layout_mode = 1
