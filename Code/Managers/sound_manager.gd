@@ -6,19 +6,23 @@ extends Node2D
 # TABLE OF CONTENTS:
 # 1) AUDIO CONFIGS (~28)
 	# audio paths and customizations for db, pitch, etc set
-# 2) VARIABLES/UTILS: (~80)
-	# buses are initialized
+# 2) VARIABLES/UTILS: (~84)
+	# mute/unmute levels
+	# fade in / fade out time constants
 	# randomizer and round robin variable
-# 3) AMBIANCE: (~117)
-# 4) MUSIC: (~130)
+	# mx fade state manager
+	# buses are initialized
+# 3) AMBIANCE: (~171)
+# 4) MUSIC: (~184)
 	# play music on level start
 	# dynamic music layer system
 	# toggle shop / main
-# 5) SFX: (~184)
+	# music fader
+# 5) SFX: (~297)
 	# take calls from elsewhere in code
 	# check audio configs
 	# round-robin style player
-# 6) BUS MANAGEMENT: (~304)
+# 6) BUS MANAGEMENT: (~418)
 	# logic used for volume sliders in settings menu 
 
 
@@ -45,15 +49,16 @@ var sound_config = {
 	"frog_click": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/frogimpact1.wav","res://Assets/Audio/SFX/frogimpact2.wav"]],
 	# planned sound "frog_spawn" for when a new frog appears
 	"frog_spawn": [0, -4, 2, 0.85, 1.2, ["null"]],
-	"frog_snap": [-1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/frogsnap_-7dB.wav"]],
-	"tiny_ribbit" : [-10, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_tiny1_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny2_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny3_-9dB.wav"]],
-	"default_ribbit": [-5, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_normal1_-8dB.wav","res://Assets/Audio/SFX/ribbit_normal2_-8dB.wav"]],
-	"big_ribbit": [-3, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbitBIG_-8dB.wav"]],
+	"frog_snap": [-1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/frogsnap1.wav", "res://Assets/Audio/SFX/post-jam addition/frogsnap2.wav", "res://Assets/Audio/SFX/post-jam addition/frogsnap3.wav"]],
+	"tiny_ribbit" : [-15, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_tiny1_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny2_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny3_-9dB.wav"]],
+	"default_ribbit": [-3, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/ribbit_normal.wav"]],
+	"tropical_ribbit": [-3, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/ribbit_tropical.wav"]],
+	"big_ribbit": [-8, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbitBIG_-8dB.wav"]],
 	# MAGIC SFX
-	"magic" : [4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magic1.wav", "res://Assets/Audio/SFX/post-jam addition/magic2.wav", "res://Assets/Audio/SFX/post-jam addition/magic3.wav"]],
-	"magic_equip" : [2.5, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicequip.wav", "res://Assets/Audio/SFX/post-jam addition/magicequip2.wav"]],
-	"magic_unequip" : [3, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicunequip.wav", "res://Assets/Audio/SFX/post-jam addition/magicunequip2.wav"]],
-	"magic_fail" : [4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicfail1.wav", "res://Assets/Audio/SFX/post-jam addition/magicfail2.wav"]],
+	"magic" : [-4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magic1.wav", "res://Assets/Audio/SFX/post-jam addition/magic2.wav", "res://Assets/Audio/SFX/post-jam addition/magic3.wav"]],
+	"magic_equip" : [-15, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicequip.wav", "res://Assets/Audio/SFX/post-jam addition/magicequip2.wav"]],
+	"magic_unequip" : [-15, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicunequip.wav"]],
+	"magic_fail" : [-4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicfail1.wav", "res://Assets/Audio/SFX/post-jam addition/magicfail2.wav"]],
 	# NPCS
 	"beep_text": [-3, -4, 5, 0.7, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav"]],
 	# unimplemented mock-up sound "beep_text_gorf" specifically for gorf's ribbit-meows
@@ -77,15 +82,68 @@ var sound_config = {
 	# recommended initial settings: [0, -4, 2, 0.85, 1.2, ["path(s)"]]
 	
 # 2) VARIABLES AND UTILS
+
+# mute and unmute volumes
+var mxvolumemute = -60
+var mxvolumemax = -3
+
+# time constants to determine fade in/out speed. replace if converting from linear to log fades
+var fade_in_speed = 120
+var fade_out_speed = 15
+var fade_in_speed_layers = 40
+var fade_out_speed_layers = 9
+
+# rng
 var rng = RandomNumberGenerator.new() # usded to determine pitch/db offset, filepath if multiple
-var roundrobin = 1 # used by SFX player, expected value 1-n where n is max sfx players (13 as of 10-9-24)
 
 # is-on to db converter
 func bool_to_db(on : bool) -> int:
 	if !on:
-		return -60
+		return mxvolumemute
 	else:
-		return -3
+		return mxvolumemax
+
+#is on to bin converter
+func bool_to_bin(on : bool) -> int:
+	if !on:
+		return 0
+	else:
+		return 1
+
+var roundrobin = 1 # used by SFX player, expected value 1-n where n is max sfx players (13 as of 10-9-24)
+
+
+# LAYER STREAM INIT
+# setup onready for sync stream... i copied this dunno whats going on. praying to the Lord this works
+@onready var audio_stream_player : AudioStreamPlayer = $PickupMXTheme
+@onready var audio_stream : AudioStreamSynchronized = audio_stream_player.stream
+
+# music fade in/out
+#var cossfade_length = 0.5
+#var crossfade_delta = 0.05
+var fade_in_tracker = [0, 0, 0, 0, 0, 0, 0] # layers 0-4, 5 theme bus, 6 shop bus
+var fade_out_tracker = [0, 0, 0, 0, 0, 0, 0]
+#var fade_controls = [0,0,0,0,0,$PickupMXShop.volume_db]
+
+# fade manager
+# handle calls from within manager to initiate a fade. Toggles in-prog fade out if fade in called and vice versa
+func mx_fader(track : int, fade_type : int):
+	# fade_type 1 is fade in, 0 is fade out
+	if fade_type == 1:
+		# fade in
+		fade_in_tracker[track] = 1
+		fade_out_tracker[track] = 0
+		#print("fading in track" + str(track))
+		# handle bus management if appropriate
+		if track == 5:
+			AudioServer.set_bus_mute(themebus, false)
+		elif track == 6:
+			AudioServer.set_bus_mute(shopbus, false)
+	if fade_type == 0:
+		# fade out
+		fade_in_tracker[track] = 0
+		fade_out_tracker[track] = 1
+		#print("fading out track" + str(track))
 
 # establish BUSES
 
@@ -106,10 +164,8 @@ var fxbus = AudioServer.get_bus_index("SFX")
 # ATM BUS
 var atmbus = AudioServer.get_bus_index("ATM")
 
-# LAYER STREAM INIT
-# setup onready for sync stream... i copied this dunno whats going on. praying to the Lord this works
-@onready var audio_stream_player : AudioStreamPlayer = $PickupMXTheme
-@onready var audio_stream : AudioStreamSynchronized = audio_stream_player.stream
+# EFFECTS # unused atm
+#var lopass = AudioServer.get_bus_effect(1, 0)
 
 
 # 3) AMBIANCE
@@ -143,41 +199,102 @@ func play_base_music(on : bool) -> void:
 	audio_stream.set_sync_stream_volume(3,-60)
 	audio_stream.set_sync_stream_volume(4,-60)
 	AudioServer.set_bus_mute(shopbus, true)
+	$PickupMXShop.volume_db = mxvolumemute
+	$PickupMXTheme.volume_db = mxvolumemute
+	print("muted everything")
+	
+	#unused effect init
+	# turn off lopass by default
+	#lopass.cutoff_hz = 999999
 	#
 
 # dynamic music layer system 
 func change_music_layer(layer : int):
 	var musiclayerdivisions = [2,4,6,8] # the first tallest tower height in which the next music layer is played
 	if layer < musiclayerdivisions[0]: # only base layer plays      
-		audio_stream.set_sync_stream_volume(1,bool_to_db(false))
-		audio_stream.set_sync_stream_volume(2,bool_to_db(false))
-		audio_stream.set_sync_stream_volume(3,bool_to_db(false))
-		audio_stream.set_sync_stream_volume(4,bool_to_db(false))
+		mx_fader(1,0)
+		mx_fader(2,0)
+		mx_fader(3,0)
+		mx_fader(4,0)
+
 	elif layer < musiclayerdivisions[1]: # only first two layers play
-		audio_stream.set_sync_stream_volume(1,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(2,bool_to_db(false))
-		audio_stream.set_sync_stream_volume(3,bool_to_db(false))
-		audio_stream.set_sync_stream_volume(4,bool_to_db(false))
+		mx_fader(1,1)
+		mx_fader(2,0)
+		mx_fader(3,0)
+		mx_fader(4,0)
 	elif layer < musiclayerdivisions[2]: # only first three layers play
-		audio_stream.set_sync_stream_volume(1,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(2,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(3,bool_to_db(false))
-		audio_stream.set_sync_stream_volume(4,bool_to_db(false))
+		mx_fader(1,1)
+		mx_fader(2,1)
+		mx_fader(3,0)
+		mx_fader(4,0)
 	elif layer < musiclayerdivisions[3]: # only first four layers play
-		audio_stream.set_sync_stream_volume(1,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(2,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(3,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(4,bool_to_db(false))
+		mx_fader(1,1)
+		mx_fader(2,1)
+		mx_fader(3,1)
+		mx_fader(4,0)
 	else: # all layers play
-		audio_stream.set_sync_stream_volume(1,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(2,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(3,bool_to_db(true))
-		audio_stream.set_sync_stream_volume(4,bool_to_db(true))
+		mx_fader(1,1)
+		mx_fader(2,1)
+		mx_fader(3,1)
+		mx_fader(4,1)
 
 # toggle shop / main theme
 func shop_music(is_playing : bool):
-	AudioServer.set_bus_mute(shopbus, !is_playing)
-	AudioServer.set_bus_mute(themebus, is_playing)
+	mx_fader(6,bool_to_bin(is_playing)) # shop bus toggle/untoggle fade
+	#AudioServer.set_bus_mute(shopbus, !is_playing)
+	mx_fader(5,bool_to_bin(!is_playing)) # theme bus toggle/untoggle
+	#AudioServer.set_bus_mute(themebus, is_playing)
+
+#music fade manager
+#handles fades based on fade controller. Ends fade state upon completion
+func _process(delta: float) -> void:
+	# check theme / shop
+	# theme overall
+	if fade_in_tracker[5] == 1:
+		$PickupMXTheme.volume_db += fade_in_speed*delta
+		if $PickupMXTheme.volume_db >= mxvolumemax:
+			fade_in_tracker[5] = 0
+			#print("theme fade in complete")
+	if fade_out_tracker[5] == 1:
+		AudioServer.set_bus_mute(themebus, false)
+		$PickupMXTheme.volume_db -= fade_out_speed*delta
+		if $PickupMXTheme.volume_db <= mxvolumemute:
+			fade_out_tracker[5] = 0
+			AudioServer.set_bus_mute(themebus, true)
+			#print("theme fade out complete")
+	# shop overall
+	if fade_in_tracker[6] == 1:
+		$PickupMXShop.volume_db += fade_in_speed*delta
+		if $PickupMXShop.volume_db >= mxvolumemax:
+			fade_in_tracker[6] = 0
+			#print("shop fade in complete")
+	if fade_out_tracker[6] == 1:
+		AudioServer.set_bus_mute(shopbus, false)
+		$PickupMXShop.volume_db -= fade_out_speed*delta
+		if $PickupMXShop.volume_db <= mxvolumemute:
+			fade_out_tracker[6] = 0
+			AudioServer.set_bus_mute(shopbus, true)
+			#print("shop fade out complete")
+	# check individual music layers
+	for n in [0,1,2,3,4]:
+		if fade_in_tracker[n] == 1:
+			audio_stream.set_sync_stream_volume(n, audio_stream.get_sync_stream_volume(n)+fade_in_speed_layers*delta)
+			if audio_stream.get_sync_stream_volume(n) >= mxvolumemax:
+				audio_stream.set_sync_stream_volume(n, mxvolumemax)
+				fade_in_tracker[n] = 0
+				#print("layer " + str(n) + " faded in")
+		if fade_out_tracker[n] == 1:
+			audio_stream.set_sync_stream_volume(n, audio_stream.get_sync_stream_volume(n)-fade_out_speed_layers*delta)
+			if audio_stream.get_sync_stream_volume(n) <= mxvolumemute:
+				audio_stream.set_sync_stream_volume(n, mxvolumemute)
+				fade_out_tracker[n] = 0
+				#print("layer " + str(n) + " faded out")
+
+# scrapping lo pass for pause for now
+#func pause_screen(is_paused : bool):
+	##set_bus_effect_enabled(bus_idx: int, effect_idx: int, enabled: bool)
+	#lopass.cutoff_hz = bool_to_bin(is_paused)*99999 + 2000
+	
 
 
 # 5) SFX
