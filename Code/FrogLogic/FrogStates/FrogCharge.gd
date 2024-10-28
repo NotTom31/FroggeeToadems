@@ -16,6 +16,7 @@ func Exit():
 func play_charge_animation():
 	$"../../FrogSpriteHandler".play_charge()
 	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).play_sound("wert")
 		get_tree().root.get_child(0).play_sound("bounce_charge")
 	var charge_time = randf_range(min_charge_time, max_charge_time)
 	await get_tree().create_timer(charge_time).timeout

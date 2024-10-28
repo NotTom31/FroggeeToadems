@@ -44,7 +44,8 @@ var sound_config = {
 	"close_shop": [0, -4, 2, 0.85, 1.2, ["null"]],
 	# FROG SFX
 	"boing1": [-2, -4, 2, 0.7, 1.3, ["res://Assets/Audio/SFX/boing_1_-7dB.wav","res://Assets/Audio/SFX/boing_2_-7dB.wav","res://Assets/Audio/SFX/boing_3_-7dB.wav","res://Assets/Audio/SFX/boing_4_-7dB.wav"]],
-	"bounce_charge": [-7, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/bounce_charge1_-7dB.wav", "res://Assets/Audio/SFX/bounce_charge2_-7dB.wav"]],
+	"bounce_charge": [-7, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3faster.wav"]],
+	"wert": [-7, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertmedium.wav", "res://Assets/Audio/SFX/post-jam addition/wertfastest.wav"]],
 	# unimplemented sound "frog_click" for when clicking on frogs
 	"frog_click": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/frogimpact1.wav","res://Assets/Audio/SFX/frogimpact2.wav"]],
 	# planned sound "frog_spawn" for when a new frog appears
@@ -201,7 +202,6 @@ func play_base_music(on : bool) -> void:
 	AudioServer.set_bus_mute(shopbus, true)
 	$PickupMXShop.volume_db = mxvolumemute
 	$PickupMXTheme.volume_db = mxvolumemute
-	print("muted everything")
 	
 	#unused effect init
 	# turn off lopass by default

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://db4lvvxl670pi"
+path="res://.godot/imported/ribbit_tropical.wav-4a5beb00d0109eeeddd0f25adf79d3a0.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/post-jam addition/ribbit_tropical.wav"
+dest_files=["res://.godot/imported/ribbit_tropical.wav-4a5beb00d0109eeeddd0f25adf79d3a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
