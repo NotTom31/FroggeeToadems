@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://1k1rcvp03xma"]
+[gd_scene load_steps=14 format=3 uid="uid://1k1rcvp03xma"]
 
 [ext_resource type="Script" path="res://Code/Managers/sound_manager.gd" id="1_spyt0"]
 [ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="2_jp7r5"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://kijxj3q23ga3" path="res://Assets/Audio/Music/GWJ73_MX_main_layer02_threeOrMoreFrogs_73bpm.wav" id="5_j571n"]
 [ext_resource type="AudioStream" uid="uid://bshox67kh3ndh" path="res://Assets/Audio/Music/GWJ73_MX_main_layer03_fiveOrMoreFrogs_73bpm.wav" id="6_0qftb"]
 [ext_resource type="AudioStream" uid="uid://c20rsptc8ne00" path="res://Assets/Audio/Music/GWJ73_MX_main_layer04_sevenOrMoreFrogs_73bpm.wav" id="7_lmont"]
-[ext_resource type="AudioStream" uid="uid://b0u8sb11o8ps" path="res://Assets/Audio/Music/GWJ73_MX_shop_73bpm.wav" id="8_5fs21"]
 [ext_resource type="AudioStream" uid="uid://ccu3wpg84hyif" path="res://Assets/Audio/SFX/GWJ73_SFX_AMB_loop_-13dB.wav" id="9_w0smh"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_5fiec"]
@@ -115,7 +114,6 @@ stream = SubResource("AudioStreamSynchronized_5fiec")
 bus = &"MXLAYERS"
 
 [node name="PickupMXShop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_5fs21")
 volume_db = -4.0
 bus = &"MXSHOP"
 
