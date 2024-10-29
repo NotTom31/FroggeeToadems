@@ -47,9 +47,9 @@ var sound_config = {
 	"bounce_charge_slow": [-2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3.wav"]],
 	"bounce_charge_medium": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3faster.wav"]],
 	"bounce_charge_fast": [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3fastest.wav"]],
-	"wert_slow": [-4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wert.wav"]],
-	"wert_medium": [-5, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertmedium.wav"]],
-	"wert_fast": [-1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertfastest.wav"]],
+	"wert_slow": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wert.wav"]],
+	"wert_medium": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertmedium.wav"]],
+	"wert_fast": [2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertfastest.wav"]],
 	# unimplemented sound "frog_click" for when clicking on frogs
 	"frog_click": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/frogimpact1.wav","res://Assets/Audio/SFX/frogimpact2.wav"]],
 	# planned sound "frog_spawn" for when a new frog appears
