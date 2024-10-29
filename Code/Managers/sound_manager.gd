@@ -44,26 +44,27 @@ var sound_config = {
 	"close_shop": [0, -4, 2, 0.85, 1.2, ["null"]],
 	# FROG SFX
 	"boing1": [-2, -4, 2, 0.7, 1.3, ["res://Assets/Audio/SFX/boing_1_-7dB.wav","res://Assets/Audio/SFX/boing_2_-7dB.wav","res://Assets/Audio/SFX/boing_3_-7dB.wav","res://Assets/Audio/SFX/boing_4_-7dB.wav"]],
-	"bounce_charge_slow": [-2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3.wav"]],
-	"bounce_charge_medium": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3faster.wav"]],
-	"bounce_charge_fast": [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3fastest.wav"]],
+	"bounce_charge_slow": [-4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3.wav"]],
+	"bounce_charge_medium": [-2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3faster.wav"]],
+	"bounce_charge_fast": [-2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3fastest.wav"]],
 	"wert_slow": [-4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wert.wav"]],
 	"wert_medium": [-5, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertmedium.wav"]],
 	"wert_fast": [-1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertfastest.wav"]],
+	"wert": [-4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wert.wav", "res://Assets/Audio/SFX/post-jam addition/wertmedium.wav", "res://Assets/Audio/SFX/post-jam addition/wertfastest.wav"]],
 	# unimplemented sound "frog_click" for when clicking on frogs
 	"frog_click": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/frogimpact1.wav","res://Assets/Audio/SFX/frogimpact2.wav"]],
 	# planned sound "frog_spawn" for when a new frog appears
 	"frog_spawn": [0, -4, 2, 0.85, 1.2, ["null"]],
 	"frog_snap": [-1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/frogsnap1.wav", "res://Assets/Audio/SFX/post-jam addition/frogsnap2.wav", "res://Assets/Audio/SFX/post-jam addition/frogsnap3.wav"]],
 	"tiny_ribbit" : [-15, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbit_tiny1_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny2_-9dB.wav","res://Assets/Audio/SFX/ribbit_tiny3_-9dB.wav"]],
-	"default_ribbit": [-3, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/ribbit_normal.wav"]],
-	"tropical_ribbit": [-3, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/ribbit_tropical.wav"]],
+	"default_ribbit": [-1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/ribbit_normal.wav"]],
+	"tropical_ribbit": [-1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/ribbit_tropical.wav"]],
 	"big_ribbit": [-8, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/ribbitBIG_-8dB.wav"]],
 	# MAGIC SFX
-	"magic" : [-4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magic1.wav", "res://Assets/Audio/SFX/post-jam addition/magic2.wav", "res://Assets/Audio/SFX/post-jam addition/magic3.wav"]],
-	"magic_equip" : [-15, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicequip.wav", "res://Assets/Audio/SFX/post-jam addition/magicequip2.wav"]],
-	"magic_unequip" : [-15, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicunequip.wav"]],
-	"magic_fail" : [-4, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicfail1.wav", "res://Assets/Audio/SFX/post-jam addition/magicfail2.wav"]],
+	"magic" : [-3, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magic1.wav", "res://Assets/Audio/SFX/post-jam addition/magic2.wav", "res://Assets/Audio/SFX/post-jam addition/magic3.wav"]],
+	"magic_equip" : [-10, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicequip.wav", "res://Assets/Audio/SFX/post-jam addition/magicequip2.wav"]],
+	"magic_unequip" : [-10, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicunequip.wav"]],
+	"magic_fail" : [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicfail1.wav", "res://Assets/Audio/SFX/post-jam addition/magicfail2.wav"]],
 	# NPCS
 	"beep_text": [-3, -4, 5, 0.7, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav"]],
 	# unimplemented mock-up sound "beep_text_gorf" specifically for gorf's ribbit-meows
