@@ -44,9 +44,9 @@ var sound_config = {
 	"close_shop": [0, -4, 2, 0.85, 1.2, ["null"]],
 	# FROG SFX
 	"boing1": [-2, -4, 2, 0.7, 1.3, ["res://Assets/Audio/SFX/boing_1_-7dB.wav","res://Assets/Audio/SFX/boing_2_-7dB.wav","res://Assets/Audio/SFX/boing_3_-7dB.wav","res://Assets/Audio/SFX/boing_4_-7dB.wav"]],
-	"bounce_charge_slow": [-2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3.wav"]],
-	"bounce_charge_medium": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3faster.wav"]],
-	"bounce_charge_fast": [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3fastest.wav"]],
+	"bounce_charge_slow": [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3.wav"]],
+	"bounce_charge_medium": [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3faster.wav"]],
+	"bounce_charge_fast": [2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3fastest.wav"]],
 	"wert_slow": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wert.wav"]],
 	"wert_medium": [0, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertmedium.wav"]],
 	"wert_fast": [2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/wertfastest.wav"]],
