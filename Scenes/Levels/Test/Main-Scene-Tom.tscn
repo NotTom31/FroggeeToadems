@@ -32,16 +32,19 @@ frog_requests_8 = Array[int]([3, 3, 4, 4, 4, 4, 0, 0, 0])
 [node name="MagicManager" parent="." instance=ExtResource("2_k1b8b")]
 
 [node name="Wand" parent="." instance=ExtResource("3_t5ep4")]
-offset_left = 110.0
+offset_left = 102.0
 offset_top = 254.0
-offset_right = 110.0
+offset_right = 102.0
 offset_bottom = 254.0
 
 [node name="Button" parent="Wand" index="0"]
 offset_left = -65.0
 offset_top = -53.0
-offset_right = 94.0
+offset_right = 107.0
 offset_bottom = 15.0
+
+[node name="SpellUi" parent="." node_paths=PackedStringArray("magic") instance=ExtResource("9_7b8ed")]
+magic = NodePath("../MagicManager")
 
 [node name="Canvas_Shop" parent="." instance=ExtResource("2_llarb")]
 
@@ -83,9 +86,6 @@ position = Vector2(2187, -1188)
 [node name="Boundary3" parent="Boundaries" instance=ExtResource("9_n32p2")]
 position = Vector2(803, 1438)
 rotation = 1.56767
-
-[node name="SpellUi" parent="." node_paths=PackedStringArray("magic") instance=ExtResource("9_7b8ed")]
-magic = NodePath("../MagicManager")
 
 [node name="WinScreen" parent="." node_paths=PackedStringArray("level_manager") instance=ExtResource("12_vsh5q")]
 level_manager = NodePath("..")
