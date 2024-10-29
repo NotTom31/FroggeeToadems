@@ -1,5 +1,5 @@
 # Froggee Toadems
-Froggee Toadems is an incremental sand box crafting game where you are a wizard cat running a frog shop, and you must fulfull customers orders by stacking frogs to craft more frogs. 
+Froggee Toadems is an incremental sand box crafting game made in Godot 4.3. You play as a cat wizard running a frog shop, and you must fulfill customers orders by stacking frogs and using magic to craft more frogs.
 
 # **[Play Our Game!](https://tommezzie.itch.io/froggee-toadems)**
 
