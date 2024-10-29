@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://q2eyupn7k7l2"]
+[gd_scene load_steps=20 format=3 uid="uid://q2eyupn7k7l2"]
 
 [ext_resource type="Script" path="res://Code/FrogLogic/FrogTypes/basic_frog.gd" id="1_rxiyf"]
 [ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_vs8rj"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cb6l32dbmeq54" path="res://Assets/Art/Frogs/charging/05_charge.png" id="10_lrc50"]
 [ext_resource type="Texture2D" uid="uid://bo12hoarwwc2e" path="res://Assets/Art/Frogs/jumping_turned/05_jump_turned.png" id="11_ha1ty"]
 [ext_resource type="Script" path="res://Code/FrogLogic/frog_sprite_handler.gd" id="12_jl4ke"]
+[ext_resource type="Texture2D" uid="uid://dfk2rccte3itm" path="res://Assets/Art/Frogs/Ribbit/05_ribbit1.png" id="13_kwrgc"]
+[ext_resource type="Texture2D" uid="uid://bbuea6wkj0onf" path="res://Assets/Art/Frogs/Ribbit/05_ribbit2.png" id="14_ecj08"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kpbkf"]
 animations = [{
@@ -50,6 +52,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_kwrgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ecj08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ecj08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kwrgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_halpc")
+}],
+"loop": false,
+"name": &"ribbit",
 "speed": 5.0
 }]
 

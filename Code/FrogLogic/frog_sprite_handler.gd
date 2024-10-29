@@ -34,6 +34,11 @@ func play_charge() -> void:
 	resize_for_rest()
 	sprt.play("charge")
 
+func play_ribbit() -> void:
+	resize_for_rest()
+	if sprt.animation == "idle" || sprt.animation == "blink":
+		sprt.play("ribbit")
+
 func resize_for_rest() -> void:
 	sprt.position = rest_sprite_position
 	sprt.scale = rest_sprite_scale
