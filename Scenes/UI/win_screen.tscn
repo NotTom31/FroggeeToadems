@@ -5,55 +5,43 @@
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_g16bh"]
 
 [node name="WinScreen" type="CanvasLayer"]
+process_mode = 3
 layer = 7
 script = ExtResource("1_gg0ns")
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -347.0
-offset_top = -61.5
+offset_top = -115.5
 offset_right = 347.0
-offset_bottom = 61.5
+offset_bottom = 115.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_txdsi")
 theme_override_font_sizes/font_size = 60
 text = "You win!
 On to the next customer"
 horizontal_alignment = 1
 
-[node name="NextButton" parent="." instance=ExtResource("2_g16bh")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -213.0
-offset_top = 110.0
-offset_right = 215.0
-offset_bottom = 178.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="NextButton" parent="VBoxContainer" instance=ExtResource("2_g16bh")]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Next Customer"
 
-[node name="MenuButton" parent="." instance=ExtResource("2_g16bh")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -103.0
-offset_top = 236.0
-offset_right = 104.0
-offset_bottom = 304.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MenuButton" parent="VBoxContainer" instance=ExtResource("2_g16bh")]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
 
-[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

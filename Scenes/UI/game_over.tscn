@@ -5,51 +5,38 @@
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_n1hxs"]
 
 [node name="GameOver" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_mqtqj")
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -301.0
-offset_top = -25.5
+offset_top = -89.5
 offset_right = 301.0
-offset_bottom = 25.5
+offset_bottom = 89.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_menkc")
 theme_override_font_sizes/font_size = 50
 text = "Your frogs all swam away"
 
-[node name="RestartButton" parent="." instance=ExtResource("2_n1hxs")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = 84.0
-offset_right = 60.0
-offset_bottom = 144.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RestartButton" parent="VBoxContainer" instance=ExtResource("2_n1hxs")]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Restart"
 
-[node name="MenuButton" parent="." instance=ExtResource("2_n1hxs")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -108.0
-offset_top = 166.0
-offset_right = 109.0
-offset_bottom = 226.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MenuButton" parent="VBoxContainer" instance=ExtResource("2_n1hxs")]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Menu"
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
