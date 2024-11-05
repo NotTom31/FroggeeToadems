@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 					get_tree().root.get_child(0).play_sound("default_ribbit")
 				2: #small
 					get_tree().root.get_child(0).play_sound("tiny_ribbit")
+		$FrogSpriteHandler.play_ribbit()
 		set_random_ribbit_timer()
 
 func follow_mouse(delta: float, offset: Vector2) -> void:
