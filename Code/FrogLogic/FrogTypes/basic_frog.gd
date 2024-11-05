@@ -43,8 +43,10 @@ func _process(delta: float) -> void:
 			match type:
 				3, 4: #fat, mud
 					get_tree().root.get_child(0).play_sound("big_ribbit")
-				0, 1: #basic, tropical
+				0: #basic, 
 					get_tree().root.get_child(0).play_sound("default_ribbit")
+				1: # tropical
+					get_tree().root.get_child(0).play_sound("tropical_ribbit")
 				2: #small
 					get_tree().root.get_child(0).play_sound("tiny_ribbit")
 		$FrogSpriteHandler.play_ribbit()

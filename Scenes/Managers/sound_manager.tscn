@@ -1,14 +1,80 @@
-[gd_scene load_steps=10 format=3 uid="uid://1k1rcvp03xma"]
+[gd_scene load_steps=15 format=3 uid="uid://1k1rcvp03xma"]
 
 [ext_resource type="Script" path="res://Code/Managers/sound_manager.gd" id="1_spyt0"]
 [ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="2_jp7r5"]
-[ext_resource type="AudioStream" uid="uid://g8pr71g4ak1h" path="res://Assets/Audio/Music/GWJ73_MX_main_layer00_0frogs_73bpm.wav" id="3_reb4f"]
+[ext_resource type="AudioStream" uid="uid://u3cq4x2o7dvj" path="res://Assets/Audio/Music/GWJ73_MX_main_layer00_zeroOrMoreFrogs_73bpm.wav" id="3_26e3e"]
 [ext_resource type="AudioStream" uid="uid://cnsvybkk4xp8w" path="res://Assets/Audio/Music/GWJ73_MX_main_layer01_oneOrMoreFrogs_73bpm.wav" id="4_6y7wp"]
 [ext_resource type="AudioStream" uid="uid://kijxj3q23ga3" path="res://Assets/Audio/Music/GWJ73_MX_main_layer02_threeOrMoreFrogs_73bpm.wav" id="5_j571n"]
 [ext_resource type="AudioStream" uid="uid://bshox67kh3ndh" path="res://Assets/Audio/Music/GWJ73_MX_main_layer03_fiveOrMoreFrogs_73bpm.wav" id="6_0qftb"]
 [ext_resource type="AudioStream" uid="uid://c20rsptc8ne00" path="res://Assets/Audio/Music/GWJ73_MX_main_layer04_sevenOrMoreFrogs_73bpm.wav" id="7_lmont"]
-[ext_resource type="AudioStream" uid="uid://b0u8sb11o8ps" path="res://Assets/Audio/Music/GWJ73_MX_shop_73bpm.wav" id="8_5fs21"]
+[ext_resource type="AudioStream" uid="uid://b0u8sb11o8ps" path="res://Assets/Audio/Music/GWJ73_MX_shop_73bpm.wav" id="8_bpga2"]
 [ext_resource type="AudioStream" uid="uid://ccu3wpg84hyif" path="res://Assets/Audio/SFX/GWJ73_SFX_AMB_loop_-13dB.wav" id="9_w0smh"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_5fiec"]
+stream_count = 5
+stream_0/stream = ExtResource("3_26e3e")
+stream_0/volume = -3.0
+stream_1/stream = ExtResource("4_6y7wp")
+stream_1/volume = -3.0
+stream_2/stream = ExtResource("5_j571n")
+stream_2/volume = -3.0
+stream_3/stream = ExtResource("6_0qftb")
+stream_3/volume = -3.0
+stream_4/stream = ExtResource("7_lmont")
+stream_4/volume = -3.0
+
+[sub_resource type="Animation" id="Animation_avosb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PickupMXShop:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-4.0]
+}
+
+[sub_resource type="Animation" id="Animation_lhnym"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PickupMXShop:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 5.66),
+"update": 0,
+"values": [-80.0, -4.0]
+}
+
+[sub_resource type="Animation" id="Animation_u77gi"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PickupMXShop:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(5.66, 5.66),
+"update": 0,
+"values": [-4.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wrgw"]
+_data = {
+"RESET": SubResource("Animation_avosb"),
+"fade_in": SubResource("Animation_lhnym"),
+"fade_out": SubResource("Animation_u77gi")
+}
 
 [node name="SoundManager" type="Node2D"]
 z_as_relative = false
@@ -40,33 +106,12 @@ button_pressed = true
 [node name="ATMToggle" parent="AudioManagerControls/HBoxContainer/VBoxContainer2" index="3"]
 button_pressed = true
 
-[node name="PickupMX1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_reb4f")
-volume_db = -3.0
-bus = &"MX1"
+[node name="PickupMXTheme" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_5fiec")
+bus = &"MXLAYERS"
 
-[node name="PickupMX2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_6y7wp")
-volume_db = -3.0
-bus = &"MX2"
-
-[node name="PickupMX3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_j571n")
-volume_db = -3.0
-bus = &"MX3"
-
-[node name="PickupMX4" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_0qftb")
-volume_db = -3.0
-bus = &"MX4"
-
-[node name="PickupMX5" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_lmont")
-volume_db = -3.0
-bus = &"MX5"
-
-[node name="PickupMXSHOP" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_5fs21")
+[node name="PickupMXShop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_bpga2")
 volume_db = -4.0
 bus = &"MXSHOP"
 
@@ -126,6 +171,11 @@ bus = &"SFX"
 [node name="PickupSFX13" type="AudioStreamPlayer" parent="."]
 max_polyphony = 2
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5wrgw")
+}
 
 [connection signal="mouse_exited" from="AudioManagerControls/HBoxContainer/VBoxContainer/MainSlider" to="." method="_on_main_slider_mouse_exited"]
 [connection signal="value_changed" from="AudioManagerControls/HBoxContainer/VBoxContainer/MainSlider" to="." method="_on_main_slider_value_changed"]

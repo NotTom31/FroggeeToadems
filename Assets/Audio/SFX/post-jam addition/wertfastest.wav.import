@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bmfkmg21fp02e"
+path="res://.godot/imported/wertfastest.wav-3dad6d05bd12b0382143b6730f79217d.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/post-jam addition/wertfastest.wav"
+dest_files=["res://.godot/imported/wertfastest.wav-3dad6d05bd12b0382143b6730f79217d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
