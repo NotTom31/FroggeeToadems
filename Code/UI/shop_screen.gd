@@ -3,48 +3,66 @@ extends Node
 
 var customers_text = [
 	{
-		"name": "Plague cat: ", 
-		"dialogues": ["Yeeack cheche rrowr. Ah hem! Pardon me; Scratch fever still spreads, a great many claws are stuck sunken into tree casings.", "For my cure I will need _.", "lest Alpha Meatball notch my ears for my failure."],
+		"name": "Purrzerk: ",
+		"dialogues": ["Ah ha, yes, yes. I am in dire need of aid; what say you?", 
+		"Yes, yes, I can see many of your wares. How much is it worth?", 
+		"Fine, keep your secrets. Shut up and get me _."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Mask cat: ", 
-		"dialogues": ["I require frogs. _.", "Their purpose? My jutsu needs a conduit from which to channel by.", "All other techniques are worthless before my eyes."],
-		"requested_frogs": []
-	},
-	{
-		"name": "Scar cat: ", 
-		"dialogues": ["Ah ha, yes, yes. I am in dire need of aid, what say you?", "Yes, yes, I can see many of your wares. How much is it worth?", "Fine, keep your secrets. Shut up and get me _."],
+		"dialogues": ["I require frogs.", 
+		"_. Their purpose? My jutsu needs a conduit from which to channel by.", 
+		"All other techniques are worthless before my eyes."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Chuddly: ", 
-		"dialogues": ["Salutations my brother in Meist.", "I need your most potent frogs. Based on my opponent's aura I sussed out I will cop all the bussin ones. _.", "Thank you for kino maxing. I don’t pay the tax."],
-		"requested_frogs": []
-	},
-	{
-		"name": "Minnum Cat: ", 
-		"dialogues": ["Maow, meouu, meqw, nneow.", "*with a seemingly feline paw it motions*", "_."],
-		"requested_frogs": []
-	},
-	{
-		"name": "Void spawns: ", 
-		"dialogues": ["We have need of the preciouses. As our power grows so does our appetite.", "Your clipped whiskers could never fathom. We will possess the Eternal Long Stretch.", "We have foreseen. _ will guide us."],
+		"dialogues": ["Salutations, my brother in Meist.", 
+		"I need your most potent frogs. Based on my opponent's aura that I sussed out, I will cop all the bussin ones. _.", 
+		"Thank you for kino maxing. I don’t pay the tax."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Gorf: ", 
-		"dialogues": ["Hellow my fellow -croooa- Cat.", "I will purchase _. We have a family vacation planned- ughh I mean, a family feast!", "That I -ribb- I will host. *cough* *cough* sid ssey buy ist??"],
+		"dialogues": ["Hellow my fellow -croooa- Cat.", 
+		"I will purchase _. We have a family vacation planned- ughh I mean, a family feast!", 
+		"That I -ribb- I will host. *cough* *cough* sid ssey buy ist??"],
 		"requested_frogs": []
 	},
 	{
-		"name": "Eye: ", 
-		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", "The echoing answer. Frogs.", "_ will do as the void commands."],
+		"name": "Plague cat: ", 
+		"dialogues": ["Yeeack cheche rrowr. Ah hem! Pardon me; scratch fever still spreads; a great many claws are stuck sunken into tree casings.", 
+		"For my cure I will need _.", 
+		"lest Alpha Meatball notch my ears for my failure."],
+		"requested_frogs": []
+	},
+	{
+		"name": "Void spawns: ", 
+		"dialogues": ["We have need of the preciouses. As our power grows, so does our appetite.", 
+		"Your clipped whiskers could never fathom. We will possess the Eternal Long Stretch.", 
+		"We have foreseen. _ will guide us."],
+		"requested_frogs": []
+	},
+	{
+		"name": "Minnum Cat: ", 
+		"dialogues": ["Maow, meouu, meqw, nneow.", 
+		"*with a seemingly feline paw it motions*", 
+		"_."],
+		"requested_frogs": []
+	},
+	{
+		"name": "?: ", 
+		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", 
+		"The echoing answer. Frogs.", 
+		"_. Do as the void commands."],
 		"requested_frogs": []
 	},
 	{
 		"name": "Tac: ", 
-		"dialogues": ["In this game you stack frogs to cast spells", "Weird I know, youll be given a spell book and a wand, once you've stacked the required frogs in any order go ahead and pick up the wand", "Click on the stack with your wand to cast your frog magic and summon another frog. We've got customers to satisfy", "Here comes our first customer of the day!"],
+		"dialogues": ["In this game you stack frogs to cast spells", 
+		"Weird I know, you'll be given a spell book and a wand, once you've stacked the required frogs in any order go ahead and pick up the wand", 
+		"Click on the stack with your wand to cast your frog magic and summon another frog. We've got customers to satisfy", "Here comes our first customer of the day!"],
 		"requested_frogs": []
 	}
 ]
@@ -53,13 +71,13 @@ var customers_text = [
 #@onready var shopkeep = $Shopkeep
 
 @onready var customer_sprites = [
-	$PlagueCat,
-	$Maskcat,
 	$Purrzerk,
+	$Maskcat,
 	$ChadCat,
-	$WeirdGuy,
-	$Void,
 	$Gorf,
+	$PlagueCat,
+	$Void,
+	$WeirdGuy,
 	$Eyecat
 ]
 
