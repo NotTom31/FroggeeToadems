@@ -39,9 +39,9 @@ var customers_text = [
 	},
 	{
 		"name": "Void spawns: ", 
-		"dialogues": ["We have need of the preciouses. As our power grows, so does our appetite.", 
-		"Your clipped whiskers could never fathom. We will possess the Eternal Long Stretch.", 
-		"We have foreseen. _ will guide us."],
+		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", 
+		"The echoing answer. Frogs.", 
+		"_. Do as the void commands."],
 		"requested_frogs": []
 	},
 	{
@@ -53,9 +53,9 @@ var customers_text = [
 	},
 	{
 		"name": "?: ", 
-		"dialogues": ["Gaze long into my depthless eye. Hear what it yearns for.", 
-		"The echoing answer. Frogs.", 
-		"_. Do as the void commands."],
+		"dialogues": ["We have need of the preciouses. As our power grows, so does our appetite.", 
+		"Your clipped whiskers could never fathom. We will possess the Eternal Long Stretch.", 
+		"We have foreseen. _ will guide us."],
 		"requested_frogs": []
 	},
 	{
