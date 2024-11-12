@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://blswelgb852g5"]
+[gd_scene load_steps=3 format=3 uid="uid://blswelgb852g5"]
 
 [ext_resource type="PackedScene" uid="uid://cwk0xas0ckfjo" path="res://Scenes/UI/MainMenu.tscn" id="1_0k2ta"]
+[ext_resource type="Texture2D" uid="uid://s5l73cq0rdyj" path="res://Assets/Art/Logo.png" id="2_dbo5h"]
 
 [node name="Canvas_Menu" type="CanvasLayer"]
 
@@ -9,5 +10,31 @@ offset_left = -1.0
 offset_top = -8.0
 offset_right = -1.0
 offset_bottom = -8.0
+
+[node name="Logo" type="Sprite2D" parent="Main Menu/MarginContainer/VBoxContainer" index="2"]
+position = Vector2(885, 240)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dbo5h")
+
+[node name="Label" parent="Main Menu/MarginContainer/VBoxContainer" index="3"]
+visible = false
+
+[node name="VBoxContainer" parent="Main Menu/MarginContainer/HBoxContainer" index="0"]
+theme_override_constants/separation = 35
+
+[node name="Seperator3" type="Control" parent="Main Menu/MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="Seperator4" type="Control" parent="Main Menu/MarginContainer/HBoxContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="Seperator5" type="Control" parent="Main Menu/MarginContainer/HBoxContainer/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="Seperator6" type="Control" parent="Main Menu/MarginContainer/HBoxContainer/VBoxContainer" index="4"]
+layout_mode = 2
+
+[node name="Seperator7" type="Control" parent="Main Menu/MarginContainer/HBoxContainer/VBoxContainer" index="5"]
+layout_mode = 2
 
 [editable path="Main Menu"]
