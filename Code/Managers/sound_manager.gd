@@ -433,6 +433,17 @@ func _on_main_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(masterbus,linear_to_db(value))
 func _on_main_toggle_pressed() -> void:
 	AudioServer.set_bus_mute(masterbus, not AudioServer.is_bus_mute(masterbus))
+	play_sfx("menu_click")
+# click sound when first dragging
+func _on_main_slider_focus_entered() -> void:
+	play_sfx("menu_click")
+func _on_main_slider_focus_exited() -> void:
+	play_sfx("menu_click")
+# hover sounds
+func _on_main_slider_mouse_entered() -> void:
+	play_sfx("menu_hover")
+func _on_main_toggle_mouse_entered() -> void:
+	play_sfx("menu_hover")
 
 # music bus manager
 # note: this is for the UI, modifies main music bus not individual parts
@@ -445,6 +456,17 @@ func _on_mx_slider_value_changed(value: float) -> void:
 # toggle mx
 func _on_mx_toggle_pressed() -> void:
 	AudioServer.set_bus_mute(musicbusall, not AudioServer.is_bus_mute(musicbusall))
+	play_sfx("menu_click")
+# click sound when dragging
+func _on_mx_slider_focus_entered() -> void:
+	play_sfx("menu_click")
+func _on_mx_slider_focus_exited() -> void:
+	play_sfx("menu_click")
+# hover sounds
+func _on_mx_slider_mouse_entered() -> void:
+	play_sfx("menu_hover")
+func _on_mx_toggle_mouse_entered() -> void:
+	play_sfx("menu_hover")
 
 # fx bus manager
 # get val from slider
@@ -456,6 +478,17 @@ func _on_fx_slider_value_changed(value: float) -> void:
 # toggle sfx
 func _on_fx_toggle_pressed() -> void:
 	AudioServer.set_bus_mute(fxbus, not AudioServer.is_bus_mute(fxbus))
+	play_sfx("menu_click")
+# click sound when dragging
+func _on_fx_slider_focus_entered() -> void:
+	play_sfx("menu_click")
+func _on_fx_slider_focus_exited() -> void:
+	play_sfx("menu_click")
+# hover sounds
+func _on_fx_slider_mouse_entered() -> void:
+	play_sfx("menu_hover")
+func _on_fx_toggle_mouse_entered() -> void:
+	play_sfx("menu_hover")
 
 # atm bus manager
 # get val from slider
@@ -467,3 +500,14 @@ func _on_atm_slider_value_changed(value: float) -> void:
 # toggle atm
 func _on_atm_toggle_pressed() -> void:
 	AudioServer.set_bus_mute(atmbus, not AudioServer.is_bus_mute(atmbus))
+	play_sfx("menu_click")
+# click sound when dragging
+func _on_atm_slider_focus_entered() -> void:
+	play_sfx("menu_click")
+func _on_atm_slider_focus_exited() -> void:
+	play_sfx("menu_click")
+# hover sounds
+func _on_atm_slider_mouse_entered() -> void:
+	play_sfx("menu_hover")
+func _on_atm_toggle_mouse_entered() -> void:
+	play_sfx("menu_hover")
