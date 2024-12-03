@@ -9,6 +9,7 @@ class_name FrogCharge
 var CanJump
 
 func Enter():
+	frog.velocity = frog.velocity/5
 	CanJump = true
 	play_charge_animation()
 

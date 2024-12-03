@@ -71,7 +71,6 @@ type = 4
 [node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.15, 0.2)
 sprite_frames = SubResource("SpriteFrames_rm5ts")
-animation = &"idle"
 
 [node name="FrogSpriteHandler" parent="." index="2"]
 rest_sprite_scale = Vector2(0.15, 0.2)
