@@ -1,30 +1,30 @@
-[gd_scene load_steps=20 format=3 uid="uid://q2eyupn7k7l2"]
+[gd_scene load_steps=20 format=3 uid="uid://dxb4rf14je7vx"]
 
-[ext_resource type="Script" path="res://Code/FrogLogic/FrogTypes/basic_frog.gd" id="1_rxiyf"]
-[ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_vs8rj"]
-[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogSwim.gd" id="3_vmf1d"]
-[ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="3_xwux3"]
-[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogJump.gd" id="4_2ejmw"]
-[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogHold.gd" id="5_wsoji"]
-[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogFall.gd" id="6_gh8vj"]
-[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogStacked.gd" id="7_avrs0"]
-[ext_resource type="Texture2D" uid="uid://c4554dc54ppgk" path="res://Assets/Art/Frogs/blink/05_plink.png" id="8_57het"]
-[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogCharge.gd" id="8_fnlby"]
-[ext_resource type="Texture2D" uid="uid://gnxwxsklcb51" path="res://Assets/Art/Frogs/resting/05_rest.png" id="9_halpc"]
-[ext_resource type="Texture2D" uid="uid://cb6l32dbmeq54" path="res://Assets/Art/Frogs/charging/05_charge.png" id="10_lrc50"]
-[ext_resource type="Texture2D" uid="uid://bo12hoarwwc2e" path="res://Assets/Art/Frogs/jumping_turned/05_jump_turned.png" id="11_ha1ty"]
-[ext_resource type="Script" path="res://Code/FrogLogic/frog_sprite_handler.gd" id="12_jl4ke"]
-[ext_resource type="Texture2D" uid="uid://dfk2rccte3itm" path="res://Assets/Art/Frogs/Ribbit/05_ribbit1.png" id="13_kwrgc"]
-[ext_resource type="Texture2D" uid="uid://bbuea6wkj0onf" path="res://Assets/Art/Frogs/Ribbit/05_ribbit2.png" id="14_ecj08"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogTypes/basic_frog.gd" id="1_xrocr"]
+[ext_resource type="Script" path="res://Code/FrogLogic/frogAI.gd" id="2_2lpbj"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogSwim.gd" id="3_pko7n"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogJump.gd" id="4_kssj0"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogHold.gd" id="5_gm7ls"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogFall.gd" id="6_bw1uc"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogStacked.gd" id="7_1pgha"]
+[ext_resource type="Script" path="res://Code/FrogLogic/FrogStates/FrogCharge.gd" id="8_aibd3"]
+[ext_resource type="Texture2D" uid="uid://four50hiucfw" path="res://Assets/Art/Frogs/blink/10_plink.png" id="9_ja8kr"]
+[ext_resource type="Texture2D" uid="uid://dat78tticddsd" path="res://Assets/Art/Frogs/resting/10_rest.png" id="10_1dvt6"]
+[ext_resource type="Texture2D" uid="uid://bypvtwhl7y3bc" path="res://Assets/Art/Frogs/charging/10_charge.png" id="11_w6mv8"]
+[ext_resource type="Texture2D" uid="uid://cfwo3hbrgwmn2" path="res://Assets/Art/Frogs/jumping_turned/10_jump_turned.png" id="12_u1xxr"]
+[ext_resource type="Texture2D" uid="uid://o71ufhtngiea" path="res://Assets/Art/Frogs/Ribbit/10_ribbit1.png" id="13_d1730"]
+[ext_resource type="Texture2D" uid="uid://dco8yo1gcxkdg" path="res://Assets/Art/Frogs/Ribbit/10_ribbit2.png" id="14_yaxro"]
+[ext_resource type="Script" path="res://Code/FrogLogic/frog_sprite_handler.gd" id="15_6835q"]
+[ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="16_dvw33"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kpbkf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_57het")
+"texture": ExtResource("9_ja8kr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_halpc")
+"texture": ExtResource("10_1dvt6")
 }],
 "loop": false,
 "name": &"blink",
@@ -32,7 +32,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_lrc50")
+"texture": ExtResource("11_w6mv8")
 }],
 "loop": true,
 "name": &"charge",
@@ -40,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_halpc")
+"texture": ExtResource("10_1dvt6")
 }],
 "loop": true,
 "name": &"idle",
@@ -48,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_ha1ty")
+"texture": ExtResource("12_u1xxr")
 }],
 "loop": true,
 "name": &"jump",
@@ -56,19 +56,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_kwrgc")
+"texture": ExtResource("13_d1730")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_ecj08")
+"texture": ExtResource("14_yaxro")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_ecj08")
+"texture": ExtResource("14_yaxro")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_kwrgc")
+"texture": ExtResource("13_d1730")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_halpc")
+"texture": ExtResource("10_1dvt6")
 }],
 "loop": false,
 "name": &"ribbit",
@@ -80,36 +80,36 @@ size = Vector2(323, 103)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skv3v"]
 
-[node name="BasicFrog" type="CharacterBody2D"]
+[node name="BrightFrog" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_rxiyf")
+script = ExtResource("1_xrocr")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_vs8rj")
+script = ExtResource("2_2lpbj")
 initial_state = NodePath("FrogFall")
 
 [node name="FrogSwim" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("3_vmf1d")
+script = ExtResource("3_pko7n")
 frog = NodePath("../..")
 
 [node name="FrogJump" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("4_2ejmw")
+script = ExtResource("4_kssj0")
 frog = NodePath("../..")
 
 [node name="FrogHold" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("5_wsoji")
+script = ExtResource("5_gm7ls")
 frog = NodePath("../..")
 
 [node name="FrogFall" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("6_gh8vj")
+script = ExtResource("6_bw1uc")
 frog = NodePath("../..")
 
 [node name="FrogStacked" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("7_avrs0")
+script = ExtResource("7_1pgha")
 frog = NodePath("../..")
 
 [node name="FrogCharge" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("8_fnlby")
+script = ExtResource("8_aibd3")
 frog = NodePath("../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -117,11 +117,11 @@ z_index = 1
 position = Vector2(3, -2)
 scale = Vector2(-0.15, 0.2)
 sprite_frames = SubResource("SpriteFrames_kpbkf")
-animation = &"blink"
+animation = &"jump"
 offset = Vector2(0, -150)
 
 [node name="FrogSpriteHandler" type="Area2D" parent="." node_paths=PackedStringArray("sprt")]
-script = ExtResource("12_jl4ke")
+script = ExtResource("15_6835q")
 rest_sprite_position = Vector2(3, -2)
 rest_sprite_scale = Vector2(-0.15, 0.2)
 rest_click_rect = Vector2(323, 103)
@@ -135,7 +135,7 @@ position = Vector2(0.999998, -4)
 scale = Vector2(0.6, 0.6)
 shape = SubResource("RectangleShape2D_jepvn")
 
-[node name="SlotOnHead" parent="." instance=ExtResource("3_xwux3")]
+[node name="SlotOnHead" parent="." instance=ExtResource("16_dvw33")]
 position = Vector2(0, -35)
 active = false
 type = 1
