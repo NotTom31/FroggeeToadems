@@ -117,7 +117,7 @@ z_index = 1
 position = Vector2(3, -2)
 scale = Vector2(-0.15, 0.2)
 sprite_frames = SubResource("SpriteFrames_kpbkf")
-animation = &"blink"
+animation = &"idle"
 offset = Vector2(0, -150)
 
 [node name="FrogSpriteHandler" type="Area2D" parent="." node_paths=PackedStringArray("sprt")]
