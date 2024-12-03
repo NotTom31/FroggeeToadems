@@ -10,6 +10,7 @@ var CanJump
 
 func Enter():
 	CanJump = true
+	frog.velocity = frog.velocity/5
 	play_charge_animation()
 
 func Exit():
