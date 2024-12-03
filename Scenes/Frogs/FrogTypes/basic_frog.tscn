@@ -59,6 +59,7 @@ size = Vector2(323, 103)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skv3v"]
 
 [node name="BasicFrog" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_rxiyf")
 
@@ -92,10 +93,12 @@ frog = NodePath("../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
+y_sort_enabled = true
 position = Vector2(3, -2)
-scale = Vector2(-0.15, 0.2)
+rotation = 3.14159
+scale = Vector2(0.15, -0.2)
 sprite_frames = SubResource("SpriteFrames_kpbkf")
-animation = &"idle"
+animation = &"jump"
 offset = Vector2(0, -150)
 
 [node name="FrogSpriteHandler" type="Area2D" parent="." node_paths=PackedStringArray("sprt")]
