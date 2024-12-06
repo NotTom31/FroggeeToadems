@@ -37,28 +37,45 @@ var spell_table = [
 	
 ]
 signal Summon(type: FrogType)
+
+
 func cast_spell(index : int) -> void:
 	match index:
 		0, 1, 2, 3, 4:
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
+			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.BASIC)
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("magic")
 		5:
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
+			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.TROPICAL)
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("magic")
 		6:
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
+			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.MUD)
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("magic")
 		7:
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
+			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.SMALL)
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("magic")
 		8:
-			Summon.emit(FrogType.FAT)
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
+			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("frog_spawn")
+			Summon.emit(FrogType.FAT)
 		_:
 			print("tried to cast an invalid spell")
 			if get_tree().root.get_child(0) is Main:
