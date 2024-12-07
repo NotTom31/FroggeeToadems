@@ -30,8 +30,8 @@ func jump():
 	frog.enable_gravity()
 	frog.assign_to_slot(null)
 	randomize_jump_direction()
-	#if get_tree().root.get_child(0) is Main:
-		#get_tree().root.get_child(0).play_sound("boing1")
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).play_sound("boing1")
 	if frog:
 		if direction < 0:
 			rotation_target = 90

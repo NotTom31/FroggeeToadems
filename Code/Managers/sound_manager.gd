@@ -43,7 +43,7 @@ var sound_config = {
 	"open_shop": [0, -4, 2, 0.85, 1.2, ["null"]],
 	"close_shop": [0, -4, 2, 0.85, 1.2, ["null"]],
 	# FROG SFX
-	"boing1": [-2, -4, 2, 0.7, 1.3, ["res://Assets/Audio/SFX/boing_1_-7dB.wav","res://Assets/Audio/SFX/boing_2_-7dB.wav","res://Assets/Audio/SFX/boing_3_-7dB.wav","res://Assets/Audio/SFX/boing_4_-7dB.wav"]],
+	"boing1": [-8, -4, 2, 0.7, 1.3, ["res://Assets/Audio/SFX/boing_1_-7dB.wav","res://Assets/Audio/SFX/boing_2_-7dB.wav","res://Assets/Audio/SFX/boing_3_-7dB.wav","res://Assets/Audio/SFX/boing_4_-7dB.wav"]],
 	#"bounce_charge_slow": [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3.wav"]],
 	#"bounce_charge_medium": [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3faster.wav"]],
 	#"bounce_charge_fast": [2, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/bouncecharge3fastest.wav"]],
@@ -66,7 +66,7 @@ var sound_config = {
 	"magic_unequip" : [-10, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicunequip.wav"]],
 	"magic_fail" : [1, -4, 2, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicfail1.wav", "res://Assets/Audio/SFX/post-jam addition/magicfail2.wav"]],
 	# NPCS
-	"beep_text": [-3, -4, 5, 0.7, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav"]],
+	"beep_text": [-8, -4, 5, 0.7, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav"]],
 	# unimplemented mock-up sound "beep_text_gorf" specifically for gorf's ribbit-meows
 	"beep-text_gorf": [-3, -4, 5, 0.7, 1.3, ["res://Assets/Audio/SFX/gorf_meow_mockup1.wav", "res://Assets/Audio/SFX/gorf_meow_mockup2.wav", "res://Assets/Audio/SFX/gorf_meow_mockup3.wav"]],
 	#one day maybe every customer will sound different....
