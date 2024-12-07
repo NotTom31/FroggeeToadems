@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mv06512gy8op"]
+[gd_scene load_steps=6 format=3 uid="uid://mv06512gy8op"]
 
 [ext_resource type="Script" path="res://Code/lillypad.gd" id="1_2507a"]
 [ext_resource type="Texture2D" uid="uid://b0lbm18smdd56" path="res://Assets/Art/Frogs/Lilypads/lily_01.png" id="1_thmhw"]
 [ext_resource type="PackedScene" uid="uid://cllbpv27v30g8" path="res://Scenes/Frogs/frog_slot.tscn" id="2_iavth"]
+[ext_resource type="AudioStream" uid="uid://bqi2fgvxv4j1e" path="res://Assets/Audio/SFX/post-jam addition/frogsnap1.wav" id="4_x0r5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ecp"]
 size = Vector2(262, 53)
@@ -21,5 +22,9 @@ shape = SubResource("RectangleShape2D_r5ecp")
 
 [node name="FrogSlot" parent="." instance=ExtResource("2_iavth")]
 on_lillypad = true
+
+[node name="FountainSnapPlayer1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_x0r5e")
+max_polyphony = 4
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
