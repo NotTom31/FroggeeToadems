@@ -15,6 +15,8 @@ var mouse_position
 var is_sprite_flipped = false
 var ribbit_timer : float = 0.0
 var over_water = false
+var over_rock = false
+var behind_boat = false
 
 var original_layer: int
 var original_mask: int

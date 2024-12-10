@@ -89,7 +89,11 @@ func Update(delta: float):
 			randomize_wander()
 
 func Physics_Update(delta: float):
-	if push == true: #frog: #&& frog.is_on_floor():
+	if frog.over_rock == true:
+		frog.velocity = Vector2(-200, move_direction.y * move_speed_y)
+	elif frog.behind_boat == true:
+		frog.velocity = Vector2(200, move_direction.y * move_speed_y)
+	elif push == true: #frog: #&& frog.is_on_floor():
 		frog.velocity = Vector2(move_direction.x * move_speed_x, move_direction.y * move_speed_y)
 		push = false
 	else:

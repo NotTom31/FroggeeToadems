@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8l5diwn5daxn"]
+
+[ext_resource type="Script" path="res://Code/Legacy/rock_detection.gd" id="1_4p7nd"]
+[ext_resource type="Texture2D" uid="uid://cmsts1ssqh3cs" path="res://Assets/Art/Temp/placeholder.png" id="2_tk3fp"]
+[ext_resource type="Texture2D" uid="uid://cc1xaaeiuebob" path="res://Assets/Art/Background/swamp_bg.png" id="3_ik457"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3m35c"]
+radius = 1.13
+height = 4.18
+
+[node name="RockDetectionArea" type="Area2D"]
+script = ExtResource("1_4p7nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1865, 982)
+rotation = 1.5708
+scale = Vector2(100, 100)
+shape = SubResource("CapsuleShape2D_3m35c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(2, 2)
+texture = ExtResource("2_tk3fp")
+
+[node name="SwampBg" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(971, 545)
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("3_ik457")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

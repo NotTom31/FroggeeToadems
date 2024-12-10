@@ -1,7 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://ik7m0qhnuhe4"]
-
-[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_bdluj"]
-resource_name = "LowPassFilter"
+[gd_resource type="AudioBusLayout" format=3 uid="uid://ik7m0qhnuhe4"]
 
 [resource]
 bus/1/name = &"MXALL"
@@ -34,11 +31,3 @@ bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 0.0
 bus/5/send = &"Master"
-bus/6/name = &"Music Lo-Pass"
-bus/6/solo = false
-bus/6/mute = false
-bus/6/bypass_fx = false
-bus/6/volume_db = 0.0
-bus/6/send = &"MXALL"
-bus/6/effect/0/effect = SubResource("AudioEffectLowPassFilter_bdluj")
-bus/6/effect/0/enabled = true

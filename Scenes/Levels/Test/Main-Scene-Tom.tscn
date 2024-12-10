@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cog6dh2xtn66n"]
+[gd_scene load_steps=15 format=3 uid="uid://cog6dh2xtn66n"]
 
 [ext_resource type="Script" path="res://Code/Managers/LevelManager.gd" id="1_fwoa8"]
 [ext_resource type="PackedScene" uid="uid://bt7d6gfh7wrho" path="res://Scenes/Managers/MagicManager.tscn" id="2_k1b8b"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://c4oeq4iblkrbg" path="res://Scenes/Frogs/frog_spawner.tscn" id="6_p8e6y"]
 [ext_resource type="PackedScene" uid="uid://caup4tky6b8g7" path="res://Scenes/UI/spell_ui.tscn" id="9_7b8ed"]
 [ext_resource type="PackedScene" uid="uid://k6woq80dxgja" path="res://Scenes/Environment/Boundary.tscn" id="9_n32p2"]
+[ext_resource type="PackedScene" uid="uid://b8l5diwn5daxn" path="res://Scenes/RockDetection.tscn" id="11_kjdw7"]
 [ext_resource type="PackedScene" uid="uid://obqx55nrrvox" path="res://Scenes/UI/game_over.tscn" id="12_oh1sr"]
+[ext_resource type="PackedScene" uid="uid://bfaml6fvju46q" path="res://Scenes/BoatDetection.tscn" id="12_ppekg"]
 [ext_resource type="PackedScene" uid="uid://dp8aoq4pw7x08" path="res://Scenes/UI/win_screen.tscn" id="12_vsh5q"]
 
 [node name="LevelManager" type="Node2D" node_paths=PackedStringArray("frog_slots", "dialogue", "canvas_shop")]
@@ -72,7 +74,7 @@ lvl_manager = NodePath("../..")
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("6_fo3t6")]
 
-[node name="CollisionShape2D" parent="FrogDetectionArea" index="0"]
+[node name="CollisionShape2D" parent="FrogDetectionArea" index="2"]
 position = Vector2(962, 1006)
 
 [node name="Boundaries" type="Node2D" parent="."]
@@ -86,6 +88,10 @@ position = Vector2(2187, -1188)
 [node name="Boundary3" parent="Boundaries" instance=ExtResource("9_n32p2")]
 position = Vector2(803, 1438)
 rotation = 1.56767
+
+[node name="RockDetectionArea" parent="." instance=ExtResource("11_kjdw7")]
+
+[node name="BoatDetectionArea" parent="." instance=ExtResource("12_ppekg")]
 
 [node name="WinScreen" parent="." node_paths=PackedStringArray("level_manager") instance=ExtResource("12_vsh5q")]
 level_manager = NodePath("..")
