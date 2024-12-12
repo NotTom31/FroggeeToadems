@@ -99,28 +99,37 @@ func Update(delta: float):
 		else:
 			randomize_wander()
 
+var swim_cooldown = 0.5  # Time to wait before swimming again
+var swim_timer = 0.0    # Tracks the remaining cooldown time
+
 func Physics_Update(delta: float):
+	# Update the cooldown timer
+	if swim_timer > 0:
+		swim_timer -= delta
 	
-	#push = false # for testing, see note on final else in function
+	# push = false # for testing, see note on final else in function
 	if push == false:
 		# activate boundary ai if intersecting w rock or boat detection areas 
 		# if frog is at boundary, it can do anything from stay still to swim inwards but can no longer swim out of bounds
 		# however, if frog is intersecting with a visual obstacle, this portion of code should guarantee they swim inwards with max velocity
-		if frog.over_rock == true:
-			move_direction.x = -1
-			frog.velocity = Vector2(move_direction.x * move_speed_x, move_direction.y * move_speed_y)
-			boundary_ai=true
-		elif frog.behind_boat == true:
-			move_direction.x = 1
-			frog.velocity = Vector2(move_direction.x * move_speed_x, move_direction.y * move_speed_y)
-			boundary_ai=true
-		# damping behavior
-		else:
-			frog.velocity = frog.velocity*damping
-			#initiate push if leaving boundary
-			if boundary_ai == true:
-				boundary_ai = false
-				push = true
+		if swim_timer <= 0:  # Only allow boundary behavior if cooldown has expired
+			if frog.over_rock == true:
+				move_direction.x = -1
+				frog.velocity = Vector2(move_direction.x * move_speed_x, move_direction.y * move_speed_y)
+				boundary_ai = true
+				swim_timer = swim_cooldown  # Reset cooldown
+			elif frog.behind_boat == true:
+				move_direction.x = 1
+				frog.velocity = Vector2(move_direction.x * move_speed_x, move_direction.y * move_speed_y)
+				boundary_ai = true
+				swim_timer = swim_cooldown  # Reset cooldown
+			# damping behavior
+			else:
+				frog.velocity = frog.velocity * damping
+				# initiate push if leaving boundary
+				if boundary_ai == true:
+					boundary_ai = false
+					push = true
 	# new push
 	# bug tracking:
 	# you can fix rapid flipping behavior by commenting out the push behavior below. 
