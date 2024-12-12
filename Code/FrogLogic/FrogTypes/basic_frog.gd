@@ -185,12 +185,14 @@ func fountain() -> void:
 	var frog_on_head : BasicFrog = get_frog_on_head()
 	if frog_on_head != null:
 		frog_on_head.fountain()
+	$AnimatedSprite2D.rotation = 0
 	transition_to_jump()
 
 func tumble() -> void:
 	var frog_on_head : BasicFrog = get_frog_on_head()
 	if frog_on_head != null:
 		frog_on_head.tumble()
+	#$AnimatedSprite2D.rotation = 0
 	transition_to_fall()
 
 func set_random_ribbit_timer():

@@ -25,7 +25,7 @@ extends Node2D
 # 6) BUS MANAGEMENT: (~418)
 	# logic used for volume sliders in settings menu 
 
-
+# note: NOT ALL SOUNDS ARE FOUND ON SOUND MANAGER!!! frog charges and lillypad snaps are handled in their respective scripts
 
 # 1) AUDIO CONFIGS
 # this portion of code is where volume, volume variety, and pitch variety are set for each effect
@@ -67,29 +67,35 @@ var sound_config = {
 	"magic_fail" : [1, -4, 2, 1, 0.85, 1.2, ["res://Assets/Audio/SFX/post-jam addition/magicfail1.wav", "res://Assets/Audio/SFX/post-jam addition/magicfail2.wav"]],
 	# NPCS
 	# purrzerk lvl 1
-	# deeper voice
+	# design: deeper voice
 	"beep_text0": [-9, -4, 5, 0.66, 0.9, 1.2, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
 	# mask cat lvl 2
-	# add filtered meow sound
-	"beep_text1": [-9, -4, 5, 1, 0.85, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
+	# design: basically nothing atm:( slightly higher pitch
+	# to do: add metalic sound? naruto sample?
+	"beep_text1": [-6, -4, 5, 1.2, 0.85, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
 	# chuddly lvl 3
-	# add custom meows
+	# design: deeper, more expressive voice
+	# to do: add potion seller sample?
 	"beep_text2": [-9, -4, 5, 1, 0.5, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
 	# gorf lvl 4
-	# ribbit / meow hybrid, needs update
-	"beep_text3": [-3, -4, 5, 1, 0.7, 1.3, ["res://Assets/Audio/SFX/gorf_meow_mockup1.wav", "res://Assets/Audio/SFX/gorf_meow_mockup2.wav", "res://Assets/Audio/SFX/gorf_meow_mockup3.wav"]],
+	# design: custom meow/ribbit hybrid
+	# to do: repass
+	"beep_text3": [-3, -4, 5, 1, 0.7, 1.3, ["res://Assets/Audio/SFX/gorf_beep1.wav", "res://Assets/Audio/SFX/gorf_beep2.wav", "res://Assets/Audio/SFX/gorf_beep3.wav"]],
 	# pestarzt lvl 5
-	# custom mask sound
-	"beep_text4": [-4, -4, 5, 0.7, 0.7, 1.3, ["res://Assets/Audio/SFX/Pestarzt_beep_new.wav"]],#"res://Assets/Audio/SFX/Pestarzt_beep1.wav","res://Assets/Audio/SFX/Pestarzt_beep2.wav","res://Assets/Audio/SFX/Pestarzt_beep3.wav"]],
+	# design: custom mask filter sound
+	"beep_text4": [-4, -4, 5, 0.7, 0.7, 1.3, ["res://Assets/Audio/SFX/Pestarzt_beep1.wav","res://Assets/Audio/SFX/Pestarzt_beep2.wav","res://Assets/Audio/SFX/Pestarzt_beep3.wav"]],
 	# void cat lvl 6
-	# high pitched
+	# design: high pitched
 	"beep_text5": [-9, -4, 5, 2.6, 0.98, 1.05, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
 	# minnum cat
-	# deep meow
+	# design: deep meows
+	# to do: add reverbed out version with sub-base, shimmery pad?
 	"beep_text6": [-9, -4, 5, 0.2, 0.5, 1.25, ["res://Assets/Audio/SFX/beepText4-7dB.wav"]],
-	# ?
-	"beep_text7": [-9, -4, 5, 1.3, 0.7, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
-	#tac
+	# bufo (?)
+	# design: chorus of many meows
+	"beep_text7": [-3, -4, 5, 1.3, 0.7, 1.3, ["res://Assets/Audio/SFX/bufo_beep3.wav","res://Assets/Audio/SFX/bufo_beep2.wav","res://Assets/Audio/SFX/bufo_beep1.wav"]],
+	# tac
+	# design: standard
 	"beep_text8": [-9, -4, 5, 1, 0.7, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
 		#OTHER
 	"splash_med": [-6, -5, 1, 1, 0.6, 1.5, ["res://Assets/Audio/SFX/splash_medium_-6dB.wav"]],

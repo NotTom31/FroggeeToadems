@@ -8,8 +8,8 @@ func Enter():
 	frog.disable_gravity()
 
 func Exit():
-	frog.enable_gravity()
-
+	pass
+	
 func Update(delta: float):
 	pass
 
