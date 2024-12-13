@@ -231,11 +231,14 @@ func closest_open_frog_slot(pos : Vector2) -> FrogSlot:
 			result = fs
 	return result
 
-func _on_frog_deselected(frog: BasicFrog, pos: Vector2) -> void:
+func _on_frog_deselected(frog: BasicFrog, pos: Vector2, over_water : bool) -> void:
 	var slot = closest_open_frog_slot(pos)
 	
 	if slot == null:
-		frog.Transitioned.emit("FrogFall")
+		if over_water == true:
+			frog.Transitioned.emit("FrogSwim")
+		else:
+			frog.Transitioned.emit("FrogFall")
 		return
 	
 	frog.Transitioned.emit("FrogStacked")

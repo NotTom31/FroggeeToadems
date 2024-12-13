@@ -14,13 +14,16 @@ var rotation_speed = 3  # How fast the rotation should change
 var mouse_position
 var is_sprite_flipped = false
 var ribbit_timer : float = 0.0
+var over_water = false
+var over_rock = false
+var behind_boat = false
 
 var original_layer: int
 var original_mask: int
 
 var slot_beneath : FrogSlot = null
 signal Transitioned
-signal frog_deselected(frog : BasicFrog, pos : Vector2)
+signal frog_deselected(frog : BasicFrog, pos : Vector2, over_water : bool)
 signal slot_assigned(frog : BasicFrog, slot : FrogSlot)
 
 var on_lillypad := false:
@@ -85,7 +88,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				assign_to_slot(null)
 			else:
 				selected = false
-				frog_deselected.emit(self, global_position)
+				frog_deselected.emit(self, global_position, over_water)
 		elif lvl_manager.state == LevelManager.ClickState.WAND:
 			var lil = find_lillypad_below()
 			if lil != null:
@@ -182,12 +185,14 @@ func fountain() -> void:
 	var frog_on_head : BasicFrog = get_frog_on_head()
 	if frog_on_head != null:
 		frog_on_head.fountain()
+	$AnimatedSprite2D.rotation = 0
 	transition_to_jump()
 
 func tumble() -> void:
 	var frog_on_head : BasicFrog = get_frog_on_head()
 	if frog_on_head != null:
 		frog_on_head.tumble()
+	#$AnimatedSprite2D.rotation = 0
 	transition_to_fall()
 
 func set_random_ribbit_timer():
