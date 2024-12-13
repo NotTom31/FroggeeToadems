@@ -130,13 +130,6 @@ func Physics_Update(delta: float):
 				if boundary_ai == true:
 					boundary_ai = false
 					push = true
-	# new push
-	# bug tracking:
-	# you can fix rapid flipping behavior by commenting out the push behavior below. 
-	# it's the only solution I've found
-	# this was still true when using a different if/else tree for the physics function (before it was if over rock, elif behind boat, elif push true, else damping behavior)
-	# this was also true before a new push was queued line ~120 in damping section upon exiting boundary ai behavior.
-	# this is crazy bc without the new push, move_direction.x is set to -1 or 1 in the boundary_ai section, therefore the definition of frog.velocity SHOULD be identical. why switch???????
 	else:
 		frog.velocity = Vector2(move_direction.x * move_speed_x, move_direction.y * move_speed_y)
 		push = false
