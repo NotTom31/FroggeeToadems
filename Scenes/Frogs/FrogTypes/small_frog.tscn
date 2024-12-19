@@ -62,6 +62,7 @@ type = 2
 move_speed_x = 150
 damping = 0.994
 wander_max = 2
+hi_bound = 660
 lo_bound = 700
 jump_chance_inverse = 4
 

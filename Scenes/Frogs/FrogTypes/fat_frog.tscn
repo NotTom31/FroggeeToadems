@@ -77,6 +77,8 @@ move_speed_x = 250
 damping = 0.975
 wander_min = 3
 wander_max = 6
+hi_bound = 680
+lo_bound = 710
 jump_chance_inverse = 5
 
 [node name="FrogJump" parent="StateMachine" index="1"]
