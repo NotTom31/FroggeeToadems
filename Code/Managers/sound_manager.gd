@@ -74,9 +74,9 @@ var sound_config = {
 	# to do: add metalic sound? naruto sample?
 	"beep_text1": [-6, -4, 5, 1.2, 0.85, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
 	# chuddly lvl 3
-	# design: deeper, more expressive voice
-	# to do: add potion seller sample?
-	"beep_text2": [-9, -4, 5, 1, 0.5, 1.3, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
+	# design: potion seller sampled meows
+	# to do: repass samples, add more variety
+	"beep_text2": [0, -3, 1, 1, 0.93, 1.15, ["res://Assets/Audio/SFX/chuddly_beep1.wav","res://Assets/Audio/SFX/chuddly_beep2.wav","res://Assets/Audio/SFX/chuddly_beep3.wav","res://Assets/Audio/SFX/chuddly_beep3.wav", "res://Assets/Audio/SFX/chuddly_beep4.wav"]],
 	# gorf lvl 4
 	# design: custom meow/ribbit hybrid
 	# to do: repass
@@ -87,11 +87,12 @@ var sound_config = {
 	# void cat lvl 6
 	# design: high pitched
 	"beep_text5": [-9, -4, 5, 2.6, 0.98, 1.05, ["res://Assets/Audio/SFX/GWJ73_SFX_beepText_loop_-7dB.wav","res://Assets/Audio/SFX/beepText3-7dB.wav","res://Assets/Audio/SFX/beepText4-7dB.wav"]],
-	# minnum cat
+	# minnum cat lvl 7
 	# design: deep meows
 	# to do: add reverbed out version with sub-base, shimmery pad?
-	"beep_text6": [-9, -4, 5, 0.2, 0.5, 1.25, ["res://Assets/Audio/SFX/beepText4-7dB.wav"]],
-	# bufo (?)
+	# if custom sound doesn't work: [-9, -4, 5, 0.2, 0.5, 1.25, ["res://Assets/Audio/SFX/minnum_beep_test.wav"]],
+	"beep_text6": [-9, -4, 5, 0.6, 0.5, 1.25, ["res://Assets/Audio/SFX/minnum_beep_test.wav","res://Assets/Audio/SFX/minnum_beep_test2.wav"]],
+	# bufo (?) lvl 8
 	# design: chorus of many meows
 	"beep_text7": [-3, -4, 5, 1.3, 0.7, 1.3, ["res://Assets/Audio/SFX/bufo_beep3.wav","res://Assets/Audio/SFX/bufo_beep2.wav","res://Assets/Audio/SFX/bufo_beep1.wav"]],
 	# tac

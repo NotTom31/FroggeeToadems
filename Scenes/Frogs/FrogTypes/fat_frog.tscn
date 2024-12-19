@@ -72,6 +72,19 @@ size = Vector2(317, 195)
 [node name="FatFrog" instance=ExtResource("1_wieqn")]
 type = 3
 
+[node name="FrogSwim" parent="StateMachine" index="0"]
+move_speed_x = 250
+damping = 0.975
+wander_min = 3
+wander_max = 6
+jump_chance_inverse = 5
+
+[node name="FrogJump" parent="StateMachine" index="1"]
+min_horizontal_distance = 250.0
+max_horizontal_distance = 350.0
+min_jump_height = 500.0
+max_jump_height = 1200.0
+
 [node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.15, 0.2)
 sprite_frames = SubResource("SpriteFrames_w1on3")

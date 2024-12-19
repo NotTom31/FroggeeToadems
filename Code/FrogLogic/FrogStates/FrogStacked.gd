@@ -1,6 +1,8 @@
 extends State
 class_name FrogStacked
 
+@export var blink_time_min = 3
+@export var blink_time_max = 8
 var blink_timer : float = 0.0
 
 func Enter():

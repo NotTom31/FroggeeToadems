@@ -7,15 +7,37 @@ extends Node
 var frog_parents : Array[Node2D]
 signal spawned_frog(frog : BasicFrog)
 
+# allow keys to spawn frogs
+# comment out before publication!
+var dev_tools = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	frog_parents = [$BasicFrogs, $TropicalFrogs, $SmallFrogs, $FatFrogs, $MudFrogs]
 	for i in starting_frog_count:
 		spawn_frog_random_loc(MagicManager.FrogType.BASIC)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# dev_tools
+# spawn frogs on keypress
+# turn off for release!!! comment out this code! remove inputs from input manager in project settings!@
 func _process(delta: float) -> void:
-	pass
+	if dev_tools == true:
+		# 1 basic
+		if Input.is_action_just_pressed("basic_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.BASIC)
+		# 2 tropical
+		if Input.is_action_just_pressed("tropical_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.TROPICAL)
+		# 3 small
+		if Input.is_action_just_pressed("small_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.SMALL)
+		# 4 mud
+		if Input.is_action_just_pressed("mud_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.MUD)
+		# 5 fat
+		if Input.is_action_just_pressed("fat_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.FAT)
+
 
 # Spawns a frog of the chosen type in a random location in the Spawn Area
 func spawn_frog_random_loc(type : MagicManager.FrogType) -> void:

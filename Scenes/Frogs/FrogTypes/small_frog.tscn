@@ -58,6 +58,23 @@ size = Vector2(293, 82)
 [node name="SmallFrog" instance=ExtResource("1_52qfp")]
 type = 2
 
+[node name="FrogSwim" parent="StateMachine" index="0"]
+move_speed_x = 150
+damping = 0.994
+wander_max = 2
+lo_bound = 700
+jump_chance_inverse = 4
+
+[node name="FrogJump" parent="StateMachine" index="1"]
+min_horizontal_distance = 150.0
+max_horizontal_distance = 350.0
+min_jump_height = 400.0
+max_jump_height = 900.0
+
+[node name="FrogStacked" parent="StateMachine" index="4"]
+blink_time_min = 2
+blink_time_max = 5
+
 [node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.15, 0.2)
 sprite_frames = SubResource("SpriteFrames_4xyxk")
