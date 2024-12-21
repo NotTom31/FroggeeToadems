@@ -66,6 +66,7 @@ animations = [{
 size = Vector2(315, 195)
 
 [node name="MudFrog" instance=ExtResource("1_3yfop")]
+z_index = 1
 type = 4
 
 [node name="FrogSwim" parent="StateMachine" index="0"]

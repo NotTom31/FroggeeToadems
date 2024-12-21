@@ -70,6 +70,7 @@ animations = [{
 size = Vector2(317, 195)
 
 [node name="FatFrog" instance=ExtResource("1_wieqn")]
+z_index = 1
 type = 3
 
 [node name="FrogSwim" parent="StateMachine" index="0"]

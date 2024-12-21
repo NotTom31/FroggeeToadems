@@ -86,6 +86,7 @@ animations = [{
 size = Vector2(270, 90)
 
 [node name="TropicalFrog" instance=ExtResource("1_kqv0n")]
+z_index = 1
 type = 1
 
 [node name="FrogSwim" parent="StateMachine" index="0"]
@@ -107,6 +108,7 @@ min_charge_time = 1.5
 max_charge_time = 2.75
 
 [node name="JumpChargePlayer" parent="StateMachine/FrogCharge" index="0"]
+y_sort_enabled = true
 volume_db = 5.943
 bus = &"SFX"
 

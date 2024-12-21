@@ -29,7 +29,6 @@ var boundary_ai = false
 
 
 func Enter():
-	print("swimming enter" + str(randi_range(1,10)))
 	frog.disable_gravity()
 	$"../../FrogSpriteHandler".rotation = 0
 	$"../../FrogSpriteHandler".play_jump()
@@ -111,7 +110,6 @@ var swim_timer = 0.0    # Tracks the remaining cooldown time
 
 func Physics_Update(delta: float):
 	# Update the cooldown timer
-	print(frog.position)
 	if swim_timer > 0:
 		swim_timer -= delta
 	
