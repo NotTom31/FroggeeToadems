@@ -90,11 +90,6 @@ func check_for_win() -> bool:
 		$WinScreen.visible = true
 	return is_win
 
-
-
-#func _process(delta: float) -> void:
-#	check_for_game_over()
-
 func check_for_game_over():
 	if $FrogSpawner.count_total_frogs() <= 1:
 		$GameOver.visible = true
@@ -256,15 +251,27 @@ func _on_frog_spawner_spawned_frog(frog: BasicFrog) -> void:
 func set_state(s: ClickState) -> void:
 	state = s
 
-func _on_wand_button_pressed() -> void:
-	if state == ClickState.WAND:
-		state = ClickState.DEFAULT
-		get_parent().reset_cursor()
-		get_parent().sound_manager.play_sfx("magic_unequip")
-	else:
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("magic_equip"):
+		if state == ClickState.DEFAULT:
+			get_parent().sound_manager.play_sfx("magic_equip")
 		state = ClickState.WAND
 		get_parent().set_wand_cursor()
-		get_parent().sound_manager.play_sfx("magic_equip")
+	else:
+		if state == ClickState.WAND:
+			get_parent().sound_manager.play_sfx("magic_unequip")
+		state = ClickState.DEFAULT
+		get_parent().reset_cursor()
+
+#func _on_wand_button_pressed() -> void:
+	#if state == ClickState.WAND:
+		#state = ClickState.DEFAULT
+		#get_parent().reset_cursor()
+		#get_parent().sound_manager.play_sfx("magic_unequip")
+	#else:
+		#state = ClickState.WAND
+		#get_parent().set_wand_cursor()
+		#get_parent().sound_manager.play_sfx("magic_equip")
 
 func check_for_magic(list : Array[MagicManager.FrogType]) -> void:
 	set_state(ClickState.DEFAULT)

@@ -35,6 +35,7 @@ var on_lillypad := false:
 func _ready() -> void:
 	StateMachine = get_node("StateMachine")
 	original_layer = collision_layer
+	particle_cease()
 	set_random_ribbit_timer()
 
 func _process(delta: float) -> void:
@@ -121,6 +122,12 @@ func snap_to_slot(slot: FrogSlot) -> void:
 	if (frog_on_top != null):
 		frog_on_top.snap_to_slot($SlotOnHead)
 
+func visible() -> void:
+	$AnimatedSprite2D.visible = true
+
+func invisible() -> void:
+	$AnimatedSprite2D.visible = false
+
 func disable_gravity() -> void:
 	gravity = 0
 
@@ -135,6 +142,12 @@ func transition_to_jump():
 
 func transition_to_fall():
 	Transitioned.emit("FrogFall")
+
+func particle_emit() -> void:
+	$GPUParticles2D.emitting = true
+
+func particle_cease() -> void:
+	$GPUParticles2D.emitting = false
 
 func _physics_process(delta: float):
 	# Apply gravity to velocity
