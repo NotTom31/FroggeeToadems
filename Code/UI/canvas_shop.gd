@@ -4,6 +4,7 @@ class_name CanvasShop
 
 var animation : AnimationPlayer
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect the signal 'animation_finished' to the function '_on_animation_finished'
@@ -18,6 +19,7 @@ func _on_back_button_pressed() -> void:
 		if get_tree().root.get_child(0).get_node("LevelManager") is LevelManager:
 			get_tree().root.get_child(0).get_node("LevelManager").check_frog_total()
 		else : get_tree().root.get_child(0).sound_manager.change_music_layer(0)
+
 
 func _on_open_button_pressed() -> void:
 	if get_tree().root.get_child(0) is Main:

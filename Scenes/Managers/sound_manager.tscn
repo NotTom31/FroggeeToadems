@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://1k1rcvp03xma"]
+[gd_scene load_steps=16 format=3 uid="uid://1k1rcvp03xma"]
 
 [ext_resource type="Script" path="res://Code/Managers/sound_manager.gd" id="1_spyt0"]
 [ext_resource type="PackedScene" uid="uid://bw0yhqbfc0xq" path="res://Scenes/UI/AudioManagerControls.tscn" id="2_jp7r5"]
+[ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="3_5ghk0"]
 [ext_resource type="AudioStream" uid="uid://u3cq4x2o7dvj" path="res://Assets/Audio/Music/GWJ73_MX_main_layer00_zeroOrMoreFrogs_73bpm.wav" id="3_26e3e"]
 [ext_resource type="AudioStream" uid="uid://cnsvybkk4xp8w" path="res://Assets/Audio/Music/GWJ73_MX_main_layer01_oneOrMoreFrogs_73bpm.wav" id="4_6y7wp"]
 [ext_resource type="AudioStream" uid="uid://kijxj3q23ga3" path="res://Assets/Audio/Music/GWJ73_MX_main_layer02_threeOrMoreFrogs_73bpm.wav" id="5_j571n"]
@@ -105,6 +106,60 @@ button_pressed = true
 
 [node name="ATMToggle" parent="AudioManagerControls/HBoxContainer/VBoxContainer2" index="3"]
 button_pressed = true
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="AudioManagerControls/HBoxContainer" index="3"]
+visible = false
+layout_mode = 2
+
+[node name="menu_buttons" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 85.0
+offset_right = 150.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="menu_buttons"]
+layout_mode = 2
+
+[node name="MainMenuButton" parent="menu_buttons/HBoxContainer" instance=ExtResource("3_5ghk0")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "  Main Menu  "
+
+[node name="VSeparator" type="VSeparator" parent="menu_buttons/HBoxContainer"]
+visibility_layer = 0
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="menu_buttons/HBoxContainer"]
+visibility_layer = 0
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="menu_buttons/HBoxContainer"]
+visibility_layer = 0
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="menu_buttons/HBoxContainer"]
+visibility_layer = 0
+layout_mode = 2
+
+[node name="VSeparator6" type="VSeparator" parent="menu_buttons/HBoxContainer"]
+visibility_layer = 0
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="menu_buttons/HBoxContainer"]
+visibility_layer = 0
+layout_mode = 2
+
+[node name="QuitButton" parent="menu_buttons/HBoxContainer" instance=ExtResource("3_5ghk0")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "  Quit  "
 
 [node name="PickupMXTheme" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_5fiec")

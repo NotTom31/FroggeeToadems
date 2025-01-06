@@ -24,6 +24,7 @@ extends Node2D
 	# round-robin style player
 # 6) BUS MANAGEMENT: (~418)
 	# logic used for volume sliders in settings menu 
+# 7) ADDITIONAL SETTINGS:
 
 # note: NOT ALL SOUNDS ARE FOUND ON SOUND MANAGER!!! frog charges and lillypad snaps are handled in their respective scripts
 
@@ -152,6 +153,10 @@ var roundrobin = 1 # used by SFX player, expected value 1-n where n is max sfx p
 @onready var audio_stream_player : AudioStreamPlayer = $PickupMXTheme
 @onready var audio_stream : AudioStreamSynchronized = audio_stream_player.stream
 
+# MENU, QUIT BUTTONS
+@onready var menu_button: Button = $menu_buttons/HBoxContainer/MainMenuButton as Button
+@onready var quit_button: Button = $menu_buttons/HBoxContainer/QuitButton as Button
+
 # music fade in/out
 #var cossfade_length = 0.5
 #var crossfade_delta = 0.05
@@ -206,7 +211,13 @@ var atmbus = AudioServer.get_bus_index("ATM")
 
 # setup ambiance
 func _ready() -> void:
+	# init buttons for pause menu
+	menu_button.button_down.connect(on_menu_pressed)
+	quit_button.button_down.connect(on_exit_pressed)
+	# play ambiance
 	set_ambiance_on(true)
+	
+	
 # toggle (not used yet)
 func set_ambiance_on(on : bool) -> void:
 	if on:
@@ -540,3 +551,15 @@ func _on_atm_slider_mouse_entered() -> void:
 	play_sfx("menu_hover")
 func _on_atm_toggle_mouse_entered() -> void:
 	play_sfx("menu_hover")
+
+# 7) ADDITIONAL SETTINGS
+
+func on_menu_pressed() -> void:
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).get_node("Canvas_Menu").check_frog_total()
+	if get_tree().root.get_child(0) is Main:
+		get_tree().root.get_child(0).open_menu()
+	
+	
+func on_exit_pressed() -> void:
+	get_tree().quit()
