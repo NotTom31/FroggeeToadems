@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://caup4tky6b8g7"]
+[gd_scene load_steps=10 format=3 uid="uid://caup4tky6b8g7"]
 
 [ext_resource type="Script" path="res://Code/UI/spell_ui.gd" id="1_5txb0"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_a30l4"]
+[ext_resource type="Texture2D" uid="uid://wptdqqdmjfw5" path="res://Assets/Art/button1.png" id="2_x54co"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="3_nq4v7"]
 
 [sub_resource type="Animation" id="Animation_7k4x1"]
@@ -74,15 +75,15 @@ _data = {
 
 [node name="SpellUi" type="CanvasLayer" node_paths=PackedStringArray("text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7", "text8")]
 script = ExtResource("1_5txb0")
-text0 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text0")
-text1 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text1")
-text2 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text2")
-text3 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text3")
-text4 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text4")
-text5 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text5")
-text6 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text6")
-text7 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text7")
-text8 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text8")
+text0 = NodePath("Control/MarginContainer/HBoxContainer/Text0")
+text1 = NodePath("Control/MarginContainer/HBoxContainer/Text1")
+text2 = NodePath("Control/MarginContainer/HBoxContainer/Text2")
+text3 = NodePath("Control/MarginContainer/HBoxContainer/Text3")
+text4 = NodePath("Control/MarginContainer/HBoxContainer/Text4")
+text5 = NodePath("Control/MarginContainer/HBoxContainer/Text5")
+text6 = NodePath("Control/MarginContainer/HBoxContainer/Text6")
+text7 = NodePath("Control/MarginContainer/HBoxContainer/Text7")
+text8 = NodePath("Control/MarginContainer/HBoxContainer/Text8")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -94,7 +95,121 @@ offset_right = -1927.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(960.655, 541.014)
+rotation = 1.5708
+scale = Vector2(0.582018, 2.02846)
+texture = ExtResource("2_x54co")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 200.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+
+[node name="Name" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 44
+text = "Spells:
+"
+
+[node name="Text0" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="Text1" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="Text2" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="Text3" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="Text4" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="Text5" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="Text6" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="Text7" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="Text8" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 30
+text = "test
+"
+
+[node name="CloseButton" parent="Control" instance=ExtResource("2_a30l4")]
+layout_mode = 0
+offset_left = 1677.0
+offset_top = 958.0
+offset_right = 1849.0
+offset_bottom = 1026.0
+text = "Close"
+
 [node name="Panel" type="Panel" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -109,101 +224,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 24
-
-[node name="Name" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 44
-text = "Spells:
-"
-
-[node name="Text0" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text1" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text2" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text3" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text4" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text5" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text6" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text7" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text8" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="CloseButton" parent="Control/Panel" instance=ExtResource("2_a30l4")]
-layout_mode = 0
-offset_left = 1217.0
-offset_top = 818.0
-offset_right = 1389.0
-offset_bottom = 886.0
-text = "Close"
-
 [node name="OpenButton" parent="." instance=ExtResource("2_a30l4")]
 offset_left = 37.0
 offset_top = 115.0
@@ -217,5 +237,5 @@ libraries = {
 }
 speed_scale = 3.48
 
-[connection signal="pressed" from="Control/Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Control/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="OpenButton" to="." method="_on_open_button_pressed"]

@@ -555,8 +555,8 @@ func _on_atm_toggle_mouse_entered() -> void:
 # 7) ADDITIONAL SETTINGS
 
 func on_menu_pressed() -> void:
-	if get_tree().root.get_child(0) is Main:
-		get_tree().root.get_child(0).get_node("Canvas_Menu").check_frog_total()
+	#get_tree().current_scene.get_node("%Canvas_Shop").menu_closed.emit
+	# figure out how to make menu closed
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).open_menu()
 	

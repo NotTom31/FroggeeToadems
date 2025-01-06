@@ -18,6 +18,7 @@ func _ready() -> void:
 	check_frog_total()
 	$WinScreen.visible = false
 	$GameOver.visible = false
+	$SpellUi/Control.visible = false
 
 func array_to_dictionary(a : Array[MagicManager.FrogType]) -> Dictionary:
 	var dict = {}

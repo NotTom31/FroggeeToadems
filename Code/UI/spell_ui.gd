@@ -37,6 +37,7 @@ func _on_open_button_pressed() -> void:
 		#get_tree().root.get_child(0).play_shop_music(true)
 	animation.play("Transition_In")
 	$OpenButton.visible = false
+	$Control.visible = true
 	#get_tree().paused = true
 
 
