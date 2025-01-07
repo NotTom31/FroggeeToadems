@@ -106,6 +106,23 @@ func get_spell_output(index: int) -> String:
 		_:
 			return "Unknown Spell"
 
+func output_to_index(frog:String):
+	# convert output from above func back to index
+	match frog:
+		"Basic Frog":
+			return 0
+		"Tropical Frog":
+			return 1
+		"Small Frog":
+			return 2
+		"Large Frog":
+			return 3
+		"Mud Frog":
+			return 4
+		_:
+			print("Frog Name Unknown")
+	
+
 func get_recipe_as_string(index: int) -> String:
 	if index < 0 or index >= spell_table.size():
 		return "Invalid spell index"
@@ -117,3 +134,14 @@ func get_recipe_as_string(index: int) -> String:
 		var frog_name = frog_type_names.get(frog_type, "Unknown Frog")
 		recipe_text += frog_name + ": " + str(recipe[frog_type]) + " "
 	return recipe_text
+
+func get_recipe_raw(index: int):
+	if index < 0 or index >= spell_table.size():
+		return "Invalid spell index"
+	
+	var recipe = spell_table[index]
+	return recipe
+	
+
+func get_spellbook_size():
+	return spell_table.size()

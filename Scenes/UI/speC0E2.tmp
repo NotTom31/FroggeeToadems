@@ -348,10 +348,6 @@ x1
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparatorLarge2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/NormRecipe"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
 [node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/NormRecipe"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -491,10 +487,6 @@ x1
 "
 
 [node name="VSeparatorLarge" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="VSeparatorLarge2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
@@ -640,10 +632,6 @@ x1
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparatorLarge2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
 [node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -786,10 +774,6 @@ x1
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparatorLarge2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
 [node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -810,21 +794,21 @@ layout_mode = 2
 texture = ExtResource("7_fip3l")
 expand_mode = 5
 
-[node name="FatRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+[node name="LargeRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 texture = ExtResource("4_o8vp7")
 expand_mode = 5
 
-[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nq4v7")
@@ -832,21 +816,21 @@ theme_override_font_sizes/font_size = 22
 text = "
 x1"
 
-[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparatorBasic2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorBasic2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 texture = ExtResource("5_7xe46")
 expand_mode = 3
 
-[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nq4v7")
@@ -854,22 +838,22 @@ theme_override_font_sizes/font_size = 22
 text = "
 x1"
 
-[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparatorTrop2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorTrop2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 texture = ExtResource("6_7x30o")
 expand_mode = 3
 flip_h = true
 
-[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nq4v7")
@@ -878,21 +862,21 @@ text = "
 x1
 "
 
-[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparatorMud2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorMud2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 texture = ExtResource("7_fip3l")
 expand_mode = 3
 
-[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
@@ -904,22 +888,22 @@ x1
 "
 vertical_alignment = 1
 
-[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparatorSmall2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorSmall2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="LargeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="LargeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 texture = ExtResource("8_nqhld")
 expand_mode = 3
 flip_h = true
 
-[node name="LargeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="LargeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nq4v7")
@@ -928,15 +912,11 @@ text = "
 x1
 "
 
-[node name="VSeparatorLarge" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorLarge" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparatorLarge2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_nq4v7")
@@ -944,12 +924,12 @@ theme_override_font_sizes/font_size = 22
 text = "
 . . ."
 
-[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="LargeProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+[node name="LargeProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/LargeRecipe"]
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
