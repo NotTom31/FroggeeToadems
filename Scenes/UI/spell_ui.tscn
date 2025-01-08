@@ -236,9 +236,10 @@ alignment = 1
 [node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/NormRecipe"]
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
 layout_mode = 2
 texture = ExtResource("4_o8vp7")
-expand_mode = 5
+expand_mode = 3
 
 [node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/NormRecipe"]
 layout_mode = 2
