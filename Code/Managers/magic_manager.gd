@@ -34,7 +34,10 @@ var spell_table = [
 	{ FrogType.TROPICAL : 3 },	# 6: summon mud
 	{ FrogType.BASIC : 2, FrogType.TROPICAL : 2 }, # 7: summon small
 	{ FrogType.SMALL : 3, FrogType.MUD : 3 }, # 8: summon fat
-	{ FrogType.TROPICAL : 2 }, 	# 9: summon bright
+	{ FrogType.BASIC : 2 }, 	# 9: summon bright temp recipe
+	{ FrogType.BASIC : 4 }, 	# 10: summon dart temp recipe
+	{ FrogType.BASIC : 5 }, 	# 11: summon orange temp recipe
+	{ FrogType.BASIC : 6 }, 	# 12: summon purple temp recipe
 ]
 signal Summon(type: FrogType)
 
@@ -83,6 +86,27 @@ func cast_spell(index : int) -> void:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.BRIGHT)
+		10:
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
+			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("frog_spawn")
+			Summon.emit(FrogType.DART)
+		11:
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
+			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("frog_spawn")
+			Summon.emit(FrogType.ORANGE)
+		12:
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
+			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("frog_spawn")
+			Summon.emit(FrogType.PURPLE)
 		_:
 			print("tried to cast an invalid spell")
 			if get_tree().root.get_child(0) is Main:
@@ -116,6 +140,12 @@ func get_spell_output(index: int) -> String:
 			return "Large Frog"
 		9:
 			return "Bright Frog"
+		10:
+			return "Dart Frog"
+		11:
+			return "Orange Frog"
+		12:
+			return "Purple Frog"
 		_:
 			return "Unknown Spell"
 
@@ -134,6 +164,12 @@ func output_to_index(frog:String):
 			return 4
 		"Bright Frog":
 			return 5
+		"Dart Frog":
+			return 6
+		"Orange Frog":
+			return 7
+		"Purple Frog":
+			return 8
 		_:
 			print("Frog Name Unknown")
 	
