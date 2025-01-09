@@ -143,8 +143,20 @@ func update_spell_line(spell, spellnum): # index of spell in spellbook, index of
 		get_node(spell_path + "/MudImg").visible = false
 		get_node(spell_path + "/MudQty").visible = false
 		get_node(spell_path + "/VSeparatorMud").visible = false
-		get_node(spell_path + "/VSeparatorMud2").visible = false	
-	
+		get_node(spell_path + "/VSeparatorMud2").visible = false
+	#Bright
+	if 5 in current_recipe:
+		get_node(spell_path + "/MudImg").visible = true
+		get_node(spell_path + "/MudQty").visible = true
+		get_node(spell_path + "/MudQty").text = prefix+str(spellbook[spell][spellnum][4])
+		get_node(spell_path + "/VSeparatorMud").visible = true
+		get_node(spell_path + "/VSeparatorMud2").visible = true
+		dot_length -= frog_unit
+	else:
+		get_node(spell_path + "/MudImg").visible = false
+		get_node(spell_path + "/MudQty").visible = false
+		get_node(spell_path + "/VSeparatorMud").visible = false
+		get_node(spell_path + "/VSeparatorMud2").visible = false
 	# assign dots
 	var dot_text = "\n"
 	while dot_length >= 0:
