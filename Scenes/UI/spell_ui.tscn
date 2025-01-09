@@ -959,10 +959,10 @@ expand_mode = 5
 
 [node name="CloseButton" parent="Control" instance=ExtResource("2_a30l4")]
 layout_mode = 0
-offset_left = 1677.0
-offset_top = 958.0
-offset_right = 1849.0
-offset_bottom = 1026.0
+offset_left = 37.0
+offset_top = 115.0
+offset_right = 209.0
+offset_bottom = 183.0
 text = "Close"
 
 [node name="Panel" type="Panel" parent="Control"]
