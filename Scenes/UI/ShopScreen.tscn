@@ -1,6 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://cvtntsg168do7"]
 
 [ext_resource type="Script" path="res://Code/UI/shop_screen.gd" id="1_cb10l"]
+[ext_resource type="Texture2D" uid="uid://wptdqqdmjfw5" path="res://Assets/Art/button1.png" id="2_2jr4d"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="2_4oppx"]
 [ext_resource type="Texture2D" uid="uid://cfjg41jpp2hxa" path="res://Assets/Art/Characters/jeb.png" id="4_som7f"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="4_xtrl7"]
@@ -105,49 +106,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_daanw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_eakgr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_rmn3p")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_xr7qu")
-}],
-"loop": true,
-"name": &"new_animation_1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_nvjjp")
-}],
-"loop": true,
-"name": &"new_animation_2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_n7g6i")
-}],
-"loop": true,
-"name": &"new_animation_3",
-"speed": 5.0
-}]
-
 [node name="ShopScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -157,7 +115,236 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cb10l")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 94.0
+offset_right = 1545.0
+offset_bottom = 606.0
+texture = ExtResource("2_2jr4d")
+expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 43.0
+offset_right = -56.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer2"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 40
+
+[node name="Text" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(700, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 40
+text = "Placeholder Order"
+autowrap_mode = 3
+
+[node name="FrogOrders" type="HBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Basic" type="VBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Basic"]
+layout_mode = 2
+
+[node name="BasicImg" type="TextureRect" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Basic/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("17_n7g6i")
+expand_mode = 4
+
+[node name="BasicQty" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Basic/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 22
+
+[node name="Basic" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Basic"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "  Basic"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Trop" type="VBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Trop"]
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Trop/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("14_rmn3p")
+expand_mode = 4
+
+[node name="TropQty" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Trop/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 22
+
+[node name="Trop" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Trop"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "   Tropical"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Mud" type="VBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Mud"]
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Mud/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("13_eakgr")
+expand_mode = 4
+flip_h = true
+
+[node name="MudQty" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Mud/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 22
+
+[node name="Mud" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Mud"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Mud"
+
+[node name="VSeparatorMud" type="VSeparator" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Small" type="VBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Small"]
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Small/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("15_xr7qu")
+expand_mode = 4
+
+[node name="SmallQty" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Small/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 22
+vertical_alignment = 1
+
+[node name="Small" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Small"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Small"
+
+[node name="VSeparatorSmall" type="VSeparator" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Fat" type="VBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Fat"]
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Fat/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("16_nvjjp")
+expand_mode = 4
+flip_h = true
+
+[node name="FatQty" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Fat/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4oppx")
+theme_override_font_sizes/font_size = 22
+
+[node name="Fat" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer/FrogOrders/Fat"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Fat
+"
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="NextButton" parent="TextureRect/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xtrl7")]
+layout_mode = 2
+text = "Next"
+
+[node name="ResetButton" parent="TextureRect/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xtrl7")]
+layout_mode = 2
+text = "Repeat"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SubmitOrderButton" parent="TextureRect/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_xtrl7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Submit Order"
+
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -170,61 +357,6 @@ offset_right = 400.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer2"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Panel/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4oppx")
-theme_override_font_sizes/font_size = 40
-
-[node name="Text" type="Label" parent="Panel/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(700, 300)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4oppx")
-theme_override_font_sizes/font_size = 40
-text = "Placeholder Order"
-autowrap_mode = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer2/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="NextButton" parent="Panel/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xtrl7")]
-layout_mode = 2
-text = "Next"
-
-[node name="ResetButton" parent="Panel/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xtrl7")]
-layout_mode = 2
-text = "Repeat"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer2/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="SubmitOrderButton" parent="Panel/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_xtrl7")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Submit Order"
 
 [node name="PlagueCat" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -299,6 +431,7 @@ layout_mode = 2
 theme_override_constants/separation = 30
 
 [node name="Panel2" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -313,78 +446,4 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(20.56, 5.32)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-offset_left = 607.0
-offset_top = 676.0
-offset_right = 648.0
-offset_bottom = 699.0
-text = "Basic"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 2
-offset_left = 739.0
-offset_top = 683.0
-offset_right = 740.0
-offset_bottom = 706.0
-text = "Tropical"
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 2
-offset_left = 904.0
-offset_top = 734.0
-offset_right = 947.0
-offset_bottom = 757.0
-text = "Small"
-
-[node name="Label4" type="Label" parent="."]
-layout_mode = 2
-offset_left = 1060.0
-offset_top = 683.0
-offset_right = 1103.0
-offset_bottom = 706.0
-text = "Large"
-
-[node name="Label5" type="Label" parent="."]
-layout_mode = 2
-offset_left = 1246.0
-offset_top = 679.0
-offset_right = 1281.0
-offset_bottom = 702.0
-text = "Mud"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(564, 711)
-scale = Vector2(0.1, 0.11)
-sprite_frames = SubResource("SpriteFrames_daanw")
-animation = &"new_animation_3"
-offset = Vector2(700, 500)
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(714, 707)
-scale = Vector2(0.1, 0.11)
-sprite_frames = SubResource("SpriteFrames_daanw")
-animation = &"new_animation"
-offset = Vector2(700, 500)
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
-position = Vector2(860, 710)
-scale = Vector2(0.1, 0.11)
-sprite_frames = SubResource("SpriteFrames_daanw")
-animation = &"new_animation_1"
-offset = Vector2(700, 500)
-
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
-position = Vector2(1020, 714)
-scale = Vector2(0.1, 0.11)
-sprite_frames = SubResource("SpriteFrames_daanw")
-animation = &"new_animation_2"
-offset = Vector2(700, 500)
-
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
-position = Vector2(1200, 709)
-scale = Vector2(0.1, 0.11)
-sprite_frames = SubResource("SpriteFrames_daanw")
-offset = Vector2(700, 500)
-
-[connection signal="pressed" from="Panel/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2/SubmitOrderButton" to="." method="_on_submit_order_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2/SubmitOrderButton" to="." method="_on_submit_order_button_pressed"]

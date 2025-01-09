@@ -97,10 +97,10 @@ var dialogue_speed = 0.05 # seconds between words
 var tac_talking = false
 var extra_dialogue_index = 0
 
-@onready var name_label = $Panel/MarginContainer2/VBoxContainer/Name
-@onready var dialogue_label = $Panel/MarginContainer2/VBoxContainer/Text
-@onready var next_button = $Panel/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/NextButton
-@onready var restart_button = $Panel/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/ResetButton
+@onready var name_label = $TextureRect/MarginContainer2/VBoxContainer/Name
+@onready var dialogue_label = $TextureRect/MarginContainer2/VBoxContainer/Text
+@onready var next_button = $TextureRect/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/NextButton
+@onready var restart_button = $TextureRect/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/ResetButton
 
 # Function to set requested frogs for the current customer
 func set_requested_frogs(customer_id: int, frogs: Array):
