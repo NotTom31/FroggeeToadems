@@ -9,7 +9,7 @@ signal spawned_frog(frog : BasicFrog)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	frog_parents = [$BasicFrogs, $TropicalFrogs, $SmallFrogs, $FatFrogs, $MudFrogs]
+	frog_parents = [$BasicFrogs, $TropicalFrogs, $SmallFrogs, $FatFrogs, $MudFrogs, $BrightFrogs, $DartFrogs, $OrangeFrogs, $PurpleFrogs]
 	for i in starting_frog_count:
 		spawn_frog_random_loc(MagicManager.FrogType.BASIC)
 

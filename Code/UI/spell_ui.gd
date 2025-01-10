@@ -3,18 +3,10 @@ extends CanvasLayer
 var animation : AnimationPlayer
 
 @export var magic : MagicManager
-@export var text0 : Label
-@export var text1 : Label
-@export var text2 : Label
-@export var text3 : Label
-@export var text4 : Label
-@export var text5 : Label
-@export var text6 : Label
-@export var text7 : Label
-@export var text8 : Label
 
 # all spells, as outlined in magic manager, at init. currently does not update mid-game
 var spellbook = {}
+var frog_index = ["Basic","Trop","Small","Fat","Mud","Bright","Dart","Orange","Purple"]
 # index for which spell is currently displayed if there are more than one recipe
 var spelldisplayindex = {}
 
@@ -25,6 +17,7 @@ var dot_unit = 11
 var frog_unit = 150
 var update_time = 2
 
+
 func _ready() -> void:
 	# Connect the signal 'animation_finished' to the function '_on_animation_finished'
 	animation = get_node("AnimationPlayer")
@@ -32,7 +25,7 @@ func _ready() -> void:
 	animation.play("Start")
 	get_spells()
 
-# magic manager index: 0 BASIC, 1 TROPICAL, 2 SMALL, 3 FAT, 4 MUD }
+# magic manager index: 0 BASIC, 1 TROPICAL, 2 SMALL, 3 FAT, 4 MUD, 5 BRIGHT }
 
 func get_spells() -> void:
 	#process every entry in spellbook
@@ -50,23 +43,17 @@ func get_spells() -> void:
 	for spell_line in range(0,spellbook.size()):
 		update_spell_line(spell_line, 0)
 		
-# magic manager index: 0 BASIC, 1 TROPICAL, 2 SMALL, 3 FAT, 4 MUD }
+# magic manager index: 0 BASIC, 1 TROPICAL, 2 SMALL, 3 FAT, 4 MUD, 5 BRIGHT, 6 DART, 7 ORANGE, 8 PURPLE }
+
+# update row of spells. takes product (spell; index of spell 0-n) and spell number (if product has multiple spells)
 func update_spell_line(spell, spellnum): # index of spell in spellbook, index of recipe for product
 	# get node path
 	var spell_path = ""
 	var dot_length = 630
 	var prefix = ""
-	match spell:
-		0:
-			spell_path = "Control/MarginContainer/HBoxContainer/NormRecipe"
-		1:
-			spell_path = "Control/MarginContainer/HBoxContainer/TropRecipe"
-		2:
-			spell_path = "Control/MarginContainer/HBoxContainer/SmallRecipe"
-		3:
-			spell_path = "Control/MarginContainer/HBoxContainer/FatRecipe"
-		4:
-			spell_path = "Control/MarginContainer/HBoxContainer/MudRecipe"
+	
+	# get path of row for this frogs recipe
+	spell_path = "Control/MarginContainer/HBoxContainer/"+str(frog_index[spell])+"Recipe"
 	
 	# quantity prefix assign
 	if spell == 0:
@@ -80,70 +67,18 @@ func update_spell_line(spell, spellnum): # index of spell in spellbook, index of
 	# iterate thru all the products in spellbook
 	var current_recipe = (spellbook[spell][spellnum])
 	# basic
-	if 0 in current_recipe:
-		get_node(spell_path + "/BasicImg").visible = true
-		get_node(spell_path + "/BasicQty").visible = true
-		get_node(spell_path + "/BasicQty").text = prefix+str(spellbook[spell][spellnum][0])
-		get_node(spell_path + "/VSeparatorBasic").visible = true
-		get_node(spell_path + "/VSeparatorBasic2").visible = true
-		dot_length -= frog_unit
-	else:
-		get_node(spell_path + "/BasicImg").visible = false
-		get_node(spell_path + "/BasicQty").visible = false
-		get_node(spell_path + "/VSeparatorBasic").visible = false
-		get_node(spell_path + "/VSeparatorBasic2").visible = false
-	# trop
-	if 1 in current_recipe:
-		get_node(spell_path + "/TropImg").visible = true
-		get_node(spell_path + "/TropQty").visible = true
-		get_node(spell_path + "/TropQty").text = prefix+str(spellbook[spell][spellnum][1])
-		get_node(spell_path + "/VSeparatorTrop").visible = true
-		get_node(spell_path + "/VSeparatorTrop2").visible = true
-		dot_length -= frog_unit
-	else:
-		get_node(spell_path + "/TropImg").visible = false
-		get_node(spell_path + "/TropQty").visible = false
-		get_node(spell_path + "/VSeparatorTrop").visible = false
-		get_node(spell_path + "/VSeparatorTrop2").visible = false
-	# small
-	if 2 in current_recipe:
-		get_node(spell_path + "/SmallImg").visible = true
-		get_node(spell_path + "/SmallQty").visible = true
-		get_node(spell_path + "/SmallQty").text = prefix+str(spellbook[spell][spellnum][2])
-		get_node(spell_path + "/VSeparatorSmall").visible = true
-		get_node(spell_path + "/VSeparatorSmall2").visible = true
-		dot_length -= frog_unit
-	else:
-		get_node(spell_path + "/SmallImg").visible = false
-		get_node(spell_path + "/SmallQty").visible = false
-		get_node(spell_path + "/VSeparatorSmall").visible = false
-		get_node(spell_path + "/VSeparatorSmall2").visible = false
-	# fat
-	if 3 in current_recipe:
-		get_node(spell_path + "/LargeImg").visible = true
-		get_node(spell_path + "/LargeQty").visible = true
-		get_node(spell_path + "/LargeQty").text = prefix+str(spellbook[spell][spellnum][3])
-		get_node(spell_path + "/VSeparatorLarge").visible = true
-		get_node(spell_path + "/VSeparatorLarge2").visible = true
-		dot_length -= frog_unit
-	else:
-		get_node(spell_path + "/LargeImg").visible = false
-		get_node(spell_path + "/LargeQty").visible = false
-		get_node(spell_path + "/VSeparatorLarge").visible = false
-		get_node(spell_path + "/VSeparatorLarge2").visible = false
-	# mud
-	if 4 in current_recipe:
-		get_node(spell_path + "/MudImg").visible = true
-		get_node(spell_path + "/MudQty").visible = true
-		get_node(spell_path + "/MudQty").text = prefix+str(spellbook[spell][spellnum][4])
-		get_node(spell_path + "/VSeparatorMud").visible = true
-		get_node(spell_path + "/VSeparatorMud2").visible = true
-		dot_length -= frog_unit
-	else:
-		get_node(spell_path + "/MudImg").visible = false
-		get_node(spell_path + "/MudQty").visible = false
-		get_node(spell_path + "/VSeparatorMud").visible = false
-		get_node(spell_path + "/VSeparatorMud2").visible = false	
+	for ing in frog_index:
+		if frog_index.find(ing) in current_recipe:
+			get_node(spell_path + "/"+ing+"Img").visible = true
+			get_node(spell_path + "/"+ing+"Qty").visible = true
+			# vile code to take the quantity of ing frog type needed for spellnum index of spell listed to make spell product frog from spellbook
+			get_node(spell_path + "/"+ing+"Qty").text = prefix+str(spellbook[spell][spellnum][frog_index.find(ing)])
+			get_node(spell_path + "/VSeparator"+ing).visible = true
+			dot_length -= frog_unit
+		else:
+			get_node(spell_path + "/"+ing+"Img").visible = false
+			get_node(spell_path + "/"+ing+"Qty").visible = false
+			get_node(spell_path + "/VSeparator"+ing).visible = false
 	
 	# assign dots
 	var dot_text = "\n"

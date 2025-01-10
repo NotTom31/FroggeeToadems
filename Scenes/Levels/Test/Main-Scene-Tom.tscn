@@ -74,7 +74,7 @@ lvl_manager = NodePath("../..")
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("6_fo3t6")]
 
-[node name="CollisionShape2D" parent="FrogDetectionArea" index="2"]
+[node name="CollisionShape2D" parent="FrogDetectionArea" index="1"]
 position = Vector2(962, 1006)
 
 [node name="Boundaries" type="Node2D" parent="."]
