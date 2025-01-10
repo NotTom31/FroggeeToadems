@@ -30,18 +30,18 @@ var spell_table = [
 	{ FrogType.FAT : 1 },		# 2: summon basic
 	{ FrogType.MUD : 1 },		# 3: summon basic
 	{ FrogType.BASIC : 1 },		# 4: summon basic
-	{ FrogType.BRIGHT : 1 },		# 4: summon basic
-	{ FrogType.DART : 1 },		# 4: summon basic
-	{ FrogType.ORANGE : 1 },		# 4: summon basic
-	{ FrogType.PURPLE : 1 },		# 4: summon basic
-	{ FrogType.BASIC : 3 },		# 5: summon tropical
-	{ FrogType.TROPICAL : 3 },	# 6: summon mud
-	{ FrogType.BASIC : 2, FrogType.TROPICAL : 2 }, # 7: summon small
-	{ FrogType.SMALL : 3, FrogType.MUD : 3 }, # 8: summon fat
-	{ FrogType.BASIC : 2 }, 	# 9: summon bright temp recipe
-	{ FrogType.BASIC : 4 }, 	# 10: summon dart temp recipe
-	{ FrogType.BASIC : 5 }, 	# 11: summon orange temp recipe
-	{ FrogType.BASIC : 6 }, 	# 12: summon purple temp recipe
+	{ FrogType.BRIGHT : 1 },		# 5: summon basic
+	{ FrogType.DART : 1 },		# 6: summon basic
+	{ FrogType.ORANGE : 1 },		# 7: summon basic
+	{ FrogType.PURPLE : 1 },		# 8: summon basic
+	{ FrogType.BASIC : 3 },		# 9: summon tropical
+	{ FrogType.TROPICAL : 3 },	# 10: summon mud
+	{ FrogType.BASIC : 2, FrogType.TROPICAL : 2 }, # 11: summon small
+	{ FrogType.SMALL : 3, FrogType.MUD : 3 }, # 12: summon fat
+	{ FrogType.BASIC : 2 }, 	# 13: summon bright temp recipe
+	{ FrogType.BASIC : 4 }, 	# 14: summon dart temp recipe
+	{ FrogType.BASIC : 5 }, 	# 15: summon orange temp recipe
+	{ FrogType.BASIC : 6 }, 	# 16: summon purple temp recipe
 ]
 signal Summon(type: FrogType)
 
