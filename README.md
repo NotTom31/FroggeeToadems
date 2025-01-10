@@ -19,6 +19,6 @@ Froggee Toadems is an incremental sand box crafting game made in Godot 4.3. You 
 
 **_Otter Eve_** - Composer, Sound Editor, Designer
 
-**_Ogrehara_** - Sound Producer, Audio Implementation, Designer
+**_Ogrehara_** - Sound Producer, Audio Implementation, Designer, Programmer
 
 **_SirSunstone_** - Designer & Writer
