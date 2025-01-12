@@ -559,6 +559,7 @@ func on_menu_pressed() -> void:
 	# figure out how to make menu closed
 	if get_tree().root.get_child(0) is Main:
 		get_tree().root.get_child(0).open_menu()
+	get_tree().paused = false
 	
 	
 func on_exit_pressed() -> void:
