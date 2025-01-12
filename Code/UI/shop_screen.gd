@@ -96,11 +96,19 @@ var is_displaying = false
 var dialogue_speed = 0.05 # seconds between words
 var tac_talking = false
 var extra_dialogue_index = 0
+var current_order = [0,0,0,0,0,0,0,0,0]
 
 @onready var name_label = $TextureRect/MarginContainer2/VBoxContainer/Name
 @onready var dialogue_label = $TextureRect/MarginContainer2/VBoxContainer/Text
 @onready var next_button = $TextureRect/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/NextButton
 @onready var restart_button = $TextureRect/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/ResetButton
+
+# for updating frog display
+var frog_path = "TextureRect/MarginContainer2/VBoxContainer/FrogOrders/"
+var frog_names = ["Basic", "Trop", "Mud", "Small", "Fat", "Bright", "Dart", "Orange", "Purple"]
+var frog_names_parse = ["Basic Frog", "Tropical Frog", "Mud Frog", "Small Frog", "Large Frog", "Bright Frog", "Dart Frog", "Orange Frog", "Purple Frog"]
+var order_display_complete = false
+var frog_display_width = 150
 
 # Function to set requested frogs for the current customer
 func set_requested_frogs(customer_id: int, frogs: Array):
@@ -129,6 +137,9 @@ func update_customer_by_id(customer_id: int):
 		current_dialogue_index = 0 
 		current_word_index = 0 
 		extra_dialogue_index = 0
+		clear_order_display()
+		current_order = [0,0,0,0,0,0,0,0,0]
+		order_display_complete = false
 		is_displaying = false
 
 		var customer_data = customers_text[customer_id]
@@ -223,12 +234,13 @@ func replace_underscores_with_frogs(dialogue: String, customer_id: int) -> Strin
 		var frogs_list = ""
 		for i in range(requested_frogs.size()):
 			frogs_list += requested_frogs[i]
+			if order_display_complete == false:
+				update_order_display(requested_frogs[i])
 			if i < requested_frogs.size() - 1:
 				frogs_list += ", "  # Add ", " between frog names
-		
+		order_display_complete = true
 		# Replace the single underscore with the full list of requested frogs
 		modified_dialogue = modified_dialogue.substr(0, underscore_index) + frogs_list + modified_dialogue.substr(underscore_index + 1)
-	
 	return modified_dialogue
 
 
@@ -269,6 +281,35 @@ func tac_dialogue() -> void:
 		#get_tree().root.get_child(0).shopkeep_talk(is_talk)
 
 var level_num = 0
+
+# FROG ORDER VISUAL DISPLAY
+
+# magic manager index: 0 BASIC, 1 TROPICAL, 2 SMALL, 3 FAT, 4 MUD, 5 BRIGHT }
+func frog_string_to_id(frog):
+	var frog_id = frog_names_parse.find(frog)
+	return(frog_id)
+
+func clear_order_display():
+	$TextureRect/Panel2.visible = false
+	$TextureRect/Panel2.size.x = 30
+	$TextureRect/Panel2.position.x = 517
+	for frog in frog_names:
+		get_node(frog_path + frog).visible = false
+		get_node(frog_path + "VSeparator" + frog).visible = false
+
+func update_order_display(frogstring):
+	$TextureRect/Panel2.visible = true
+	var frog = frog_names[frog_string_to_id(frogstring)]
+	#update background size size
+	if current_order[frog_string_to_id(frogstring)] == 0:
+		$TextureRect/Panel2.size.x += frog_display_width
+		$TextureRect/Panel2.position.x -= frog_display_width/2
+	# make visible
+	get_node(frog_path + frog).visible = true
+	get_node(frog_path + "VSeparator" + frog).visible = true
+	# update qty
+	current_order[frog_string_to_id(frogstring)] += 1
+	get_node(frog_path + frog + "/HBoxContainer/" + frog + "Qty").text = "\nx" + str(current_order[frog_string_to_id(frogstring)])
 
 func _on_submit_order_button_pressed() -> void:
 	var is_win : bool
