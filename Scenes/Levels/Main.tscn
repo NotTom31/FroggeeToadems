@@ -12,8 +12,6 @@
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 128.0
-angle_min = -142.0
-angle_max = 182.5
 initial_velocity_min = 59.14
 initial_velocity_max = 146.45
 gravity = Vector3(0, 350, 0)

@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var gravity := 980.0
 @export var type : MagicManager.FrogType
+# spawn speed used by frog spawner, different for each frog
+@export var spawn_speed = 2
 
 var lvl_manager : LevelManager
 var StateMachine
@@ -17,6 +19,16 @@ var ribbit_timer : float = 0.0
 var over_water = false
 var over_rock = false
 var behind_boat = false
+
+# particle variables
+@export var particle_amt = 15
+@export var particle_zone_r = 50
+@export var particle_ratio = 0
+@export var particle_lifetime = 1
+@export var particle_damping = 10.0
+# note: speed cannot be modified w/ code, can be changed in process material>spawn>>velocity>initial velocity
+# speed uses standard value 100 +- 45
+var particles_on = false
 
 var original_layer: int
 var original_mask: int
@@ -37,6 +49,13 @@ func _ready() -> void:
 	original_layer = collision_layer
 	particle_cease()
 	set_random_ribbit_timer()
+	#@export var particle_amt = 15
+
+	$GPUParticles2D.process_material.set_emission_sphere_radius(particle_zone_r)# = particle_zone_r
+	$GPUParticles2D.amount_ratio = particle_ratio
+	$GPUParticles2D.amount = particle_amt
+	$GPUParticles2D.lifetime = particle_lifetime
+
 
 func _process(delta: float) -> void:
 	ribbit_timer -= delta
@@ -55,6 +74,13 @@ func _process(delta: float) -> void:
 					get_tree().root.get_child(0).play_sound("tiny_ribbit")
 		$FrogSpriteHandler.play_ribbit()
 		set_random_ribbit_timer()
+	if particles_on == true:
+		particle_ratio = particle_ratio + (1.0-particle_ratio)/particle_damping
+		$GPUParticles2D.amount_ratio = particle_ratio
+		print(particle_ratio)
+
+			
+
 
 func follow_mouse(delta: float, offset: Vector2) -> void:
 	# Calculate the velocity of the mouse
@@ -145,9 +171,11 @@ func transition_to_fall():
 
 func particle_emit() -> void:
 	$GPUParticles2D.emitting = true
+	particles_on = true
 
 func particle_cease() -> void:
 	$GPUParticles2D.emitting = false
+	particles_on = false
 
 func _physics_process(delta: float):
 	# Apply gravity to velocity
