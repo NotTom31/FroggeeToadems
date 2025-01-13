@@ -45,7 +45,6 @@ func spawn_frog_random_loc(type : MagicManager.FrogType) -> void:
 	var vec = Vector2(randf_range(r.position.x, r.position.x + r.size.x), 
 		randf_range(r.position.y, r.position.y + r.size.y))
 	spawn_frog(type, vec + self.global_position)
-	
 
 # Spawns a frog of the chosen type
 func spawn_frog(type : MagicManager.FrogType, loc : Vector2) -> void:
@@ -53,19 +52,6 @@ func spawn_frog(type : MagicManager.FrogType, loc : Vector2) -> void:
 	var frog_inst = frog_scenes[type].instantiate()
 	frog_parents[type].add_child(frog_inst)
 	frog_inst.global_position = loc
-	# modifying code here for experimental particle sys
-	frog_inst.disable_gravity()
-	frog_inst.invisible()
-	frog_inst.particle_emit()
-	# particles only, spawn sound set to play with appropriate delay
-	var spawn_time = 0.75*randf_range(.95,1.1)
-	await get_tree().create_timer(spawn_time).timeout
-	# render frog
-	frog_inst.enable_gravity()
-	frog_inst.visible()
-	frog_inst.particle_cease()
-	if get_tree().root.get_child(0) is Main:
-		get_tree().root.get_child(0).play_sound("frog_spawn")
 	spawned_frog.emit(frog_inst)
 	
 	if get_tree().root.get_child(0) is Main:
