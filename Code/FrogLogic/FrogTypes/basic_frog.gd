@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var gravity := 980.0
 @export var type : MagicManager.FrogType
 # spawn speed used by frog spawner, different for each frog
-@export var spawn_speed = 2
+@export var spawn_speed = .75
 
 var lvl_manager : LevelManager
 var StateMachine
@@ -77,7 +77,6 @@ func _process(delta: float) -> void:
 	if particles_on == true:
 		particle_ratio = particle_ratio + (1.0-particle_ratio)/particle_damping
 		$GPUParticles2D.amount_ratio = particle_ratio
-		print(particle_ratio)
 
 			
 

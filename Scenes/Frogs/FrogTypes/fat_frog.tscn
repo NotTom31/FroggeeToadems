@@ -70,8 +70,12 @@ animations = [{
 size = Vector2(317, 195)
 
 [node name="FatFrog" instance=ExtResource("1_wieqn")]
-z_index = 1
 type = 3
+spawn_speed = 1.7
+particle_amt = 20
+particle_zone_r = 75
+particle_lifetime = 2
+particle_damping = 25.0
 
 [node name="FrogSwim" parent="StateMachine" index="0"]
 move_speed_x = 250

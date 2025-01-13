@@ -56,8 +56,9 @@ animations = [{
 size = Vector2(293, 82)
 
 [node name="SmallFrog" instance=ExtResource("1_52qfp")]
-z_index = 1
 type = 2
+particle_amt = 25
+particle_zone_r = 20
 
 [node name="FrogSwim" parent="StateMachine" index="0"]
 move_speed_x = 150

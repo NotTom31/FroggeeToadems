@@ -66,8 +66,11 @@ animations = [{
 size = Vector2(315, 195)
 
 [node name="MudFrog" instance=ExtResource("1_3yfop")]
-z_index = 1
 type = 4
+spawn_speed = 1.4
+particle_zone_r = 70
+particle_lifetime = 2
+particle_damping = 15.0
 
 [node name="FrogSwim" parent="StateMachine" index="0"]
 move_speed_x = 240

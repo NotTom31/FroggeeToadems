@@ -281,4 +281,4 @@ func check_for_magic(list : Array[MagicManager.FrogType]) -> void:
 
 
 func _on_magic_manager_summon(type: MagicManager.FrogType) -> void:
-	$FrogSpawner.spawn_frog_random_loc(type)
+	$FrogSpawner.spawn_frog_random_loc(type,false)
