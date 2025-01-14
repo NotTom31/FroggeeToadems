@@ -87,7 +87,7 @@ size = Vector2(270, 90)
 
 [node name="TropicalFrog" instance=ExtResource("1_kqv0n")]
 type = 1
-particle_damping = 15.0
+particle_amt = 10
 
 [node name="FrogSwim" parent="StateMachine" index="0"]
 move_speed_x = 240
