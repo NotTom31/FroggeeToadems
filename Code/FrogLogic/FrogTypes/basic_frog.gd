@@ -115,11 +115,14 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			else:
 				selected = false
 				frog_deselected.emit(self, global_position, over_water)
-		elif lvl_manager.state == LevelManager.ClickState.WAND:
-			var lil = find_lillypad_below()
-			if lil != null:
-				lil.check_for_magic()
-				lil.fountain()
+	elif event is InputEventMouse:
+		#extra check bc sometimes lvl_manager.state returns nil, causing error
+		if lvl_manager:
+			if lvl_manager.state == LevelManager.ClickState.WAND:
+				var lil = find_lillypad_below()
+				if lil != null:
+					lil.check_for_magic()
+					lil.fountain()
 			
 	#else:
 	#		selected = false
