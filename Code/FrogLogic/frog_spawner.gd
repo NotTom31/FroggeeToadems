@@ -3,15 +3,22 @@ extends Node
 
 @export var frog_scenes : Array[PackedScene]
 @export var lillypad_parent : Node2D
-@export var starting_frog_count : int
+@export var starting_frog_count = []
 var frog_parents : Array[Node2D]
 signal spawned_frog(frog : BasicFrog)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	frog_parents = [$BasicFrogs, $TropicalFrogs, $SmallFrogs, $FatFrogs, $MudFrogs, $BrightFrogs, $DartFrogs, $OrangeFrogs, $PurpleFrogs]
-	for i in starting_frog_count:
-		spawn_frog_random_loc(MagicManager.FrogType.BASIC)
+	# set starter frogs
+	starting_frog_count = []
+	if get_tree().root.get_child(0) is Main:
+		# at this point in instantiation only main.gd knows level num
+		var level = get_tree().root.get_child(0).level_num
+		# level manager stores starting frogs per level
+		starting_frog_count = get_tree().root.get_child(0).get_node("LevelManager").set_starter_frogs(level)
+		for i in starting_frog_count:
+			spawn_frog_random_loc(i)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
