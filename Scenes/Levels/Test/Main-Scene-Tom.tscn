@@ -30,6 +30,14 @@ frog_requests_5 = Array[int]([4, 4, 4])
 frog_requests_6 = Array[int]([3])
 frog_requests_7 = Array[int]([2, 2, 2, 2, 2, 2, 3])
 frog_requests_8 = Array[int]([3, 3, 4, 4, 4, 4, 0, 0, 0])
+starter_frogs_1 = Array[int]([0])
+starter_frogs_2 = Array[int]([0, 0])
+starter_frogs_3 = Array[int]([0, 0, 0])
+starter_frogs_4 = Array[int]([0, 0, 0, 0])
+starter_frogs_5 = Array[int]([0, 0, 0, 0, 0])
+starter_frogs_6 = Array[int]([0, 0, 0, 0, 0, 0])
+starter_frogs_7 = Array[int]([0, 0, 0, 0, 0, 0, 0])
+starter_frogs_8 = Array[int]([0, 0, 0, 0, 0, 0, 0, 0])
 
 [node name="MagicManager" parent="." instance=ExtResource("2_k1b8b")]
 

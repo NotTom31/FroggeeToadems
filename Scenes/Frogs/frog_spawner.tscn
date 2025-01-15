@@ -17,7 +17,6 @@ size = Vector2(1474, 299)
 [node name="FrogSpawner" type="Node2D"]
 script = ExtResource("1_4lyrf")
 frog_scenes = Array[PackedScene]([ExtResource("2_02rqu"), ExtResource("3_jj3p0"), ExtResource("4_t7haa"), ExtResource("5_1xgr4"), ExtResource("6_ur5lr"), ExtResource("7_d1d61"), ExtResource("8_364qh"), ExtResource("9_lsugp"), ExtResource("10_ahrss")])
-starting_frog_count = 3
 
 [node name="SpawnArea" type="Area2D" parent="."]
 
