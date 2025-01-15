@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvtali2vs2aak"]
+[gd_scene load_steps=7 format=3 uid="uid://dvtali2vs2aak"]
 
 [ext_resource type="Script" path="res://Code/Levels/main.gd" id="1_aqv4j"]
 [ext_resource type="PackedScene" uid="uid://snde5c6srxnl" path="res://Scenes/UI/canvas_settings.tscn" id="2_4fif5"]
+[ext_resource type="PackedScene" uid="uid://daguxypxxcjrg" path="res://Scenes/UI/Levels/Test/Button Tests.tscn" id="2_lr7j8"]
 [ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_xhy1p"]
 [ext_resource type="PackedScene" uid="uid://blswelgb852g5" path="res://Scenes/UI/canvas_menu.tscn" id="3_m63c7"]
+[ext_resource type="PackedScene" uid="uid://ddp0xobh67tjr" path="res://Scenes/UI/Levels/Test/Button Tests2.tscn" id="6_1lcbd"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("sound_manager", "background")]
 script = ExtResource("1_aqv4j")
 sound_manager = NodePath("Canvas_Pause/Menu/SettingsMenu/Button1/MarginContainer2/HBoxContainer/SoundManager")
 background = NodePath("Background")
+
+[node name="ButtonTests" parent="." instance=ExtResource("2_lr7j8")]
+position = Vector2(1600, 750)
+scale = Vector2(0.3, 0.3)
 
 [node name="Background" parent="." instance=ExtResource("2_xhy1p")]
 
@@ -20,6 +26,10 @@ background = NodePath("Background")
 theme_override_colors/font_color = Color(0.447059, 0.337255, 0.223529, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+
+[node name="ButtonTests2" parent="." instance=ExtResource("6_1lcbd")]
+position = Vector2(1651, 521)
+scale = Vector2(0.3, 0.3)
 
 [editable path="Background"]
 [editable path="Canvas_Pause"]
