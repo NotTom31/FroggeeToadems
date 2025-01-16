@@ -151,6 +151,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="Menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -159,9 +160,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="ShopScreen" parent="Menu/Panel" instance=ExtResource("3_ufnje")]
-layout_mode = 1
 
 [node name="Back_Button" parent="Menu" instance=ExtResource("2_mhcmu")]
 layout_mode = 1
@@ -174,6 +172,9 @@ offset_right = -30.0
 offset_bottom = 119.0
 grow_horizontal = 0
 text = "Return To Boat"
+
+[node name="ShopScreen" parent="Menu" instance=ExtResource("3_ufnje")]
+layout_mode = 1
 
 [connection signal="pressed" from="Open_Button" to="." method="_on_open_button_pressed"]
 [connection signal="pressed" from="Menu/Back_Button" to="." method="_on_back_button_pressed"]
