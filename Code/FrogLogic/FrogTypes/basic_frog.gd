@@ -164,6 +164,7 @@ func enable_gravity() -> void:
 
 func transition_to_swim():
 	Transitioned.emit("FrogSwim")
+	$AnimatedSprite2D.rotation = 0
 	
 func transition_to_jump():
 	Transitioned.emit("FrogJump")

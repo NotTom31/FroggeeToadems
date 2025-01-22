@@ -31,6 +31,7 @@ var boundary_ai = false
 func Enter():
 	frog.disable_gravity()
 	$"../../FrogSpriteHandler".rotation = 0
+	frog.rotation = 0
 	$"../../FrogSpriteHandler".play_jump()
 	var frog_on_head = frog.get_frog_on_head()
 	if (frog_on_head != null):
