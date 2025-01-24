@@ -11,6 +11,14 @@ class_name LevelManager extends Node2D
 @export var frog_requests_6 : Array[MagicManager.FrogType]
 @export var frog_requests_7 : Array[MagicManager.FrogType]
 @export var frog_requests_8 : Array[MagicManager.FrogType]
+@export var starter_frogs_1 : Array[MagicManager.FrogType]
+@export var starter_frogs_2 : Array[MagicManager.FrogType]
+@export var starter_frogs_3 : Array[MagicManager.FrogType]
+@export var starter_frogs_4 : Array[MagicManager.FrogType]
+@export var starter_frogs_5 : Array[MagicManager.FrogType]
+@export var starter_frogs_6 : Array[MagicManager.FrogType]
+@export var starter_frogs_7 : Array[MagicManager.FrogType]
+@export var starter_frogs_8 : Array[MagicManager.FrogType]
 
 #@onready var win_screen = preload("res://Scenes/win_screen.tscn") as PackedScene
 
@@ -18,6 +26,7 @@ func _ready() -> void:
 	check_frog_total()
 	$WinScreen.visible = false
 	$GameOver.visible = false
+	$SpellUi/Control.visible = false
 
 func array_to_dictionary(a : Array[MagicManager.FrogType]) -> Dictionary:
 	var dict = {}
@@ -89,6 +98,38 @@ func check_for_win() -> bool:
 		is_win = true
 		$WinScreen.visible = true
 	return is_win
+
+
+
+func set_starter_frogs(level_starter_frogs) -> Array:
+	var starter_frogs = []
+
+	# Use the stored current_level_num
+	match level_starter_frogs:
+		0:
+			starter_frogs = starter_frogs_1
+		1:
+			starter_frogs = starter_frogs_2
+		2:
+			starter_frogs = starter_frogs_3
+		3:
+			starter_frogs = starter_frogs_4
+		4:
+			starter_frogs = starter_frogs_5
+		5:
+			starter_frogs = starter_frogs_6
+		6:
+			starter_frogs = starter_frogs_7
+		7:
+			starter_frogs = starter_frogs_8
+		_:
+			# if fail, use first level frogs
+			starter_frogs = starter_frogs_1
+	return starter_frogs
+
+#func _process(delta: float) -> void:
+#	check_for_game_over()
+
 
 func check_for_game_over():
 	if $FrogSpawner.count_total_frogs() <= 1:

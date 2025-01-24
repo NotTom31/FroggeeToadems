@@ -1,8 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://caup4tky6b8g7"]
+[gd_scene load_steps=19 format=3 uid="uid://caup4tky6b8g7"]
 
 [ext_resource type="Script" path="res://Code/UI/spell_ui.gd" id="1_5txb0"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_a30l4"]
+[ext_resource type="Texture2D" uid="uid://wptdqqdmjfw5" path="res://Assets/Art/button1.png" id="2_x54co"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="3_nq4v7"]
+[ext_resource type="Texture2D" uid="uid://gnxwxsklcb51" path="res://Assets/Art/Frogs/resting/05_rest.png" id="4_o8vp7"]
+[ext_resource type="Texture2D" uid="uid://dcomocfoou50s" path="res://Assets/Art/Frogs/resting/02_rest.png" id="5_7xe46"]
+[ext_resource type="Texture2D" uid="uid://byimo5w7vne1o" path="res://Assets/Art/Frogs/resting/01_rest.png" id="6_7x30o"]
+[ext_resource type="Texture2D" uid="uid://cp4l61kebouu6" path="res://Assets/Art/Frogs/resting/03_rest.png" id="7_fip3l"]
+[ext_resource type="Texture2D" uid="uid://dc4o64v0upcbd" path="res://Assets/Art/Frogs/resting/04_rest.png" id="8_nqhld"]
+[ext_resource type="Texture2D" uid="uid://dat78tticddsd" path="res://Assets/Art/Frogs/resting/10_rest.png" id="9_fcvrm"]
+[ext_resource type="Texture2D" uid="uid://b818brsq6oiqt" path="res://Assets/Art/Frogs/resting/07_rest.png" id="10_bmgj6"]
+[ext_resource type="Texture2D" uid="uid://ddb4v0p10848d" path="res://Assets/Art/Frogs/resting/09_rest.png" id="11_dk61i"]
+[ext_resource type="Texture2D" uid="uid://dfrkdsutl445s" path="res://Assets/Art/Frogs/resting/06_rest.png" id="12_wesjw"]
 
 [sub_resource type="Animation" id="Animation_7k4x1"]
 length = 0.001
@@ -72,29 +82,2008 @@ _data = {
 "Transition_Out": SubResource("Animation_lhneh")
 }
 
-[node name="SpellUi" type="CanvasLayer" node_paths=PackedStringArray("text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7", "text8")]
+[node name="SpellUi" type="CanvasLayer"]
 script = ExtResource("1_5txb0")
-text0 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text0")
-text1 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text1")
-text2 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text2")
-text3 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text3")
-text4 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text4")
-text5 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text5")
-text6 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text6")
-text7 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text7")
-text8 = NodePath("Control/Panel/MarginContainer/HBoxContainer/Text8")
 
 [node name="Control" type="Control" parent="."]
+layout_direction = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1927.0
-offset_right = -1927.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(954, 532.5)
+scale = Vector2(0.805985, 2.15993)
+texture = ExtResource("2_x54co")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 0
+offset_left = 141.0
+offset_top = 101.0
+offset_right = 1770.0
+offset_bottom = 975.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="Name" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 44
+text = "Spells:
+"
+horizontal_alignment = 1
+
+[node name="BasicRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="BasicProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BasicRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 5
+
+[node name="TropRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="TropProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 5
+
+[node name="MudRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MudProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/MudRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 5
+
+[node name="SmallRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="SmallProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/SmallRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 5
+
+[node name="FatRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="FatProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/FatRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 5
+
+[node name="BrightRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="BrightProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 5
+
+[node name="DartRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="DartProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/DartRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 5
+
+[node name="OrangeRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="OrangeProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/OrangeRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 5
+
+[node name="PurpleRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PurpleProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/PurpleRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 5
+
+[node name="CloseButton" parent="Control" instance=ExtResource("2_a30l4")]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 115.0
+offset_right = 209.0
+offset_bottom = 183.0
+text = "Close"
 
 [node name="Panel" type="Panel" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -109,101 +2098,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 24
-
-[node name="Name" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 44
-text = "Spells:
-"
-
-[node name="Text0" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text1" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text2" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text3" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text4" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text5" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text6" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text7" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="Text8" type="Label" parent="Control/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 30
-text = "test
-"
-
-[node name="CloseButton" parent="Control/Panel" instance=ExtResource("2_a30l4")]
-layout_mode = 0
-offset_left = 1217.0
-offset_top = 818.0
-offset_right = 1389.0
-offset_bottom = 886.0
-text = "Close"
-
 [node name="OpenButton" parent="." instance=ExtResource("2_a30l4")]
 offset_left = 37.0
 offset_top = 115.0
@@ -217,5 +2111,5 @@ libraries = {
 }
 speed_scale = 3.48
 
-[connection signal="pressed" from="Control/Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Control/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="OpenButton" to="." method="_on_open_button_pressed"]

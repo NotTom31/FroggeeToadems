@@ -3,6 +3,8 @@ Froggee Toadems is an incremental sand box crafting game made in Godot 4.3. You 
 
 # **[Play Our Game!](https://tommezzie.itch.io/froggee-toadems)**
 
+# **[Read our Devlog](https://tommezzie.itch.io/froggee-toadems/devlog)**
+
 # Credits:
 
 **_Thomas Mezzie_** - Project Lead, Programmer, Designer
@@ -17,6 +19,6 @@ Froggee Toadems is an incremental sand box crafting game made in Godot 4.3. You 
 
 **_Otter Eve_** - Composer, Sound Editor, Designer
 
-**_Ogrehara_** - Sound Producer, Audio Implementation, Designer
+**_Ogrehara_** - Sound Producer, Audio Implementation, Designer, Programmer
 
 **_SirSunstone_** - Designer & Writer

@@ -31,6 +31,7 @@ animations = [{
 }]
 
 [node name="Background" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_ytghr")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

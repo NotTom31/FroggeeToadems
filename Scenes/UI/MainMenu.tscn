@@ -62,6 +62,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Start"
 
+[node name="LvlSelectButton" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_stxqm")]
+layout_mode = 2
+text = " Level Select "
+
 [node name="CreditsButton" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_stxqm")]
 layout_mode = 2
 text = "Credits"
