@@ -9,7 +9,7 @@ signal spawned_frog(frog : BasicFrog)
 
 # allow keys to spawn frogs
 # comment out before publication!
-var dev_tools = true
+var dev_tools = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
