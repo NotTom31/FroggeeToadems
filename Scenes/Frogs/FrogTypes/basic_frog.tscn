@@ -125,7 +125,6 @@ volume_db = 13.867
 
 [node name="FrogSpriteHandler" type="Area2D" parent="." node_paths=PackedStringArray("sprt")]
 position = Vector2(2.28882e-05, 0)
-scale = Vector2(1, 1)
 script = ExtResource("12_jl4ke")
 rest_sprite_position = Vector2(3, -2)
 rest_sprite_scale = Vector2(-0.15, 0.2)
