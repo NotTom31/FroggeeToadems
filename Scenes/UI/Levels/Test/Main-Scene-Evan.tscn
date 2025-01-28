@@ -49,7 +49,7 @@ lvl_manager = NodePath("../..")
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("8_yx1j8")]
 
-[node name="CollisionShape2D" parent="FrogDetectionArea" index="2"]
+[node name="CollisionShape2D" parent="FrogDetectionArea" index="1"]
 position = Vector2(962, 1006)
 
 [node name="Wand" parent="." instance=ExtResource("8_onmxr")]

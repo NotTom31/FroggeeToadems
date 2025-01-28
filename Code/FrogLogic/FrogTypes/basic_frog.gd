@@ -36,6 +36,8 @@ func _ready() -> void:
 	StateMachine = get_node("StateMachine")
 	original_layer = collision_layer
 	set_random_ribbit_timer()
+	$Watermask/AnimatedSprite2D.rotation = 0
+	
 
 func _process(delta: float) -> void:
 	ribbit_timer -= delta
@@ -75,7 +77,7 @@ func apply_rotation_based_on_velocity(delta: float) -> void:
 	var target_rotation_angle = clamp(horizontal_speed / max_velocity * max_rotation_angle, -max_rotation_angle, max_rotation_angle)
 	
 	#interpolate current rotation to target rotation
-	$AnimatedSprite2D.rotation = lerp($AnimatedSprite2D.rotation, target_rotation_angle, rotation_speed * delta)
+	$Watermask/AnimatedSprite2D.rotation = lerp($Watermask/AnimatedSprite2D.rotation, target_rotation_angle, rotation_speed * delta)
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -115,7 +117,7 @@ func assign_to_slot(new_slot: FrogSlot) -> void:
 
 func snap_to_slot(slot: FrogSlot) -> void:
 	global_position = slot.global_position - $FrogBase.position
-	$AnimatedSprite2D.rotation = 0
+	$Watermask/AnimatedSprite2D.rotation = 0
 	var frog_on_top : BasicFrog = $SlotOnHead.inhabitant
 	disable_gravity()
 	if (frog_on_top != null):
@@ -142,10 +144,10 @@ func _physics_process(delta: float):
 	# Move the character with the applied gravity
 	move_and_slide()
 	if velocity.x > 0:
-		$AnimatedSprite2D.flip_h = true
+		$Watermask/AnimatedSprite2D.flip_h = true
 		is_sprite_flipped = true
 	elif velocity.x < 0:
-		$AnimatedSprite2D.flip_h = false
+		$Watermask/AnimatedSprite2D.flip_h = false
 		is_sprite_flipped = false
 
 func _on_mouse_exited() -> void:
@@ -185,14 +187,14 @@ func fountain() -> void:
 	var frog_on_head : BasicFrog = get_frog_on_head()
 	if frog_on_head != null:
 		frog_on_head.fountain()
-	$AnimatedSprite2D.rotation = 0
+	$Watermask/AnimatedSprite2D.rotation = 0
 	transition_to_jump()
 
 func tumble() -> void:
 	var frog_on_head : BasicFrog = get_frog_on_head()
 	if frog_on_head != null:
 		frog_on_head.tumble()
-	#$AnimatedSprite2D.rotation = 0
+	#$Watermask/AnimatedSprite2D.rotation = 0
 	transition_to_fall()
 
 func set_random_ribbit_timer():

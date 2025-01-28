@@ -26,6 +26,8 @@ func Enter():
 	frog.disable_gravity()
 	$"../../FrogSpriteHandler".rotation = 0
 	$"../../FrogSpriteHandler".play_jump()
+	$"../../Watermask".water_mask()
+	
 	var frog_on_head = frog.get_frog_on_head()
 	if (frog_on_head != null):
 		frog_on_head.tumble()
@@ -86,6 +88,7 @@ func randomize_wander():
 
 func Exit():
 	frog.rotation = 0
+	
 	pass
 
 func Update(delta: float):

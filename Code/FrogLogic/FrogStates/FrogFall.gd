@@ -3,6 +3,7 @@ class_name FrogFall
 
 func Enter():
 	$"../../FrogSpriteHandler".play_jump()
+	$"../../Watermask".water_unmask()
 	var frog_on_head = frog.get_frog_on_head()
 	if (frog_on_head != null):
 		frog_on_head.tumble()

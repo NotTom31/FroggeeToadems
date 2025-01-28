@@ -27,6 +27,7 @@ func Exit():
 
 func jump():
 	$"../../FrogSpriteHandler".play_charge()
+	$"../../Watermask".water_unmask()
 	frog.enable_gravity()
 	frog.assign_to_slot(null)
 	randomize_jump_direction()
