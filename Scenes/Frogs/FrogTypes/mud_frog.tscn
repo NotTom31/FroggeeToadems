@@ -1,66 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dblq15rpmoe78"]
+[gd_scene load_steps=3 format=3 uid="uid://dblq15rpmoe78"]
 
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_3yfop"]
-[ext_resource type="Texture2D" uid="uid://byimo5w7vne1o" path="res://Assets/Art/Frogs/resting/01_rest.png" id="2_nnp2c"]
-[ext_resource type="Texture2D" uid="uid://6vdf5eor0pxy" path="res://Assets/Art/Frogs/charging/01_charge.png" id="3_5tl0m"]
-[ext_resource type="Texture2D" uid="uid://cc64y7l5qeasd" path="res://Assets/Art/Frogs/jumping_turned/01_jump_turned.png" id="4_woaif"]
-[ext_resource type="Texture2D" uid="uid://driu48sj0uhfv" path="res://Assets/Art/Frogs/Ribbit/01_ribbit1.png" id="5_kcwqo"]
-[ext_resource type="Texture2D" uid="uid://bbpmqrp0mcksw" path="res://Assets/Art/Frogs/Ribbit/01_ribbit2.png" id="6_0q2cx"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rm5ts"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_nnp2c")
-}],
-"loop": false,
-"name": &"blink",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_5tl0m")
-}],
-"loop": true,
-"name": &"charge",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_nnp2c")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_woaif")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_kcwqo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_0q2cx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_0q2cx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_kcwqo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_nnp2c")
-}],
-"loop": false,
-"name": &"ribbit",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qro6i"]
 size = Vector2(315, 195)
@@ -68,11 +8,7 @@ size = Vector2(315, 195)
 [node name="MudFrog" instance=ExtResource("1_3yfop")]
 type = 4
 
-[node name="AnimatedSprite2D" parent="." index="1"]
-scale = Vector2(0.15, 0.2)
-sprite_frames = SubResource("SpriteFrames_rm5ts")
-
-[node name="FrogSpriteHandler" parent="." index="2"]
+[node name="FrogSpriteHandler" parent="." index="1"]
 rest_sprite_scale = Vector2(0.15, 0.2)
 rest_click_rect = Vector2(315, 195)
 jump_sprite_position = Vector2(3, -2)

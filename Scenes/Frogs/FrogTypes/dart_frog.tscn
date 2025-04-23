@@ -1,86 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgvtc3ek25xuk"]
+[gd_scene load_steps=3 format=3 uid="uid://bgvtc3ek25xuk"]
 
 [ext_resource type="PackedScene" uid="uid://q2eyupn7k7l2" path="res://Scenes/Frogs/FrogTypes/basic_frog.tscn" id="1_mtkfi"]
-[ext_resource type="Texture2D" uid="uid://ci4tehllg1w1g" path="res://Assets/Art/Frogs/blink/07_plink1.png" id="2_im0xj"]
-[ext_resource type="Texture2D" uid="uid://doauj83q1qsbq" path="res://Assets/Art/Frogs/blink/07_plink2.png" id="3_l2n2m"]
-[ext_resource type="Texture2D" uid="uid://cg4bpi2pm6ay0" path="res://Assets/Art/Frogs/blink/07_plink3.png" id="4_nmqnw"]
-[ext_resource type="Texture2D" uid="uid://dm2168a06vj22" path="res://Assets/Art/Frogs/blink/07_plink4.png" id="5_x453n"]
-[ext_resource type="Texture2D" uid="uid://de2gxojbgk5cv" path="res://Assets/Art/Frogs/blink/07_plink5.png" id="6_5nbsv"]
-[ext_resource type="Texture2D" uid="uid://b818brsq6oiqt" path="res://Assets/Art/Frogs/resting/07_rest.png" id="7_wwppn"]
-[ext_resource type="Texture2D" uid="uid://kiv20ltlmxyp" path="res://Assets/Art/Frogs/charging/07_charge.png" id="8_bkpfe"]
-[ext_resource type="Texture2D" uid="uid://bb663yodq6vuj" path="res://Assets/Art/Frogs/jumping_turned/07_jump_turned.png" id="9_hg718"]
-[ext_resource type="Texture2D" uid="uid://bd4s0hsfyubj5" path="res://Assets/Art/Frogs/Ribbit/07_ribbit1.png" id="10_ww2p4"]
-[ext_resource type="Texture2D" uid="uid://dj6xkn4erugds" path="res://Assets/Art/Frogs/Ribbit/07_ribbit2.png" id="11_q737w"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bn081"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_im0xj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_l2n2m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_nmqnw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_x453n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_5nbsv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_wwppn")
-}],
-"loop": false,
-"name": &"blink",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_bkpfe")
-}],
-"loop": true,
-"name": &"charge",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_wwppn")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_hg718")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_ww2p4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_q737w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_q737w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_ww2p4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_wwppn")
-}],
-"loop": false,
-"name": &"ribbit",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnybd"]
 size = Vector2(270, 90)
@@ -88,13 +8,7 @@ size = Vector2(270, 90)
 [node name="DartFrog" instance=ExtResource("1_mtkfi")]
 type = 1
 
-[node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(0, -2)
-scale = Vector2(0.15, 0.2)
-sprite_frames = SubResource("SpriteFrames_bn081")
-animation = &"jump"
-
-[node name="FrogSpriteHandler" parent="." index="2"]
+[node name="FrogSpriteHandler" parent="." index="1"]
 rest_sprite_position = Vector2(0, -2)
 rest_sprite_scale = Vector2(0.15, 0.2)
 rest_click_rect = Vector2(270, 90)
