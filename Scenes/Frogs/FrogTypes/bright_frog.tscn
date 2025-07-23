@@ -67,6 +67,7 @@ animations = [{
 }]
 
 [node name="BrightFrog" instance=ExtResource("1_2xmwm")]
+type = 5
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_6pdvl")
