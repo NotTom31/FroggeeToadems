@@ -74,6 +74,9 @@ lvl_manager = NodePath("../..")
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("6_fo3t6")]
 
+[node name="Sprite2D" parent="FrogDetectionArea" index="0"]
+visible = false
+
 [node name="SwampBg" parent="FrogDetectionArea" index="1"]
 position = Vector2(967, 545)
 
