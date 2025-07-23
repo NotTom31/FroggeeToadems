@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var game_level = preload("res://Scenes/Levels/Test/Main-Scene-Tom.tscn") as PackedScene
 @onready var level_select = preload("res://Scenes/UI/level_select.tscn") as PackedScene
-@onready var main_menu = preload("res://Scenes/UI/canvas_menu.tscn") as PackedScene
+@onready var main_menu = preload("res://Scenes/UI/canvas_menu.tscn").instantiate()
 @export var sound_manager : SoundManager
 @export var background : Background
 
@@ -43,10 +43,12 @@ func open_menu():
 	if current_game:
 		current_game.queue_free()  # Remove the current level
 	await get_tree().create_timer(0.1).timeout
-	var menu = main_menu.instantiate()
+	var menu = main_menu
 	var game_root = $"."
 	game_root.add_child(menu)
 	shopkeep_visible(false)
+	get_tree().reload_current_scene()
+	# WIP: for whatever reason, the menu that loads doesn't really work, its just the ui elements with no functionality. Must figure out way to make it actually the main menu.
 
 func play_sound(name : String):
 	sound_manager.play_sfx(name)

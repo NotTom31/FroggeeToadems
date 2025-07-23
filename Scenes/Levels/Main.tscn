@@ -34,6 +34,15 @@ background = NodePath("Background")
 
 [node name="Background" parent="." instance=ExtResource("2_xhy1p")]
 
+[node name="ParallaxBackground2" parent="Background" index="1"]
+process_mode = 3
+
+[node name="Boat" parent="Background/ParallaxBackground2" index="0"]
+process_mode = 3
+
+[node name="SwampBoat" parent="Background/ParallaxBackground2/Boat" index="0"]
+process_mode = 3
+
 [node name="Canvas_Menu" parent="." instance=ExtResource("3_m63c7")]
 
 [node name="Canvas_Pause" parent="." instance=ExtResource("2_4fif5")]

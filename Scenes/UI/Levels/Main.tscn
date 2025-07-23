@@ -5,9 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cwk0xas0ckfjo" path="res://Scenes/UI/MainMenu.tscn" id="2_aetre"]
 [ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_xhy1p"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("sound_manager", "background")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("background")]
 script = ExtResource("1_aqv4j")
-sound_manager = NodePath("Canvas_Pause/Menu/SettingsMenu/Panel/MarginContainer2/HBoxContainer/SoundManager")
 background = NodePath("Background")
 
 [node name="Background" parent="." instance=ExtResource("2_xhy1p")]

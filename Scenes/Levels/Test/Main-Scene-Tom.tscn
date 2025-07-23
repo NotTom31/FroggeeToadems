@@ -20,7 +20,7 @@ z_index = 2
 z_as_relative = false
 script = ExtResource("1_fwoa8")
 frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lillypad2/FrogSlot"), NodePath("Lillypads/Lillypad3/FrogSlot")]
-dialogue = NodePath("Canvas_Shop/Menu/Panel/ShopScreen")
+dialogue = NodePath("Canvas_Shop/Menu/ShopScreen")
 canvas_shop = NodePath("Canvas_Shop")
 frog_requests_1 = Array[int]([0, 0, 0, 0])
 frog_requests_2 = Array[int]([1, 1])
@@ -30,6 +30,14 @@ frog_requests_5 = Array[int]([4, 4, 4])
 frog_requests_6 = Array[int]([3])
 frog_requests_7 = Array[int]([2, 2, 2, 2, 2, 2, 3])
 frog_requests_8 = Array[int]([3, 3, 4, 4, 4, 4, 0, 0, 0])
+starter_frogs_1 = Array[int]([0])
+starter_frogs_2 = Array[int]([0, 0])
+starter_frogs_3 = Array[int]([0, 0, 0])
+starter_frogs_4 = Array[int]([0, 0, 0, 0])
+starter_frogs_5 = Array[int]([0, 0, 0, 0, 0])
+starter_frogs_6 = Array[int]([0, 0, 0, 0, 0, 0])
+starter_frogs_7 = Array[int]([0, 0, 0, 0, 0, 0, 0])
+starter_frogs_8 = Array[int]([0, 0, 0, 0, 0, 0, 0, 0])
 
 [node name="MagicManager" parent="." instance=ExtResource("2_k1b8b")]
 
@@ -74,13 +82,10 @@ lvl_manager = NodePath("../..")
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("6_fo3t6")]
 
-[node name="Sprite2D" parent="FrogDetectionArea" index="0"]
-visible = false
-
-[node name="SwampBg" parent="FrogDetectionArea" index="1"]
+[node name="SwampBg" parent="FrogDetectionArea" index="0"]
 position = Vector2(967, 545)
 
-[node name="CollisionShape2D" parent="FrogDetectionArea" index="2"]
+[node name="CollisionShape2D" parent="FrogDetectionArea" index="1"]
 position = Vector2(962, 1006)
 
 [node name="Boundaries" type="Node2D" parent="."]
