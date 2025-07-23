@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var gravity := 980.0
 @export var type : MagicManager.FrogType
+# spawn speed used by frog spawner, different for each frog
+@export var spawn_speed = .75
 
 var lvl_manager : LevelManager
 var StateMachine
@@ -17,6 +19,16 @@ var ribbit_timer : float = 0.0
 var over_water = false
 var over_rock = false
 var behind_boat = false
+
+# particle variables
+@export var particle_amt = 15
+@export var particle_zone_r = 50
+@export var particle_ratio = 0
+@export var particle_lifetime = 1
+@export var particle_damping = 10.0
+# note: speed cannot be modified w/ code, can be changed in process material>spawn>>velocity>initial velocity
+# speed uses standard value 100 +- 45
+var particles_on = false
 
 var original_layer: int
 var original_mask: int
@@ -35,7 +47,15 @@ var on_lillypad := false:
 func _ready() -> void:
 	StateMachine = get_node("StateMachine")
 	original_layer = collision_layer
+	particle_cease()
 	set_random_ribbit_timer()
+	#@export var particle_amt = 15
+
+	$GPUParticles2D.process_material.set_emission_sphere_radius(particle_zone_r)# = particle_zone_r
+	$GPUParticles2D.amount_ratio = particle_ratio
+	$GPUParticles2D.amount = particle_amt
+	$GPUParticles2D.lifetime = particle_lifetime
+
 
 func _process(delta: float) -> void:
 	ribbit_timer -= delta
@@ -54,6 +74,12 @@ func _process(delta: float) -> void:
 					get_tree().root.get_child(0).play_sound("tiny_ribbit")
 		$FrogSpriteHandler.play_ribbit()
 		set_random_ribbit_timer()
+	if particles_on == true:
+		particle_ratio = particle_ratio + (1.0-particle_ratio)/particle_damping
+		$GPUParticles2D.amount_ratio = particle_ratio
+
+			
+
 
 func follow_mouse(delta: float, offset: Vector2) -> void:
 	# Calculate the velocity of the mouse
@@ -89,11 +115,14 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			else:
 				selected = false
 				frog_deselected.emit(self, global_position, over_water)
-		elif lvl_manager.state == LevelManager.ClickState.WAND:
-			var lil = find_lillypad_below()
-			if lil != null:
-				lil.check_for_magic()
-				lil.fountain()
+	elif event is InputEventMouse:
+		#extra check bc sometimes lvl_manager.state returns nil, causing error
+		if lvl_manager:
+			if lvl_manager.state == LevelManager.ClickState.WAND:
+				var lil = find_lillypad_below()
+				if lil != null:
+					lil.check_for_magic()
+					lil.fountain()
 			
 	#else:
 	#		selected = false
@@ -121,6 +150,12 @@ func snap_to_slot(slot: FrogSlot) -> void:
 	if (frog_on_top != null):
 		frog_on_top.snap_to_slot($SlotOnHead)
 
+func visible() -> void:
+	$AnimatedSprite2D.visible = true
+
+func invisible() -> void:
+	$AnimatedSprite2D.visible = false
+
 func disable_gravity() -> void:
 	gravity = 0
 
@@ -129,12 +164,21 @@ func enable_gravity() -> void:
 
 func transition_to_swim():
 	Transitioned.emit("FrogSwim")
+	$AnimatedSprite2D.rotation = 0
 	
 func transition_to_jump():
 	Transitioned.emit("FrogJump")
 
 func transition_to_fall():
 	Transitioned.emit("FrogFall")
+
+func particle_emit() -> void:
+	$GPUParticles2D.emitting = true
+	particles_on = true
+
+func particle_cease() -> void:
+	$GPUParticles2D.emitting = false
+	particles_on = false
 
 func _physics_process(delta: float):
 	# Apply gravity to velocity

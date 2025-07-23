@@ -59,7 +59,7 @@ magic = NodePath("../MagicManager")
 [node name="Canvas_Shop" parent="." instance=ExtResource("2_llarb")]
 
 [node name="Node2D" parent="." instance=ExtResource("3_iya8w")]
-position = Vector2(949, 1089)
+position = Vector2(949, 1080)
 scale = Vector2(40, 1)
 
 [node name="FrogSpawner" parent="." node_paths=PackedStringArray("lillypad_parent") instance=ExtResource("6_p8e6y")]
@@ -81,6 +81,9 @@ position = Vector2(1543, 722)
 lvl_manager = NodePath("../..")
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("6_fo3t6")]
+
+[node name="SwampBg" parent="FrogDetectionArea" index="0"]
+position = Vector2(967, 545)
 
 [node name="CollisionShape2D" parent="FrogDetectionArea" index="1"]
 position = Vector2(962, 1006)

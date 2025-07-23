@@ -13,6 +13,7 @@ var original_rotation = 0.0
 var jump_direction: Vector2
 var has_jumped: bool = false
 var direction
+var entered_water = false
 
 func randomize_jump_direction():
 	direction = randf_range(-1, 1)
@@ -20,6 +21,7 @@ func randomize_jump_direction():
 
 func Enter():
 	has_jumped = false
+	entered_water = false
 	jump()
 
 func Exit():
@@ -57,3 +59,11 @@ func _process(delta: float):
 	if has_jumped and is_instance_valid(frog):
 		# Lerp rotation back to 0 degrees
 		frog.rotation_degrees = lerp(frog.rotation_degrees, original_rotation, rotation_speed * delta)
+	if frog.over_water == true && frog.velocity.y > 0:
+		if entered_water == false:
+			entered_water = true
+			await get_tree().create_timer(randf_range(.05,.25)).timeout
+			if is_instance_valid(frog):
+				frog.transition_to_swim()
+		
+		

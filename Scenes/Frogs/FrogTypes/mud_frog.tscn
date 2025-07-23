@@ -67,6 +67,28 @@ size = Vector2(315, 195)
 
 [node name="MudFrog" instance=ExtResource("1_3yfop")]
 type = 4
+spawn_speed = 1.4
+particle_zone_r = 70
+particle_lifetime = 2
+particle_damping = 15.0
+
+[node name="FrogSwim" parent="StateMachine" index="0"]
+move_speed_x = 240
+damping = 0.975
+wander_max = 5
+jump_chance_inverse = 5
+
+[node name="FrogJump" parent="StateMachine" index="1"]
+min_jump_height = 800.0
+max_jump_height = 1300.0
+
+[node name="FrogStacked" parent="StateMachine" index="4"]
+blink_time_min = 4
+blink_time_max = 9
+
+[node name="FrogCharge" parent="StateMachine" index="5"]
+min_charge_time = 1.5
+max_charge_time = 3.5
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.15, 0.2)

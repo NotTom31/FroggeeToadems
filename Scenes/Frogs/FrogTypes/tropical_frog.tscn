@@ -87,8 +87,28 @@ size = Vector2(270, 90)
 
 [node name="TropicalFrog" instance=ExtResource("1_kqv0n")]
 type = 1
+particle_amt = 10
+
+[node name="FrogSwim" parent="StateMachine" index="0"]
+move_speed_x = 240
+damping = 0.989
+wander_max = 3
+
+[node name="FrogJump" parent="StateMachine" index="1"]
+min_horizontal_distance = 100.0
+max_horizontal_distance = 400.0
+min_jump_height = 900.0
+
+[node name="FrogStacked" parent="StateMachine" index="4"]
+blink_time_min = 4
+blink_time_max = 9
+
+[node name="FrogCharge" parent="StateMachine" index="5"]
+min_charge_time = 1.5
+max_charge_time = 2.75
 
 [node name="JumpChargePlayer" parent="StateMachine/FrogCharge" index="0"]
+y_sort_enabled = true
 volume_db = 5.943
 bus = &"SFX"
 

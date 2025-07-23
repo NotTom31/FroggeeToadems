@@ -15,6 +15,14 @@ var level_num : int
 var frog_spawner : FrogSpawner
 var current_game
 
+# cursor tracking vars for particles
+var mouse_velocity = Vector2()  # To track mouse movement velocity
+var max_velocity = 900  # Cap how fast we can throw the frogs
+var mouse_position
+
+var magic_timer = 0
+
+
 func open_gameplay(level : int):
 	level_num = level
 	current_game = game_level.instantiate()
@@ -96,3 +104,30 @@ func wand_anim():
 
 func reset_cursor():
 	Input.set_custom_mouse_cursor(null)
+
+func set_random_magic_timer():
+	magic_timer = randf_range(1.5, 3)
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("magic_equip"):
+		follow_mouse(delta, $GPUParticles2D.position)
+		$GPUParticles2D.emitting = true
+		
+	elif Input.is_action_pressed("magic_equip"):
+		follow_mouse(delta, $GPUParticles2D.position)
+		magic_timer -= delta
+		if magic_timer <= 0:
+			#play sound effect
+			play_sound("magic_equip")
+			set_random_magic_timer()
+	else:
+		$GPUParticles2D.emitting = false
+	#play sound effect when wand equipped
+
+
+func follow_mouse(delta: float, offset: Vector2) -> void:
+	# Calculate the velocity of the mouse
+	offset -= $GPUParticles2D.position
+	mouse_position = get_global_mouse_position()
+	mouse_velocity = (mouse_position - global_position + offset) / delta  # Calculate velocity
+	$GPUParticles2D.position = mouse_position + offset

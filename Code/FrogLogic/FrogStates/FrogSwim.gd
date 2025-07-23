@@ -5,7 +5,19 @@ class_name FrogSwim
 @export var move_speed_y :=60
 # percentage of velocity maintained per delta step, 1 = no friction
 @export var damping = 0.988
-
+# wander times
+@export var wander_min = 1
+@export var wander_max = 4
+# bounding box for frogswim ai
+# closer they are to borders the more they are impelled to swim in; if beyond borders they can only swim in
+@export var left_bound = -680
+@export var right_bound = 800
+var xrange = right_bound-left_bound
+@export var hi_bound = 630
+@export var lo_bound = 750
+var yrange = lo_bound-hi_bound
+# modify jumping probability at end of wander. roll n sided dice, only jump on max value. if n = 2, 50% chance of jumping per wander
+@export var jump_chance_inverse = 3
 var move_direction : Vector2
 var wander_time : float
 
@@ -14,17 +26,12 @@ var push : bool
 # var to track when transitioning from border ai to normal swim. thought this might fix rapid switching behavior; didn't
 var boundary_ai = false
 
-# define bounding box for frogs; closer they are to borders the more they are impelled to swim in; if beyond borders they can only swim in
-var left_bound = -680
-var right_bound = 800
-var xrange = right_bound-left_bound
-var hi_bound = 630
-var lo_bound = 750
-var yrange = lo_bound-hi_bound
+
 
 func Enter():
 	frog.disable_gravity()
 	$"../../FrogSpriteHandler".rotation = 0
+	frog.rotation = 0
 	$"../../FrogSpriteHandler".play_jump()
 	var frog_on_head = frog.get_frog_on_head()
 	if (frog_on_head != null):
@@ -68,7 +75,7 @@ func randomize_wander():
 		).normalized()
 	
 	# set time until next push
-	wander_time = randf_range(1, 4)
+	wander_time = randf_range(wander_min, wander_max)
 	# let delta function know to reset velocity, which will gradually decrease after initial push
 	push = true
 	
@@ -93,8 +100,8 @@ func Update(delta: float):
 		wander_time -= delta
 	else:
 		# by default 1/3 chance of jumping after each wander
-		var jump_chance = randi_range(1,3)
-		if jump_chance == 3:
+		var jump_chance = randi_range(1,jump_chance_inverse)
+		if jump_chance == jump_chance_inverse:
 			Transitioned.emit(self, "FrogCharge")
 		else:
 			randomize_wander()

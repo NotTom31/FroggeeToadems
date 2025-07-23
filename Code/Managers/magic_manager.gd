@@ -51,37 +51,22 @@ func cast_spell(index : int) -> void:
 		0, 1, 2, 3, 4, 5, 6, 7, 8:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.BASIC)
 		9:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.TROPICAL)
 		10:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.MUD)
 		11:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.SMALL)
 		12:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.FAT)
 		13:
 			if get_tree().root.get_child(0) is Main:

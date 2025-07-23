@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://cc1xaaeiuebob" path="res://Assets/Art/Background/swamp_bg.png" id="3_ik457"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3m35c"]
-radius = 1.13
-height = 4.18
+radius = 1.48123
+height = 4.66894
 
 [node name="RockDetectionArea" type="Area2D"]
 script = ExtResource("1_4p7nd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1865, 982)
-rotation = 1.5708
+position = Vector2(1865, 993)
+rotation = 1.09258
 scale = Vector2(100, 100)
 shape = SubResource("CapsuleShape2D_3m35c")
 

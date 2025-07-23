@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button" parent="." instance=ExtResource("1_hdvb6")]
+visible = false
 layout_mode = 0
 theme_override_colors/font_disabled_color = Color(0.635294, 0.705882, 0.223529, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.635294, 0.705882, 0.223529, 1)

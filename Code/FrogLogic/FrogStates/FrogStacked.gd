@@ -1,11 +1,15 @@
 extends State
 class_name FrogStacked
 
+@export var blink_time_min = 3
+@export var blink_time_max = 8
 var blink_timer : float = 0.0
 
 func Enter():
 	$"../../FrogSpriteHandler".play_idle()
 	frog.disable_gravity()
+	frog.velocity = Vector2(0,0)
+	frog.rotation = 0
 	set_random_blink_timer()
 
 func Exit():

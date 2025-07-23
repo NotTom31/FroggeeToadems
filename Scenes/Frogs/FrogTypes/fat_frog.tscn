@@ -71,6 +71,26 @@ size = Vector2(317, 195)
 
 [node name="FatFrog" instance=ExtResource("1_wieqn")]
 type = 3
+spawn_speed = 1.7
+particle_amt = 20
+particle_zone_r = 75
+particle_lifetime = 2
+particle_damping = 25.0
+
+[node name="FrogSwim" parent="StateMachine" index="0"]
+move_speed_x = 250
+damping = 0.975
+wander_min = 3
+wander_max = 6
+hi_bound = 680
+lo_bound = 710
+jump_chance_inverse = 5
+
+[node name="FrogJump" parent="StateMachine" index="1"]
+min_horizontal_distance = 250.0
+max_horizontal_distance = 350.0
+min_jump_height = 500.0
+max_jump_height = 1200.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.15, 0.2)
