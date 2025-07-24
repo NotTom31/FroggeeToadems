@@ -71,30 +71,18 @@ func cast_spell(index : int) -> void:
 		13:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.BRIGHT)
 		14:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.DART)
 		15:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.ORANGE)
 		16:
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
-			await get_tree().create_timer(0.75*randf_range(.95,1.1)).timeout
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("frog_spawn")
 			Summon.emit(FrogType.PURPLE)
 		_:
 			print("tried to cast an invalid spell")

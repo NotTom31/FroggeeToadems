@@ -44,6 +44,19 @@ func _process(delta: float) -> void:
 		# 5 fat
 		if Input.is_action_just_pressed("fat_spawn"):
 			spawn_frog_random_loc(MagicManager.FrogType.FAT, false)
+		# 6 bright
+		if Input.is_action_just_pressed("bright_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.BRIGHT, false)
+		# 7 dart
+		if Input.is_action_just_pressed("dart_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.DART, false)
+		# 8 orange
+		if Input.is_action_just_pressed("orange_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.ORANGE, false)
+		# 9 purple
+		if Input.is_action_just_pressed("purple_spawn"):
+			spawn_frog_random_loc(MagicManager.FrogType.PURPLE, false)
+		
 
 
 # Spawns a frog of the chosen type in a random location in the Spawn Area
