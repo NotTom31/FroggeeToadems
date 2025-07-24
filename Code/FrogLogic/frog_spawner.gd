@@ -21,8 +21,8 @@ func _ready() -> void:
 		var level = get_tree().root.get_child(0).level_num
 		# level manager stores starting frogs per level
 		starting_frog_count = get_tree().root.get_child(0).get_node("LevelManager").set_starter_frogs(level)
-		for i in starting_frog_count:
-			spawn_frog_random_loc(MagicManager.FrogType.BASIC, true)
+		for i in range(starting_frog_count.size()):
+			spawn_frog_random_loc(starting_frog_count[i-1], true)
 
 # dev_tools
 # spawn frogs on keypress

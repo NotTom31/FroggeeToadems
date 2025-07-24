@@ -21,7 +21,7 @@ frog_slots = [NodePath("Lillypads/Lillypad/FrogSlot"), NodePath("Lillypads/Lilly
 dialogue = NodePath("Canvas_Shop/Menu/ShopScreen")
 canvas_shop = NodePath("Canvas_Shop")
 frog_requests_1 = Array[int]([0, 0, 0, 0])
-frog_requests_2 = Array[int]([1, 1])
+frog_requests_2 = Array[int]([4, 4])
 frog_requests_3 = Array[int]([2, 4])
 frog_requests_4 = Array[int]([2, 2, 2])
 frog_requests_5 = Array[int]([4, 4, 4])
@@ -68,7 +68,7 @@ lvl_manager = NodePath("../..")
 
 [node name="FrogDetectionArea" parent="." instance=ExtResource("6_fo3t6")]
 
-[node name="CollisionShape2D" parent="FrogDetectionArea" index="2"]
+[node name="CollisionShape2D" parent="FrogDetectionArea" index="1"]
 position = Vector2(962, 1006)
 
 [node name="Boundaries" type="Node2D" parent="."]
