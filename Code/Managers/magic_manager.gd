@@ -34,53 +34,55 @@ var spell_table = [
 	{ FrogType.DART : 1 },		# 6: summon basic
 	{ FrogType.ORANGE : 1 },		# 7: summon basic
 	{ FrogType.PURPLE : 1 },		# 8: summon basic
-	{ FrogType.BASIC : 3 },		# 9: summon tropical
-	{ FrogType.TROPICAL : 3 },	# 10: summon mud
-	{ FrogType.BASIC : 2, FrogType.TROPICAL : 2 }, # 11: summon small
-	{ FrogType.SMALL : 3, FrogType.MUD : 3 }, # 12: summon fat
-	{ FrogType.BASIC : 2 }, 	# 13: summon bright temp recipe
-	{ FrogType.BASIC : 4 }, 	# 14: summon dart temp recipe
-	{ FrogType.BASIC : 5 }, 	# 15: summon orange temp recipe
-	{ FrogType.BASIC : 6 }, 	# 16: summon purple temp recipe
+	{ FrogType.BASIC : 3 },		# 9: summon mud
+	{ FrogType.BASIC : 2, FrogType.MUD : 1},	# 10: summon small
+	{ FrogType.MUD : 3, FrogType.SMALL : 1 }, # 11: summon fat
+	{ FrogType.SMALL : 2, FrogType.BASIC : 2 }, # 12: summon bright
+	{ FrogType.BRIGHT : 3, FrogType.FAT : 2 }, 	# 13: summon tropical
+	{ FrogType.TROPICAL : 2, FrogType.BRIGHT : 2 }, 	# 14: summon dart temp recipe
+	{ FrogType.FAT : 4, FrogType.TROPICAL : 2 }, 	# 15: summon orange
+	{ FrogType.MUD : 4, FrogType.TROPICAL : 2 }, 	# 16: summon orange
+	{ FrogType.ORANGE : 2, FrogType.DART : 2 }, 	# 17: summon purple
 ]
 signal Summon(type: FrogType)
 
 
 func cast_spell(index : int) -> void:
-	match index:
-		0, 1, 2, 3, 4, 5, 6, 7, 8:
+	
+	match get_spell_output(index):
+		"Basic Frog":
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
 			Summon.emit(FrogType.BASIC)
-		9:
-			if get_tree().root.get_child(0) is Main:
-				get_tree().root.get_child(0).play_sound("magic")
-			Summon.emit(FrogType.TROPICAL)
-		10:
+		"Mud Frog":
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
 			Summon.emit(FrogType.MUD)
-		11:
+		"Small Frog":
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
 			Summon.emit(FrogType.SMALL)
-		12:
+		"Large Frog":
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
 			Summon.emit(FrogType.FAT)
-		13:
+		"Bright Frog":
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
 			Summon.emit(FrogType.BRIGHT)
-		14:
+		"Tropical Frog":
+			if get_tree().root.get_child(0) is Main:
+				get_tree().root.get_child(0).play_sound("magic")
+			Summon.emit(FrogType.TROPICAL)
+		"Dart Frog":
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
 			Summon.emit(FrogType.DART)
-		15:
+		"Orange Frog":
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
 			Summon.emit(FrogType.ORANGE)
-		16:
+		"Purple Frog":
 			if get_tree().root.get_child(0) is Main:
 				get_tree().root.get_child(0).play_sound("magic")
 			Summon.emit(FrogType.PURPLE)
@@ -108,20 +110,20 @@ func get_spell_output(index: int) -> String:
 		0, 1, 2, 3, 4, 5, 6, 7, 8:
 			return "Basic Frog"
 		9:
-			return "Tropical Frog"
-		10:
 			return "Mud Frog"
-		11:
+		10:
 			return "Small Frog"
-		12:
+		11:
 			return "Large Frog"
-		13:
+		12:
 			return "Bright Frog"
+		13:
+			return "Tropical Frog"
 		14:
 			return "Dart Frog"
-		15:
+		15,16:
 			return "Orange Frog"
-		16:
+		17:
 			return "Purple Frog"
 		_:
 			return "Unknown Spell"

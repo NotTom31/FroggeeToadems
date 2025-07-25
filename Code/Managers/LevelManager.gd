@@ -65,6 +65,10 @@ var frog_table = {
 	MagicManager.FrogType.SMALL : "Small Frog", 
 	MagicManager.FrogType.FAT : "Large Frog", 
 	MagicManager.FrogType.MUD : "Mud Frog", 
+	MagicManager.FrogType.BRIGHT : "Bright Frog", 
+	MagicManager.FrogType.DART : "Dart Frog", 
+	MagicManager.FrogType.ORANGE : "Orange Frog", 
+	MagicManager.FrogType.PURPLE : "Purple Frog", 
 }
 
 func check_for_win() -> bool:

@@ -346,222 +346,6 @@ modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="TropRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="TropProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("5_7xe46")
-expand_mode = 5
-
-[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-. . ."
-
-[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_direction = 1
-layout_mode = 2
-texture = ExtResource("4_o8vp7")
-expand_mode = 3
-
-[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1"
-
-[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("5_7xe46")
-expand_mode = 3
-
-[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1"
-
-[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("6_7x30o")
-expand_mode = 3
-flip_h = true
-
-[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1
-"
-
-[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("7_fip3l")
-expand_mode = 3
-
-[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1
-"
-vertical_alignment = 1
-
-[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("8_nqhld")
-expand_mode = 3
-flip_h = true
-
-[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1
-"
-
-[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("9_fcvrm")
-expand_mode = 3
-flip_h = true
-
-[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1
-"
-
-[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("10_bmgj6")
-expand_mode = 3
-flip_h = true
-
-[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1
-"
-
-[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("11_dk61i")
-expand_mode = 3
-flip_h = true
-
-[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1
-"
-
-[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("12_wesjw")
-expand_mode = 3
-flip_h = true
-
-[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_nq4v7")
-theme_override_font_sizes/font_size = 22
-text = "
-x1
-"
-
-[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
 [node name="MudRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
@@ -1422,6 +1206,222 @@ x1
 "
 
 [node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/BrightRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropRecipe" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VSeparatorFinal" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="TropProduct" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 5
+
+[node name="DotSpacers" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+. . ."
+
+[node name="BasicImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("4_o8vp7")
+expand_mode = 3
+
+[node name="BasicQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorBasic" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TropImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("5_7xe46")
+expand_mode = 3
+
+[node name="TropQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1"
+
+[node name="VSeparatorTrop" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MudImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("6_7x30o")
+expand_mode = 3
+flip_h = true
+
+[node name="MudQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorMud" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SmallImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("7_fip3l")
+expand_mode = 3
+
+[node name="SmallQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+vertical_alignment = 1
+
+[node name="VSeparatorSmall" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="FatImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("8_nqhld")
+expand_mode = 3
+flip_h = true
+
+[node name="FatQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorFat" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="BrightImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("9_fcvrm")
+expand_mode = 3
+flip_h = true
+
+[node name="BrightQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorBright" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DartImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("10_bmgj6")
+expand_mode = 3
+flip_h = true
+
+[node name="DartQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorDart" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="OrangeImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_dk61i")
+expand_mode = 3
+flip_h = true
+
+[node name="OrangeQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorOrange" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="PurpleImg" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("12_wesjw")
+expand_mode = 3
+flip_h = true
+
+[node name="PurpleQty" type="Label" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nq4v7")
+theme_override_font_sizes/font_size = 22
+text = "
+x1
+"
+
+[node name="VSeparatorPurple" type="VSeparator" parent="Control/MarginContainer/HBoxContainer/TropRecipe"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
