@@ -241,3 +241,13 @@ func tumble() -> void:
 
 func set_random_ribbit_timer():
 	ribbit_timer = randf_range(3, 8)
+	try_jump_from_stack()
+
+func try_jump_from_stack():
+	var frog_on_head : BasicFrog = get_frog_on_head()
+	if frog_on_head == null and on_lillypad:
+		$FrogSpriteHandler.play_charge()
+		await get_tree().create_timer(5).timeout
+		frog_on_head = get_frog_on_head()
+		if frog_on_head == null and on_lillypad:
+			transition_to_jump()
