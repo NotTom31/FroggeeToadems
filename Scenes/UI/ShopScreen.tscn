@@ -1,8 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://cvtntsg168do7"]
+[gd_scene load_steps=30 format=4 uid="uid://cvtntsg168do7"]
 
 [ext_resource type="Script" path="res://Code/UI/shop_screen.gd" id="1_cb10l"]
-[ext_resource type="Texture2D" uid="uid://wptdqqdmjfw5" path="res://Assets/Art/button1.png" id="2_2jr4d"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="2_4oppx"]
+[ext_resource type="TileSet" uid="uid://bcnx3rdn2pkhr" path="res://Assets/Art/UI_Tileset.tres" id="2_u3hyo"]
 [ext_resource type="Texture2D" uid="uid://cfjg41jpp2hxa" path="res://Assets/Art/Characters/jeb.png" id="4_som7f"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="4_xtrl7"]
 [ext_resource type="Texture2D" uid="uid://g312f37lgn0m" path="res://Assets/Art/Characters/Customer3.png" id="5_raguu"]
@@ -126,8 +126,12 @@ offset_left = 430.0
 offset_top = -38.0
 offset_right = 1492.0
 offset_bottom = 474.0
-texture = ExtResource("2_2jr4d")
 expand_mode = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TextureRect"]
+position = Vector2(-430, 38)
+tile_map_data = PackedByteArray("AAARAAwAAQAAAAIAAAAzAAwAAQAJAAIAAAAzAAEAAQAJAAAAAAARAAEAAQAAAAAAAAAWAAEAAQABAAAAAAAbAAEAAQADAAAAAAAgAAEAAQADAAAAAAAlAAEAAQAGAAAAAAAqAAEAAQAGAAAAAAAuAAEAAQAIAAAAAAAzAAYAAQAJAAEAAAAzAAcAAQAJAAEAAAARAAYAAQAAAAEAAAARAAcAAQAAAAEAAAAWAAwAAQACAAIAAAAbAAwAAQACAAIAAAAgAAwAAQAEAAIAAAAkAAwAAQAEAAIAAAApAAwAAQAHAAIAAAAuAAwAAQAHAAIAAAAVAAUAAQABAAEAAAAaAAUAAQABAAEAAAAeAAUAAQABAAEAAAAjAAUAAQABAAEAAAAnAAUAAQABAAEAAAAsAAUAAQABAAEAAAAuAAUAAQABAAEAAAAuAAkAAQABAAEAAAApAAkAAQABAAEAAAAkAAkAAQABAAEAAAAfAAkAAQABAAEAAAAaAAkAAQABAAEAAAAVAAkAAQABAAEAAAA=")
+tile_set = ExtResource("2_u3hyo")
 
 [node name="Panel2" type="Panel" parent="TextureRect"]
 modulate = Color(0.835, 0.6, 0.286, 0.27)
