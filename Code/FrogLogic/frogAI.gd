@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if current_state:
 		current_state.Physics_Update(delta)
 
-func on_child_transitioned(state, new_state_name):
+func on_child_transitioned(state, new_state_name, skip_exit := false):
 	if state != current_state:
 		return
 	
@@ -33,7 +33,7 @@ func on_child_transitioned(state, new_state_name):
 	if !new_state:
 		return
 	
-	if current_state:
+	if current_state and !skip_exit:
 		current_state.Exit()
 	
 	new_state.Enter()
