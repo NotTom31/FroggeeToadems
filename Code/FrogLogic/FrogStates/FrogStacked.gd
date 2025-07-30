@@ -39,9 +39,10 @@ func Update(delta: float):
 		charge_timer -= delta
 		if charge_timer <= 0 and CanCharge:
 			var frog_on_head : BasicFrog = frog.get_frog_on_head()
+			set_random_charge_timer()
 			if frog_on_head == null and frog.on_lillypad:
 				Transitioned.emit(self, "FrogCharge", true) #Skips FrogStacked Exit function
-			set_random_charge_timer()
+			
 
 func Physics_Update(delta: float):
 	pass
