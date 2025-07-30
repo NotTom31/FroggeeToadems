@@ -40,14 +40,14 @@ func on_child_transitioned(state, new_state_name):
 	#print(new_state.name)
 	current_state = new_state
 
-func on_parent_transitioned(new_state_name):
+func on_parent_transitioned(new_state_name, skip_exit := false):
 	if new_state_name.to_lower() == current_state.name.to_lower():
 		return
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
 		return
 	
-	if current_state:
+	if current_state and !skip_exit:
 		current_state.Exit()
 	
 	new_state.Enter()

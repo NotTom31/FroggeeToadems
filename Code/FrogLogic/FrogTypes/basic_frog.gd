@@ -170,7 +170,13 @@ func transition_to_jump():
 	Transitioned.emit("FrogJump")
 
 func transition_to_fall():
-	Transitioned.emit("FrogFall")
+	Transitioned.emit("FrogFall")	
+
+func transition_to_charge():
+	Transitioned.emit("FrogCharge")
+
+func transition_to_stacked():
+	Transitioned.emit("FrogStacked")
 
 func particle_emit() -> void:
 	$GPUParticles2D.emitting = true
@@ -246,8 +252,9 @@ func set_random_ribbit_timer():
 func try_jump_from_stack():
 	var frog_on_head : BasicFrog = get_frog_on_head()
 	if frog_on_head == null and on_lillypad:
-		$FrogSpriteHandler.play_charge()
-		await get_tree().create_timer(5).timeout
-		frog_on_head = get_frog_on_head()
-		if frog_on_head == null and on_lillypad:
-			transition_to_jump()
+		Transitioned.emit("FrogCharge", true)
+		#$FrogSpriteHandler.play_charge()
+		#await get_tree().create_timer(5).timeout
+		#frog_on_head = get_frog_on_head()
+		#if frog_on_head == null and on_lillypad:
+		#	transition_to_charge()
