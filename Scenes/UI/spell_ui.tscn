@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://caup4tky6b8g7"]
+[gd_scene load_steps=20 format=3 uid="uid://caup4tky6b8g7"]
 
 [ext_resource type="Script" path="res://Code/UI/spell_ui.gd" id="1_5txb0"]
 [ext_resource type="PackedScene" uid="uid://baeaj55y6xd38" path="res://Scenes/UI/BlankButton.tscn" id="2_a30l4"]
 [ext_resource type="Texture2D" uid="uid://wptdqqdmjfw5" path="res://Assets/Art/button1.png" id="2_x54co"]
 [ext_resource type="FontFile" uid="uid://bg5wgh22jq31n" path="res://Assets/Fonts/MouldyCheeseRegular-WyMWG.ttf" id="3_nq4v7"]
+[ext_resource type="TileSet" uid="uid://bcnx3rdn2pkhr" path="res://Assets/Art/UI_Tileset.tres" id="3_s6uhb"]
 [ext_resource type="Texture2D" uid="uid://gnxwxsklcb51" path="res://Assets/Art/Frogs/resting/05_rest.png" id="4_o8vp7"]
 [ext_resource type="Texture2D" uid="uid://dcomocfoou50s" path="res://Assets/Art/Frogs/resting/02_rest.png" id="5_7xe46"]
 [ext_resource type="Texture2D" uid="uid://byimo5w7vne1o" path="res://Assets/Art/Frogs/resting/01_rest.png" id="6_7x30o"]
@@ -97,9 +98,15 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
 position = Vector2(954, 532.5)
 scale = Vector2(0.805985, 2.15993)
 texture = ExtResource("2_x54co")
+
+[node name="TileMap" type="TileMap" parent="Control"]
+tile_set = ExtResource("3_s6uhb")
+format = 2
+layer_0/tile_data = PackedInt32Array(131086, 1, 0, 2097204, 524289, 2, 2097205, 589825, 2, 131125, 589825, 0, 131091, 524289, 0, 131096, 524289, 0, 131101, 524289, 0, 131106, 524289, 0, 131111, 524289, 0, 131116, 524289, 0, 131120, 524289, 0, 458805, 589825, 1, 786485, 589825, 1, 1114165, 589825, 1, 1441845, 589825, 1, 1769525, 589825, 1, 2097199, 524289, 2, 2097194, 524289, 2, 2097189, 524289, 2, 2097184, 524289, 2, 2097179, 262145, 2, 2097174, 131073, 2, 2097170, 524289, 2, 2097166, 1, 2, 2097171, 65537, 2, 1769486, 1, 1, 1441806, 1, 1, 1114126, 1, 1, 786446, 1, 1, 458766, 1, 1, 458771, 65537, 1, 786451, 65537, 1, 1114131, 65537, 1, 1441811, 65537, 1, 1769491, 65537, 1, 1769496, 65537, 1, 1441816, 65537, 1, 1114136, 65537, 1, 786456, 65537, 1, 458776, 65537, 1, 458781, 65537, 1, 786461, 65537, 1, 1114141, 65537, 1, 1441821, 65537, 1, 1835037, 65537, 1, 1769506, 65537, 1, 1441826, 65537, 1, 1114146, 65537, 1, 786466, 65537, 1, 458786, 65537, 1, 458790, 65537, 1, 720934, 65537, 1, 1048615, 65537, 1, 1376295, 65537, 1, 1703975, 65537, 1, 1703980, 65537, 1, 1376300, 65537, 1, 1048620, 65537, 1, 720939, 65537, 1, 458795, 65537, 1, 458800, 65537, 1, 786480, 65537, 1, 1114160, 65537, 1, 1441840, 65537, 1, 1769520, 65537, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 custom_minimum_size = Vector2(0, 20)

@@ -105,16 +105,18 @@ func apply_rotation_based_on_velocity(delta: float) -> void:
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if lvl_manager.state == LevelManager.ClickState.DEFAULT:
-			if not selected:
-				selected = true
-				Transitioned.emit("FrogHold")
-				collision_layer = 0
-				velocity = Vector2.ZERO
-				assign_to_slot(null)
-			else:
-				selected = false
-				frog_deselected.emit(self, global_position, over_water)
+		#extra check bc sometimes lvl_manager.state returns nil, causing error
+		if lvl_manager:
+			if lvl_manager.state == LevelManager.ClickState.DEFAULT:
+				if not selected:
+					selected = true
+					Transitioned.emit("FrogHold")
+					collision_layer = 0
+					velocity = Vector2.ZERO
+					assign_to_slot(null)
+				else:
+					selected = false
+					frog_deselected.emit(self, global_position, over_water)
 	elif event is InputEventMouse:
 		#extra check bc sometimes lvl_manager.state returns nil, causing error
 		if lvl_manager:
