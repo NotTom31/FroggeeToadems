@@ -7,6 +7,7 @@ class_name FrogStacked
 @export var charge_time_max = 12
 var blink_timer : float = 0.0
 var charge_timer : float = 0.0
+var CanCharge := true
 
 func Enter():
 	$"../../FrogSpriteHandler".play_idle()
@@ -30,15 +31,17 @@ func set_random_charge_timer():
 
 func Update(delta: float):
 	blink_timer -= delta
-	charge_timer -= delta
 	if blink_timer <= 0:
 		$"../../FrogSpriteHandler".play_blink()
 		set_random_blink_timer()
-	if charge_timer <= 0:
-		var frog_on_head : BasicFrog = frog.get_frog_on_head()
-		if frog_on_head == null and frog.on_lillypad:
-			Transitioned.emit(self, "FrogCharge", true) #Skips FrogStacked Exit function
-		set_random_charge_timer()
+	
+	if CanCharge:
+		charge_timer -= delta
+		if charge_timer <= 0 and CanCharge:
+			var frog_on_head : BasicFrog = frog.get_frog_on_head()
+			if frog_on_head == null and frog.on_lillypad:
+				Transitioned.emit(self, "FrogCharge", true) #Skips FrogStacked Exit function
+			set_random_charge_timer()
 
 func Physics_Update(delta: float):
 	pass
