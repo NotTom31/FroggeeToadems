@@ -39,3 +39,8 @@ func play_charge_animation():
 	elif frog.slot_beneath != null:
 		$"../../FrogSpriteHandler".play_idle()
 		Transitioned.emit(self, "FrogStacked")
+
+func Update(delta: float):
+	if CanJump and frog.get_frog_on_head() != null and frog.slot_beneath != null:
+		$"../../FrogSpriteHandler".play_idle()
+		Transitioned.emit(self, "FrogStacked")
