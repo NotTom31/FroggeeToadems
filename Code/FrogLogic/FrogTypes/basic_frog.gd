@@ -172,7 +172,13 @@ func transition_to_jump():
 	Transitioned.emit("FrogJump")
 
 func transition_to_fall():
-	Transitioned.emit("FrogFall")
+	Transitioned.emit("FrogFall")	
+
+func transition_to_charge():
+	Transitioned.emit("FrogCharge")
+
+func transition_to_stacked():
+	Transitioned.emit("FrogStacked")
 
 func particle_emit() -> void:
 	$GPUParticles2D.emitting = true
