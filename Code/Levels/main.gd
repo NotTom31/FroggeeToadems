@@ -6,6 +6,8 @@ extends Node2D
 @onready var main_menu = preload("res://Scenes/UI/canvas_menu.tscn").instantiate()
 @export var sound_manager : SoundManager
 @export var background : Background
+@export var menu_manager : MenuManager
+
 
 var wand1 = load("res://Assets/Art/Wand/wand-frame-1-scaled.png")
 var wand2 = load("res://Assets/Art/Wand/wand-frame-2-scaled.png")
@@ -21,6 +23,8 @@ var max_velocity = 900  # Cap how fast we can throw the frogs
 var mouse_position
 
 var magic_timer = 0
+
+signal mgr_close_menu()
 
 
 func open_gameplay(level : int):
@@ -40,6 +44,7 @@ func open_level_select():
 	game_root.add_child(game)
 
 func open_menu():
+	#for MAIN menu
 	if current_game:
 		current_game.queue_free()  # Remove the current level
 	await get_tree().create_timer(0.1).timeout
@@ -49,6 +54,9 @@ func open_menu():
 	shopkeep_visible(false)
 	get_tree().reload_current_scene()
 	# WIP: for whatever reason, the menu that loads doesn't really work, its just the ui elements with no functionality. Must figure out way to make it actually the main menu.
+
+func close_menu(closed_menu : String):
+	pass
 
 func play_sound(name : String):
 	sound_manager.play_sfx(name)
@@ -131,3 +139,7 @@ func follow_mouse(delta: float, offset: Vector2) -> void:
 	mouse_position = get_global_mouse_position()
 	mouse_velocity = (mouse_position - global_position + offset) / delta  # Calculate velocity
 	$GPUParticles2D.position = mouse_position + offset
+
+
+func _on_mgr_close_menu() -> void:
+	print("at least the signal got here dumbass")

@@ -11,7 +11,7 @@ extends Control
 @onready var credits_menu = preload("res://Scenes/UI/CreditsMenu.tscn") as PackedScene
 
 
-@export var main : Main
+@onready var main : Main
 
 func _ready():
 	start_button.button_down.connect(on_start_pressed)
@@ -36,6 +36,7 @@ func on_lvl_select_pressed() -> void:
 
 func on_credits_pressed() -> void:
 	var scene_instance = credits_menu.instantiate()
+	get_tree().call_group("UI Canvases", "open_credits")
 	add_child(scene_instance)
 
 func on_exit_pressed() -> void:
