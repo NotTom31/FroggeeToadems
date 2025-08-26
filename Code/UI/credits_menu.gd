@@ -12,5 +12,4 @@ func on_back_pressed():
 #from menu manager group call
 func close_credits():
 	queue_free()
-	get_tree().call_group("UI Canvases", "current_menu(\"\")")
 	

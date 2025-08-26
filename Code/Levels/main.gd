@@ -24,9 +24,6 @@ var mouse_position
 
 var magic_timer = 0
 
-signal mgr_close_menu()
-
-
 func open_gameplay(level : int):
 	level_num = level
 	current_game = game_level.instantiate()
@@ -54,9 +51,6 @@ func open_menu():
 	shopkeep_visible(false)
 	get_tree().reload_current_scene()
 	# WIP: for whatever reason, the menu that loads doesn't really work, its just the ui elements with no functionality. Must figure out way to make it actually the main menu.
-
-func close_menu(closed_menu : String):
-	pass
 
 func play_sound(name : String):
 	sound_manager.play_sfx(name)
@@ -139,7 +133,3 @@ func follow_mouse(delta: float, offset: Vector2) -> void:
 	mouse_position = get_global_mouse_position()
 	mouse_velocity = (mouse_position - global_position + offset) / delta  # Calculate velocity
 	$GPUParticles2D.position = mouse_position + offset
-
-
-func _on_mgr_close_menu() -> void:
-	print("at least the signal got here dumbass")

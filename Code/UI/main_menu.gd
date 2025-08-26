@@ -11,7 +11,7 @@ extends Control
 @onready var credits_menu = preload("res://Scenes/UI/CreditsMenu.tscn") as PackedScene
 
 
-@onready var main : Main
+@export var main : Main
 
 func _ready():
 	start_button.button_down.connect(on_start_pressed)

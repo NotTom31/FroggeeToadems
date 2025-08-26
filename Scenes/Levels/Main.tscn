@@ -67,8 +67,6 @@ trail_lifetime = 1.7
 
 [node name="MenuManager" parent="." instance=ExtResource("6_rx7l0")]
 
-[connection signal="mgr_close_menu" from="." to="." method="_on_mgr_close_menu"]
-
 [editable path="Background"]
 [editable path="Canvas_Pause"]
 [editable path="Canvas_Pause/Open_Button"]
