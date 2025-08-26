@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvtali2vs2aak"]
+
+[ext_resource type="Script" path="res://Code/Levels/main.gd" id="1_aqv4j"]
+[ext_resource type="PackedScene" uid="uid://snde5c6srxnl" path="res://Scenes/UI/canvas_settings.tscn" id="2_4fif5"]
+[ext_resource type="PackedScene" uid="uid://d25bf5qdgn1h5" path="res://Scenes/Environment/Background.tscn" id="2_xhy1p"]
+[ext_resource type="PackedScene" uid="uid://blswelgb852g5" path="res://Scenes/UI/canvas_menu.tscn" id="3_m63c7"]
+[ext_resource type="Texture2D" uid="uid://v0idyxpvk130" path="res://Assets/Visuals/bubble_test1.png" id="5_hotbm"]
+[ext_resource type="PackedScene" uid="uid://dry7wt8y6k57g" path="res://Scenes/Managers/menu_manager.tscn" id="6_rx7l0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c5kim"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sq3r4"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector3(0, -100, 0)
+initial_velocity_min = 688.17
+initial_velocity_max = 872.26
+gravity = Vector3(0, 350, 0)
+scale_min = 0.05
+scale_max = 0.3
+color = Color(0.886275, 0.886275, 0.901961, 0.360784)
+hue_variation_min = -0.05
+hue_variation_max = 0.04
+turbulence_enabled = true
+turbulence_noise_strength = 0.79
+turbulence_noise_scale = 7.235
+turbulence_noise_speed_random = 0.79
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("sound_manager", "background")]
+script = ExtResource("1_aqv4j")
+sound_manager = NodePath("Canvas_Pause/Menu/SettingsMenu/Button1/MarginContainer2/HBoxContainer/SoundManager")
+background = NodePath("Background")
+
+[node name="Background" parent="." instance=ExtResource("2_xhy1p")]
+
+[node name="ParallaxBackground2" parent="Background" index="1"]
+process_mode = 3
+
+[node name="Boat" parent="Background/ParallaxBackground2" index="0"]
+process_mode = 3
+
+[node name="SwampBoat" parent="Background/ParallaxBackground2/Boat" index="0"]
+process_mode = 3
+
+[node name="Canvas_Menu" parent="." instance=ExtResource("3_m63c7")]
+
+[node name="Canvas_Pause" parent="." instance=ExtResource("2_4fif5")]
+
+[node name="Label" parent="Canvas_Pause/Menu/SettingsMenu/MarginContainer/VBoxContainer" index="1"]
+theme_override_colors/font_color = Color(0.447059, 0.337255, 0.223529, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_c5kim")
+position = Vector2(20, 20)
+scale = Vector2(0.1, 0.1)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_sq3r4")
+texture = ExtResource("5_hotbm")
+speed_scale = 0.7
+explosiveness = 0.14
+randomness = 0.48
+trail_lifetime = 1.7
+
+[node name="MenuManager" parent="." instance=ExtResource("6_rx7l0")]
+
+[editable path="Background"]
+[editable path="Canvas_Pause"]
+[editable path="Canvas_Pause/Open_Button"]
+[editable path="Canvas_Pause/Menu/SettingsMenu"]
