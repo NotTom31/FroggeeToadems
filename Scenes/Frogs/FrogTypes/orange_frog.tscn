@@ -70,7 +70,7 @@ animations = [{
 size = Vector2(317, 195)
 
 [node name="OrangeFrog" instance=ExtResource("1_mg6td")]
-type = 3
+type = 7
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.15, 0.2)

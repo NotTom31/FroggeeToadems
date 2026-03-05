@@ -66,7 +66,7 @@ animations = [{
 size = Vector2(315, 195)
 
 [node name="PurpleFrog" instance=ExtResource("1_yme87")]
-type = 4
+type = 8
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.15, 0.2)
