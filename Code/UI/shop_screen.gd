@@ -242,14 +242,11 @@ func replace_underscores_with_frogs(dialogue: String, customer_id: int) -> Strin
 		# Replace the single underscore with the full list of requested frogs
 		modified_dialogue = modified_dialogue.substr(0, underscore_index) + frogs_list + modified_dialogue.substr(underscore_index + 1)
 	return modified_dialogue
-
-
-
-	# If there are still underscores but no more requested frogs, use "Frog" as a fallback
-	while modified_dialogue.find("_") != -1:
-		modified_dialogue = replace_first_underscore_with_frog(modified_dialogue, "Frog")
-	
-	return modified_dialogue
+	## If there are still underscores but no more requested frogs, use "Frog" as a fallback
+	#while modified_dialogue.find("_") != -1:
+		#modified_dialogue = replace_first_underscore_with_frog(modified_dialogue, "Frog")
+	#
+	#return modified_dialogue
 
 # Helper function to replace only the first occurrence of an underscore with a frog name
 func replace_first_underscore_with_frog(dialogue: String, frog_name: String) -> String:

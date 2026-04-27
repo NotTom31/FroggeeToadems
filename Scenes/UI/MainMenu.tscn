@@ -66,7 +66,7 @@ text = "Start"
 layout_mode = 2
 text = " Level Select "
 
-[node name="CreditsButton" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_stxqm")]
+[node name="CreditsButton" parent="MarginContainer/HBoxContainer/VBoxContainer" groups=["UI Canvases"] instance=ExtResource("3_stxqm")]
 layout_mode = 2
 text = "Credits"
 

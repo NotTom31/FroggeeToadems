@@ -36,6 +36,7 @@ func on_lvl_select_pressed() -> void:
 
 func on_credits_pressed() -> void:
 	var scene_instance = credits_menu.instantiate()
+	get_tree().call_group("UI Canvases", "open_credits")
 	add_child(scene_instance)
 
 func on_exit_pressed() -> void:

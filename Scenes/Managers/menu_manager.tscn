@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dry7wt8y6k57g"]
+
+[ext_resource type="Script" path="res://Code/Managers/menu_manager.gd" id="1_dsh2x"]
+
+[node name="MenuManager" type="Node2D" groups=["UI Canvases"]]
+script = ExtResource("1_dsh2x")
+
+[connection signal="closemenu" from="." to="." method="_on_closemenu"]

@@ -13,12 +13,11 @@ background = NodePath("Background")
 
 [node name="Canvas_Menu" type="CanvasLayer" parent="."]
 
-[node name="Main Menu" parent="Canvas_Menu" node_paths=PackedStringArray("main") instance=ExtResource("2_aetre")]
+[node name="Main Menu" parent="Canvas_Menu" instance=ExtResource("2_aetre")]
 offset_left = -1.0
 offset_top = -8.0
 offset_right = -1.0
 offset_bottom = -8.0
-main = NodePath("../..")
 
 [node name="Canvas_Pause" parent="." instance=ExtResource("2_4fif5")]
 

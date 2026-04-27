@@ -28,7 +28,7 @@ turbulence_noise_strength = 0.79
 turbulence_noise_scale = 7.235
 turbulence_noise_speed_random = 0.79
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("sound_manager", "background") groups=["UI Canvases"]]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("sound_manager", "background")]
 script = ExtResource("1_aqv4j")
 sound_manager = NodePath("Canvas_Pause/Menu/SettingsMenu/Button1/MarginContainer2/HBoxContainer/SoundManager")
 background = NodePath("Background")
